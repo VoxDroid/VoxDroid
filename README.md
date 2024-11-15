@@ -61,6 +61,48 @@
   <img src="https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white" alt="R" />
   <img src="https://img.shields.io/badge/Julia-9558B2?style=for-the-badge&logo=julia&logoColor=white" alt="Julia" />
   <img src="https://img.shields.io/badge/Haskell-5D4F85?style=for-the-badge&logo=haskell&logoColor=white" alt="Haskell" />
+  <img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" alt="Lua" />
+  <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" alt="Bash" />
+  <img src="https://img.shields.io/badge/Assembly-6E4C3A?style=for-the-badge&logo=assemblyscript&logoColor=white" alt="Assembly" />
+  <img src="https://img.shields.io/badge/MATLAB-EF8B00?style=for-the-badge&logo=matlab&logoColor=white" alt="MATLAB" />
+  <img src="https://img.shields.io/badge/C-A8B400?style=for-the-badge&logo=c&logoColor=white" alt="C" />
+  <img src="https://img.shields.io/badge/Machine%20Language-000000?style=for-the-badge&logo=none&logoColor=white" alt="Machine Language" />
+  <img src="https://img.shields.io/badge/Brainfuck-2F252C?style=for-the-badge&logo=none&logoColor=white" alt="Brainfuck" />
+  <img src="https://img.shields.io/badge/Malbolge-FFB6C1?style=for-the-badge&logo=none&logoColor=black" alt="Malbolge" />
+  <img src="https://img.shields.io/badge/INTERCAL-FF4500?style=for-the-badge&logo=none&logoColor=white" alt="INTERCAL" />
+  <img src="https://img.shields.io/badge/Whitespace-FFFFFF?style=for-the-badge&logo=none&logoColor=black" alt="Whitespace" />
+  <img src="https://img.shields.io/badge/Piet-6A5ACD?style=for-the-badge&logo=none&logoColor=white" alt="Piet" />
+  <img src="https://img.shields.io/badge/COBOL-3D8E6B?style=for-the-badge&logo=none&logoColor=white" alt="COBOL" />
+  <img src="https://img.shields.io/badge/Fortran-FF2B2B?style=for-the-badge&logo=none&logoColor=white" alt="Fortran" />
+  <img src="https://img.shields.io/badge/Pascal-0072B5?style=for-the-badge&logo=none&logoColor=white" alt="Pascal" />
+  <img src="https://img.shields.io/badge/Prolog-8A2BE2?style=for-the-badge&logo=none&logoColor=white" alt="Prolog" />
+  <img src="https://img.shields.io/badge/Dart-00BFFF?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" />
+  <img src="https://img.shields.io/badge/F%23-5C5E9B?style=for-the-badge&logo=fsharp&logoColor=white" alt="F#" />
+  <img src="https://img.shields.io/badge/Elixir-4B275F?style=for-the-badge&logo=elixir&logoColor=white" alt="Elixir" />
+  <img src="https://img.shields.io/badge/Erlang-AA2B2D?style=for-the-badge&logo=erlang&logoColor=white" alt="Erlang" />
+  <img src="https://img.shields.io/badge/Crystal-000100?style=for-the-badge&logo=crystal&logoColor=white" alt="Crystal" />
+  <img src="https://img.shields.io/badge/PHP-4F5B93?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
+  <img src="https://img.shields.io/badge/Ruby%20on%20Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white" alt="Ruby on Rails" />
+  <img src="https://img.shields.io/badge/Objective--C-8B1F3D?style=for-the-badge&logo=objective-c&logoColor=white" alt="Objective-C" />
+  <img src="https://img.shields.io/badge/Visual%20Basic-945D9A?style=for-the-badge&logo=visual-basic&logoColor=white" alt="Visual Basic" />
+  <img src="https://img.shields.io/badge/Forth-2E2D2B?style=for-the-badge&logo=none&logoColor=white" alt="Forth" />
+  <img src="https://img.shields.io/badge/Ada-003C30?style=for-the-badge&logo=none&logoColor=white" alt="Ada" />
+  <img src="https://img.shields.io/badge/Smalltalk-4E9C9F?style=for-the-badge&logo=none&logoColor=white" alt="Smalltalk" />
+  <img src="https://img.shields.io/badge/OCaml-3BE133?style=for-the-badge&logo=ocaml&logoColor=white" alt="OCaml" />
+  <img src="https://img.shields.io/badge/Solidity-363636?style=for-the-badge&logo=solidity&logoColor=white" alt="Solidity" />
+  <img src="https://img.shields.io/badge/Scratch-4D97FF?style=for-the-badge&logo=scratch&logoColor=white" alt="Scratch" />
+  <img src="https://img.shields.io/badge/Nim-37775B?style=for-the-badge&logo=none&logoColor=white" alt="Nim" />
+  <img src="https://img.shields.io/badge/Elm-60B5CC?style=for-the-badge&logo=elm&logoColor=white" alt="Elm" />
+  <img src="https://img.shields.io/badge/ABAP-5C007A?style=for-the-badge&logo=none&logoColor=white" alt="ABAP" />
+  <img src="https://img.shields.io/badge/PL/I-3D8E6B?style=for-the-badge&logo=none&logoColor=white" alt="PL/I" />
+  <img src="https://img.shields.io/badge/SML-CC3D3D?style=for-the-badge&logo=none&logoColor=white" alt="Standard ML" />
+  <img src="https://img.shields.io/badge/ActionScript-3C3D4F?style=for-the-badge&logo=adobe&logoColor=white" alt="ActionScript" />
+  <img src="https://img.shields.io/badge/Factor-6A5ACD?style=for-the-badge&logo=none&logoColor=white" alt="Factor" />
+  <img src="https://img.shields.io/badge/Logo-00A4E4?style=for-the-badge&logo=none&logoColor=white" alt="Logo" />
+  <img src="https://img.shields.io/badge/Io-FF2B2B?style=for-the-badge&logo=none&logoColor=white" alt="Io" />
+  <img src="https://img.shields.io/badge/Agda-FF4500?style=for-the-badge&logo=none&logoColor=white" alt="Agda" />
+  <img src="https://img.shields.io/badge/REXX-FFB6C1?style=for-the-badge&logo=none&logoColor=white" alt="REXX" />
+  <img src="https://img.shields.io/badge/ABC-5C5E9B?style=for-the-badge&logo=none&logoColor=white" alt="ABC" />
 </p>
 </details>
 
