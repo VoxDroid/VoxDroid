@@ -300,7 +300,7 @@
         .bar:nth-child(87)  { left: 345px; animation-duration: 404ms; }
         .bar:nth-child(88)  { left: 349px; animation-duration: 441ms; }
         .bar:nth-child(89)  { left: 353px; animation-duration: 382ms; }
-        .bar:nth-child (90)  { left: 357px; animation-duration: 494ms; }
+        .bar:nth-child(90)  { left: 357px; animation-duration: 494ms; }
         .bar:nth-child(91)  { left: 361px; animation-duration: 416ms; }
         .bar:nth-child(92)  { left: 365px; animation-duration: 394ms; }
         .bar:nth-child(93)  { left: 369px; animation-duration: 463ms; }
@@ -313,27 +313,26 @@
         .bar:nth-child(100) { left: 397px; animation-duration: 394ms; }
 
         .github-container {
-    display: flex;
-    align-items: center;
-    opacity: 0.5; /* Adds slight transparency */
-    position: absolute;
-    top: 25px; /* Adjust as necessary */
-    right: 20px;
-}
+            display: flex;
+            align-items: center;
+            opacity: 0.5; /* Adds slight transparency */
+            position: absolute;
+            top: 25px; /* Adjust as necessary */
+            right: 20px;
+        }
 
-.github-icon {
-    width: 10px;
-    height: 10px;
-    fill: #1DB954; 
-}
-
-.github-label {
-    font-size: 12px;
-    color: #1DB954;
-    opacity: 0.5; /* Matches transparency */
-    margin-left: 5px;
-}
-
+        .github-icon {
+            width: 10px;
+            height: 10px;
+            fill: #1DB954; 
+        }
+        
+        .github-label {
+            font-size: 12px;
+            color: #1DB954;
+            opacity: 0.5; /* Matches transparency */
+            margin-left: 5px;
+        }
         </style>
 
         <div class="container">
