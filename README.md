@@ -277,7 +277,7 @@
 
 <div align="center">
   <a href="https://open.spotify.com/track/1JdQibdvxgcrB8Rv1KFndw?si=2d7db0556d1d46e4" target="_blank">
-    <img src="assets/img/voxspotify.svg" alt="Spotify Link">
+    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/voxspotify-qMGacJE6uXyn3hQCCxhdQrWPzSrRsX.svg" alt="Spotify Link">
   </a>
 </div>
 
