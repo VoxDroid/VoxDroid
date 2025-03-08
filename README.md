@@ -1,18 +1,29 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&text=VoxDroid&height=100&section=header&animation=twinkling&fontSize=40" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&text=VoxDroid&height=100§ion=header&animation=twinkling&fontSize=40" width="100%" />
 </p>
 
 <h1 align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=2F81F7&center=true&vCenter=true&width=435&lines=Hey%2C+I'm+Drei!;Welcome+to+my+Profile!" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira%20Code&size=40&duration=3000&pause=1000&color=2F81F7¢er=true&vCenter=true&width=500&lines=Hey%20I’m%20Drei!;Bow%20to%20my%20Profile!;Code%20King%20VoxDroid;GitHub%20God%20Here" alt="Typing SVG" />
 </h1>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=VoxDroid&label=Profile%20views&color=2F81F7&style=flat" alt="Profile Views" />
   <img src="https://img.shields.io/github/followers/VoxDroid?label=Followers&style=social" alt="GitHub followers" />
   <img src="https://img.shields.io/github/stars/VoxDroid?label=Stars&style=social" alt="GitHub stars" />
+  <img src="https://img.shields.io/badge/Uptime-99.9999%25-2F81F7?style=flat" alt="Uptime" />
+  <img src="https://img.shields.io/badge/Code%20Quality-SSS+++-FF00FF?style=flat" alt="Code Quality" />
+  <img src="https://img.shields.io/badge/Hackathons%20Won-69-00FF00?style=flat" alt="Hackathons" />
+  <img src="https://img.shields.io/badge/Lines%20of%20Code-∞-FFFF00?style=flat" alt="LOC" />
+  <img src="https://img.shields.io/badge/Caffeine%20Level-Over%209000-FF4500?style=flat" alt="Caffeine" />
+  <img src="https://img.shields.io/badge/Bugs%20Slayed-NaN-FF69B4?style=flat" alt="Bugs Slayed" />
+  <img src="https://img.shields.io/badge/Commits%20Per%20Day-420-00FFFF?style=flat" alt="Commits" />
+  <img src="https://img.shields.io/badge/Sleep%20Hours-−24-FF0000?style=flat" alt="Sleep" />
+  <img src="https://img.shields.io/badge/StackOverflow%20Rep-1M-FFA500?style=flat" alt="SO Rep" />
+  <img src="https://img.shields.io/badge/Brain%20Cells-Lost%20None-FFD700?style=flat" alt="Brain Cells" />
+  <img src="https://img.shields.io/badge/Hair%20Left-Too%20Much-00CED1?style=flat" alt="Hair Left" />
 </p>
 
-<h2 align="center">Your lazy brother</h2>
+<h2 align="center">Your lazy king</h2>
 
 <p align="center">
   <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" alt="Coder GIF" width="500" height="400">
@@ -28,13 +39,20 @@
   <a href="https://huggingface.co/iZELX1">
     <img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="HuggingFace" />
   </a>
+  <img src="https://img.shields.io/badge/StackOverflow-12019-FF9900?style=for-the-badge&logo=stackoverflow" alt="StackOverflow" />
+  <img src="https://img.shields.io/badge/LeetCode-42069-FFA116?style=for-the-badge&logo=leetcode" alt="LeetCode" />
+  <img src="https://img.shields.io/badge/Codewars-7kyu-B1361E?style=for-the-badge&logo=codewars" alt="Codewars" />
+  <img src="https://img.shields.io/badge/Twitter-1M%20Followers-1DA1F2?style=for-the-badge&logo=twitter" alt="Twitter" />
+  <img src="https://img.shields.io/badge/Discord-No%20Ntiro-7289DA?style=for-the-badge&logo=discord" alt="Discord" />
 </p>
 
 <details>
 <summary>About Me</summary>
 
-- Lazy
-
+- Lazy and just chilling
+- My code bends reality
+- Sneeze and bugs fix themselves... trust me
+  
 </details>
 
 <p align="center">
@@ -103,11 +121,34 @@
   <img src="https://img.shields.io/badge/Agda-FF4500?style=for-the-badge&logo=none&logoColor=white" alt="Agda" />
   <img src="https://img.shields.io/badge/REXX-FFB6C1?style=for-the-badge&logo=none&logoColor=white" alt="REXX" />
   <img src="https://img.shields.io/badge/ABC-5C5E9B?style=for-the-badge&logo=none&logoColor=white" alt="ABC" />
+  <img src="https://img.shields.io/badge/VoxLang-FF0000?style=for-the-badge&logo=none&logoColor=white" alt="VoxLang" />
+  <img src="https://img.shields.io/badge/DroidScript-00FFFF?style=for-the-badge&logo=none&logoColor=black" alt="DroidScript" />
+  <img src="https://img.shields.io/badge/QuantumCode-0000FF?style=for-the-badge&logo=none&logoColor=white" alt="QuantumCode" />
+  <img src="https://img.shields.io/badge/HoloCode-FF00FF?style=for-the-badge&logo=none&logoColor=white" alt="HoloCode" />
+  <img src="https://img.shields.io/badge/TelepathyScript-FFFF00?style=for-the-badge&logo=none&logoColor=black" alt="TelepathyScript" />
+  <img src="https://img.shields.io/badge/GalacticCode-FF69B4?style=for-the-badge&logo=none&logoColor=white" alt="GalacticCode" />
+  <img src="https://img.shields.io/badge/MemeScript-FFD700?style=for-the-badge&logo=none&logoColor=black" alt="MemeScript" />
+  <img src="https://img.shields.io/badge/InfinityLang-00FF00?style=for-the-badge&logo=none&logoColor=white" alt="InfinityLang" />
+  <img src="https://img.shields.io/badge/DreamCode-800080?style=for-the-badge&logo=none&logoColor=white" alt="DreamCode" />
+  <img src="https://img.shields.io/badge/SpaceJam-FF4500?style=for-the-badge&logo=none&logoColor=white" alt="SpaceJam" />
+  <img src="https://img.shields.io/badge/ChaosLang-000000?style=for-the-badge&logo=none&logoColor=white" alt="ChaosLang" />
+  <img src="https://img.shields.io/badge/PizzaScript-FFA500?style=for-the-badge&logo=none&logoColor=white" alt="PizzaScript" />
+  <img src="https://img.shields.io/badge/UltraCode-1E90FF?style=for-the-badge&logo=none&logoColor=white" alt="UltraCode" />
+  <img src="https://img.shields.io/badge/NoodleLang-FF1493?style=for-the-badge&logo=none&logoColor=white" alt="NoodleLang" />
+  <img src="https://img.shields.io/badge/EpicCode-00CED1?style=for-the-badge&logo=none&logoColor=white" alt="EpicCode" />
+  <img src="https://img.shields.io/badge/VortexScript-8A2BE2?style=for-the-badge&logo=none&logoColor=white" alt="VortexScript" />
+  <img src="https://img.shields.io/badge/CatCode-FF6347?style=for-the-badge&logo=none&logoColor=white" alt="CatCode" />
+  <img src="https://img.shields.io/badge/DogLang-4682B4?style=for-the-badge&logo=none&logoColor=white" alt="DogLang" />
+  <img src="https://img.shields.io/badge/LazyCode-9932CC?style=for-the-badge&logo=none&logoColor=white" alt="LazyCode" />
+  <img src="https://img.shields.io/badge/BananaScript-FFFF00?style=for-the-badge&logo=none&logoColor=black" alt="BananaScript" />
+  <img src="https://img.shields.io/badge/TacoCode-FF8C00?style=for-the-badge&logo=none&logoColor=white" alt="TacoCode" />
+  <img src="https://img.shields.io/badge/BeerLang-FFD700?style=for-the-badge&logo=none&logoColor=black" alt="BeerLang" />
+  <img src="https://img.shields.io/badge/NapScript-4682B4?style=for-the-badge&logo=none&logoColor=white" alt="NapScript" />
 </p>
 </details>
 
 <details>
-<summary>Frameworks and Libraries</summary>
+<summary>Frameworks and Libraries (half of these are mine, bro)</summary>
 <p align="center">
   <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" />
   <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch" />
@@ -133,6 +174,16 @@
   <img src="https://img.shields.io/badge/Nuxt.js-00C58E?style=for-the-badge&logo=nuxt.js&logoColor=white" alt="Nuxt.js" />
   <img src="https://img.shields.io/badge/Gatsby-663399?style=for-the-badge&logo=gatsby&logoColor=white" alt="Gatsby" />
   <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
+  <img src="https://img.shields.io/badge/VoxFramework-FF00FF?style=for-the-badge&logo=none&logoColor=white" alt="VoxFramework" />
+  <img src="https://img.shields.io/badge/DroidEngine-00FFFF?style=for-the-badge&logo=none&logoColor=black" alt="DroidEngine" />
+  <img src="https://img.shields.io/badge/GodFrame-FFD700?style=for-the-badge&logo=none&logoColor=black" alt="GodFrame" />
+  <img src="https://img.shields.io/badge/MegaLib-FF4500?style=for-the-badge&logo=none&logoColor=white" alt="MegaLib" />
+  <img src="https://img.shields.io/badge/QuantumKit-0000FF?style=for-the-badge&logo=none&logoColor=white" alt="QuantumKit" />
+  <img src="https://img.shields.io/badge/HoloFrame-FF69B4?style=for-the-badge&logo=none&logoColor=white" alt="HoloFrame" />
+  <img src="https://img.shields.io/badge/InfiniteLoop-00FF00?style=for-the-badge&logo=none&logoColor=white" alt="InfiniteLoop" />
+  <img src="https://img.shields.io/badge/ChaosEngine-800080?style=for-the-badge&logo=none&logoColor=white" alt="ChaosEngine" />
+  <img src="https://img.shields.io/badge/LazyStack-9932CC?style=for-the-badge&logo=none&logoColor=white" alt="LazyStack" />
+  <img src="https://img.shields.io/badge/BroCode-FF8C00?style=for-the-badge&logo=none&logoColor=white" alt="BroCode" />
 </p>
 </details>
 
@@ -142,9 +193,9 @@
   <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
   <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" />
-  <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Google Cloud" />
-  <img src="https://img.shields.io/badge/Microsoft_Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" alt="Azure" />
+  <img src="https://img.shields.io/badge/Amazon%20AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" />
+  <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Google Cloud" />
+  <img src="https://img.shields.io/badge/Microsoft%20Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" alt="Azure" />
   <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" alt="Heroku" />
   <img src="https://img.shields.io/badge/DigitalOcean-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white" alt="DigitalOcean" />
   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase" />
@@ -154,16 +205,21 @@
   <img src="https://img.shields.io/badge/Cassandra-1287B1?style=for-the-badge&logo=apache%20cassandra&logoColor=white" alt="Cassandra" />
   <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white" alt="Elasticsearch" />
   <img src="https://img.shields.io/badge/Neo4j-008CC1?style=for-the-badge&logo=neo4j&logoColor=white" alt="Neo4j" />
+  <img src="https://img.shields.io/badge/VoxDB-FF00FF?style=for-the-badge&logo=none&logoColor=white" alt="VoxDB" />
+  <img src="https://img.shields.io/badge/GodDB-FFD700?style=for-the-badge&logo=none&logoColor=black" alt="GodDB" />
+  <img src="https://img.shields.io/badge/QuantumDB-0000FF?style=for-the-badge&logo=none&logoColor=white" alt="QuantumDB" />
+  <img src="https://img.shields.io/badge/InfinityStore-00FF00?style=for-the-badge&logo=none&logoColor=white" alt="InfinityStore" />
+  <img src="https://img.shields.io/badge/BeerCloud-FFD700?style=for-the-badge&logo=none&logoColor=black" alt="BeerCloud" />
 </p>
 </details>
 
 <details>
 <summary>Software and Tools</summary>
 <p align="center">
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"   />
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes" />
-  <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="VS Code" />
+  <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="VS Code" />
   <img src="https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white" alt="Jupyter" />
   <img src="https://img.shields.io/badge/PyCharm-000000.svg?&style=for-the-badge&logo=PyCharm&logoColor=white" alt="PyCharm" />
   <img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252" alt="Google Colab" />
@@ -180,6 +236,12 @@
   <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white" alt="Prometheus" />
   <img src="https://img.shields.io/badge/Anaconda-44A833?style=for-the-badge&logo=anaconda&logoColor=white" alt="Anaconda" />
   <img src="https://img.shields.io/badge/CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white" alt="CUDA" />
+  <img src="https://img.shields.io/badge/VoxIDE-FF00FF?style=for-the-badge&logo=none&logoColor=white" alt="VoxIDE" />
+  <img src="https://img.shields.io/badge/GodEditor-FFD700?style=for-the-badge&logo=none&logoColor=black" alt="GodEditor" />
+  <img src="https://img.shields.io/badge/QuantumTools-0000FF?style=for-the-badge&logo=none&logoColor=white" alt="QuantumTools" />
+  <img src="https://img.shields.io/badge/MemeMaker-FF69B4?style=for-the-badge&logo=none&logoColor=white" alt="MemeMaker" />
+  <img src="https://img.shields.io/badge/NapMaster-9932CC?style=for-the-badge&logo=none&logoColor=white" alt="NapMaster" />
+  <img src="https://img.shields.io/badge/PizzaTracker-FFA500?style=for-the-badge&logo=none&logoColor=white" alt="PizzaTracker" />
 </p>
 </details>
 
@@ -187,26 +249,27 @@
   <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
 </p>
 
-<h2 align="center">Artificial Intelligence & Machine Learning</h2>
+<h2 align="center">AI & Machine Learning</h2>
 
 <details>
 <summary>AI/ML Skills</summary>
 
-- Too lazy to write.
+- Too lazy to list everything...
+- Deep learning while I nap
 
 </details>
 
 <details>
 <summary>Data Science & Analytics</summary>
 
-- Too lazy to write.
+- Predictions 100% accurate
 
 </details>
 
 <details>
-<summary>Mathematics for AI/ML</summary>
+<summary>Math for AI/ML</summary>
 
-- Too lazy to write.
+- Pretty sure I invented math
 
 </details>
 
@@ -250,30 +313,34 @@
 
 <h2 align="center">Current Goals</h2>
 
-- Become not lazy
+- Stop being lazy someday...
+- Rule the universe with code
+- Reinvent the internet again
+- Code some flying cars already
 
 <h2 align="center">Achievements</h2>
 
-- Top 1% Lazy
-
+- Top 1% at doing nothing
+- Cooked Google in a code-off
+- Made an AI cry tears of joy
 
 <p align="center">
   <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
 </p>
 
-<h2 align="center">Random Motivational Quotes</h2>
+<h2 align="center">Random Motivational Quotes (straight from my brain)</h2>
 
 <p align="center">
   <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random Dev Quote" />
 </p>
 
-<h2 align="center">Dad... Developer Jokes</h2>
+<h2 align="center">Dad Developer Jokes</h2>
 
 <p align="center">
   <img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
 </p>
 
-<h2 align="center">What I'm Probably Listening To Right Now</h2>
+<h2 align="center">What I’m Probably Listening To</h2>
 
 <div align="center">
   <a href="https://open.spotify.com/track/1JdQibdvxgcrB8Rv1KFndw?si=2d7db0556d1d46e4" target="_blank">
@@ -281,7 +348,47 @@
   </a>
 </div>
 
+<h2 align="center">Secret Sauce</h2>
+
+<details>
+<summary>Make sure to dip plenty</summary>
+
+- 0xDEADBEEF every morning
+- O(1) every midnight's NP snack
+
+</details>
+
+<h2 align="center">Pro Metrics</h2>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=VoxDroid&theme=github_dark" alt="Repos per Language" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=VoxDroid&theme=github_dark" alt="Productive Time" />
+</p>
+
+<h2 align="center">Personal Badges</h2>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Quantum%20Computing-Master-FF00FF?style=for-the-badge&logo=none&logoColor=white" alt="Quantum Computing" />
+  <img src="https://img.shields.io/badge/AI%20God-Level%20101-00FFFF?style=for-the-badge&logo=none&logoColor=black" alt="AI God" />
+  <img src="https://img.shields.io/badge/Holographic%20UI-Pioneer-FFFF00?style=for-the-badge&logo=none&logoColor=black" alt="Holo UI" />
+  <img src="https://img.shields.io/badge/Time%20Travel-Coded%20It-FF4500?style=for-the-badge&logo=none&logoColor=white" alt="Time Travel" />
+  <img src="https://img.shields.io/badge/Parallel%20Universes-Debugged-00FF00?style=for-the-badge&logo=none&logoColor=white" alt="Parallel Universes" />
+  <img src="https://img.shields.io/badge/Infinity%20Coder-Unlocked-00CED1?style=for-the-badge&logo=none&logoColor=white" alt="Infinity Coder" />
+  <img src="https://img.shields.io/badge/Nap%20King-Crowned-9932CC?style=for-the-badge&logo=none&logoColor=white" alt="Nap King" />
+</p>
+
+<h2 align="center">Shoutouts (I love you guys)</h2>
+
+<p align="center">
+  - That one dude who starred my repo - <br>
+  - Mom for not unplugging my PC - <br>
+  - My emotional support cats - <br>
+</p>
+
+<p align="center">
+  <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
+</p>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100§ion=footer" width="100%" />
 </p>
