@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Code, Layout, Server, Smartphone, Database, Search, Zap, Layers, ChevronDown, CheckCircle } from "lucide-react"
 import Link from "next/link"
 import SectionHeader from "@/components/section-header"
-// Import the AnimatedBackground component at the top
 import AnimatedBackground from "@/components/animated-background"
 
 const services = [

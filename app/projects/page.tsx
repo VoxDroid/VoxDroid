@@ -136,19 +136,6 @@ const projects = [
   },
   {
     id: 10,
-    title: "Cryptocurrency Tracker",
-    description:
-      "Real-time cryptocurrency tracking application with price alerts, portfolio management, and historical data visualization.",
-    image: "/project_images/UltT3.png",
-    tags: ["React Native", "Redux", "Chart.js", "WebSockets"],
-    github: "https://github.com/VoxDroid",
-    demo: "#",
-    category: "Application",
-    slug: "project-10",
-    glowColor: "glow-blue",
-  },
-  {
-    id: 11,
     title: "Image Binder",
     description: "A versatile application crafted for effortlessly converting and binding multiple images into a single PDF document. ",
     image: "/project_images/ImageBinder.png",
@@ -160,7 +147,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 12,
+    id: 11,
     title: "ZapisAxis",
     description: "A college project developed as part of the ITEC 204 course @ Laguna State Polytechnic University SCC.",
     image: "/project_images/ZapisAxis.png",
@@ -255,7 +242,6 @@ const ProjectCard = ({ project }) => {
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("All")
 
-  // Filter projects based on active category
   const filteredProjects =
     activeCategory === "All" ? projects : projects.filter((project) => project.category === activeCategory)
 

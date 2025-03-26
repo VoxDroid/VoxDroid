@@ -3,7 +3,6 @@ import Link from "next/link"
 import { ArrowRight, Award, BookOpen, UserCheck, Coffee } from "lucide-react"
 import SectionHeader from "@/components/section-header"
 
-// Journey timeline data
 const journeyItems = [
   {
     id: 1,

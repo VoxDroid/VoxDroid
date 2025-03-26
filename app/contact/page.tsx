@@ -31,7 +31,6 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
     setSubmitStatus({
@@ -76,10 +75,10 @@ export default function ContactPage() {
                 <div>
                   <p className="font-medium">Email</p>
                   <a
-                    href="mailto:voxdroid@comingsoon.com"
+                    href="mailto:voxdroid@github.com"
                     className="text-accent-dark dark:text-accent-light hover:text-primary dark:hover:text-primary-light transition-colors"
                   >
-                    voxdroid@comingsoon.com
+                    voxdroid@github.com
                   </a>
                 </div>
               </div>
@@ -127,7 +126,7 @@ export default function ContactPage() {
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
-                  href="mailto:voxdroid@comingsoon.com"
+                  href="mailto:voxdroid@github.com"
                   className="p-3 bg-primary/10 dark:bg-primary-light/10 text-primary dark:text-primary-light rounded-full hover:bg-primary/20 dark:hover:bg-primary-light/20 transition-colors"
                   aria-label="Email"
                 >

@@ -6,7 +6,6 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import SectionHeader from "@/components/section-header"
 import Link from "next/link"
 
-// Sample testimonial data
 const testimonials = [
   {
     id: 1,
@@ -89,7 +88,6 @@ export default function TestimonialsPage() {
     }, 300)
   }
 
-  // Auto-advance carousel
   useEffect(() => {
     const interval = setInterval(() => {
       nextTestimonial()

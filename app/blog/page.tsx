@@ -3,7 +3,6 @@ import Image from "next/image"
 import { Calendar, Clock, Tag, ChevronRight } from "lucide-react"
 import SectionHeader from "@/components/section-header"
 
-// Sample blog posts
 const blogPosts = [
   {
     id: 1,

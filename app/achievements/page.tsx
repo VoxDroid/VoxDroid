@@ -2,7 +2,6 @@ import { Award, Calendar, Trophy, Star, BadgeIcon as Certificate, BookOpen } fro
 import Image from "next/image"
 import SectionHeader from "@/components/section-header"
 
-// Sample achievements data
 const achievements = [
   {
     id: 1,

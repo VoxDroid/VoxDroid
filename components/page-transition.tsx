@@ -12,9 +12,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname()
   const [renderKey, setRenderKey] = useState(pathname)
 
-  // Update the key when the pathname changes to force a complete re-render
   useEffect(() => {
-    // Short delay to ensure previous exit animation completes
     const timer = setTimeout(() => {
       setRenderKey(pathname)
     }, 50)
