@@ -9,6 +9,18 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const projects = [
   {
+    id: 0,
+    title: "Clarisse Portfolio",
+    description: "A modern, customizable, and responsive portfolio template built with Next.js and TypeScript.",
+    image: "/project_images/Clarisse.png",
+    tags: ["Next.js", "Node.js", "React", "Portfolio"],
+    github: "https://github.com/VoxDroid",
+    demo: "https://github.com/VoxDroid/Clarisse-Portfolio",
+    category: "Application",
+    slug: "project-13",
+    glowColor: "glow-blue",
+  },
+  {
     id: 1,
     title: "Zylthra",
     description: "A PyQt6 app to generate synthetic datasets with DataLLM.",
