@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
-import type { ReactNode } from "react"
+import { type ReactNode, useEffect, useState } from "react"
 
 interface PageTransitionProps {
   children: ReactNode
@@ -10,15 +10,29 @@ interface PageTransitionProps {
 
 export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname()
+  const [renderKey, setRenderKey] = useState(pathname)
+
+  // Update the key when the pathname changes to force a complete re-render
+  useEffect(() => {
+    // Short delay to ensure previous exit animation completes
+    const timer = setTimeout(() => {
+      setRenderKey(pathname)
+    }, 50)
+
+    return () => clearTimeout(timer)
+  }, [pathname])
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
       <motion.div
-        key={pathname}
+        key={renderKey}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{
+          duration: 0.3,
+          ease: [0.22, 1, 0.36, 1], // Custom ease curve for smoother transition
+        }}
         className="w-full"
       >
         {children}
