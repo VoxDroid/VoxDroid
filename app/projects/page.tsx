@@ -17,7 +17,7 @@ const projects = [
     github: "https://github.com/VoxDroid",
     demo: "https://github.com/VoxDroid/Clarisse-Portfolio",
     category: "UI/UX",
-    slug: "project-1",
+    slug: "Clarisse-Portfolio",
     glowColor: "glow-blue",
   },
   {
@@ -29,7 +29,7 @@ const projects = [
     github: "https://github.com/VoxDroid",
     demo: "https://github.com/VoxDroid/Zylthra",
     category: "Application",
-    slug: "project-1",
+    slug: "project-2",
     glowColor: "glow-blue",
   },
   {

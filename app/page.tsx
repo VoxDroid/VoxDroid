@@ -13,7 +13,7 @@ const featuredProjects = [
     tags: ["Python", "PyQt6", "DataLLM", "Dataset Generator"],
     github: "https://github.com/VoxDroid",
     demo: "https://github.com/VoxDroid/Zylthra",
-    slug: "project-1",
+    slug: "project-13",
   },
   {
     id: 2,
@@ -21,9 +21,9 @@ const featuredProjects = [
     description: "A modern, customizable, and responsive portfolio template built with Next.js and TypeScript.",
     image: "/project_images/Clarisse.png",
     tags: ["Next.js", "Node.js", "React", "Portfolio"],
-    github: "https://github.com/VoxDroid",
-    demo: "https://github.com/VoxDroid/Clarisse-Portfolio",
-    slug: "project-13",
+    github: "https://github.com/VoxDroid/Clarisse-Portfolio",
+    demo: "https://clarisse-portfolio.vercel.app/",
+    slug: "Clarisse-Portfolio",
   },
   {
     id: 3,
