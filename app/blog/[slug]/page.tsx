@@ -7,7 +7,7 @@ const post = {
   date: "March 25, 2025",
   readTime: "8 min read",
   category: "AI/ML",
-  image: "/placeholder.svg?",
+  image: "/profile/VoxDroid.jpg?",
   content: `
     <p>Blog Content</p>
   `,
@@ -21,19 +21,19 @@ const post = {
       id: 2,
       title: "Related Article 1",
       slug: "related-article-1",
-      image: "/placeholder.svg",
+      image: "/profile/VoxDroid.jpg",
     },
     {
       id: 6,
       title: "Related Article 2",
       slug: "related-article-2",
-      image: "/placeholder.svg",
+      image: "/profile/VoxDroid.jpg",
     },
     {
       id: 3,
       title: "Related Article 3",
       slug: "related-article-3",
-      image: "/placeholder.svg",
+      image: "/profile/VoxDroid.jpg",
     },
   ],
 }
@@ -76,7 +76,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             {/* Featured Image */}
             <div className="rounded-lg overflow-hidden mb-8 shadow-custom dark:shadow-custom-dark">
               <Image
-                src={post.image || "/placeholder.svg"}
+                src={post.image || "/profile/VoxDroid.jpg"}
                 alt={post.title}
                 width={1200}
                 height={600}
@@ -94,7 +94,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <div className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-6 mb-12 flex items-center">
             <div className="mr-4 rounded-full overflow-hidden w-16 h-16 border-2 border-primary/20 dark:border-primary-light/20">
               <Image
-                src={post.author.image || "/placeholder.svg"}
+                src={post.author.image || "/profile/VoxDroid.jpg"}
                 alt={post.author.name}
                 width={64}
                 height={64}
@@ -147,7 +147,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 >
                   <div className="relative h-40">
                     <Image
-                      src={relatedPost.image || "/placeholder.svg"}
+                      src={relatedPost.image || "/profile/VoxDroid.jpg"}
                       alt={relatedPost.title}
                       layout="fill"
                       objectFit="cover"

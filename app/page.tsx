@@ -41,6 +41,7 @@ const featuredProjects = [
 const typingPhrases = [
   "Bow to my profile.",
   "I am your king.",
+  "Kneel before the God of Developers."
 ]
 
 export default function Home() {

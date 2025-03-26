@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const projects = [
   {
-    id: 0,
+    id: 1,
     title: "Clarisse Portfolio",
     description: "A modern, customizable, and responsive portfolio template built with Next.js and TypeScript.",
     image: "/project_images/Clarisse.png",
@@ -17,11 +17,11 @@ const projects = [
     github: "https://github.com/VoxDroid",
     demo: "https://github.com/VoxDroid/Clarisse-Portfolio",
     category: "UI/UX",
-    slug: "project-13",
+    slug: "project-1",
     glowColor: "glow-blue",
   },
   {
-    id: 1,
+    id: 2,
     title: "Zylthra",
     description: "A PyQt6 app to generate synthetic datasets with DataLLM.",
     image: "/project_images/zylthra.png",
@@ -33,7 +33,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 2,
+    id: 3,
     title: "Kemono Downloader",
     description: "A cross-platform Python app built with PyQt6 to download posts and creator content from Kemono.su. ",
     image: "/project_images/KemonoDownloader.png",
@@ -45,7 +45,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 3,
+    id: 4,
     title: "Java Quiz App",
     description: "A Java desktop application built with JavaFX in IntelliJ IDEA.",
     image: "/project_images/JavaQuiz.png",
@@ -57,7 +57,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 4,
+    id: 5,
     title: "Advanced Tab Manager",
     description:
       "A powerful GUI tool built with Python, PyQt6, and Selenium to automate Chrome tab management.",
@@ -70,7 +70,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 5,
+    id: 6,
     title: "Portfolio Website",
     description:
       "My Personal Portfolio Website.",
@@ -83,7 +83,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 6,
+    id: 7,
     title: "PyExe Builder",
     description:
       "A feature-rich GUI tool for converting Python scripts into standalone executables using PyInstaller.",
@@ -96,7 +96,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 7,
+    id: 8,
     title: "Number System Converter",
     description:
       "A comprehensive web application for number system conversion and bitwise operations with an intuitive user interface and advanced features.",
@@ -109,7 +109,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 8,
+    id: 9,
     title: "Chess Ultimate",
     description:
       "A simple web application for playing chess that can be played anytime.",
@@ -122,7 +122,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 9,
+    id: 10,
     title: "Ultimate Tic-Tac-Toe",
     description:
       "A multilingual, feature-rich Tic-Tac-Toe game built with HTML, CSS, and JavaScript.",
@@ -135,7 +135,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 10,
+    id: 11,
     title: "Image Binder",
     description: "A versatile application crafted for effortlessly converting and binding multiple images into a single PDF document. ",
     image: "/project_images/ImageBinder.png",
@@ -147,7 +147,7 @@ const projects = [
     glowColor: "glow-blue",
   },
   {
-    id: 11,
+    id: 12,
     title: "ZapisAxis",
     description: "A college project developed as part of the ITEC 204 course @ Laguna State Polytechnic University SCC.",
     image: "/project_images/ZapisAxis.png",

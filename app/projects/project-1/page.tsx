@@ -5,56 +5,46 @@ import ImageGallery from "@/components/image-gallery"
 
 const project = {
   id: 1,
-  title: "VoxDroid's Project",
-  description:
-    "My project description.",
+  title: "Clarisse Portfolio",
+  description: "A modern, customizable, and responsive portfolio template built with Next.js and TypeScript.",
   longDescription: `
-    My long description.
-
-    This is a longer description that can span multiple lines.
-
-    Here's another line.
-  `,
-  image: "/profile/VoxDroid.jpg",
+  <p>A modern, customizable, and responsive portfolio template built with <span style="color: #3b82f6 !important;">Next.js</span>. and <span style="color: #3b82f6 !important;">TypeScript</span>.</p>
+  <br>
+  <p>Designed to showcase your skills, projects, and personality with a sleek interface, animated background, and professional features.</p>
+`,
+  image: "/project_images/Clarisse.png",
   date: "March 2025",
   client: "Open Source Community",
   role: "Lead Developer",
-  tags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4", "Tag 5"],
-  category: "Development",
-  github: "https://github.com/VoxDroid",
-  demo: "#",
+  tags: ["Next.js", "TypeScript", "Tailwind CSS", "Portfolio", "UI/UX", "Template"],
+  category: "Web Development",
+  github: "https://github.com/VoxDroid/Clarisse-Portfolio",
+  demo: "https://clarisse-portfolio.vercel.app/",
   screenshots: [
-    "/placeholder.svg?height=400&width=800&text=Image1",
-    "/placeholder.svg?height=400&width=800&text=Image1",
-    "/placeholder.svg?height=400&width=800&text=Image1",
-    "/placeholder.svg?height=400&width=800&text=Image1",
+    "/project_screenshots/Clarisse-Portfolio/S_Home_D.png",
+    "/project_screenshots/Clarisse-Portfolio/S_Home_W.png",
+    "/project_screenshots/Clarisse-Portfolio/S_Projects_D.png",
+    "/project_screenshots/Clarisse-Portfolio/S_Projects_W.png",
+    "/project_screenshots/Clarisse-Portfolio/S_Skills_D.png",
+    "/project_screenshots/Clarisse-Portfolio/S_Skills_W.png",
   ],
   features: [
-    "Feature 1",
-    "Feature 2",
-    "Feature 3",
-    "Feature 4",
-    "Feature 5",
-    "Feature 6",
-    "Feature 7",
-    "Feature 8",
-    "Feature 9",
-    "Feature 10",
+    "Light/Dark Mode: Toggle between light and dark themes seamlessly.",
+    "Fully Customizable: Adjust colors, fonts, and content to match your brand.",
+    "Responsive Design: Optimized for mobile, tablet, and desktop devices.",
+    "Animated Background: Dynamic particle animations for visual appeal.",
+    "Smooth Animations: Powered by Framer Motion for fluid transitions.",
+    "Modular Components: Well-organized, reusable component structure.",
+    "Interactive UI: Includes tooltips, hover effects, and engaging elements.",
+    "SEO Optimized: Built with search engine visibility in mind.",
+    "High Performance: Fast load times and optimized assets.",
+    "Skills Visualization: Dynamic representation of your expertise.",
+    "Blog Section: Share articles and insights.",
+    "Testimonials: Display feedback from clients or peers.",
+    "Contact Form: Easy way for visitors to reach out.",
   ],
-  challenges: [
-    "Challenge 1",
-    "Challenge 2",
-    "Challenge 3",
-    "Challenge 4",
-    "Challenge 5"
-  ],
-  solutions: [
-    "Solution 1",
-    "Solution 2",
-    "Solution 3",
-    "Solution 4",
-    "Solution 5"
-  ],
+  challenges: [],
+  solutions: [],
 }
 
 export default function ProjectDetailPage() {
@@ -72,14 +62,12 @@ export default function ProjectDetailPage() {
 
         {/* Project Header */}
         <div className="max-w-5xl mx-auto">
-          <div className="rounded-lg overflow-hidden mb-8 shadow-custom dark:shadow-custom-dark">
-            <Image
-              src={project.image || "/placeholder.svg"}
-              alt={project.title}
-              width={1200}
-              height={600}
-              className="w-full h-auto"
-            />
+          <div className="flex justify-center mb-8">
+            <div className="rounded-lg overflow-hidden shadow-custom dark:shadow-custom-dark p-3 bg-white/50 dark:bg-accent-dark/30 w-auto inline-block">
+              <div className="rounded-lg overflow-hidden w-[300px] h-[300px] relative">
+                <Image src={project.image || "/project_images/Clarisse.png"} alt={project.title} fill className="object-cover" />
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -150,9 +138,10 @@ export default function ProjectDetailPage() {
           {/* Project Description */}
           <div className="mb-12 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-8">
             <h2 className="text-2xl font-bold mb-6">Project Overview</h2>
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              <p>{project.longDescription}</p>
-            </div>
+            <div
+              className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-primary dark:prose-headings:text-primary-light prose-a:text-primary dark:prose-a:text-primary-light"
+              dangerouslySetInnerHTML={{ __html: project.longDescription }}
+            />
           </div>
 
           {/* Project Screenshots */}

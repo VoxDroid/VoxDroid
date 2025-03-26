@@ -24,10 +24,10 @@ const project = {
   github: "https://github.com/VoxDroid",
   demo: "#",
   screenshots: [
-    "/placeholder.svg?height=400&width=800&text=Image1",
-    "/placeholder.svg?height=400&width=800&text=Image1",
-    "/placeholder.svg?height=400&width=800&text=Image1",
-    "/placeholder.svg?height=400&width=800&text=Image1",
+    "/profile/VoxDroid.jpg?height=400&width=800&text=Image1",
+    "/profile/VoxDroid.jpg?height=400&width=800&text=Image1",
+    "/profile/VoxDroid.jpg?height=400&width=800&text=Image1",
+    "/profile/VoxDroid.jpg?height=400&width=800&text=Image1",
   ],
   features: [
     "Feature 1",
@@ -74,7 +74,7 @@ export default function ProjectDetailPage() {
         <div className="max-w-5xl mx-auto">
           <div className="rounded-lg overflow-hidden mb-8 shadow-custom dark:shadow-custom-dark">
             <Image
-              src={project.image || "/placeholder.svg"}
+              src={project.image || "/profile/VoxDroid.jpg"}
               alt={project.title}
               width={1200}
               height={600}

@@ -10,7 +10,7 @@ const achievements = [
     date: "November 2024",
     description: "Recognized for surpassing human limits in technology development and innovative solutions.",
     icon: Trophy,
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const achievements = [
     date: "August 2024",
     description: "Recognized as the top contributor to open source projects in the web development ecosystem.",
     icon: Star,
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const achievements = [
     date: "June 2024",
     description: "Completed supreme-level certification in full stack development with distinction.",
     icon: Certificate,
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const achievements = [
     date: "October 2024",
     description: "First place in a 5,040-hour hackathon for developing an innovative accessibility solution.",
     icon: Award,
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
   },
 ]
 
@@ -76,7 +76,7 @@ export default function AchievementsPage() {
                       <div className="bg-white/90 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl shadow-custom dark:shadow-custom-dark p-6 transform transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
                         <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
                           <Image
-                            src={achievement.image || "/placeholder.svg"}
+                            src={achievement.image || "/profile/VoxDroid.jpg"}
                             alt={achievement.title}
                             layout="fill"
                             objectFit="cover"

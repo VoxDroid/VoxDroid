@@ -9,7 +9,7 @@ const blogPosts = [
     title: "VoxDroid's Blog Title",
     excerpt:
       "Excerpt of the blog post.",
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
     date: "June 15, 2025",
     readTime: "8 min read",
     category: "Technology Development",
@@ -20,7 +20,7 @@ const blogPosts = [
     title: "VoxDroid's Blog Title",
     excerpt:
       "Excerpt of the blog post.",
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
     date: "June 15, 2025",
     readTime: "8 min read",
     category: "Technology Development",
@@ -31,7 +31,7 @@ const blogPosts = [
     title: "VoxDroid's Blog Title",
     excerpt:
       "Excerpt of the blog post.",
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
     date: "June 15, 2025",
     readTime: "8 min read",
     category: "Technology Development",
@@ -42,7 +42,7 @@ const blogPosts = [
     title: "VoxDroid's Blog Title",
     excerpt:
       "Excerpt of the blog post.",
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
     date: "June 15, 2025",
     readTime: "8 min read",
     category: "Technology Development",
@@ -53,7 +53,7 @@ const blogPosts = [
     title: "VoxDroid's Blog Title",
     excerpt:
       "Excerpt of the blog post.",
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
     date: "June 15, 2025",
     readTime: "8 min read",
     category: "Technology Development",
@@ -64,7 +64,7 @@ const blogPosts = [
     title: "VoxDroid's Blog Title",
     excerpt:
       "Excerpt of the blog post.",
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
     date: "June 15, 2025",
     readTime: "8 min read",
     category: "Technology Development",
@@ -75,7 +75,7 @@ const blogPosts = [
     title: "VoxDroid's Blog Title",
     excerpt:
       "Excerpt of the blog post.",
-    image: "/placeholder.svg",
+    image: "/profile/VoxDroid.jpg",
     date: "June 15, 2025",
     readTime: "8 min read",
     category: "Technology Development",
@@ -100,7 +100,7 @@ export default function BlogPage() {
             <div className="md:flex">
               <div className="md:w-1/2 relative h-64 md:h-auto">
                 <Image
-                  src={featuredPost.image || "/placeholder.svg"}
+                  src={featuredPost.image || "/profile/VoxDroid.jpg"}
                   alt={featuredPost.title}
                   layout="fill"
                   objectFit="cover"
@@ -148,7 +148,7 @@ export default function BlogPage() {
             >
               <div className="relative h-48">
                 <Image
-                  src={post.image || "/placeholder.svg"}
+                  src={post.image || "/profile/VoxDroid.jpg"}
                   alt={post.title}
                   layout="fill"
                   objectFit="cover"
