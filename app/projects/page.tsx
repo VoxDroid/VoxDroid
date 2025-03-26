@@ -16,7 +16,7 @@ const projects = [
     tags: ["Next.js", "Node.js", "React", "Portfolio"],
     github: "https://github.com/VoxDroid",
     demo: "https://github.com/VoxDroid/Clarisse-Portfolio",
-    category: "Application",
+    category: "UI/UX",
     slug: "project-13",
     glowColor: "glow-blue",
   },
