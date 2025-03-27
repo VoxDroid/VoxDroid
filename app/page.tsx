@@ -11,9 +11,9 @@ const featuredProjects = [
     description: "A PyQt6 app to generate synthetic datasets with DataLLM.",
     image: "/project_images/zylthra.png",
     tags: ["Python", "PyQt6", "DataLLM", "Dataset Generator"],
-    github: "https://github.com/VoxDroid",
+    github: "https://github.com/VoxDroid/Zylthra",
     demo: "https://github.com/VoxDroid/Zylthra",
-    slug: "project-13",
+    slug: "Zylthra",
   },
   {
     id: 2,
