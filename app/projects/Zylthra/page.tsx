@@ -32,7 +32,7 @@ const project = {
   client: "Open Source Community",
   role: "Lead Developer",
   tags: ["Python", "PyQt6", "DataLLM", "Mostly.ai", "Data Generator", "Synthetic Data"],
-  category: "Desktop App Development",
+  category: "Desktop Application",
   github: "https://github.com/VoxDroid/Zylthra/",
   demo: "https://github.com/VoxDroid/Zylthra/",
   screenshots: [
@@ -55,7 +55,13 @@ const project = {
   solutions: [
   ],
   techStack: [
-    { name: "Python", description: "Language used for developing the application." },
+    { name: "Python", description: "Core Language for development." },
+    { name: "PyQt6", description: "GUI framework for desktop interfaces." },
+    { name: "Pandas", description: "Library for data manipulation." },
+    { name: "DataLLM", description: "Client for DataLLM API." },
+    { name: "QtAwesome", description: "Icon library for PyQt6." },
+    { name: "PyInstaller", description: "Tool for packaging Python apps." },
+    { name: "GitHub Actions", description: "CI/CD for automation." },
   ],
 }
 
