@@ -39,7 +39,7 @@ const projects = [
     image: "/project_images/KemonoDownloader.png",
     tags: ["Python", "Kemono.su", "PyQt6", "Downloader"],
     github: "https://github.com/VoxDroid/KemonoDownloader",
-    demo: "https://github.com/VoxDroid/KemonoDownloader",
+    demo: "https://voxdroid.github.io/KemonoDownloader/",
     category: "Application",
     slug: "KemonoDownloader",
     glowColor: "glow-blue",
