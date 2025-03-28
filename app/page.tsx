@@ -12,7 +12,7 @@ const featuredProjects = [
     image: "/project_images/zylthra.png",
     tags: ["Python", "PyQt6", "DataLLM", "Dataset Generator"],
     github: "https://github.com/VoxDroid/Zylthra",
-    demo: "https://github.com/VoxDroid/Zylthra",
+    demo: "https://voxdroid.github.io/Zylthra/",
     slug: "Zylthra",
   },
   {
