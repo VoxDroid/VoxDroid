@@ -9,6 +9,18 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const projects = [
   {
+    id: 0,
+    title: "Shibaccus Web",
+    description: "A modern, customizable, and responsive tech website template built with Next.js and TypeScript.",
+    image: "/project_images/Shibaccus.png",
+    tags: ["Next.js", "Node.js", "React", "Tech Startup"],
+    github: "https://github.com/VoxDroid/Shibaccus-Web",
+    demo: "https://shibaccus.vercel.app/",
+    category: "UI/UX",
+    slug: "Shibaccus-Web",
+    glowColor: "glow-blue",
+  },
+  {
     id: 1,
     title: "Clarisse Portfolio",
     description: "A modern, customizable, and responsive portfolio template built with Next.js and TypeScript.",
