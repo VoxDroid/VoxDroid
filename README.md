@@ -43,7 +43,7 @@
   <img src="https://img.shields.io/badge/LeetCode-42069-FFA116?style=for-the-badge&logo=leetcode" alt="LeetCode" />
   <img src="https://img.shields.io/badge/Codewars-7kyu-B1361E?style=for-the-badge&logo=codewars" alt="Codewars" />
   <img src="https://img.shields.io/badge/Twitter-1M%20Followers-1DA1F2?style=for-the-badge&logo=twitter" alt="Twitter" />
-  <img src="https://img.shields.io/badge/Discord-No%20Ntiro-7289DA?style=for-the-badge&logo=discord" alt="Discord" />
+  <img src="https://img.shields.io/badge/Discord-No%20Nitro-7289DA?style=for-the-badge&logo=discord" alt="Discord" />
 </p>
 
 <details>
