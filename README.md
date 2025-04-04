@@ -46,6 +46,12 @@
   <img src="https://img.shields.io/badge/Discord-No%20Nitro-7289DA?style=for-the-badge&logo=discord" alt="Discord" />
 </p>
 
+<div align="center">
+  <h1 href="https://your-portfolio.vercel.app">
+    <img src="https://img.shields.io/badge/Portfolio-Check_Here-000000?style=for-the-badge&logo=vercel&labelColor=000000&color=00C7B7" alt="Portfolio Deployed on Vercel">
+  </h1>
+</div>
+
 <details>
 <summary>About Me</summary>
 
