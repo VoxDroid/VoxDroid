@@ -9,6 +9,18 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const projects = [
   {
+    id: -1,
+    title: "Chess Master Ultimate",
+    description: "A modern, feature-rich chess application built with Next.js, offering a sleek interface and comprehensive gameplay features.",
+    image: "/project_images/ChessMU.png",
+    tags: ["Next.js", "Node.js", "React", "Chess.js"],
+    github: "https://github.com/VoxDroid/Chess-Master-Ultimate",
+    demo: "https://chess-master-ultimate.vercel.app/",
+    category: "UI/UX",
+    slug: "Chess-Master-Ultimate",
+    glowColor: "glow-blue",
+  },
+  {
     id: 0,
     title: "Shibaccus Web",
     description: "A modern, customizable, and responsive tech website template built with Next.js and TypeScript.",

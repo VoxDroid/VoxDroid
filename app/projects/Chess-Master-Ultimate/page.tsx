@@ -8,7 +8,7 @@ export default function NotFound() {
         <h1 className="text-6xl md:text-8xl font-bold gradient-text dark:gradient-text-light mb-6">503</h1>
         <h2 className="text-2xl md:text-3xl font-bold mb-4">Page Coming Soon</h2>
         <p className="text-accent-dark dark:text-accent-light mb-8">
-            The content you're looking for isn't available yet, but it's on its way!
+            Chess Master Ultimate Coming Soon!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
