@@ -75,10 +75,10 @@ export default function ContactPage() {
                 <div>
                   <p className="font-medium">Email</p>
                   <a
-                    href="mailto:voxdroid@github.com"
+                    href="mailto:izeno.contact@gmail.com"
                     className="text-accent-dark dark:text-accent-light hover:text-primary dark:hover:text-primary-light transition-colors"
                   >
-                    voxdroid@github.com
+                    izeno.contact@gmail.com
                   </a>
                 </div>
               </div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
-                  href="mailto:voxdroid@github.com"
+                  href="mailto:izeno.contact@gmail.com"
                   className="p-3 bg-primary/10 dark:bg-primary-light/10 text-primary dark:text-primary-light rounded-full hover:bg-primary/20 dark:hover:bg-primary-light/20 transition-colors"
                   aria-label="Email"
                 >
@@ -138,7 +138,8 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div className="md:col-span-3 bg-white dark:bg-accent-dark/20 p-6 rounded-lg shadow-custom dark:shadow-custom-dark animate-slideUp">
-            <h3 className="text-xl font-bold mb-6">Send Me a Message</h3>
+            <h3 className="text-xl font-bold">Send Me a Message</h3>
+            <p className="mb-6">(I disabled this, just message me directly via email)</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-6">

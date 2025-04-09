@@ -24,7 +24,7 @@ export default function Footer() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="mailto:voxdroid@comingsoon.com"
+              href="mailto:izeno.contact@gmail.com"
               className="text-accent-dark dark:text-accent-light hover:text-primary dark:hover:text-primary-light transition-colors duration-300"
               aria-label="Email"
             >
