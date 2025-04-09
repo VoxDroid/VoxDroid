@@ -47,9 +47,9 @@
 </p>
 
 <div align="center">
-  <h1 href="https://your-portfolio.vercel.app">
+  <a href="https://voxdroid.vercel.app">
     <img src="https://img.shields.io/badge/Portfolio-Check_Here-000000?style=for-the-badge&logo=vercel&labelColor=000000&color=00C7B7" alt="Portfolio Deployed on Vercel">
-  </h1>
+  </a>
 </div>
 
 <details>
