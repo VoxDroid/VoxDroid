@@ -9,6 +9,18 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const projects = [
   {
+    id: -2,
+    title: "Bytey",
+    description: "A gamified coding companion web app built with Next.js and TypeScript.",
+    image: "/project_images/Bytey.png",
+    tags: ["Next.js", "Node.js", "React", "Pet Companion"],
+    github: "https://github.com/VoxDroid/Bytey",
+    demo: "https://bytey.vercel.app/",
+    category: "UI/UX",
+    slug: "Bytey",
+    glowColor: "glow-blue",
+  },
+  {
     id: -1,
     title: "Chess Master Ultimate",
     description: "A modern, feature-rich chess application built with Next.js, offering a sleek interface and comprehensive gameplay features.",
