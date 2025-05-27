@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira%20Code&size=40&duration=3000&pause=1000&color=2F81F7¢er=true&vCenter=true&width=500&lines=Hey%20I’m%20Drei!;Bow%20to%20my%20Profile!;Code%20King%20VoxDroid;GitHub%20God%20Here" alt="Typing SVG" />
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Poppins&size=15&pause=2000&color=F71333&center=true&vCenter=true&width=435&lines=The+spindles+of+hard+disk+drives+are+my+fidget+spinners.;Each+one+holds+281%2C474%2C976%2C710%2C656+bits+of+my+satisfaction." alt="Typing SVG" /></a>
 </h1>
 
 <p align="center">
