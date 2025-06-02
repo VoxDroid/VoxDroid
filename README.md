@@ -61,6 +61,26 @@
   
 </details>
 
+<h2 align="center">Badges</h2>
+
+<details>
+  <summary>Cisco/IBM</summary>
+  <p align="center">
+  <a href="https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url">
+    <img src="https://images.credly.com/images/82b908e1-fdcd-4785-9d32-97f11ccbcf08/image.png" width=150 alt="Badge">
+  </a>
+  <a href="https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url">
+    <img src="https://images.credly.com/images/26c21273-c0ab-485b-98a7-f1212dcb82b8/image.png" width=150 alt="Badge">
+  </a>
+  <a href="https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url">
+    <img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png" width=150 alt="Badge">
+  </a>
+  <a href="https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url">
+    <img src="https://images.credly.com/size/680x680/images/19e742ef-13be-4d26-87ed-ac8f5fd0643c/image.png" width=150 alt="Badge">
+  </a>
+  </p>
+</details>
+
 <p align="center">
   <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
 </p>
