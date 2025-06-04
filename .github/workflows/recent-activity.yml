@@ -1,0 +1,140 @@
+name: Recent Activity
+
+on:
+  schedule:
+    - cron: '0 5,17 * * *'  # Runs at 5 AM and 5 PM UTC (2 AM and 2 PM JST)
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    name: Update README with Recent Activity
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install axios
+
+      - name: Fetch recent activity and update README
+        env: 
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          COMMITTER_EMAIL: 78334105+VoxDroid@users.noreply.github.com
+          COMMITTER_NAME: VoxDroid
+        run: |
+          echo 'const axios = require("axios");
+          const fs = require("fs").promises;
+          const token = process.env.GITHUB_TOKEN;
+          const committerEmail = process.env.COMMITTER_EMAIL;
+          const committerName = process.env.COMMITTER_NAME;
+          const owner = "VoxDroid";
+          const repo = "VoxDroid";
+          const currentDate = new Date().toLocaleString("en-US", { 
+            timeZone: "Asia/Tokyo",
+            weekday: "long", 
+            year: "numeric", 
+            month: "long", 
+            day: "numeric", 
+            hour: "numeric", 
+            minute: "numeric", 
+            second: "numeric", 
+            hour12: true 
+          });
+
+          async function fetchRecentActivity() {
+            try {
+              const response = await axios.get(`https://api.github.com/users/${owner}/events`, {
+                headers: { Authorization: `Bearer ${token}` }
+              });
+              const events = response.data.slice(0, 5);
+              let activityText = "";
+              if (events.length === 0) {
+                activityText = "None";
+              } else {
+                activityText = events.map((event, index) => {
+                  if (event.type === "IssueCommentEvent") {
+                    return `${index + 1}. 💬 Commented on #${event.payload.issue.number} in ${event.repo.name}<br>`;
+                  } else if (event.type === "PushEvent") {
+                    const commitCount = event.payload.commits.length;
+                    return `${index + 1}. ⬆️ Pushed ${commitCount} commit(s) to ${event.repo.name}<br>`;
+                  } else if (event.type === "IssuesEvent" && event.payload.action === "opened") {
+                    return `${index + 1}. ❗️ Opened issue #${event.payload.issue.number} in ${event.repo.name}<br>`;
+                  } else if (event.type === "IssuesEvent" && event.payload.action === "closed") {
+                    return `${index + 1}. ✔️ Closed issue #${event.payload.issue.number} in ${event.repo.name}<br>`;
+                  } else if (event.type === "PullRequestEvent" && event.payload.action === "opened") {
+                    return `${index + 1}. 💪 Opened PR #${event.payload.pull_request.number} in ${event.repo.name}<br>`;
+                  } else if (event.type === "PullRequestEvent" && event.payload.action === "closed" && !event.payload.pull_request.merged) {
+                    return `${index + 1}. ❌ Closed PR #${event.payload.pull_request.number} in ${event.repo.name}<br>`;
+                  } else if (event.type === "PullRequestEvent" && event.payload.action === "closed" && event.payload.pull_request.merged) {
+                    return `${index + 1}. 🎉 Merged PR #${event.payload.pull_request.number} in ${event.repo.name}<br>`;
+                  } else if (event.type === "CreateEvent" && event.payload.ref_type === "repository") {
+                    return `${index + 1}. 📔 Created new repository ${event.repo.name}<br>`;
+                  } else if (event.type === "ForkEvent") {
+                    return `${index + 1}. 🔱 Forked ${event.payload.forkee.full_name} from ${event.repo.name}<br>`;
+                  } else if (event.type === "GollumEvent") {
+                    const page = event.payload.pages[0];
+                    if (page.action === "created") {
+                      return `${index + 1}. 📖 Created new wiki page ${page.page_name} in ${event.repo.name}<br>`;
+                    }
+                  } else if (event.type === "MemberEvent" && event.payload.action === "added") {
+                    return `${index + 1}. 🤝 Became collaborator on ${event.repo.name}<br>`;
+                  } else if (event.type === "PullRequestReviewEvent" && event.payload.review.state === "approved") {
+                    return `${index + 1}. 👍 Approved #${event.payload.pull_request.number} in ${event.repo.name}<br>`;
+                  } else if (event.type === "PullRequestReviewEvent" && event.payload.review.state === "changes_requested") {
+                    return `${index + 1}. 🔴 Requested changes in #${event.payload.pull_request.number} in ${event.repo.name}<br>`;
+                  } else if (event.type === "ReleaseEvent" && event.payload.action === "published") {
+                    return `${index + 1}. ✌️ Released ${event.payload.release.tag_name} in ${event.repo.name}<br>`;
+                  } else if (event.type === "WatchEvent" && event.payload.action === "started") {
+                    return `${index + 1}. ⭐ Starred ${event.repo.name}<br>`;
+                  }
+                  return "";
+                }).filter(text => text).join("");
+                if (!activityText) activityText = "None";
+              }
+              return activityText;
+            } catch (error) {
+              console.error("Error fetching activity:", error.message);
+              return "None";
+            }
+          }
+
+          async function updateReadme() {
+            const activityText = await fetchRecentActivity();
+            const readmePath = "./README.md";
+            let readmeContent = await fs.readFile(readmePath, "utf8");
+            const activitySection = `<!--RECENT_ACTIVITY:start-->\n${activityText}\n<!--RECENT_ACTIVITY:end-->\n`;
+            const lastUpdateSection = `<!--RECENT_ACTIVITY:last_update-->\nLast Updated: ${currentDate}\n<!--RECENT_ACTIVITY:last_update_end-->`;
+
+            readmeContent = readmeContent.replace(
+              /<!--RECENT_ACTIVITY:start-->[\s\S]*?<!--RECENT_ACTIVITY:end-->\n/,
+              activitySection
+            ).replace(
+              /<!--RECENT_ACTIVITY:last_update-->[\s\S]*?<!--RECENT_ACTIVITY:last_update_end-->/,
+              lastUpdateSection
+            );
+
+            await fs.writeFile(readmePath, readmeContent);
+          }
+
+          updateReadme().catch(error => {
+            console.error("Error updating README:", error.message);
+            process.exit(1);
+          });' > update-readme.js
+          node update-readme.js
+
+      - name: Commit and push changes
+        run: |
+          git config user.email "${{ env.COMMITTER_EMAIL }}"
+          git config user.name "${{ env.COMMITTER_NAME }}"
+          git add README.md
+          git commit --author="${{ env.COMMITTER_NAME }} <${{ env.COMMITTER_EMAIL }}>" -m "Update README with recent activity" || echo "No changes to commit"
+          git push
+        env:
+          COMMITTER_EMAIL: 78334105+VoxDroid@users.noreply.github.com
+          COMMITTER_NAME: VoxDroid
