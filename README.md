@@ -52,6 +52,10 @@
   </a>
 </div>
 
+<p align="center">
+  <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
+</p>
+
 <details>
 <summary>About Me</summary>
 
@@ -60,6 +64,10 @@
 - Sneeze and bugs fix themselves... trust me
   
 </details>
+
+<p align="center">
+  <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
+</p>
 
 <h2 align="center">Badges</h2>
 
@@ -391,17 +399,27 @@
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=VoxDroid&theme=github_dark" alt="Productive Time" />
 </p>
 
-<h2 align="center">Personal Badges</h2>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Quantum%20Computing-Master-FF00FF?style=for-the-badge&logo=none&logoColor=white" alt="Quantum Computing" />
-  <img src="https://img.shields.io/badge/AI%20God-Level%20101-00FFFF?style=for-the-badge&logo=none&logoColor=black" alt="AI God" />
-  <img src="https://img.shields.io/badge/Holographic%20UI-Pioneer-FFFF00?style=for-the-badge&logo=none&logoColor=black" alt="Holo UI" />
-  <img src="https://img.shields.io/badge/Time%20Travel-Coded%20It-FF4500?style=for-the-badge&logo=none&logoColor=white" alt="Time Travel" />
-  <img src="https://img.shields.io/badge/Parallel%20Universes-Debugged-00FF00?style=for-the-badge&logo=none&logoColor=white" alt="Parallel Universes" />
-  <img src="https://img.shields.io/badge/Infinity%20Coder-Unlocked-00CED1?style=for-the-badge&logo=none&logoColor=white" alt="Infinity Coder" />
-  <img src="https://img.shields.io/badge/Nap%20King-Crowned-9932CC?style=for-the-badge&logo=none&logoColor=white" alt="Nap King" />
+  <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
 </p>
+<details>
+<summary>My recent activity</summary>
+<br>
+<!--RECENT_ACTIVITY:start-->
+None
+<!--RECENT_ACTIVITY:end-->
+<br><br>
+<!--RECENT_ACTIVITY:last_update-->
+Last Updated: N/A
+<!--RECENT_ACTIVITY:last_update_end-->
+<br><br>
+</details>
+
+<p align="center">
+  <img src="https://i.imgur.com/dBaSKWF.gif" height="20" width="100%">
+</p>
+
 
 <h2 align="center">Shoutouts (I love you guys)</h2>
 
