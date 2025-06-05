@@ -24,7 +24,7 @@ jobs:
 
       - name: Fetch recent activity and update README
         env: 
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RECENT_ACTIVITY }}
           COMMITTER_EMAIL: 78334105+VoxDroid@users.noreply.github.com
           COMMITTER_NAME: VoxDroid
         run: |
