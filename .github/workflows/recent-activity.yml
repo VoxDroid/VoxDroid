@@ -2,7 +2,7 @@ name: Recent Activity
 
 on:
   schedule:
-    - cron: '0 5,17 * * *'  # Runs at 5 AM and 5 PM UTC (2 AM and 2 PM JST)
+    - cron: '0 2,14 * * *'  # Runs at 2 AM and 2 PM UTC (11 AM and 11 PM JST)
   workflow_dispatch:
 
 jobs:
