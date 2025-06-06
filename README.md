@@ -74,6 +74,9 @@
 <details>
   <summary>Cisco/IBM</summary>
   <p align="center">
+  <a href="https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url">
+    <img src="https://images.credly.com/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png" width=150 alt="Badge">
+  </a>
   <a href="https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url">
     <img src="https://images.credly.com/size/340x340/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png" width=150 alt="Badge">
   </a>
