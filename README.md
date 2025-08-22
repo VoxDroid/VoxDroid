@@ -413,11 +413,11 @@
 <summary>My recent activity</summary>
 <br>
 <!--RECENT_ACTIVITY:start-->
-1. ⬆️ Pushed 1 commit(s) to VoxDroid/KemonoDownloader<br>2. ⬆️ Pushed 1 commit(s) to VoxDroid/KemonoDownloader<br>3. ⬆️ Pushed 1 commit(s) to VoxDroid/KemonoDownloader<br>4. ⬆️ Pushed 1 commit(s) to VoxDroid/KD_Release<br>5. ✌️ Released v5.1.0 in VoxDroid/KemonoDownloader<br>
+1. ⬆️ Pushed 1 commit(s) to VoxDroid/KemonoDownloader<br>3. ✌️ Released v5.2.0 in VoxDroid/KemonoDownloader<br>4. ✌️ Released v5.2.0 in VoxDroid/KD_Release<br>
 <!--RECENT_ACTIVITY:end-->
 <br><br>
 <!--RECENT_ACTIVITY:last_update-->
-Last Updated: Friday, August 22, 2025 at 12:04:10 PM
+Last Updated: Friday, August 22, 2025 at 11:13:57 PM
 <!--RECENT_ACTIVITY:last_update_end-->
 <br><br>
 </details>
