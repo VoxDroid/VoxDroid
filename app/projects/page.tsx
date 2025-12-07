@@ -6,8 +6,56 @@ import Image from "next/image"
 import { Github, ExternalLink, ArrowRight } from "lucide-react"
 import SectionHeader from "@/components/section-header"
 import { motion, AnimatePresence } from "framer-motion"
+import { title } from "process"
 
 const projects = [
+  {
+    id: -6,
+    title: "vox-md",
+    description: "A Fast and Efficient Rust CLI Tool for Converting Markdown Files to HTML or PDF Formats.",
+    image: "/project_images/VOXMD.png",
+    tags: ["Rust", "CLI", "Markdown", "HTML", "PDF"],
+    github: "https://github.com/VoxDroid/vox-md",
+    demo: "https://github.com/VoxDroid/vox-md",
+    category: "Application",
+    slug: "Vox-MD",
+    glowColor: "glow-blue",
+  },
+  {
+    id: -5,
+    title: "vox-hash",
+    description: "A High-Performance Rust CLI Tool for SHA1 and MD5 Hashing and Brute-Force Hash Matching.",
+    image: "/project_images/VoxHash.png",
+    tags: ["Rust", "CLI", "Hashing", "Brute-Force"],
+    github: "https://github.com/VoxDroid/Vox-Hash",
+    demo: "https://github.com/VoxDroid/Vox-Hash",
+    category: "Application",
+    slug: "Vox-Hash",
+    glowColor: "glow-blue", 
+  },
+  { id: -4,
+    title: "Python 1000 Snippets",
+    description: "A comprehensive collection of Python code snippets covering various programming concepts and techniques.",
+    image: "/project_images/P1000S.png",
+    tags: ["Python", "Snippets", "Examples", "Cheat Sheet"],
+    github: "https://github.com/VoxDroid/Python-1000-Snippets",
+    demo: "https://github.com/VoxDroid/Python-1000-Snippets",
+    category: "Course/Tutorial",
+    slug: "Python-1000-Snippets",
+    glowColor: "glow-blue",
+  },
+  {
+    id: -3,
+    title: "Assembly 300 Snippets",
+    description: "A comprehensive collection of assembly language code snippets for NASM on Linux, covering various programming concepts and techniques.",
+    image: "/project_images/A300S.png",
+    tags: ["Assembly", "Snippets", "Examples", "NASM", "Linux", "Cheat Sheet"],
+    github: "https://github.com/VoxDroid/Assembly-300-Snippets",
+    demo: "https://github.com/VoxDroid/Assembly-300-Snippets",
+    category: "Course/Tutorial",
+    slug: "Assembly-300-Snippets",
+    glowColor: "glow-blue",
+  },
   {
     id: -2,
     title: "Bytey",
@@ -197,7 +245,7 @@ const projects = [
 ]
 
 // Project categories
-const categories = ["All", "Web", "Application", "UI/UX"]
+const categories = ["All", "Web", "Application", "UI/UX", "Course/Tutorial"]
 
 // Project card component
 const ProjectCard = ({ project }) => {
