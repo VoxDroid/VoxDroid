@@ -10,6 +10,18 @@ import { title } from "process"
 
 const projects = [
   {
+    id: -7,
+    title: "linux-auto",
+    description: "A Rust-based CLI tool for automating Linux system setup and configuration tasks.",
+    image: "/project_images/linux-auto.png",
+    tags: ["Linux", "CLI", "Shell", "Automation", "Scripts"],
+    github: "https://github.com/VoxDroid/linux-auto",
+    demo: "https://github.com/VoxDroid/linux-auto",
+    category: "Scripts",
+    slug: "linux-auto",
+    glowColor: "glow-blue",
+  },
+  {
     id: -6,
     title: "vox-md",
     description: "A Fast and Efficient Rust CLI Tool for Converting Markdown Files to HTML or PDF Formats.",
@@ -25,7 +37,7 @@ const projects = [
     id: -5,
     title: "vox-hash",
     description: "A High-Performance Rust CLI Tool for SHA1 and MD5 Hashing and Brute-Force Hash Matching.",
-    image: "/project_images/VoxHash.png",
+    image: "/project_images/VOXHASH.png",
     tags: ["Rust", "CLI", "Hashing", "Brute-Force"],
     github: "https://github.com/VoxDroid/Vox-Hash",
     demo: "https://github.com/VoxDroid/Vox-Hash",
@@ -245,7 +257,7 @@ const projects = [
 ]
 
 // Project categories
-const categories = ["All", "Web", "Application", "UI/UX", "Course/Tutorial"]
+const categories = ["All", "Web", "Application", "UI/UX", "Course/Tutorial", "Scripts"]
 
 // Project card component
 const ProjectCard = ({ project }) => {
