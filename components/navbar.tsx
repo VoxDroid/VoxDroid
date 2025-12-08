@@ -80,7 +80,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold gradient-text dark:gradient-text-light">VoxDroid</span>
+            <span className="text-xl font-bold dark:gradient-text-light">VoxDroid</span>
           </Link>
 
           {/* Desktop Navigation */}

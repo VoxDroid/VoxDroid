@@ -103,7 +103,7 @@ export default function Home() {
       {/* Featured Projects Section */}
       <section className="py-16 bg-accent/5 dark:bg-accent-dark/10 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text dark:gradient-text-light inline-block">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center dark:gradient-text-light inline-block">
             Featured Projects
           </h2>
 
@@ -191,7 +191,7 @@ export default function Home() {
       {/* Skills Overview Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text dark:gradient-text-light inline-block">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center dark:gradient-text-light inline-block">
             My Expertise
           </h2>
 
