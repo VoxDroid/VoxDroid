@@ -147,9 +147,9 @@ const projects = [
     image: "/project_images/JavaQuiz.png",
     tags: ["Java", "JavaFX", "IntelliJ", "Quiz App"],
     github: "https://github.com/VoxDroid",
-    demo: "https://github.com/VoxDroid/Java-Quiz-App?tab=readme-ov-file",
+    demo: "https://github.com/VoxDroid/Java-Quiz-App",
     category: "Application",
-    slug: "project-3",
+    slug: "Java-Quiz-App",
     glowColor: "glow-blue",
   },
   {
