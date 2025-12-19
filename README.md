@@ -249,7 +249,7 @@
 <td><a href="https://nixos.org/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nixos/nixos-original.svg" width="40"/></a></td>
 <td><a href="https://voidlinux.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/voidlinux/ffffff" width="40"/></a></td>
 <td><a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/kalilinux/ffffff" width="40"/></a></td>
-<td><a href="https://www.slackware.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/slackware/000000" width="40" style="filter: brightness(0) invert(1)"/></a></td>
+<td><a href="https://www.slackware.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/slackware/ffffff" width="40"/></a></td>
 <td><a href="https://www.parrotsec.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/parrotsecurity/1ba80c" width="40"/></a></td>
 <td><a href="https://manjaro.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/manjaro/35bf5c" width="40"/></a></td>
 <td><a href="https://pop.system76.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/popos/48b6a9" width="40"/></a></td>
@@ -266,7 +266,7 @@
 <td><a href="https://endeavouros.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/endeavouros/4b0082" width="40"/></a></td>
 <td><a href="https://www.deepin.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/deepin/07b0e8" width="40"/></a></td>
 <td><a href="https://openwrt.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/openwrt/0066cc" width="40"/></a></td>
-<td><a href="https://astra-linux.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/astra/000000" width="40" style="filter: brightness(0) invert(1)"/></a></td>
+<td><a href="https://astra-linux.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/astra/ffffff" width="40"/></a></td>
 <td><a href="https://getsol.us/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/solus/eca717" width="40"/></a></td>
 <td><a href="https://www.truenas.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/truenas/0094f5" width="40"/></a></td>
 <td><a href="https://alpinelinux.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/alpinelinux/0071f3" width="40"/></a></td>
@@ -315,7 +315,7 @@
 <td><a href="https://about.gitlab.com/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" width="40"/></a></td>
 <td><a href="https://www.jenkins.io/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" width="40"/></a></td>
 <td><a href="https://httpd.apache.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/apache/d70015" width="40"/></a></td>
-<td><a href="https://curl.se/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/curl/000000" width="40" style="filter: brightness(0) invert(1)"/></a></td>
+<td><a href="https://curl.se/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/curl/ffffff" width="40"/></a></td>
 <td><a href="https://openvpn.net/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/openvpn/ea7e20" width="40"/></a></td>
 <td><a href="https://www.wireguard.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/wireguard/88171a" width="40"/></a></td>
 <td><a href="https://podman.io/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/podman/892ca0" width="40"/></a></td>
@@ -327,11 +327,11 @@
 <td><a href="https://gunicorn.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/gunicorn/499848" width="40"/></a></td>
 <td><a href="https://www.openssl.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/openssl/721412" width="40"/></a></td>
 <td><a href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/wireshark/0595de" width="40"/></a></td>
-<td><a href="https://htop.dev/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/htop/000000" width="40" style="filter: brightness(0) invert(1)"/></a></td>
+<td><a href="https://htop.dev/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/htop/ffffff" width="40"/></a></td>
 <td><a href="https://tmux.github.io/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/tmux/1bb91f" width="40"/></a></td>
 <td><a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/gnubash/4eaa25" width="40"/></a></td>
 <td><a href="https://www.elastic.co/logstash" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/logstash/005571" width="40"/></a></td>
-<td><a href="https://www.splunk.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/splunk/000000" width="40" style="filter: brightness(0) invert(1)"/></a></td>
+<td><a href="https://www.splunk.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/splunk/ffffff" width="40"/></a></td>
 </tr>
 
 </table>
