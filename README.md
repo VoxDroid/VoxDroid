@@ -317,18 +317,18 @@
 
 <table align="center">
   <tr>
-    <td>
+    <td align="center">
       <img src="https://github-readme-stats.vercel.app/api?username=VoxDroid&show_icons=true&theme=github_dark" alt="GitHub Stats" />
     </td>
-    <td>
+    <td align="center">
       <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VoxDroid&layout=compact&theme=github_dark" alt="Top Languages" />
     </td>
   </tr>
   <tr>
-    <td>
+    <td align="center">
       <img src="https://github-readme-streak-stats.herokuapp.com/?user=VoxDroid&theme=github-dark-blue" alt="GitHub Streak" />
     </td>
-    <td>
+    <td align="center">
       <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=VoxDroid&theme=github_dark" alt="Profile Details" />
     </td>
   </tr>
@@ -343,10 +343,10 @@
     </td>
   </tr>
   <tr>
-    <td>
+    <td align="center">
       <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=VoxDroid&theme=github_dark" alt="Repos per Language" />
     </td>
-    <td>
+    <td align="center">
       <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=VoxDroid&theme=github_dark" alt="Productive Time" />
     </td>
   </tr>
