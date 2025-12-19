@@ -284,8 +284,8 @@
 <td><a href="https://www.apple.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/apple/ffffff" alt="Apple" width="40" /></a></td>
 <td><a href="https://www.android.com/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg" width="40"/></a></td>
 <td><a href="https://www.raspberrypi.com/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/raspberrypi/raspberrypi-original.svg" width="40"/></a></td>
-<td><a href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/chrome/chrome-original.svg" width="40"/></a></td>
-<td><a href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firefox/firefox-original.svg" width="40"/></a></td>
+<td><a href="https://chromeos.google/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/chrome/chrome-original.svg" width="40"/></a></td>
+<td><a href="https://firefoxosdevices.org/en/#type:all|coming-devices:yes" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firefox/firefox-original.svg" width="40"/></a></td>
 </tr>
 </table>
 </div>
