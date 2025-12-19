@@ -349,6 +349,8 @@
 <td><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" width="40" height="40"/></a></td>
 <td><a href="https://kubernetes.io/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-original.svg" alt="Kubernetes" width="40" height="40"/></a></td>
 <td><a href="https://www.vagrantup.com/" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vagrant/vagrant-original.svg" alt="Vagrant" width="40" height="40"/></a></td>
+<td><a href="https://www.vmware.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/vmware/607078" alt="VMware" width="40" height="40"/></a></td>
+<td><a href="https://www.virtualbox.org/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/virtualbox/183a61" alt="VirtualBox" width="40" height="40"/></a></td>
 </tr>
 </table>
 
