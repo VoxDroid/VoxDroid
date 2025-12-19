@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/VoxDroid"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" width="40" height="40" style="filter: brightness(0) invert(1)"/></a>
+  <a href="https://github.com/VoxDroid"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" width="40" height="40" /></a>
   <a href="https://www.kaggle.com/VoxDroid"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kaggle/kaggle-original.svg" alt="Kaggle" width="40" height="40"/></a>
   <a href="https://huggingface.co/iZELX1"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HuggingFace" width="40" height="40"/></a>
 </p>
@@ -257,7 +257,7 @@
 <table>
 <tr>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/windows11/windows11-original.svg" width="40"/></td>
-<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg" width="40" style="filter: brightness(0) invert(1)"/></td>
+<td><img src="https://cdn.simpleicons.org/apple/ffffff" alt="Apple" width="40" /></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg" width="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/raspberrypi/raspberrypi-original.svg" width="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/chrome/chrome-original.svg" width="40"/></td>
