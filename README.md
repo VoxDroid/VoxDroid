@@ -28,10 +28,19 @@
   <strong>Table of Contents</strong>
 </p>
 <ul>
-  <li><a href="#tech-stack--tools">Tech Stack & Tools</a></li>
-  <li><a href="#linux-distributions">Linux Distributions</a></li>
-  <li><a href="#linux-and-homelab-tools">Linux and Homelab Tools</a></li>
-  <li><a href="#virtualization-tools">Virtualization Tools</a></li>
+  <li><a href="#tech-stack--tools">Tech Stack & Tools</a>
+    <ul>
+      <li><a href="#programming-languages">Programming Languages</a></li>
+      <li><a href="#frameworks-and-libraries">Frameworks and Libraries</a></li>
+      <li><a href="#databases-and-cloud-hosting">Databases & Cloud Hosting</a></li>
+      <li><a href="#software-and-tools">Software & Tools</a></li>
+      <li><a href="#devops-tools">DevOps Tools</a></li>
+      <li><a href="#linux-distributions">Linux Distributions</a></li>
+      <li><a href="#other-operating-systems">Other Operating Systems</a></li>
+      <li><a href="#linux-and-homelab-tools">Linux and Homelab Tools</a></li>
+      <li><a href="#virtualization-tools">Virtualization Tools</a></li>
+    </ul>
+  </li>
   <li><a href="#github-stats">GitHub Stats</a></li>
   <li><a href="#badges">Badges</a></li>
   <li><a href="#my-recent-activity">My recent activity</a></li>
