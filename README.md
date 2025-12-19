@@ -20,6 +20,23 @@
   </a>
 </div>
 
+<br>
+<!-- Intro summary -->
+<h1 align="center"><strong>Hiii, I'm VoxDroid.</strong></h1>
+
+<p align="center">
+  <strong>Table of Contents</strong>
+</p>
+<ul>
+  <li><a href="#tech-stack--tools">Tech Stack & Tools</a></li>
+  <li><a href="#linux-distributions">Linux Distributions</a></li>
+  <li><a href="#linux-and-homelab-tools">Linux and Homelab Tools</a></li>
+  <li><a href="#virtualization-tools">Virtualization Tools</a></li>
+  <li><a href="#github-stats">GitHub Stats</a></li>
+  <li><a href="#badges">Badges</a></li>
+  <li><a href="#my-recent-activity">My recent activity</a></li>
+</ul>
+
 <h2 align="center">Tech Stack & Tools</h2>
 
 <h3 align="center">Programming Languages</h3>
@@ -352,60 +369,80 @@
   </tr>
 </table>
 
+
+<h2 align="center" id="badges">Badges</h2>
 <details>
-<summary>Badges</summary>
+<summary align="center" style="cursor:pointer;font-size:16px"><strong>Click here to show</strong></summary>
+<p align="center">Selected certifications and recognitions.</p>
 
-<table align="center">
-  <tr>
-    <td align="center">
-      <a href="https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url">
-        <img src="https://images.credly.com/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png" width="150" alt="Badge">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url">
-        <img src="https://images.credly.com/size/340x340/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png" width="150" alt="Badge">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url">
-        <img src="https://images.credly.com/images/82b908e1-fdcd-4785-9d32-97f11ccbcf08/image.png" width="150" alt="Badge">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url">
-        <img src="https://images.credly.com/images/26c21273-c0ab-485b-98a7-f1212dcb82b8/image.png" width="150" alt="Badge">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url">
-        <img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png" width="150" alt="Badge">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url">
-        <img src="https://images.credly.com/size/680x680/images/19e742ef-13be-4d26-87ed-ac8f5fd0643c/image.png" width="150" alt="Badge">
-      </a>
-    </td>
-  </tr>
-</table>
-
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url">
+          <img src="https://images.credly.com/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png" width="120" alt="Badge">
+        </a>
+        <div style="font-size:12px;margin-top:6px;color:#6b7280">Ethical Hacker</div>
+      </td>
+      <td align="center">
+        <a href="https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url">
+          <img src="https://images.credly.com/size/340x340/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png" width="120" alt="Network Defense">
+        </a>
+        <div style="font-size:12px;margin-top:6px;color:#6b7280">Network Defense</div>
+      </td>
+      <td align="center">
+        <a href="https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url">
+          <img src="https://images.credly.com/images/82b908e1-fdcd-4785-9d32-97f11ccbcf08/image.png" width="120" alt="Badge">
+        </a>
+        <div style="font-size:12px;margin-top:6px;color:#6b7280">AI Fundamentals</div>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <a href="https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url">
+          <img src="https://images.credly.com/images/26c21273-c0ab-485b-98a7-f1212dcb82b8/image.png" width="120" alt="Badge">
+        </a>
+        <div style="font-size:12px;margin-top:6px;color:#6b7280">AI Fundamentals</div>
+      </td>
+      <td align="center">
+        <a href="https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url">
+          <img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png" width="120" alt="I2CS">
+        </a>
+        <div style="font-size:12px;margin-top:6px;color:#6b7280">I2CS</div>
+      </td>
+      <td align="center">
+        <a href="https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url">
+          <img src="https://images.credly.com/size/680x680/images/19e742ef-13be-4d26-87ed-ac8f5fd0643c/image.png" width="120" alt="Badge">
+        </a>
+        <div style="font-size:12px;margin-top:6px;color:#6b7280">CHB</div>
+      </td>
+    </tr>
+  </table>
+</div>
 </details>
 
-<details>
-<summary>My recent activity</summary>
-<br>
-<!--RECENT_ACTIVITY:start-->
-None
-<!--RECENT_ACTIVITY:end-->
-<br><br>
-<!--RECENT_ACTIVITY:last_update-->
-Last Updated: Friday, December 19, 2025 at 12:19:12 PM
-<!--RECENT_ACTIVITY:last_update_end-->
-<br><br>
-</details>
+<h2 align="center" id="my-recent-activity">My recent activity</h2>
+<p align="center">A quick summary of recent contributions and highlights.</p>
+
+<div align="center">
+  
+  <ul style="list-style:none;padding:0;margin:0;max-width:640px;text-align:left;">
+    <p align="center" style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#CAF1DE">
+    <!--RECENT_ACTIVITY:start-->
+    None
+    <!--RECENT_ACTIVITY:end-->
+    </p>
+  </ul>
+  
+
+  
+  <p style="font-size:12px;color:#6b7280;margin-top:8px"><em>
+  <!--RECENT_ACTIVITY:last_update-->
+  Last Updated: Friday, December 19, 2025 at 12:19:12 PM
+  <!--RECENT_ACTIVITY:last_update_end-->
+  </em></p>
+  
+</div>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%" />
