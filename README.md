@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/VoxDroid"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" width="40" height="40"/></a>
+  <a href="https://github.com/VoxDroid"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" width="40" height="40" style="filter: brightness(0) invert(1)"/></a>
   <a href="https://www.kaggle.com/VoxDroid"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kaggle/kaggle-original.svg" alt="Kaggle" width="40" height="40"/></a>
   <a href="https://huggingface.co/iZELX1"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HuggingFace" width="40" height="40"/></a>
 </p>
@@ -52,7 +52,7 @@
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="C#" width="40" height="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" alt="Go" width="40" height="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" alt="Ruby" width="40" height="40"/></td>
-<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" alt="Rust" width="40" height="40"/></td>
+<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" alt="Rust" width="40" height="40"style="filter: brightness(0) invert(1)"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" alt="Kotlin" width="40" height="40"/></td>
 </tr>
 <tr>
@@ -71,7 +71,7 @@
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fsharp/fsharp-original.svg" alt="F#" width="40" height="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/elixir/elixir-original.svg" alt="Elixir" width="40" height="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/erlang/erlang-original.svg" alt="Erlang" width="40" height="40"/></td>
-<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/crystal/crystal-original.svg" alt="Crystal" width="40" height="40"/></td>
+<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/crystal/crystal-original.svg" alt="Crystal" width="40" height="40" style="filter: brightness(0) invert(1)"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" width="40" height="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/objectivec/objectivec-plain.svg" alt="Objective-C" width="40" height="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ocaml/ocaml-original.svg" alt="OCaml" width="40" height="40"/></td>
@@ -135,7 +135,7 @@
 <td><img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify" width="40" height="40"/></td>
 </tr>
 <tr>
-<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original.svg" alt="Vercel" width="40" height="40"/></td>
+<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original.svg" alt="Vercel" width="40" height="40" style="filter: brightness(0) invert(1)"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" alt="Redis" width="40" height="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cassandra/cassandra-original.svg" alt="Cassandra" width="40" height="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/elasticsearch/elasticsearch-original.svg" alt="Elasticsearch" width="40" height="40"/></td>
@@ -228,7 +228,7 @@
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nixos/nixos-original.svg" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/voidlinux/ffffff" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/kalilinux/ffffff" width="40"/></td>
-<td><img src="https://cdn.simpleicons.org/slackware/000000" width="40"/></td>
+<td><img src="https://cdn.simpleicons.org/slackware/000000" width="40" style="filter: brightness(0) invert(1)"/></td>
 <td><img src="https://cdn.simpleicons.org/parrotsecurity/1ba80c" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/manjaro/35bf5c" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/popos/48b6a9" width="40"/></td>
@@ -242,7 +242,7 @@
 <td><img src="https://cdn.simpleicons.org/endeavouros/4b0082" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/deepin/07b0e8" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/openwrt/0066cc" width="40"/></td>
-<td><img src="https://cdn.simpleicons.org/astra/000000" width="40"/></td>
+<td><img src="https://cdn.simpleicons.org/astra/000000" width="40" style="filter: brightness(0) invert(1)"/></td>
 <td><img src="https://cdn.simpleicons.org/solus/eca717" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/truenas/0094f5" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/alpinelinux/0071f3" width="40"/></td>
@@ -257,7 +257,7 @@
 <table>
 <tr>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/windows11/windows11-original.svg" width="40"/></td>
-<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg" width="40"/></td>
+<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg" width="40" style="filter: brightness(0) invert(1)"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg" width="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/raspberrypi/raspberrypi-original.svg" width="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/chrome/chrome-original.svg" width="40"/></td>
@@ -286,12 +286,12 @@
 
 <tr>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/proxmox/proxmox-original.svg" width="40"/></td>
-<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pfsense/pfsense-original.svg" width="40"/></td>
+<td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pfsense/pfsense-original.svg" width="40" style="filter: brightness(0) invert(1)"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/githubactions/githubactions-original.svg" width="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" width="40"/></td>
 <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/apache/d70015" width="40"/></td>
-<td><img src="https://cdn.simpleicons.org/curl/000000" width="40"/></td>
+<td><img src="https://cdn.simpleicons.org/curl/000000" width="40" style="filter: brightness(0) invert(1)"/></td>
 <td><img src="https://cdn.simpleicons.org/openvpn/ea7e20" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/wireguard/88171a" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/podman/892ca0" width="40"/></td>
@@ -303,11 +303,11 @@
 <td><img src="https://cdn.simpleicons.org/gunicorn/499848" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/openssl/721412" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/wireshark/0595de" width="40"/></td>
-<td><img src="https://cdn.simpleicons.org/htop/000000" width="40"/></td>
+<td><img src="https://cdn.simpleicons.org/htop/000000" width="40" style="filter: brightness(0) invert(1)"/></td>
 <td><img src="https://cdn.simpleicons.org/tmux/1bb91f" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/gnubash/4eaa25" width="40"/></td>
 <td><img src="https://cdn.simpleicons.org/logstash/005571" width="40"/></td>
-<td><img src="https://cdn.simpleicons.org/splunk/000000" width="40"/></td>
+<td><img src="https://cdn.simpleicons.org/splunk/000000" width="40" style="filter: brightness(0) invert(1)"/></td>
 </tr>
 
 </table>
