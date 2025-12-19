@@ -55,7 +55,7 @@ jobs:
               const events = response.data.slice(0, 5);
               let activityText = "";
               if (events.length === 0) {
-                activityText = "None";
+                activityText = "Building quietly.";
               } else {
                 activityText = events.map((event, index) => {
                   if (event.type === "IssueCommentEvent") {
@@ -95,12 +95,12 @@ jobs:
                   }
                   return "";
                 }).filter(text => text).join("");
-                if (!activityText) activityText = "None";
+                if (!activityText) activityText = "Building quietly.";
               }
               return activityText;
             } catch (error) {
               console.error("Error fetching activity:", error.message);
-              return "None";
+              return "Building quietly.";
             }
           }
 
