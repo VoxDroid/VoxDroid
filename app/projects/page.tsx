@@ -162,7 +162,7 @@ const projects = [
     github: "https://github.com/VoxDroid",
     demo: "https://github.com/VoxDroid/Advanced-Tab-Manager",
     category: "Application",
-    slug: "project-4",
+    slug: "Advanced-Tab-Manager",
     glowColor: "glow-blue",
   },
   {
