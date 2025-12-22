@@ -1,11 +1,12 @@
 # VoxDroid
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&text=VoxDroid&height=100&section=header&animation=twinkling&fontSize=40" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,50:764ba2,100:f093fb&text=VoxDroid&height=120&section=header&animation=twinkling&fontSize=45&fontColor=ffffff&fontAlignY=35" width="100%" />
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=VoxDroid&label=Profile%20views&color=2F81F7&style=flat" alt="Profile Views" />
+  <img src="https://komarev.com/ghpvc/?username=VoxDroid&label=Profile%20views&color=667eea&style=for-the-badge" alt="Profile Views" />
+  <img src="https://img.shields.io/github/stars/VoxDroid?label=Stars&style=for-the-badge&color=f093fb" alt="Stars" />
 </p>
 
 <p align="center">
@@ -16,37 +17,131 @@
 
 <div align="center">
   <a href="https://voxdroid.vercel.app">
-    <img src="https://img.shields.io/badge/Portfolio-Check_Here-000000?style=for-the-badge&logo=vercel&labelColor=000000&color=00C7B7" alt="Portfolio Deployed on Vercel">
+    <img src="https://img.shields.io/badge/🌐_Portfolio-Visit_My_Site-000000?style=for-the-badge&logo=vercel&labelColor=000000&color=00C7B7" alt="Portfolio Deployed on Vercel">
   </a>
 </div>
 
 <br>
-<!-- Intro summary -->
-<h1 align="center"><strong>Hiii, I'm VoxDroid.</strong></h1>
+
+---
+
+<!-- About Me Section -->
+<h2 align="center">About Me</h2>
+
+<div align="center">
+  <img align="right" alt="Coding" width="320" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif">
+</div>
+
+<p align="left" style="max-width: 600px;">
+
+```yaml
+/home/vox:
+  name: VoxDroid
+  location: Earth
+  current_focus:
+    - AI/ML
+    - Full-Stack Development
+    - Open Source
+  education: Computer Science
+```
+
+</p>
+
+<br>
+
+- Currently working on **AI-powered applications and open source projects**
+- Continuously learning **new technologies**
+- Open to **collaboration on projects**
+
+<br clear="both">
+
+---
+
+<!-- Current Focus Section -->
+<h2 align="center">Current Focus</h2>
+
+<div align="center">
+<table>
+<tr>
+<td align="center" width="33%">
+<img src="https://img.icons8.com/color/48/000000/artificial-intelligence.png" width="50"/>
+<br><b>AI & Machine Learning</b>
+<br><sub>LLMs, Computer Vision, Neural Networks</sub>
+</td>
+<td align="center" width="33%">
+<img src="https://img.icons8.com/color/48/000000/web.png" width="50"/>
+<br><b>Web Development</b>
+<br><sub>Modern, responsive applications</sub>
+</td>
+<td align="center" width="33%">
+<img src="https://img.icons8.com/color/48/000000/open-source.png" width="50"/>
+<br><b>Open Source</b>
+<br><sub>Contributing and maintaining projects</sub>
+</td>
+</tr>
+<tr>
+<td align="center" width="33%">
+<img src="https://img.icons8.com/color/48/000000/security-checked.png" width="50"/>
+<br><b>Cybersecurity</b>
+<br><sub>Ethical hacking and network defense</sub>
+</td>
+<td align="center" width="33%">
+<img src="https://img.icons8.com/color/48/000000/linux.png" width="50"/>
+<br><b>Linux & Homelab</b>
+<br><sub>Self-hosted infrastructure</sub>
+</td>
+<td align="center" width="33%">
+<img src="https://img.icons8.com/color/48/000000/cloud.png" width="50"/>
+<br><b>Cloud & DevOps</b>
+<br><sub>Containers, CI/CD, automation</sub>
+</td>
+</tr>
+</table>
+</div>
+
+<br>
+
+---
+
+<!-- Table of Contents -->
+<h2 align="center">Table of Contents</h2>
 
 <p align="center">
-  <strong>Table of Contents</strong>
+  <a href="#-tech-stack--tools"><img src="https://img.shields.io/badge/Tech_Stack-667eea?style=flat-square" alt="Tech Stack"/></a>
+  <a href="#-github-stats"><img src="https://img.shields.io/badge/GitHub_Stats-764ba2?style=flat-square" alt="GitHub Stats"/></a>
+  <a href="#-badges"><img src="https://img.shields.io/badge/Badges-f093fb?style=flat-square" alt="Badges"/></a>
+  <a href="#-my-recent-activity"><img src="https://img.shields.io/badge/Activity-00C7B7?style=flat-square" alt="Activity"/></a>
 </p>
-<ul>
-  <li><a href="#tech-stack--tools">Tech Stack & Tools</a>
-    <ul>
-      <li><a href="#programming-languages">Programming Languages</a></li>
-      <li><a href="#frameworks-and-libraries">Frameworks and Libraries</a></li>
-      <li><a href="#databases-and-cloud-hosting">Databases & Cloud Hosting</a></li>
-      <li><a href="#software-and-tools">Software & Tools</a></li>
-      <li><a href="#devops-tools">DevOps Tools</a></li>
-      <li><a href="#linux-distributions">Linux Distributions</a></li>
-      <li><a href="#other-operating-systems">Other Operating Systems</a></li>
-      <li><a href="#linux-and-homelab-tools">Linux and Homelab Tools</a></li>
-      <li><a href="#virtualization-tools">Virtualization Tools</a></li>
-    </ul>
-  </li>
-  <li><a href="#github-stats">GitHub Stats</a></li>
-  <li><a href="#badges">Badges</a></li>
-  <li><a href="#my-recent-activity">My recent activity</a></li>
-</ul>
 
-<h2 align="center">Tech Stack & Tools</h2>
+<details>
+<summary align="center"><b>Full Table of Contents</b></summary>
+
+- [Tech Stack & Tools](#-tech-stack--tools)
+  - [Programming Languages](#programming-languages)
+  - [Frameworks and Libraries](#frameworks-and-libraries)
+  - [Databases & Cloud Hosting](#databases-and-cloud-hosting)
+  - [Software & Tools](#software-and-tools)
+  - [DevOps Tools](#devops-tools)
+  - [Linux Distributions](#linux-distributions)
+  - [Other Operating Systems](#other-operating-systems)
+  - [Linux and Homelab Tools](#linux-and-homelab-tools)
+  - [Virtualization Tools](#virtualization-tools)
+- [GitHub Stats](#-github-stats)
+- [Badges](#-badges)
+- [Recent Activity](#-my-recent-activity)
+
+</details>
+
+<br>
+
+---
+
+<!-- Tech Stack Section -->
+<h2 align="center" id="-tech-stack--tools">Tech Stack & Tools</h2>
+
+<p align="center">
+  <i>Technologies and tools</i>
+</p>
 
 <h3 align="center">Programming Languages</h3>
 <div align="center">
@@ -356,120 +451,158 @@
 
 </div>
 
-<h2 align="center">GitHub Stats</h2>
+<br>
 
-<table align="center">
-  <tr>
-    <td align="center">
-      <img src="https://github-readme-stats.vercel.app/api?username=VoxDroid&show_icons=true&theme=github_dark" alt="GitHub Stats" />
-    </td>
-    <td align="center">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VoxDroid&layout=compact&theme=github_dark" alt="Top Languages" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=VoxDroid&theme=github-dark-blue" alt="GitHub Streak" />
-    </td>
-    <td align="center">
-      <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=VoxDroid&theme=github_dark" alt="Profile Details" />
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center">
-      <img src="https://github-profile-trophy.vercel.app/?username=VoxDroid&theme=darkhub&no-frame=true&margin-w=15&margin-h=15" alt="GitHub Trophies" />
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center">
-      <img src="https://github-readme-activity-graph.vercel.app/graph?username=VoxDroid&theme=react-dark" alt="Contribution Graph" />
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=VoxDroid&theme=github_dark" alt="Repos per Language" />
-    </td>
-    <td align="center">
-      <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=VoxDroid&theme=github_dark" alt="Productive Time" />
-    </td>
-  </tr>
-</table>
+---
+
+<!-- GitHub Stats Section -->
+<h2 align="center" id="-github-stats">GitHub Stats</h2>
+
+<p align="center">
+  <i>Statistics overview</i>
+</p>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=VoxDroid&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=667eea&icon_color=f093fb&text_color=ffffff" alt="GitHub Stats" height="180"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VoxDroid&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=667eea&text_color=ffffff" alt="Top Languages" height="180"/>
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=VoxDroid&theme=radical&hide_border=true&background=0D1117&stroke=667eea&ring=f093fb&fire=f093fb&currStreakLabel=667eea" alt="GitHub Streak" />
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=VoxDroid&theme=radical&no-frame=true&no-bg=true&margin-w=10&margin-h=10&column=7" alt="GitHub Trophies" />
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=VoxDroid&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=667eea&line=f093fb&point=ffffff&area=true&area_color=764ba2" alt="Contribution Graph" width="95%"/>
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=VoxDroid&theme=radical" alt="Profile Details" width="95%"/>
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=VoxDroid&theme=radical" alt="Repos per Language" height="180"/>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=VoxDroid&theme=radical" alt="Productive Time" height="180"/>
+</div>
 
 
-<h2 align="center" id="badges">Badges</h2>
+<br>
+
+---
+
+<!-- Badges Section -->
+<h2 align="center" id="-badges">Badges & Certifications</h2>
+
 <details>
-<summary align="center" style="cursor:pointer;font-size:16px"><strong>Click here to show</strong></summary>
-<p align="center">Selected certifications and recognitions.</p>
+<summary align="center" style="cursor:pointer;font-size:16px"><b>View Certifications</b></summary>
+
+<br>
 
 <div align="center">
   <table>
     <tr>
-      <td align="center">
+      <td align="center" width="150">
         <a href="https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url">
-          <img src="https://images.credly.com/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png" width="120" alt="Badge">
+          <img src="https://images.credly.com/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png" width="120" alt="Ethical Hacker Badge">
         </a>
-        <div style="font-size:12px;margin-top:6px;color:#6b7280">Ethical Hacker</div>
+        <br><b>Ethical Hacker</b>
       </td>
-      <td align="center">
+      <td align="center" width="150">
         <a href="https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url">
-          <img src="https://images.credly.com/size/340x340/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png" width="120" alt="Network Defense">
+          <img src="https://images.credly.com/size/340x340/images/51526f76-711b-4caf-b04d-27f89512b112/NetworkDefense_v1_091721.png" width="120" alt="Network Defense Badge">
         </a>
-        <div style="font-size:12px;margin-top:6px;color:#6b7280">Network Defense</div>
+        <br><b>Network Defense</b>
       </td>
-      <td align="center">
+      <td align="center" width="150">
         <a href="https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url">
-          <img src="https://images.credly.com/images/82b908e1-fdcd-4785-9d32-97f11ccbcf08/image.png" width="120" alt="Badge">
+          <img src="https://images.credly.com/images/82b908e1-fdcd-4785-9d32-97f11ccbcf08/image.png" width="120" alt="AI Fundamentals Badge">
         </a>
-        <div style="font-size:12px;margin-top:6px;color:#6b7280">AI Fundamentals</div>
+        <br><b>AI Fundamentals</b>
       </td>
     </tr>
     <tr>
-      <td align="center">
+      <td align="center" width="150">
         <a href="https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url">
-          <img src="https://images.credly.com/images/26c21273-c0ab-485b-98a7-f1212dcb82b8/image.png" width="120" alt="Badge">
+          <img src="https://images.credly.com/images/26c21273-c0ab-485b-98a7-f1212dcb82b8/image.png" width="120" alt="AI Fundamentals Badge">
         </a>
-        <div style="font-size:12px;margin-top:6px;color:#6b7280">AI Fundamentals</div>
+        <br><b>AI Fundamentals</b>
       </td>
-      <td align="center">
+      <td align="center" width="150">
         <a href="https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url">
-          <img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png" width="120" alt="I2CS">
+          <img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png" width="120" alt="I2CS Badge">
         </a>
-        <div style="font-size:12px;margin-top:6px;color:#6b7280">I2CS</div>
+        <br><b>I2CS</b>
       </td>
-      <td align="center">
+      <td align="center" width="150">
         <a href="https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url">
-          <img src="https://images.credly.com/size/680x680/images/19e742ef-13be-4d26-87ed-ac8f5fd0643c/image.png" width="120" alt="Badge">
+          <img src="https://images.credly.com/size/680x680/images/19e742ef-13be-4d26-87ed-ac8f5fd0643c/image.png" width="120" alt="CHB Badge">
         </a>
-        <div style="font-size:12px;margin-top:6px;color:#6b7280">CHB</div>
+        <br><b>CHB</b>
       </td>
     </tr>
   </table>
 </div>
+
 </details>
 
-<h2 align="center" id="my-recent-activity">My recent activity</h2>
-<p align="center">A quick summary of recent contributions and highlights.</p>
+<br>
+
+---
+
+<!-- Recent Activity Section -->
+<h2 align="center" id="-my-recent-activity">Recent Activity</h2>
+
+<p align="center">
+  <i>Recent contributions</i>
+</p>
 
 <div align="center">
   
-  <ul style="list-style:none;padding:0;margin:0;max-width:640px;text-align:left;">
-    <p align="center" style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#CAF1DE">
-    <!--RECENT_ACTIVITY:start-->
-Building quietly.
-<!--RECENT_ACTIVITY:end-->
-    </p>
-  </ul>
+  <table>
+    <tr>
+      <td align="center">
+        <p style="padding:16px;color:#CAF1DE">
+          <!--RECENT_ACTIVITY:start-->
+          Building quietly.
+          <!--RECENT_ACTIVITY:end-->
+        </p>
+      </td>
+    </tr>
+  </table>
   
-
+  <br>
   
-  <p style="font-size:12px;color:#6b7280;margin-top:8px"><em>
-  <!--RECENT_ACTIVITY:last_update-->
-Last Updated: Saturday, December 20, 2025 at 12:11:00 PM
-<!--RECENT_ACTIVITY:last_update_end-->
-  </em></p>
+  <sub><em>
+    <!--RECENT_ACTIVITY:last_update-->
+    Last Updated: Saturday, December 20, 2025 at 12:11:00 PM
+    <!--RECENT_ACTIVITY:last_update_end-->
+  </em></sub>
   
 </div>
 
+<br>
+
+---
+
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=16&duration=4000&pause=2000&color=667EEA&center=true&vCenter=true&repeat=true&width=400&height=30&lines=Thanks+for+visiting" alt="Thanks" />
+</div>
+
+<br>
+
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,50:764ba2,100:f093fb&height=100&section=footer" width="100%" />
 </p>
