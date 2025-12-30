@@ -1,7 +1,5 @@
-# VoxDroid
-
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,50:764ba2,100:f093fb&text=VoxDroid&height=120&section=header&animation=twinkling&fontSize=45&fontColor=ffffff&fontAlignY=35" width="100%" />
+  <img src="public/assets/voxdroid_banner.svg" width="100%" alt="VoxDroid Banner" />
 </p>
 
 <p align="center">

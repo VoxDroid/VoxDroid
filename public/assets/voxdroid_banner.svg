@@ -1,0 +1,77 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background from Carbon -->
+  <rect width="1200" height="300" fill="#050505" />
+  
+  <defs>
+    <pattern id="chevronPatternFinal" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 10 10 L 20 20 L 10 30" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.08" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#chevronPatternFinal)" />
+  
+  <!-- Terminal Session Text from Session -->
+  <g font-family="'JetBrains Mono', monospace" font-size="10" fill="white" opacity="0.03">
+    <text x="20" y="55">git clone https://github.com/voxdroid/core.git</text>
+    <text x="20" y="75">Cloning into 'core'...</text>
+    <text x="20" y="95">remote: Enumerating objects: 1042, done.</text>
+    <text x="20" y="115">Receiving objects: 100% (1042/1042), 2.45 MiB | 12.00 MiB/s, done.</text>
+    <text x="20" y="135">cd core &amp;&amp; npm install</text>
+    <text x="20" y="155">added 452 packages from 218 contributors...</text>
+    <text x="20" y="175">voxdroid start --production</text>
+    <text x="20" y="195">[READY] Systems initialized in 42ms</text>
+    <text x="20" y="215">[CORE] Neural interface connected</text>
+    <text x="20" y="235">[ZSH] Loading vox-shell extensions...</text>
+  </g>
+
+  <!-- Content Container -->
+  <g transform="translate(600, 150)">
+    
+    <!-- Powerline Breadcrumbs (Fixed Interlocking) -->
+    <g transform="translate(-250, -70)">
+      <!-- Segment 1 -->
+      <path d="M 0 0 L 140 0 L 160 20 L 140 40 L 0 40 Z" fill="#6366f1" opacity="0.15">
+        <animate attributeName="opacity" values="0.1;0.2;0.1" dur="4s" repeatCount="indefinite" />
+      </path>
+      <text x="15" y="25" font-family="'JetBrains Mono', monospace" font-size="13" fill="#6366f1" font-weight="700">~/voxdroid</text>
+      
+      <!-- Segment 2 -->
+      <path d="M 140 0 L 260 0 L 280 20 L 260 40 L 140 40 L 160 20 Z" fill="#ffffff" opacity="0.05" />
+      <text x="185" y="25" font-family="'JetBrains Mono', monospace" font-size="13" fill="white" opacity="0.5">main*</text>
+
+      <!-- Segment 3 -->
+      <path d="M 260 0 L 380 0 L 400 20 L 380 40 L 260 40 L 280 20 Z" fill="#27c93f" opacity="0.1" />
+      <text x="305" y="25" font-family="'JetBrains Mono', monospace" font-size="13" fill="#27c93f" opacity="0.7">✔ ready</text>
+    </g>
+
+    <!-- Main Branding -->
+    <text text-anchor="middle" dominant-baseline="middle" font-family="'Fira Code', monospace" font-size="52" font-weight="900" fill="white" letter-spacing="4">
+      voxdroid<tspan fill="#6366f1">.core</tspan>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+    </text>
+
+    <!-- Subtext -->
+    <text y="65" text-anchor="middle" font-family="monospace" font-size="10" fill="white" opacity="0.3" letter-spacing="12">
+      SYSTEMS. INTELLIGENCE. CODE.
+    </text>
+
+    <!-- Blinking Cursor -->
+    <rect x="225" y="-22" width="14" height="44" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+    </rect>
+  </g>
+
+  <!-- Terminal Top Bar (Returned) -->
+  <rect width="1200" height="26" fill="#05070a" />
+  <g transform="translate(20, 13)">
+    <circle cx="0" cy="0" r="3.5" fill="#ff5f56" />
+    <circle cx="15" cy="0" r="3.5" fill="#ffbd2e" />
+    <circle cx="30" cy="0" r="3.5" fill="#27c93f" />
+  </g>
+  <text x="600" y="18" text-anchor="middle" font-family="monospace" font-size="9" fill="white" opacity="0.2">zsh — main shell — linux_v6.1</text>
+  
+  <!-- Bottom Status Bar (Returned) -->
+  <rect x="0" y="274" width="1200" height="26" fill="#05070a" />
+  <text x="20" y="291" font-family="monospace" font-size="9" fill="#27c93f" opacity="0.5">λ LOADED</text>
+  <text x="1180" y="291" text-anchor="end" font-family="monospace" font-size="9" fill="white" opacity="0.3">voxdroid(0.1.0) | utf-8 | core-module</text>
+</svg>
