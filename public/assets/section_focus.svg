@@ -40,8 +40,8 @@
   <g transform="translate(60, 70)">
     <!-- Section Indicator -->
     <g transform="translate(0, -20)">
-      <path d="M 0 0 L 180 0 L 200 15 L 180 30 L 0 30 Z" fill="#6366f1" opacity="0.2" />
-      <text x="15" y="20" font-family="'JetBrains Mono', monospace" font-size="20" fill="#6366f1" font-weight="bold">~/current_focus</text>
+      <path d="M 0 0 L 220 0 L 240 15 L 220 30 L 0 30 Z" fill="#6366f1" opacity="0.2" />
+      <text x="15" y="20" font-family="'JetBrains Mono', monospace" font-size="24" fill="#6366f1" font-weight="bold">~/current_focus</text>
     </g>
 
     <!-- Command Prompt -->
@@ -89,13 +89,13 @@
   </g>
 
   <!-- Terminal Top Bar -->
-  <rect width="1200" height="30" fill="#000" />
-  <g transform="translate(20, 15)">
-    <circle cx="0" cy="0" r="4" fill="#ff5f56" />
-    <circle cx="16" cy="0" r="4" fill="#ffbd2e" />
-    <circle cx="32" cy="0" r="4" fill="#27c93f" />
+  <rect width="1200" height="40" fill="#000" />
+  <g transform="translate(30, 20)">
+    <circle cx="0" cy="0" r="6" fill="#ff5f56" />
+    <circle cx="24" cy="0" r="6" fill="#ffbd2e" />
+    <circle cx="48" cy="0" r="6" fill="#27c93f" />
   </g>
-  <text x="600" y="20" text-anchor="middle" font-family="monospace" font-size="14" fill="white" opacity="0.3">user@voxdroid — Current Focus</text>
+  <text x="600" y="25" text-anchor="middle" font-family="monospace" font-size="12" fill="white" opacity="0.3">vox-terminal — zsh — 120x40</text>
   
   <!-- Bottom Status Bar -->
   <rect x="0" y="560" width="1200" height="40" fill="#000" />
