@@ -72,6 +72,6 @@
   
   <!-- Bottom Status Bar (Returned) -->
   <rect x="0" y="274" width="1200" height="26" fill="#05070a" />
-  <text x="20" y="291" font-family="monospace" font-size="9" fill="#27c93f" opacity="0.5">λ LOADED</text>
-  <text x="1180" y="291" text-anchor="end" font-family="monospace" font-size="9" fill="white" opacity="0.3">voxdroid(0.1.0) | utf-8 | core-module</text>
+  <text x="30" y="291" font-family="monospace" font-size="12" fill="#27c93f" opacity="0.6">λ SYST_OK</text>
+  <text x="1170" y="291" text-anchor="end" font-family="monospace" font-size="12" fill="white" opacity="0.3">VOXDROID v1.2.0 | UTF-8 | LINUX_OSX_CORE</text>
 </svg>

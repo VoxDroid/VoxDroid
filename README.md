@@ -21,85 +21,21 @@
 
 <br>
 
----
-
-<!-- About Me Section -->
-<h2 align="center">About Me</h2>
-
-<div align="center">
-  <img align="right" alt="Coding" width="320" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif">
-</div>
-
-<p align="left" style="max-width: 600px;">
-
-```yaml
-/home/vox:
-  name: VoxDroid
-  location: Earth
-  current_focus:
-    - AI/ML
-    - Full-Stack Development
-    - Open Source
-  education: Computer Science
-```
-
+<p align="center">
+  <img src="public/assets/divider.svg" width="100%" alt="Divider" />
 </p>
 
-<br>
-
-- Currently working on **AI-powered applications and open source projects**
-- Continuously learning **new technologies**
-- Open to **collaboration on projects**
-
-<br clear="both">
-
----
+<p align="center">
+  <img src="public/assets/section_about.svg" width="100%" alt="About Me" />
+</p>
 
 <!-- Current Focus Section -->
-<h2 align="center">Current Focus</h2>
 
-<div align="center">
-<table>
-<tr>
-<td align="center" width="33%">
-<img src="https://img.icons8.com/color/48/000000/artificial-intelligence.png" width="50"/>
-<br><b>AI & Machine Learning</b>
-<br><sub>LLMs, Computer Vision, Neural Networks</sub>
-</td>
-<td align="center" width="33%">
-<img src="https://img.icons8.com/color/48/000000/web.png" width="50"/>
-<br><b>Web Development</b>
-<br><sub>Modern, responsive applications</sub>
-</td>
-<td align="center" width="33%">
-<img src="https://img.icons8.com/color/48/000000/open-source.png" width="50"/>
-<br><b>Open Source</b>
-<br><sub>Contributing and maintaining projects</sub>
-</td>
-</tr>
-<tr>
-<td align="center" width="33%">
-<img src="https://img.icons8.com/color/48/000000/security-checked.png" width="50"/>
-<br><b>Cybersecurity</b>
-<br><sub>Ethical hacking and network defense</sub>
-</td>
-<td align="center" width="33%">
-<img src="https://img.icons8.com/color/48/000000/linux.png" width="50"/>
-<br><b>Linux & Homelab</b>
-<br><sub>Self-hosted infrastructure</sub>
-</td>
-<td align="center" width="33%">
-<img src="https://img.icons8.com/color/48/000000/cloud.png" width="50"/>
-<br><b>Cloud & DevOps</b>
-<br><sub>Containers, CI/CD, automation</sub>
-</td>
-</tr>
-</table>
-</div>
+<p align="center">
+  <img src="public/assets/section_focus.svg" width="100%" alt="Current Focus" />
+</p>
 
-<br>
-
----
+<!-- Table of Contents -->
 
 <!-- Table of Contents -->
 <h2 align="center">Table of Contents</h2>
@@ -132,7 +68,9 @@
 
 <br>
 
----
+<p align="center">
+  <img src="public/assets/divider.svg" width="100%" alt="Divider" />
+</p>
 
 <!-- Tech Stack Section -->
 <h2 align="center" id="-tech-stack--tools">Tech Stack & Tools</h2>
@@ -451,7 +389,9 @@
 
 <br>
 
----
+<p align="center">
+  <img src="public/assets/divider.svg" width="100%" alt="Divider" />
+</p>
 
 <!-- GitHub Stats Section -->
 <h2 align="center" id="-github-stats">GitHub Stats</h2>
@@ -499,7 +439,9 @@
 
 <br>
 
----
+<p align="center">
+  <img src="public/assets/divider.svg" width="100%" alt="Divider" />
+</p>
 
 <!-- Badges Section -->
 <h2 align="center" id="-badges">Badges & Certifications</h2>
@@ -558,7 +500,9 @@
 
 <br>
 
----
+<p align="center">
+  <img src="public/assets/divider.svg" width="100%" alt="Divider" />
+</p>
 
 <!-- Recent Activity Section -->
 <h2 align="center" id="-my-recent-activity">Recent Activity</h2>
@@ -593,14 +537,6 @@ Last Updated: Tuesday, December 30, 2025 at 11:15:40 PM
 
 <br>
 
----
-
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=16&duration=4000&pause=2000&color=667EEA&center=true&vCenter=true&repeat=true&width=400&height=30&lines=Thanks+for+visiting" alt="Thanks" />
-</div>
-
-<br>
-
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,50:764ba2,100:f093fb&height=100&section=footer" width="100%" />
+  <img src="public/assets/section_footer.svg" width="100%" alt="Footer" />
 </p>

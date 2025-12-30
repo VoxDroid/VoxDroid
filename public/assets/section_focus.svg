@@ -1,0 +1,104 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background from Carbon -->
+  <rect width="1200" height="600" fill="#050505" />
+  
+  <defs>
+    <pattern id="chevronPatternFocus" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 10 10 L 20 20 L 10 30" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.08" />
+    </pattern>
+    <rect id="moduleBaseHero" width="340" height="120" rx="4" fill="#0a0a0a" stroke="#6366f1" stroke-width="0.5" stroke-opacity="0.2" />
+  </defs>
+
+  <rect width="1200" height="550" fill="url(#chevronPatternFocus)" />
+  
+  <!-- Terminal Session Text from Session -->
+  <g font-family="'JetBrains Mono', monospace" font-size="10" fill="white" opacity="0.03">
+    <text x="20" y="55">voxdroid@linux:~$ uname -a</text>
+    <text x="20" y="75">Linux voxdroid 5.15.0-91-generic #101-Ubuntu SMP Tue Nov 14 13:30:08 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux</text>
+    <text x="20" y="95">voxdroid@linux:~$ ls -la</text>
+    <text x="20" y="115">total 42</text>
+    <text x="20" y="135">drwxr-xr-x  2 voxdroid voxdroid 4096 Dec 31 23:37 .</text>
+    <text x="20" y="155">drwxr-xr-x  3 voxdroid voxdroid 4096 Dec 31 23:37 ..</text>
+    <text x="20" y="175">-rw-r--r--  1 voxdroid voxdroid  512 Dec 31 23:37 focus.txt</text>
+    <text x="20" y="195">voxdroid@linux:~$ cat /proc/cpuinfo | head -5</text>
+    <text x="20" y="215">processor	: 0</text>
+    <text x="20" y="235">vendor_id	: GenuineIntel</text>
+    <text x="20" y="255">cpu family	: 6</text>
+    <text x="20" y="275">model		: 158</text>
+  </g>
+
+  <!-- Terminal Top Bar -->
+  <rect width="1200" height="40" fill="#000" />
+  <g transform="translate(30, 20)">
+    <circle cx="0" cy="0" r="6" fill="#ff5f56" />
+    <circle cx="24" cy="0" r="6" fill="#ffbd2e" />
+    <circle cx="48" cy="0" r="6" fill="#27c93f" />
+  </g>
+  <text x="600" y="25" text-anchor="middle" font-family="monospace" font-size="12" fill="white" opacity="0.3">voxdroid@linux:~/focus$</text>
+  
+  <!-- Content Container -->
+  <g transform="translate(60, 70)">
+    <!-- Section Indicator -->
+    <g transform="translate(0, -20)">
+      <path d="M 0 0 L 180 0 L 200 15 L 180 30 L 0 30 Z" fill="#6366f1" opacity="0.2" />
+      <text x="15" y="20" font-family="'JetBrains Mono', monospace" font-size="20" fill="#6366f1" font-weight="bold">~/current_focus</text>
+    </g>
+
+    <!-- Command Prompt -->
+    <g transform="translate(0, 35)">
+      <text font-family="monospace" font-size="14" fill="white">$ focus --current</text>
+    </g>
+
+    <!-- Man Page Style Layout -->
+    <g transform="translate(50, 50)">
+      <!-- Header -->
+      <text x="0" y="10" font-family="monospace" font-size="16" fill="white" font-weight="bold">FOCUS(1)</text>
+      <text x="500" y="10" font-family="monospace" font-size="16" fill="white" font-weight="bold" text-anchor="middle">VoxDroid Manual</text>
+      <text x="1000" y="10" font-family="monospace" font-size="16" fill="white" font-weight="bold" text-anchor="end">FOCUS(1)</text>
+      
+      <!-- NAME Section -->
+      <text x="0" y="50" font-family="monospace" font-size="14" fill="#6366f1" font-weight="bold">NAME</text>
+      <text x="50" y="70" font-family="monospace" font-size="14" fill="white">focus - display current areas of expertise and interest</text>
+      
+      <!-- SYNOPSIS Section -->
+      <text x="0" y="100" font-family="monospace" font-size="14" fill="#6366f1" font-weight="bold">SYNOPSIS</text>
+      <text x="50" y="120" font-family="monospace" font-size="14" fill="white">focus [option]</text>
+      
+      <!-- DESCRIPTION Section -->
+      <text x="0" y="150" font-family="monospace" font-size="14" fill="#6366f1" font-weight="bold">DESCRIPTION</text>
+      <text x="50" y="170" font-family="monospace" font-size="14" fill="white">The following areas are currently in focus:</text>
+      
+      <text x="70" y="200" font-family="monospace" font-size="14" fill="white" font-weight="bold">• AI &amp; MACHINE LEARNING</text>
+      <text x="90" y="220" font-family="monospace" font-size="12" fill="white" opacity="0.8">LLMs, Computer Vision, Neural Networks &amp; Agents</text>
+      
+      <text x="70" y="240" font-family="monospace" font-size="14" fill="white" font-weight="bold">• WEB DEVELOPMENT</text>
+      <text x="90" y="260" font-family="monospace" font-size="12" fill="white" opacity="0.8">Modern, high-performance, responsive applications</text>
+      
+      <text x="70" y="280" font-family="monospace" font-size="14" fill="white" font-weight="bold">• OPEN SOURCE</text>
+      <text x="90" y="300" font-family="monospace" font-size="12" fill="white" opacity="0.8">Contributing, maintaining, and scaling core modules</text>
+      
+      <text x="70" y="320" font-family="monospace" font-size="14" fill="white" font-weight="bold">• CYBERSECURITY</text>
+      <text x="90" y="340" font-family="monospace" font-size="12" fill="white" opacity="0.8">Ethical hacking, privacy, and network defense protocols</text>
+      
+      <text x="70" y="360" font-family="monospace" font-size="14" fill="white" font-weight="bold">• LINUX &amp; HOMELAB</text>
+      <text x="90" y="380" font-family="monospace" font-size="12" fill="white" opacity="0.8">Self-hosted infrastructure and system level automation</text>
+      
+      <text x="70" y="400" font-family="monospace" font-size="14" fill="white" font-weight="bold">• CLOUD &amp; DEVOPS</text>
+      <text x="90" y="420" font-family="monospace" font-size="12" fill="white" opacity="0.8">Containers, K8s, CI/CD pipes, and scalable architecture</text>
+    </g>
+  </g>
+
+  <!-- Terminal Top Bar -->
+  <rect width="1200" height="30" fill="#000" />
+  <g transform="translate(20, 15)">
+    <circle cx="0" cy="0" r="4" fill="#ff5f56" />
+    <circle cx="16" cy="0" r="4" fill="#ffbd2e" />
+    <circle cx="32" cy="0" r="4" fill="#27c93f" />
+  </g>
+  <text x="600" y="20" text-anchor="middle" font-family="monospace" font-size="14" fill="white" opacity="0.3">user@voxdroid — Current Focus</text>
+  
+  <!-- Bottom Status Bar -->
+  <rect x="0" y="560" width="1200" height="40" fill="#000" />
+  <text x="30" y="585" font-family="monospace" font-size="12" fill="#27c93f" opacity="0.6">λ SYST_OK</text>
+  <text x="1170" y="585" text-anchor="end" font-family="monospace" font-size="12" fill="white" opacity="0.3">VOXDROID v1.2.0 | UTF-8 | LINUX_OSX_CORE</text>
+</svg>

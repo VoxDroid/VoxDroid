@@ -1,0 +1,81 @@
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background from Carbon -->
+  <rect width="1200" height="400" fill="#050505" />
+  
+  <defs>
+    <pattern id="chevronPatternAbout" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 10 10 L 20 20 L 10 30" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.08" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#chevronPatternAbout)" />
+  
+  <!-- Terminal Session Text from Session -->
+  <g font-family="'JetBrains Mono', monospace" font-size="10" fill="white" opacity="0.03">
+    <text x="20" y="55">git clone https://github.com/voxdroid/core.git</text>
+    <text x="20" y="75">Cloning into 'core'...</text>
+    <text x="20" y="95">remote: Enumerating objects: 1042, done.</text>
+    <text x="20" y="115">Receiving objects: 100% (1042/1042), 2.45 MiB | 12.00 MiB/s, done.</text>
+    <text x="20" y="135">cd core &amp;&amp; npm install</text>
+    <text x="20" y="155">added 452 packages from 218 contributors...</text>
+    <text x="20" y="175">voxdroid start --production</text>
+    <text x="20" y="195">[READY] Systems initialized in 42ms</text>
+    <text x="20" y="215">[CORE] Neural interface connected</text>
+    <text x="20" y="235">[ZSH] Loading vox-shell extensions...</text>
+  </g>
+
+  <!-- Terminal Top Bar -->
+  <rect width="1200" height="26" fill="#000" />
+  <g transform="translate(20, 13)">
+    <circle cx="0" cy="0" r="3.5" fill="#ff5f56" />
+    <circle cx="15" cy="0" r="3.5" fill="#ffbd2e" />
+    <circle cx="30" cy="0" r="3.5" fill="#27c93f" />
+  </g>
+  <text x="600" y="18" text-anchor="middle" font-family="monospace" font-size="9" fill="white" opacity="0.2">zsh — main shell — linux_v6.1</text>
+  
+  <!-- Bottom Status Bar -->
+  <rect x="0" y="374" width="1200" height="26" fill="#000" />
+  <text x="30" y="391" font-family="monospace" font-size="12" fill="#27c93f" opacity="0.6">λ SYST_OK</text>
+  <text x="1170" y="391" text-anchor="end" font-family="monospace" font-size="12" fill="white" opacity="0.3">VOXDROID v1.2.0 | UTF-8 | LINUX_OSX_CORE</text>
+
+  <!-- Content Container -->
+  <g transform="translate(60, 70)">
+    <!-- Section Indicator -->
+    <g transform="translate(0, -20)">
+      <path d="M 0 0 L 180 0 L 200 15 L 180 30 L 0 30 Z" fill="#6366f1" opacity="0.2" />
+      <text x="15" y="20" font-family="'JetBrains Mono', monospace" font-size="20" fill="#6366f1" font-weight="bold">~/about_me</text>
+    </g>
+
+    <!-- Fastfetch Style Layout -->
+    <g transform="translate(0, 40)">
+      <!-- ASCII Art on Left -->
+      <g transform="translate(0, 0)">
+        <text font-family="monospace" font-size="12" fill="#6366f1">
+          <tspan x="0" dy="0">+ooooooo:                      :ooooooo+</tspan>
+          <tspan x="0" dy="15"> +ooooooo:                  :ooooooo+</tspan>
+          <tspan x="0" dy="15">   +ooooooo:              :ooooooo+</tspan>
+          <tspan x="0" dy="15">     +ooooooo:          :ooooooo+</tspan>
+          <tspan x="0" dy="15">       +ooooooo:      :ooooooo+</tspan>
+          <tspan x="0" dy="15">         +ooooooo:  :ooooooo+</tspan>
+          <tspan x="0" dy="15">           +oooooo::oooooo+</tspan>
+          <tspan x="0" dy="15">              +oooooooooo+</tspan>
+          <tspan x="0" dy="15">                +oooooo+</tspan>
+          <tspan x="0" dy="15">                  +oo+</tspan>
+          <tspan x="0" dy="15">                   ++</tspan>
+        </text>
+      </g>
+      
+      <!-- Info on Right -->
+      <g transform="translate(400, 0)">
+        <text font-family="monospace" font-size="14" fill="white">
+          <tspan fill="#6366f1">Name:</tspan> VoxDroid
+          <tspan x="0" dy="20" fill="#6366f1">Role:</tspan> Systems Engineer &amp; Intelligence Architect
+          <tspan x="0" dy="20" fill="#6366f1">Location:</tspan> Digital Workspace
+          <tspan x="0" dy="20" fill="#6366f1">Languages:</tspan> Python, JavaScript, TypeScript, C++, Rust, Go
+          <tspan x="0" dy="20" fill="#6366f1">Interests:</tspan> Machine Learning, AI, CyberSecurity, OpenSource
+          <tspan x="0" dy="20" fill="#6366f1">Status:</tspan><tspan fill="#27c93f"> online</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
