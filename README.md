@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/assets/voxdroid_banner.svg" width="100%" alt="VoxDroid Banner" />
+  <img src="public/assets/voxdroid_banner_hero.svg" width="100%" alt="VoxDroid Banner" />
 </p>
 
 <p align="center">
