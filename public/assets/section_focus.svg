@@ -52,39 +52,39 @@
     <!-- Man Page Style Layout -->
     <g transform="translate(50, 50)">
       <!-- Header -->
-      <text x="0" y="10" font-family="monospace" font-size="16" fill="white" font-weight="bold">FOCUS(1)</text>
-      <text x="500" y="10" font-family="monospace" font-size="16" fill="white" font-weight="bold" text-anchor="middle">VoxDroid Manual</text>
-      <text x="1000" y="10" font-family="monospace" font-size="16" fill="white" font-weight="bold" text-anchor="end">FOCUS(1)</text>
+      <text x="0" y="10" font-family="monospace" font-size="24" fill="white" font-weight="bold">FOCUS(1)</text>
+      <text x="500" y="10" font-family="monospace" font-size="24" fill="white" font-weight="bold" text-anchor="middle">VoxDroid Manual</text>
+      <text x="1000" y="10" font-family="monospace" font-size="24" fill="white" font-weight="bold" text-anchor="end">FOCUS(1)</text>
       
       <!-- NAME Section -->
-      <text x="0" y="50" font-family="monospace" font-size="14" fill="#6366f1" font-weight="bold">NAME</text>
-      <text x="50" y="70" font-family="monospace" font-size="14" fill="white">focus - display current areas of expertise and interest</text>
+      <text x="0" y="50" font-family="monospace" font-size="22" fill="#6366f1" font-weight="bold">NAME</text>
+      <text x="50" y="70" font-family="monospace" font-size="20" fill="white">focus - display current areas of expertise and interest</text>
       
       <!-- SYNOPSIS Section -->
-      <text x="0" y="100" font-family="monospace" font-size="14" fill="#6366f1" font-weight="bold">SYNOPSIS</text>
-      <text x="50" y="120" font-family="monospace" font-size="14" fill="white">focus [option]</text>
+      <text x="0" y="100" font-family="monospace" font-size="22" fill="#6366f1" font-weight="bold">SYNOPSIS</text>
+      <text x="50" y="120" font-family="monospace" font-size="20" fill="white">focus [option]</text>
       
       <!-- DESCRIPTION Section -->
-      <text x="0" y="150" font-family="monospace" font-size="14" fill="#6366f1" font-weight="bold">DESCRIPTION</text>
-      <text x="50" y="170" font-family="monospace" font-size="14" fill="white">The following areas are currently in focus:</text>
+      <text x="0" y="150" font-family="monospace" font-size="22" fill="#6366f1" font-weight="bold">DESCRIPTION</text>
+      <text x="50" y="170" font-family="monospace" font-size="20" fill="white">The following areas are currently in focus:</text>
       
-      <text x="70" y="200" font-family="monospace" font-size="14" fill="white" font-weight="bold">• AI &amp; MACHINE LEARNING</text>
-      <text x="90" y="220" font-family="monospace" font-size="12" fill="white" opacity="0.8">LLMs, Computer Vision, Neural Networks &amp; Agents</text>
+      <text x="70" y="200" font-family="monospace" font-size="20" fill="white" font-weight="bold">• AI &amp; MACHINE LEARNING</text>
+      <text x="90" y="220" font-family="monospace" font-size="16" fill="white" opacity="0.8">LLMs, Computer Vision, Neural Networks &amp; Agents</text>
       
-      <text x="70" y="240" font-family="monospace" font-size="14" fill="white" font-weight="bold">• WEB DEVELOPMENT</text>
-      <text x="90" y="260" font-family="monospace" font-size="12" fill="white" opacity="0.8">Modern, high-performance, responsive applications</text>
+      <text x="70" y="240" font-family="monospace" font-size="20" fill="white" font-weight="bold">• WEB DEVELOPMENT</text>
+      <text x="90" y="260" font-family="monospace" font-size="16" fill="white" opacity="0.8">Modern, high-performance, responsive applications</text>
       
-      <text x="70" y="280" font-family="monospace" font-size="14" fill="white" font-weight="bold">• OPEN SOURCE</text>
-      <text x="90" y="300" font-family="monospace" font-size="12" fill="white" opacity="0.8">Contributing, maintaining, and scaling core modules</text>
+      <text x="70" y="280" font-family="monospace" font-size="20" fill="white" font-weight="bold">• OPEN SOURCE</text>
+      <text x="90" y="300" font-family="monospace" font-size="16" fill="white" opacity="0.8">Contributing, maintaining, and scaling core modules</text>
       
-      <text x="70" y="320" font-family="monospace" font-size="14" fill="white" font-weight="bold">• CYBERSECURITY</text>
-      <text x="90" y="340" font-family="monospace" font-size="12" fill="white" opacity="0.8">Ethical hacking, privacy, and network defense protocols</text>
+      <text x="70" y="320" font-family="monospace" font-size="20" fill="white" font-weight="bold">• CYBERSECURITY</text>
+      <text x="90" y="340" font-family="monospace" font-size="16" fill="white" opacity="0.8">Ethical hacking, privacy, and network defense protocols</text>
       
-      <text x="70" y="360" font-family="monospace" font-size="14" fill="white" font-weight="bold">• LINUX &amp; HOMELAB</text>
-      <text x="90" y="380" font-family="monospace" font-size="12" fill="white" opacity="0.8">Self-hosted infrastructure and system level automation</text>
+      <text x="70" y="360" font-family="monospace" font-size="20" fill="white" font-weight="bold">• LINUX &amp; HOMELAB</text>
+      <text x="90" y="380" font-family="monospace" font-size="16" fill="white" opacity="0.8">Self-hosted infrastructure and system level automation</text>
       
-      <text x="70" y="400" font-family="monospace" font-size="14" fill="white" font-weight="bold">• CLOUD &amp; DEVOPS</text>
-      <text x="90" y="420" font-family="monospace" font-size="12" fill="white" opacity="0.8">Containers, K8s, CI/CD pipes, and scalable architecture</text>
+      <text x="70" y="400" font-family="monospace" font-size="20" fill="white" font-weight="bold">• CLOUD &amp; DEVOPS</text>
+      <text x="90" y="420" font-family="monospace" font-size="16" fill="white" opacity="0.8">Containers, K8s, CI/CD pipes, and scalable architecture</text>
     </g>
   </g>
 
