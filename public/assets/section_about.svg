@@ -55,7 +55,7 @@
     <g transform="translate(0, 40)">
       <!-- ASCII Art on Left -->
       <g transform="translate(0, 0)">
-        <text x="0" y="0" font-family="monospace" font-size="14" fill="#6366f1" xml:space="preserve" style="white-space: pre; line-height: 1.2;">
+        <text x="0" y="0" font-family="monospace" font-size="15" fill="#6366f1" xml:space="preserve" style="white-space: pre; line-height: 1.2;">
           <tspan x="0" dy="1.2em">oooooooooooooo              oooooooooooooo</tspan>
           <tspan x="0" dy="1.2em">`oooooooooooooo            oooooooooooooo`</tspan>
           <tspan x="0" dy="1.2em"> `oooooooooooooo          oooooooooooooo`</tspan>
@@ -82,7 +82,7 @@
       
       <!-- Info on Right -->
       <g transform="translate(400, 20)">
-        <text font-family="monospace" font-size="16" fill="white">
+        <text font-family="monospace" font-size="17" fill="white">
           <tspan fill="#6366f1">Name:</tspan> VoxDroid
           <tspan x="0" dy="20" fill="#6366f1">GitHub:</tspan> github.com/VoxDroid
           <tspan x="0" dy="20" fill="#6366f1">Education:</tspan> Computer Science
