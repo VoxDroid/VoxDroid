@@ -56,27 +56,27 @@
       <!-- ASCII Art on Left -->
       <g transform="translate(0, 0)">
         <text x="0" y="0" font-family="monospace" font-size="15" fill="#6366f1" xml:space="preserve" style="white-space: pre; line-height: 1.2;">
-          <tspan x="0" dy="1.2em">oooooooooooooo              oooooooooooooo</tspan>
-          <tspan x="0" dy="1.2em">`oooooooooooooo            oooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em"> `oooooooooooooo          oooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">  `oooooooooooooo        oooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">   `oooooooooooooo      oooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">    `oooooooooooooo    oooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">     `oooooooooooooo  oooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">      `oooooooooooooooooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">       `oooooooooooooooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">        `oooooooooooooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">         `oooooooooooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">          `oooooooooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">           `oooooooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">            `oooooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">             `oooooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">              `oooooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">               `oooooooooo`</tspan>
-          <tspan x="0" dy="1.2em">                `oooooooo`</tspan>
-          <tspan x="0" dy="1.2em">                 `oooooo`</tspan>
-          <tspan x="0" dy="1.2em">                  `oooo`</tspan>
-          <tspan x="0" dy="1.2em">                   `oo`</tspan>
+          <tspan x="0" dy="1.2em">oooooooooooooo              oooooooooooooo<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.000s;8.000s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="8.000s;16.000s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">`oooooooooooooo            oooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.095s;8.095s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.905s;15.905s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em"> `oooooooooooooo          oooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.190s;8.190s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.810s;15.810s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">  `oooooooooooooo        oooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.286s;8.286s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.714s;15.714s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">   `oooooooooooooo      oooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.381s;8.381s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.619s;15.619s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">    `oooooooooooooo    oooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.476s;8.476s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.524s;15.524s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">     `oooooooooooooo  oooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.571s;8.571s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.429s;15.429s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">      `oooooooooooooooooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.667s;8.667s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.333s;15.333s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">       `oooooooooooooooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.762s;8.762s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.238s;15.238s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">        `oooooooooooooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.857s;8.857s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.143s;15.143s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">         `oooooooooooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="0.952s;8.952s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="7.048s;15.048s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">          `oooooooooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.048s;9.048s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.952s;14.952s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">           `oooooooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.143s;9.143s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.857s;14.857s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">            `oooooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.238s;9.238s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.762s;14.762s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">             `oooooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.333s;9.333s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.667s;14.667s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">              `oooooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.429s;9.429s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.571s;14.571s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">               `oooooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.524s;9.524s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.476s;14.476s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">                `oooooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.619s;9.619s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.381s;14.381s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">                 `oooooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.714s;9.714s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.286s;14.286s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">                  `oooo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.810s;9.810s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.190s;14.190s" repeatCount="indefinite" /></tspan>
+          <tspan x="0" dy="1.2em">                   `oo`<animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="1.905s;9.905s" repeatCount="indefinite" /><animate attributeName="fill" values="#6366f1;#8a8df6;#6366f1" dur="0.1s" begin="6.095s;14.095s" repeatCount="indefinite" /></tspan>
         </text>
       </g>
       
