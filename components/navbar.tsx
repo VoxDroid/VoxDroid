@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, Sun, Moon, Github, Terminal } from "lucide-react"
@@ -61,10 +61,76 @@ export default function Navbar() {
     }
   }, [mounted, setTheme])
 
-  // Check if current path matches link
+  // Track active href and a persistent highlight element that measures the active link
+  const [activeHref, setActiveHref] = useState(pathname)
+  const navRef = useRef<HTMLDivElement | null>(null)
+  const [highlightStyle, setHighlightStyle] = useState({ left: 0, width: 0, top: 0, height: 0, visible: false })
+
+  // Update activeHref after the route change settles (small delay via RAF)
+  useEffect(() => {
+    let raf1 = 0
+    let raf2 = 0
+    raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => setActiveHref(pathname))
+    })
+    return () => {
+      cancelAnimationFrame(raf1)
+      cancelAnimationFrame(raf2)
+    }
+  }, [pathname])
+
+  // Measure and update highlight position/size whenever the active href or layout changes
+  useEffect(() => {
+    if (!navRef.current) return
+
+    let mounted = true
+    const update = () => {
+      if (!mounted || !navRef.current) return
+      const activeEl = navRef.current.querySelector(`[data-href="${activeHref}"]`) as HTMLElement | null
+      if (!activeEl) {
+        setHighlightStyle((s) => ({ ...s, visible: false }))
+        return
+      }
+
+      const navRect = navRef.current.getBoundingClientRect()
+      const elRect = activeEl.getBoundingClientRect()
+
+      const left = elRect.left - navRect.left + (navRef.current.scrollLeft || 0)
+      const top = elRect.top - navRect.top
+      const width = Math.max(0, elRect.width)
+      const height = Math.max(0, elRect.height)
+
+      // use RAF to ensure measurements are applied on next paint
+      requestAnimationFrame(() => {
+        if (!mounted) return
+        setHighlightStyle({ left, top, width, height, visible: true })
+      })
+    }
+
+    update()
+
+    const ro = new ResizeObserver(update)
+    ro.observe(navRef.current)
+
+    window.addEventListener("resize", update)
+    window.addEventListener("orientationchange", update)
+    const onFocusIn = (e: FocusEvent) => {
+      if (navRef.current && navRef.current.contains(e.target as Node)) update()
+    }
+    window.addEventListener("focusin", onFocusIn)
+
+    return () => {
+      mounted = false
+      ro.disconnect()
+      window.removeEventListener("resize", update)
+      window.removeEventListener("orientationchange", update)
+      window.removeEventListener("focusin", onFocusIn)
+    }
+  }, [activeHref])
+
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/"
-    return pathname.startsWith(href)
+    if (href === "/") return activeHref === "/"
+    return activeHref.startsWith(href)
   }
 
   return (
@@ -93,24 +159,24 @@ export default function Navbar() {
 
           {/* Desktop Navigation - Terminal Style with Sliding Indicator */}
           <nav className="hidden md:flex items-center">
-            <div className="flex items-center bg-gray-100 dark:bg-[#161b22] rounded-lg p-1 border border-gray-200 dark:border-gray-700/50">
+            <div ref={navRef} className="relative flex items-center bg-gray-100 dark:bg-[#161b22] rounded-lg p-1 border border-gray-200 dark:border-gray-700/50">
+              <motion.div
+                className="absolute bg-green-600 dark:bg-green-600 rounded-full z-0"
+                style={{ left: highlightStyle.left, width: highlightStyle.width, top: highlightStyle.top, height: highlightStyle.height, opacity: highlightStyle.visible ? 1 : 0 }}
+                animate={highlightStyle.visible ? { left: highlightStyle.left, width: highlightStyle.width, top: highlightStyle.top, height: highlightStyle.height, opacity: 1 } : { opacity: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative ${link.href === "/" ? "px-7" : "px-3"} py-1.5 font-mono text-sm transition-colors duration-200 rounded-md ${
+                  data-href={link.href}
+                  className={`relative z-10 ${link.href === "/" ? "px-7" : "px-3"} py-1.5 font-mono text-sm transition-colors duration-200 rounded-md ${
                     isActive(link.href)
                       ? "text-white"
                       : "text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400"
                   }`}
                 >
-                  {isActive(link.href) && (
-                    <motion.div
-                      layoutId="activeNavBg"
-                      className="absolute inset-0 bg-green-600 dark:bg-green-600 rounded-full"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
                   <span className="relative z-10">{link.label}</span>
                 </Link>
               ))}
