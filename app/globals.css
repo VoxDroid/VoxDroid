@@ -1,6 +1,13 @@
+@import "highlight.js/styles/github-dark.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
   --foreground-rgb: 15, 23, 42;
@@ -372,3 +379,155 @@ body {
   animation: gradient-shift 3s ease infinite;
 }
 
+/* README Content Styles */
+.readme-content {
+  @apply text-foreground leading-relaxed;
+}
+
+/* Badge images should stay inline */
+.readme-content p > a > img,
+.readme-content p > img[src*="shields.io"],
+.readme-content p > img[src*="badge"],
+.readme-content p > a > img[src*="shields.io"],
+.readme-content p > a > img[src*="badge"] {
+  @apply inline-block my-0 rounded-none shadow-none align-middle;
+}
+
+/* Regular images are block */
+.readme-content img {
+  @apply max-w-full h-auto;
+}
+
+/* Block images (not in links or not badges) */
+.readme-content > p > img:only-child,
+.readme-content > img {
+  @apply block rounded-lg my-4 shadow-md;
+}
+
+.readme-content pre {
+  @apply bg-[#0d1117] dark:bg-[#0d1117] text-gray-100 rounded-lg p-4 overflow-x-auto my-4 text-sm border border-gray-700/50;
+}
+
+.readme-content pre code {
+  @apply bg-transparent p-0 text-inherit font-mono text-sm;
+  background: none !important;
+}
+
+.readme-content code {
+  @apply bg-gray-200/80 dark:bg-gray-700/80 text-pink-600 dark:text-pink-400 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.readme-content table {
+  @apply w-full border-collapse my-4;
+}
+
+.readme-content th,
+.readme-content td {
+  @apply border border-gray-300 dark:border-gray-700 px-4 py-2 text-left;
+}
+
+.readme-content th {
+  @apply bg-gray-100 dark:bg-gray-800 font-semibold;
+}
+
+.readme-content blockquote {
+  @apply border-l-4 border-primary pl-4 my-4 italic text-accent-dark dark:text-accent-light bg-gray-50 dark:bg-gray-800/50 py-2 pr-4 rounded-r;
+}
+
+.readme-content h1 {
+  @apply text-3xl font-bold mt-8 mb-4 pb-2 border-b border-gray-200 dark:border-gray-700;
+}
+
+.readme-content h2 {
+  @apply text-2xl font-bold mt-6 mb-3 pb-2 border-b border-gray-200 dark:border-gray-700;
+}
+
+.readme-content h3 {
+  @apply text-xl font-bold mt-5 mb-2;
+}
+
+.readme-content h4 {
+  @apply text-lg font-bold mt-4 mb-2;
+}
+
+.readme-content ul {
+  @apply list-disc list-inside my-4 space-y-1 ml-2;
+}
+
+.readme-content ol {
+  @apply list-decimal list-inside my-4 space-y-1 ml-2;
+}
+
+.readme-content li {
+  @apply text-accent-dark dark:text-accent-light;
+}
+
+.readme-content p {
+  @apply my-3 leading-relaxed;
+}
+
+.readme-content hr {
+  @apply my-6 border-gray-200 dark:border-gray-700;
+}
+
+.readme-content a {
+  @apply text-primary hover:text-primary-light;
+}
+
+/* Links with images (badges) should not have underline */
+.readme-content a:has(img) {
+  @apply no-underline;
+}
+
+/* Syntax highlighting overrides for readme */
+.readme-content .hljs {
+  @apply bg-transparent;
+  background: transparent !important;
+}
+
+.readme-content pre .hljs {
+  background: transparent !important;
+}
+
+/* KaTeX math styling */
+.readme-content .katex-display {
+  @apply my-4 overflow-x-auto;
+}
+
+.readme-content .katex {
+  @apply text-foreground;
+}
+
+/* Anchor link styling for headings */
+.readme-content h1,
+.readme-content h2,
+.readme-content h3,
+.readme-content h4,
+.readme-content h5,
+.readme-content h6 {
+  scroll-margin-top: 100px; /* Account for fixed header */
+}
+
+.readme-content h1[id],
+.readme-content h2[id],
+.readme-content h3[id],
+.readme-content h4[id],
+.readme-content h5[id],
+.readme-content h6[id] {
+  @apply relative;
+}
+
+/* Target highlight when navigating to anchor */
+.readme-content :target {
+  @apply outline-none;
+  animation: highlight-fade 2s ease-out;
+}
+
+@keyframes highlight-fade {
+  0% {
+    background-color: rgba(99, 102, 241, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
