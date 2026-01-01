@@ -6,12 +6,11 @@
     <pattern id="chevronPatternFocus" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 10 10 L 20 20 L 10 30" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.08" />
     </pattern>
-    <rect id="moduleBaseHero" width="340" height="120" rx="4" fill="#0a0a0a" stroke="#6366f1" stroke-width="0.5" stroke-opacity="0.2" />
   </defs>
 
   <rect width="1200" height="550" fill="url(#chevronPatternFocus)" />
   
-  <!-- Terminal Session Text from Session -->
+  <!-- Terminal Session Text from Session (Background noise) -->
   <g font-family="'JetBrains Mono', monospace" font-size="10" fill="white" opacity="0.03">
     <text x="20" y="55">voxdroid@linux:~$ uname -a</text>
     <text x="20" y="75">Linux voxdroid 5.15.0-91-generic #101-Ubuntu SMP Tue Nov 14 13:30:08 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux</text>
@@ -34,69 +33,93 @@
     <circle cx="24" cy="0" r="6" fill="#ffbd2e" />
     <circle cx="48" cy="0" r="6" fill="#27c93f" />
   </g>
-  <text x="600" y="25" text-anchor="middle" font-family="monospace" font-size="12" fill="white" opacity="0.3">voxdroid@linux:~/focus$</text>
-  
-  <!-- Content Container -->
-  <g transform="translate(60, 70)">
-    <!-- Section Indicator -->
-    <g transform="translate(0, -20)">
-      <path d="M 0 0 L 220 0 L 240 15 L 220 30 L 0 30 Z" fill="#6366f1" opacity="0.2" />
-      <text x="15" y="20" font-family="'JetBrains Mono', monospace" font-size="24" fill="#6366f1" font-weight="bold">~/current_focus</text>
-    </g>
+  <text x="600" y="25" text-anchor="middle" font-family="monospace" font-size="12" fill="white" opacity="0.3">voxdroid@linux: ~</text>
 
-    <!-- Command Prompt -->
-    <g transform="translate(0, 35)">
-      <text font-family="monospace" font-size="14" fill="white">$ focus --current</text>
-    </g>
+  <!-- Animation Logic -->
+  <!-- 
+    Loop Duration: 8s
+    0s - 1s: Idle prompt
+    1s - 2.5s: Typing "man focus"
+    2.5s - 3s: Wait
+    3s: Switch to Man Page
+    3s - 8s: Read Man Page
+    8s: Reset
+  -->
 
-    <!-- Man Page Style Layout -->
-    <g transform="translate(50, 50)">
-      <!-- Header -->
-      <text x="0" y="10" font-family="monospace" font-size="24" fill="white" font-weight="bold">FOCUS(1)</text>
-      <text x="500" y="10" font-family="monospace" font-size="24" fill="white" font-weight="bold" text-anchor="middle">VoxDroid Manual</text>
-      <text x="1000" y="10" font-family="monospace" font-size="24" fill="white" font-weight="bold" text-anchor="end">FOCUS(1)</text>
-      
-      <!-- NAME Section -->
-      <text x="0" y="50" font-family="monospace" font-size="22" fill="#6366f1" font-weight="bold">NAME</text>
-      <text x="50" y="70" font-family="monospace" font-size="20" fill="white">focus - display current areas of expertise and interest</text>
-      
-      <!-- SYNOPSIS Section -->
-      <text x="0" y="100" font-family="monospace" font-size="22" fill="#6366f1" font-weight="bold">SYNOPSIS</text>
-      <text x="50" y="120" font-family="monospace" font-size="20" fill="white">focus [option]</text>
-      
-      <!-- DESCRIPTION Section -->
-      <text x="0" y="150" font-family="monospace" font-size="22" fill="#6366f1" font-weight="bold">DESCRIPTION</text>
-      <text x="50" y="170" font-family="monospace" font-size="20" fill="white">The following areas are currently in focus:</text>
-      
-      <text x="70" y="200" font-family="monospace" font-size="20" fill="white" font-weight="bold">• AI &amp; MACHINE LEARNING</text>
-      <text x="90" y="220" font-family="monospace" font-size="16" fill="white" opacity="0.8">LLMs, Computer Vision, Neural Networks &amp; Agents</text>
-      
-      <text x="70" y="240" font-family="monospace" font-size="20" fill="white" font-weight="bold">• WEB DEVELOPMENT</text>
-      <text x="90" y="260" font-family="monospace" font-size="16" fill="white" opacity="0.8">Modern, high-performance, responsive applications</text>
-      
-      <text x="70" y="280" font-family="monospace" font-size="20" fill="white" font-weight="bold">• OPEN SOURCE</text>
-      <text x="90" y="300" font-family="monospace" font-size="16" fill="white" opacity="0.8">Contributing, maintaining, and scaling core modules</text>
-      
-      <text x="70" y="320" font-family="monospace" font-size="20" fill="white" font-weight="bold">• CYBERSECURITY</text>
-      <text x="90" y="340" font-family="monospace" font-size="16" fill="white" opacity="0.8">Ethical hacking, privacy, and network defense protocols</text>
-      
-      <text x="70" y="360" font-family="monospace" font-size="20" fill="white" font-weight="bold">• LINUX &amp; HOMELAB</text>
-      <text x="90" y="380" font-family="monospace" font-size="16" fill="white" opacity="0.8">Self-hosted infrastructure and system level automation</text>
-      
-      <text x="70" y="400" font-family="monospace" font-size="20" fill="white" font-weight="bold">• CLOUD &amp; DEVOPS</text>
-      <text x="90" y="420" font-family="monospace" font-size="16" fill="white" opacity="0.8">Containers, K8s, CI/CD pipes, and scalable architecture</text>
-    </g>
+  <!-- Screen 1: Prompt -->
+  <g id="prompt-screen" transform="translate(50, 80)">
+    <!-- Visibility: Visible 0-3s, Hidden 3-8s -->
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.375;0.376;0.999;1" dur="8s" repeatCount="indefinite" />
+    
+    <text x="0" y="20" font-family="'JetBrains Mono', monospace" font-size="24" fill="#27c93f">voxdroid@linux:~$ <tspan fill="white">man focus</tspan></text>
+    
+    <!-- Masking rect for typing effect -->
+    <rect x="225" y="0" width="165" height="30" fill="#050505" opacity="1">
+       <!-- 
+         Start at 1s (0.125), End at 2.7s (0.334). 
+         10 steps.
+       -->
+       <animate attributeName="x" 
+                values="225;225;239;253;267;281;295;309;323;337;351;365;365" 
+                keyTimes="0;0.125;0.146;0.167;0.188;0.208;0.229;0.250;0.271;0.292;0.313;0.334;1" 
+                dur="8s" 
+                repeatCount="indefinite" 
+                calcMode="discrete" />
+    </rect>
+    
+    <!-- Cursor -->
+    <rect x="225" y="0" width="12" height="24" fill="white">
+        <animate attributeName="x" 
+                 values="225;225;239;253;267;281;295;309;323;337;351;365;365" 
+                 keyTimes="0;0.125;0.146;0.167;0.188;0.208;0.229;0.250;0.271;0.292;0.313;0.334;1" 
+                 dur="8s" 
+                 repeatCount="indefinite" 
+                 calcMode="discrete" />
+        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+    </rect>
   </g>
 
-  <!-- Terminal Top Bar -->
-  <rect width="1200" height="40" fill="#000" />
-  <g transform="translate(30, 20)">
-    <circle cx="0" cy="0" r="6" fill="#ff5f56" />
-    <circle cx="24" cy="0" r="6" fill="#ffbd2e" />
-    <circle cx="48" cy="0" r="6" fill="#27c93f" />
+  <!-- Screen 2: Man Page -->
+  <g id="man-page" transform="translate(50, 80)" opacity="0">
+    <!-- Visibility: Hidden 0-3s, Visible 3-8s -->
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.375;0.376;0.999;1" dur="8s" repeatCount="indefinite" />
+
+    <!-- Header -->
+    <text x="0" y="10" font-family="monospace" font-size="24" fill="white" font-weight="bold">FOCUS(1)</text>
+    <text x="500" y="10" font-family="monospace" font-size="24" fill="white" font-weight="bold" text-anchor="middle">VoxDroid Manual</text>
+    <text x="1000" y="10" font-family="monospace" font-size="24" fill="white" font-weight="bold" text-anchor="end">FOCUS(1)</text>
+    
+    <!-- NAME Section -->
+    <text x="0" y="50" font-family="monospace" font-size="22" fill="#6366f1" font-weight="bold">NAME</text>
+    <text x="50" y="70" font-family="monospace" font-size="20" fill="white">focus - display current areas of expertise and interest</text>
+    
+    <!-- SYNOPSIS Section -->
+    <text x="0" y="100" font-family="monospace" font-size="22" fill="#6366f1" font-weight="bold">SYNOPSIS</text>
+    <text x="50" y="120" font-family="monospace" font-size="20" fill="white">focus [option]</text>
+    
+    <!-- DESCRIPTION Section -->
+    <text x="0" y="150" font-family="monospace" font-size="22" fill="#6366f1" font-weight="bold">DESCRIPTION</text>
+    <text x="50" y="170" font-family="monospace" font-size="20" fill="white">The following areas are currently in focus:</text>
+    
+    <text x="70" y="200" font-family="monospace" font-size="20" fill="white" font-weight="bold">• AI &amp; MACHINE LEARNING</text>
+    <text x="90" y="220" font-family="monospace" font-size="16" fill="white" opacity="0.8">LLMs, Computer Vision, Neural Networks &amp; Agents</text>
+    
+    <text x="70" y="240" font-family="monospace" font-size="20" fill="white" font-weight="bold">• WEB DEVELOPMENT</text>
+    <text x="90" y="260" font-family="monospace" font-size="16" fill="white" opacity="0.8">Modern, high-performance, responsive applications</text>
+    
+    <text x="70" y="280" font-family="monospace" font-size="20" fill="white" font-weight="bold">• OPEN SOURCE</text>
+    <text x="90" y="300" font-family="monospace" font-size="16" fill="white" opacity="0.8">Contributing, maintaining, and scaling core modules</text>
+    
+    <text x="70" y="320" font-family="monospace" font-size="20" fill="white" font-weight="bold">• CYBERSECURITY</text>
+    <text x="90" y="340" font-family="monospace" font-size="16" fill="white" opacity="0.8">Ethical hacking, privacy, and network defense protocols</text>
+    
+    <text x="70" y="360" font-family="monospace" font-size="20" fill="white" font-weight="bold">• LINUX &amp; HOMELAB</text>
+    <text x="90" y="380" font-family="monospace" font-size="16" fill="white" opacity="0.8">Self-hosted infrastructure and system level automation</text>
+    
+    <text x="70" y="400" font-family="monospace" font-size="20" fill="white" font-weight="bold">• CLOUD &amp; DEVOPS</text>
+    <text x="90" y="420" font-family="monospace" font-size="16" fill="white" opacity="0.8">Containers, K8s, CI/CD pipes, and scalable architecture</text>
   </g>
-  <text x="600" y="25" text-anchor="middle" font-family="monospace" font-size="12" fill="white" opacity="0.3">vox-terminal — zsh — 120x40</text>
-  
+
   <!-- Bottom Status Bar -->
   <rect x="0" y="560" width="1200" height="40" fill="#000" />
   <text x="30" y="585" font-family="monospace" font-size="12" fill="#27c93f" opacity="0.6">λ SYST_OK</text>

@@ -1,5 +1,6 @@
-<svg width="1200" height="200" viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="200" fill="#050505" />
+<svg width="1200" height="240" viewBox="0 0 1200 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="240" fill="#050505" />
   
   <defs>
     <pattern id="chevronPatternFooter" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -7,9 +8,9 @@
     </pattern>
   </defs>
 
-  <rect width="1200" height="200" fill="url(#chevronPatternFooter)" />
+  <rect width="1200" height="240" fill="url(#chevronPatternFooter)" />
   
-  <!-- Terminal Session Text from Session -->
+  <!-- Background Noise -->
   <g font-family="'JetBrains Mono', monospace" font-size="10" fill="white" opacity="0.03">
     <text x="20" y="55">git clone https://github.com/voxdroid/core.git</text>
     <text x="20" y="75">Cloning into 'core'...</text>
@@ -23,7 +24,7 @@
     <text x="20" y="235">[ZSH] Loading vox-shell extensions...</text>
   </g>
 
-  <!-- Terminal Top Bar -->
+  <!-- Top Bar -->
   <rect width="1200" height="40" fill="#000" />
   <g transform="translate(30, 20)">
     <circle cx="0" cy="0" r="6" fill="#ff5f56" />
@@ -32,13 +33,89 @@
   </g>
   <text x="600" y="25" text-anchor="middle" font-family="monospace" font-size="12" fill="white" opacity="0.3">vox-terminal — zsh — 120x40</text>
 
-  <g transform="translate(600, 100)">
-    <text text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="36" fill="#6366f1" font-weight="bold">VOXDROID.CORE</text>
-    <text y="35" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="14" fill="white" opacity="0.3">SYSTEM_LOGOUT_SUCCESSFUL // REPO_VISIT_ACKNOWLEDGED</text>
+  <!-- Animation Container -->
+  <!-- Centering: 1200 width. Content is roughly 253px wide. Start at 474. -->
+  <g transform="translate(474, 80)"> 
+      <!-- Scroll Animation: Move up at 2.5s to accommodate output. Reset to 80 when hidden (5.5s-9.5s) -->
+      <animateTransform attributeName="transform" type="translate"
+                        values="474,80;474,80;474,50;474,50;474,80;474,80"
+                        keyTimes="0;0.25;0.26;0.55;0.95;1"
+                        dur="10s" repeatCount="indefinite" />
+
+      <!-- Phase 1: Terminal Interaction -->
+      <g id="terminal-interaction">
+          <!-- Visible 0-5s, Hidden 5-10s -->
+          <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.5;0.55;0.95;1" dur="10s" repeatCount="indefinite" />
+          
+          <!-- Prompt Line -->
+          <text x="0" y="20" font-family="'JetBrains Mono', monospace" font-size="20" fill="#27c93f">voxdroid@linux:~$</text>
+          
+          <!-- Command 'exit' - Explicitly positioned to ensure mask alignment -->
+          <text x="205" y="20" font-family="'JetBrains Mono', monospace" font-size="20" fill="white">exit</text>
+
+          <!-- Typing Mask for 'exit' -->
+          <rect x="205" y="0" width="60" height="30" fill="#050505" opacity="1">
+              <!-- Type 'exit' (4 chars) from 1s to 2s. Reset to start pos when hidden (5.6s) -->
+              <animate attributeName="x" values="205;205;217;229;241;253;253;205;205" keyTimes="0;0.1;0.125;0.15;0.175;0.2;0.55;0.56;1" dur="10s" repeatCount="indefinite" calcMode="discrete" />
+          </rect>
+          
+          <!-- Cursor 1: Types 'exit' -->
+          <rect x="205" y="0" width="12" height="24" fill="white">
+              <!-- Move with typing. Reset to start pos when hidden (5.6s) -->
+              <animate attributeName="x" values="205;205;217;229;241;253;253;205;205" keyTimes="0;0.1;0.125;0.15;0.175;0.2;0.55;0.56;1" dur="10s" repeatCount="indefinite" calcMode="discrete" />
+              <!-- Blink Logic: 
+                   0-2s: Blink (8 toggles)
+                   2s-2.5s: Solid (Wait for enter)
+                   2.5s-10s: Hidden (Moved to next line)
+              -->
+              <animate attributeName="opacity" 
+                       values="1;0;1;0;1;0;1;0;1; 1; 0;0" 
+                       keyTimes="0; 0.025; 0.05; 0.075; 0.1; 0.125; 0.15; 0.175; 0.2; 0.25; 0.26; 1" 
+                       dur="10s" repeatCount="indefinite" />
+          </rect>
+
+          <!-- Output & New Prompt (Sequential Display) -->
+          <g>
+              <!-- Line 1: logout (2.5s) -->
+              <text x="0" y="50" font-family="'JetBrains Mono', monospace" font-size="16" fill="white" opacity="0">
+                  logout
+                  <!-- Reset opacity to 0 when hidden (at 5.5s) so it doesn't show up during fade-in at 9.5s -->
+                  <animate attributeName="opacity" values="0;0;0.8;0.8;0;0" keyTimes="0;0.25;0.26;0.55;0.56;1" dur="10s" repeatCount="indefinite" />
+              </text>
+
+              <!-- Line 2: Connection... (3.0s) -->
+              <text x="0" y="75" font-family="'JetBrains Mono', monospace" font-size="16" fill="white" opacity="0">
+                  Connection to localhost closed.
+                  <animate attributeName="opacity" values="0;0;0.8;0.8;0;0" keyTimes="0;0.30;0.31;0.55;0.56;1" dur="10s" repeatCount="indefinite" />
+              </text>
+              
+              <!-- New Prompt (3.5s) -->
+              <g opacity="0">
+                  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.35;0.36;0.55;0.56;1" dur="10s" repeatCount="indefinite" />
+                  
+                  <text x="0" y="105" font-family="'JetBrains Mono', monospace" font-size="20" fill="#27c93f">voxdroid@linux:~$</text>
+                  
+                  <!-- Cursor 2: Blinking at new prompt -->
+                  <rect x="205" y="85" width="12" height="24" fill="white">
+                      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+                  </rect>
+              </g>
+          </g>
+      </g>
+  </g>
+
+  <!-- Phase 2: Logo (The "Exit" Screen) -->
+  <!-- Centered absolutely at 600, 120. -->
+  <g id="logo-screen" opacity="0" transform="translate(600, 120)"> 
+      <!-- Show at 5s -->
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.5;0.55;0.95;1" dur="10s" repeatCount="indefinite" />
+      
+      <text text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="36" fill="#6366f1" font-weight="bold">VOXDROID.CORE</text>
+      <text y="35" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="14" fill="white" opacity="0.3">SYSTEM_LOGOUT_SUCCESSFUL // REPO_VISIT_ACKNOWLEDGED</text>
   </g>
 
   <!-- Bottom Status Bar -->
-  <rect x="0" y="160" width="1200" height="40" fill="#000" />
-  <text x="30" y="185" font-family="monospace" font-size="12" fill="#27c93f" opacity="0.6">λ SYST_OK</text>
-  <text x="1170" y="185" text-anchor="end" font-family="monospace" font-size="12" fill="white" opacity="0.3">© 2025 VoxDroid — Intelligence Infrastructure</text>
+  <rect x="0" y="200" width="1200" height="40" fill="#000" />
+  <text x="30" y="225" font-family="monospace" font-size="12" fill="#27c93f" opacity="0.6">λ SYST_OK</text>
+  <text x="1170" y="225" text-anchor="end" font-family="monospace" font-size="12" fill="white" opacity="0.3">© 2025 VoxDroid — Intelligence Infrastructure</text>
 </svg>

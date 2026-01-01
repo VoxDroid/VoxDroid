@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+  <img src="public/assets/divider.svg" width="100%" alt="Divider" />
+</p>
+
+<p align="center">
   <img src="https://komarev.com/ghpvc/?username=VoxDroid&label=Profile%20views&color=667eea&style=for-the-badge" alt="Profile Views" />
   <img src="https://img.shields.io/github/stars/VoxDroid?label=Stars&style=for-the-badge&color=f093fb" alt="Stars" />
 </p>
@@ -29,13 +33,19 @@
   <img src="public/assets/section_about.svg" width="100%" alt="About Me" />
 </p>
 
+<p align="center">
+  <img src="public/assets/divider.svg" width="100%" alt="Divider" />
+</p>
+
 <!-- Current Focus Section -->
 
 <p align="center">
   <img src="public/assets/section_focus.svg" width="100%" alt="Current Focus" />
 </p>
 
-<!-- Table of Contents -->
+<p align="center">
+  <img src="public/assets/divider.svg" width="100%" alt="Divider" />
+</p>
 
 <!-- Table of Contents -->
 <h2 align="center">Table of Contents</h2>
@@ -535,7 +545,9 @@ Last Updated: Wednesday, December 31, 2025 at 12:22:12 PM
   
 </div>
 
-<br>
+<p align="center">
+  <img src="public/assets/divider.svg" width="100%" alt="Divider" />
+</p>
 
 <p align="center">
   <img src="public/assets/section_footer.svg" width="100%" alt="Footer" />
