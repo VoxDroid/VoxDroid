@@ -405,7 +405,7 @@ body {
 }
 
 .readme-content pre {
-  @apply bg-[#0d1117] dark:bg-[#0d1117] text-gray-100 rounded-lg p-4 overflow-x-auto my-4 text-sm border border-gray-700/50;
+  @apply bg-gray-100 dark:bg-[#0d1117] text-gray-800 dark:text-gray-100 rounded-lg p-4 overflow-x-auto my-4 text-sm border border-gray-200 dark:border-gray-700/50;
 }
 
 .readme-content pre code {

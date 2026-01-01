@@ -34,7 +34,7 @@ export const githubRepos: string[] = [
   "VoxDroid/ZapisAxis",
   "VoxDroid/VoxSpace",
   "VoxDroid/llm-wikipedia",
-  "VoxDroid/VoxDroid"
+  "VoxDroid/VoxDroid",
 ]
 
 // Custom overrides for specific repos (optional)
@@ -218,5 +218,8 @@ export const screenshotPaths: Record<string, string[]> = {
     "/project_screenshots/A300S/A300S-2.png",
     "/project_screenshots/A300S/A300S-3.png",
     "/project_screenshots/A300S/A300S-4.png",
+  ],
+  "VoxDroid/VoxSpace": [
+    "/project_screenshots/VoxSpace/VoxSpace-1.png",
   ],
 }

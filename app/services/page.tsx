@@ -1,409 +1,504 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Code, Layout, Server, Smartphone, Database, Search, Zap, Layers, ChevronDown, CheckCircle } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import SectionHeader from "@/components/section-header"
-import AnimatedBackground from "@/components/animated-background"
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring" as const,
-      stiffness: 260,
-      damping: 20,
-    },
-  },
-}
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Globe, 
+  Monitor, 
+  Smartphone, 
+  Server, 
+  Terminal, 
+  Brain, 
+  Cpu, 
+  Network, 
+  CircuitBoard, 
+  Settings,
+  ChevronDown,
+  ChevronRight,
+  Mail,
+  CheckCircle2
+} from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
-    id: 1,
+    id: "web-dev",
     title: "Web Development",
-    description:
-      "Creating responsive, performant websites and web applications using modern technologies and frameworks.",
-    icon: Code,
+    icon: Globe,
+    category: "software",
+    description: "Modern, responsive websites and web applications built with cutting-edge technologies.",
     features: [
-      "Responsive design that works on all devices",
-      "Modern frameworks (React, Next.js, Vue.js)",
-      "Performance optimization",
-      "Accessibility compliance",
-      "SEO-friendly structure",
-      "Interactive UI elements",
+      "Responsive Design (Mobile-First)",
+      "Single Page Applications (SPA)",
+      "Progressive Web Apps (PWA)",
+      "E-commerce Solutions",
+      "Content Management Systems",
+      "SEO Optimization"
     ],
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "PHP"]
   },
   {
-    id: 2,
-    title: "UI/UX Design",
-    description: "Designing intuitive user interfaces and experiences that delight users and achieve business goals.",
-    icon: Layout,
+    id: "desktop-apps",
+    title: "Desktop Applications",
+    icon: Monitor,
+    category: "software",
+    description: "Cross-platform desktop applications with native performance and modern interfaces.",
     features: [
-      "User research and persona development",
-      "Wireframing and prototyping",
-      "Visual design and branding",
-      "Interaction design",
-      "Usability testing",
-      "Design systems creation",
+      "Cross-Platform Development",
+      "Native Performance",
+      "System Integration",
+      "Offline-First Applications",
+      "Custom Business Software",
+      "Legacy System Modernization"
     ],
+    technologies: ["Rust", "C#", "Python", "Electron", "Tauri", "Qt"]
   },
   {
-    id: 3,
-    title: "Backend Development",
-    description: "Building robust, scalable backend systems and APIs to power your applications.",
-    icon: Server,
-    features: [
-      "API development and integration",
-      "Database design and optimization",
-      "Authentication and security",
-      "Serverless functions",
-      "Microservices architecture",
-      "Performance monitoring",
-    ],
-  },
-  {
-    id: 4,
-    title: "Mobile App Development",
-    description: "Developing cross-platform mobile applications that provide native-like experiences.",
+    id: "mobile-dev",
+    title: "Mobile Development",
     icon: Smartphone,
+    category: "software",
+    description: "Native and cross-platform mobile applications for iOS and Android.",
     features: [
-      "React Native development",
-      "Cross-platform compatibility",
-      "Native device feature integration",
-      "Offline functionality",
-      "Push notifications",
-      "App store submission assistance",
+      "iOS & Android Development",
+      "Cross-Platform Solutions",
+      "App Store Optimization",
+      "Push Notifications",
+      "Offline Functionality",
+      "Payment Integration"
     ],
+    technologies: ["Flutter", "Dart", "Swift", "React Native", "Firebase"]
   },
   {
-    id: 5,
-    title: "Database Solutions",
-    description: "Designing and implementing efficient database solutions for your data needs.",
-    icon: Database,
+    id: "backend-apis",
+    title: "Backend & APIs",
+    icon: Server,
+    category: "software",
+    description: "Scalable backend systems and RESTful/GraphQL APIs for your applications.",
     features: [
-      "Database architecture design",
-      "SQL and NoSQL solutions",
-      "Data migration and integration",
-      "Performance optimization",
-      "Backup and recovery systems",
-      "Data security implementation",
+      "RESTful API Design",
+      "GraphQL Implementation",
+      "Database Design & Optimization",
+      "Authentication & Authorization",
+      "Microservices Architecture",
+      "Cloud Deployment"
     ],
+    technologies: ["Node.js", "Python", "Rust", "PostgreSQL", "MongoDB", "Docker"]
   },
   {
-    id: 6,
-    title: "SEO Optimization",
-    description: "Improving your website's visibility in search engines to drive organic traffic.",
-    icon: Search,
+    id: "automation",
+    title: "Automation & Scripting",
+    icon: Terminal,
+    category: "software",
+    description: "Custom scripts and automation tools to streamline your workflows.",
     features: [
-      "Technical SEO audit and implementation",
-      "Content optimization",
-      "Performance optimization",
-      "Schema markup implementation",
-      "SEO-friendly architecture",
-      "Analytics and reporting",
+      "Task Automation",
+      "Data Processing Pipelines",
+      "Web Scraping Solutions",
+      "CI/CD Pipeline Setup",
+      "System Administration Scripts",
+      "Batch Processing"
     ],
+    technologies: ["Python", "Bash", "PowerShell", "Rust", "GitHub Actions"]
   },
   {
-    id: 7,
-    title: "Performance Optimization",
-    description: "Boosting the speed and efficiency of your websites and applications.",
-    icon: Zap,
+    id: "ai-ml",
+    title: "AI & Machine Learning",
+    icon: Brain,
+    category: "software",
+    description: "Intelligent solutions powered by machine learning and AI technologies.",
     features: [
-      "Loading speed optimization",
-      "Code and asset optimization",
-      "Caching strategies",
-      "Database query optimization",
-      "Core Web Vitals improvement",
-      "Performance monitoring setup",
+      "Custom ML Models",
+      "Natural Language Processing",
+      "Computer Vision",
+      "Chatbot Development",
+      "Data Analysis & Visualization",
+      "AI Integration"
     ],
+    technologies: ["Python", "TensorFlow", "PyTorch", "OpenAI", "LangChain", "Pandas"]
   },
   {
-    id: 8,
-    title: "Full Stack Solutions",
-    description: "End-to-end development services covering all aspects of your project.",
-    icon: Layers,
+    id: "pc-building",
+    title: "PC Building & Repair",
+    icon: Cpu,
+    category: "hardware",
+    description: "Custom PC builds, upgrades, and repairs tailored to your needs.",
     features: [
-      "Frontend and backend integration",
-      "Database design and implementation",
-      "Third-party service integration",
-      "DevOps and deployment",
-      "Testing and quality assurance",
-      "Documentation and knowledge transfer",
+      "Custom Gaming PCs",
+      "Workstation Builds",
+      "Server Assembly",
+      "Hardware Upgrades",
+      "Troubleshooting & Repair",
+      "Performance Optimization"
     ],
+    technologies: ["Intel/AMD CPUs", "NVIDIA/AMD GPUs", "SSDs/NVMe", "Custom Cooling", "Cable Management"]
   },
-]
+  {
+    id: "networking",
+    title: "Networking Solutions",
+    icon: Network,
+    category: "hardware",
+    description: "Network setup, configuration, and security for homes and businesses.",
+    features: [
+      "Network Infrastructure Design",
+      "Router/Switch Configuration",
+      "Wireless Network Setup",
+      "VPN Configuration",
+      "Network Security",
+      "Performance Monitoring"
+    ],
+    technologies: ["Cisco", "MikroTik", "Ubiquiti", "pfSense", "VLANs", "Firewalls"]
+  },
+  {
+    id: "embedded",
+    title: "Embedded Systems",
+    icon: CircuitBoard,
+    category: "hardware",
+    description: "IoT devices and embedded solutions using single-board computers.",
+    features: [
+      "Raspberry Pi Projects",
+      "Arduino Development",
+      "Sensor Integration",
+      "Home Automation",
+      "Custom IoT Solutions",
+      "Prototype Development"
+    ],
+    technologies: ["Raspberry Pi", "Arduino", "ESP32", "C/C++", "Python", "MQTT"]
+  },
+  {
+    id: "sysadmin",
+    title: "System Administration",
+    icon: Settings,
+    category: "other",
+    description: "Linux/Windows server management and system optimization.",
+    features: [
+      "Server Setup & Configuration",
+      "Linux Administration",
+      "Windows Server Management",
+      "Backup Solutions",
+      "Security Hardening",
+      "Performance Tuning"
+    ],
+    technologies: ["Arch Linux", "Ubuntu", "Windows Server", "Docker", "Proxmox", "Nginx"]
+  }
+];
 
-// Pricing plans
-const pricingPlans = [
-  {
-    id: "basic",
-    name: "Basic",
-    price: 1499,
-    description: "Perfect for small projects and startups",
-    features: [
-      "Responsive website development",
-      "Basic SEO optimization",
-      "Mobile-friendly design",
-      "Contact form integration",
-      "Up to 5 pages",
-      "1 month of support",
-    ],
-  },
-  {
-    id: "professional",
-    name: "Professional",
-    price: 2499,
-    description: "Ideal for growing businesses and organizations",
-    features: [
-      "Everything in Basic plan",
-      "Advanced UI/UX design",
-      "Custom animations and interactions",
-      "CMS integration",
-      "E-commerce functionality",
-      "Up to 10 pages",
-      "3 months of support",
-    ],
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    price: 4999,
-    description: "For large-scale projects with complex requirements",
-    features: [
-      "Everything in Professional plan",
-      "Custom backend development",
-      "Advanced database solutions",
-      "Third-party API integration",
-      "Performance optimization",
-      "Unlimited pages",
-      "6 months of support",
-    ],
-  },
-]
+const categories = [
+  { id: "all", label: "All Services", count: services.length },
+  { id: "software", label: "Software", count: services.filter(s => s.category === "software").length },
+  { id: "hardware", label: "Hardware", count: services.filter(s => s.category === "hardware").length },
+  { id: "other", label: "Other", count: services.filter(s => s.category === "other").length }
+];
+
+const workflow = [
+  { step: 1, title: "Discuss", description: "We talk about your project requirements and goals" },
+  { step: 2, title: "Plan", description: "I create a detailed plan with timeline and deliverables" },
+  { step: 3, title: "Build", description: "Development with regular updates and feedback loops" },
+  { step: 4, title: "Deliver", description: "Final delivery with documentation and support" }
+];
+
+const hyprlandBezier = [0.22, 1, 0.36, 1] as const;
 
 export default function ServicesPage() {
-  const [expandedService, setExpandedService] = useState<number | null>(null)
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [expandedService, setExpandedService] = useState<string | null>(null);
 
-  const toggleService = (id: number) => {
-    setExpandedService(expandedService === id ? null : id)
-  }
+  const filteredServices = activeCategory === "all" 
+    ? services 
+    : services.filter(s => s.category === activeCategory);
 
   return (
-    <div className="min-h-screen py-16">
-      <AnimatedBackground patternSize={30} speed={0.2} />
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-        className="container mx-auto px-4"
-      >
-        <motion.div variants={fadeInUp}>
-          <SectionHeader
-            title="Services"
-            subtitle="Expert solutions to help your business thrive in the digital world"
-            centered
-          />
+    <div className="min-h-screen pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Terminal Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: hyprlandBezier }}
+          className="mb-12"
+        >
+          <div className="bg-white dark:bg-[#161b22] rounded-lg border border-gray-200 dark:border-gray-800 shadow-lg overflow-hidden">
+            {/* Terminal Title Bar */}
+            <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-[#21262d] border-b border-gray-200 dark:border-gray-700">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                <div className="w-3 h-3 rounded-full bg-green-500" />
+              </div>
+              <span className="ml-2 text-sm text-gray-600 dark:text-gray-400 font-mono">
+                voxdroid@arch:~/services
+              </span>
+            </div>
+            
+            {/* Terminal Content */}
+            <div className="p-6 font-mono text-sm">
+              <div className="text-gray-600 dark:text-gray-400 mb-2">
+                <span className="text-green-600 dark:text-green-400">$</span> cat services.txt
+              </div>
+              <div className="text-gray-800 dark:text-gray-200 space-y-2">
+                <p className="text-2xl sm:text-3xl font-bold text-green-600 dark:text-green-400">
+                  Freelance Services
+                </p>
+                <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-3xl">
+                  Full-stack developer & hardware enthusiast offering comprehensive solutions
+                  for all your software and hardware needs. From web applications to custom
+                  PC builds, I bring versatility and expertise to every project.
+                </p>
+              </div>
+              
+              <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <span className="text-green-600 dark:text-green-400">$</span> echo $AVAILABILITY
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-green-600 dark:text-green-400">Available for new projects</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Category Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: hyprlandBezier }}
+          className="mb-8"
+        >
+          <div className="bg-white dark:bg-[#161b22] rounded-lg border border-gray-200 dark:border-gray-800 p-4">
+            <div className="flex items-center gap-2 mb-3 font-mono text-sm text-gray-600 dark:text-gray-400">
+              <span className="text-green-600 dark:text-green-400">$</span> ls --category
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`px-4 py-2 rounded-md font-mono text-sm transition-all duration-200 ${
+                    activeCategory === cat.id
+                      ? "bg-green-600 text-white"
+                      : "bg-gray-100 dark:bg-[#21262d] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#30363d]"
+                  }`}
+                >
+                  {cat.label} <span className="opacity-60">({cat.count})</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         {/* Services Grid */}
-        <motion.div variants={staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {services.map((service) => {
-            const Icon = service.icon
-            const isExpanded = expandedService === service.id
+        <div className="grid gap-4 mb-12">
+          <AnimatePresence mode="wait">
+            {filteredServices.map((service, index) => {
+              const Icon = service.icon;
+              const isExpanded = expandedService === service.id;
+              
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, delay: index * 0.05, ease: hyprlandBezier }}
+                  layout
+                >
+                  <div className="bg-white dark:bg-[#161b22] rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
+                    {/* Service Header - Clickable */}
+                    <button
+                      onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                      className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-[#21262d] transition-colors"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 rounded-lg bg-gray-100 dark:bg-[#21262d] text-green-600 dark:text-green-400">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <div className="text-left">
+                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white font-mono">
+                            {service.title}
+                          </h3>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                            {service.description}
+                          </p>
+                        </div>
+                      </div>
+                      <motion.div
+                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="text-gray-400"
+                      >
+                        <ChevronDown className="w-5 h-5" />
+                      </motion.div>
+                    </button>
+                    
+                    {/* Expanded Content */}
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: hyprlandBezier }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-6 pb-6 pt-2 border-t border-gray-200 dark:border-gray-700">
+                            <div className="grid md:grid-cols-2 gap-6">
+                              {/* Features */}
+                              <div>
+                                <div className="font-mono text-sm text-gray-600 dark:text-gray-400 mb-3">
+                                  <span className="text-cyan-600 dark:text-cyan-400">#</span> Features
+                                </div>
+                                <ul className="space-y-2">
+                                  {service.features.map((feature, i) => (
+                                    <li key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                                      <ChevronRight className="w-4 h-4 text-green-500" />
+                                      {feature}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                              
+                              {/* Technologies */}
+                              <div>
+                                <div className="font-mono text-sm text-gray-600 dark:text-gray-400 mb-3">
+                                  <span className="text-cyan-600 dark:text-cyan-400">#</span> Technologies
+                                </div>
+                                <div className="flex flex-wrap gap-2">
+                                  {service.technologies.map((tech, i) => (
+                                    <span
+                                      key={i}
+                                      className="px-3 py-1 text-sm font-mono bg-gray-100 dark:bg-[#21262d] text-gray-700 dark:text-gray-300 rounded-md border border-gray-200 dark:border-gray-700"
+                                    >
+                                      {tech}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
 
-            return (
-              <motion.div
-                variants={fadeInUp}
-                key={service.id}
-                className={`bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark overflow-hidden transition-all duration-500 ${
-                  isExpanded ? "transform scale-[1.03] shadow-xl z-10" : "hover:translate-y-[-10px] hover:shadow-xl"
-                }`}
-              >
-                <div className="p-6 cursor-pointer" onClick={() => toggleService(service.id)}>
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="p-3 bg-primary/10 dark:bg-primary-light/10 rounded-lg">
-                      <Icon className="h-6 w-6 text-primary dark:text-primary-light" />
+        {/* Workflow Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: hyprlandBezier }}
+          className="mb-12"
+        >
+          <div className="bg-white dark:bg-[#161b22] rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
+            <div className="px-6 py-4 bg-gray-100 dark:bg-[#21262d] border-b border-gray-200 dark:border-gray-700">
+              <div className="font-mono text-sm text-gray-600 dark:text-gray-400">
+                <span className="text-green-600 dark:text-green-400">$</span> ./workflow.sh
+              </div>
+            </div>
+            
+            <div className="p-6">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 font-mono">
+                How I Work
+              </h2>
+              
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {workflow.map((item, index) => (
+                  <motion.div
+                    key={item.step}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1, ease: hyprlandBezier }}
+                    className="relative"
+                  >
+                    <div className="p-4 bg-gray-50 dark:bg-[#21262d] rounded-lg border border-gray-200 dark:border-gray-700">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="w-8 h-8 flex items-center justify-center rounded-full bg-green-600 text-white font-mono font-bold text-sm">
+                          {item.step}
+                        </span>
+                        <h3 className="font-semibold text-gray-900 dark:text-white font-mono">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {item.description}
+                      </p>
                     </div>
-                    <ChevronDown
-                      className={`h-5 w-5 text-primary dark:text-primary-light transition-transform duration-300 ${
-                        isExpanded ? "rotate-180" : ""
-                      }`}
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                  <p className="text-accent-dark dark:text-accent-light mb-2">{service.description}</p>
-                </div>
-
-                {/* Expandable Features */}
-                <div
-                  className={`px-6 overflow-hidden transition-all duration-500 ${
-                    isExpanded ? "max-h-96 pb-6" : "max-h-0"
-                  }`}
-                >
-                  <div className="pt-4 border-t border-accent/10 dark:border-accent/20">
-                    <h4 className="font-bold mb-3">Key Features:</h4>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, index) => (
-                        <li key={index} className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-primary dark:text-primary-light mr-2 flex-shrink-0 mt-0.5" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            )
-          })}
+                    
+                    {/* Connector Line */}
+                    {index < workflow.length - 1 && (
+                      <div className="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-gray-300 dark:bg-gray-600" />
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Pricing Section */}
-        <motion.div variants={fadeInUp}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text dark:gradient-text-light inline-block">
-            Pricing Plans
-          </h2>
-        </motion.div>
-
-        <motion.div variants={staggerContainer} className="grid md:grid-cols-3 gap-8 mb-16">
-          {pricingPlans.map((plan) => (
-            <motion.div
-              variants={fadeInUp}
-              key={plan.id}
-              className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark overflow-hidden transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl flex flex-col"
-            >
-              <div className="p-6 border-b border-accent/10 dark:border-accent/20 text-center">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <div className="flex items-center justify-center mb-2">
-                  <span className="text-3xl font-bold mr-1">$</span>
-                  <span className="text-4xl font-bold gradient-text dark:gradient-text-light">{plan.price}</span>
-                </div>
-                <p className="text-accent-dark dark:text-accent-light">{plan.description}</p>
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: hyprlandBezier }}
+        >
+          <div className="bg-white dark:bg-[#161b22] rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
+            <div className="px-6 py-4 bg-gray-100 dark:bg-[#21262d] border-b border-gray-200 dark:border-gray-700">
+              <div className="font-mono text-sm text-gray-600 dark:text-gray-400">
+                <span className="text-green-600 dark:text-green-400">$</span> ./start-project.sh
               </div>
-
-              <div className="p-6 flex-grow">
-                <ul className="space-y-3">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-primary dark:text-primary-light mr-2 flex-shrink-0 mt-0.5" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+            </div>
+            
+            <div className="p-8 text-center">
+              <div className="inline-flex items-center justify-center p-4 rounded-full bg-green-100 dark:bg-green-900/20 text-green-600 dark:text-green-400 mb-4">
+                <CheckCircle2 className="w-8 h-8" />
               </div>
-
-              <div className="p-6 text-center">
-                <Link
-                  href="/contact"
-                  className="px-6 py-3 bg-primary dark:bg-primary-light text-white rounded-md shadow-custom-dark inline-flex items-center transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg w-full justify-center"
-                >
-                  Get Started
+              
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 font-mono">
+                Ready to Start Your Project?
+              </h2>
+              
+              <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+                Whether you need a website, an app, automation scripts, or help with hardware,
+                I&apos;m here to turn your ideas into reality. Let&apos;s discuss your project!
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-mono font-medium transition-colors"
+                  >
+                    <Mail className="w-5 h-5" />
+                    Get in Touch
+                  </motion.button>
+                </Link>
+                
+                <Link href="/projects">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 dark:bg-[#21262d] hover:bg-gray-300 dark:hover:bg-[#30363d] text-gray-900 dark:text-white rounded-lg font-mono font-medium transition-colors border border-gray-300 dark:border-gray-600"
+                  >
+                    View My Work
+                  </motion.button>
                 </Link>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Process Section */}
-        <motion.div
-          variants={fadeInUp}
-          className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-8 mb-16"
-        >
-          <h2 className="text-2xl font-bold mb-8 text-center">My Working Process</h2>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { step: 1, title: "Discovery", description: "Understanding your needs and project requirements" },
-              { step: 2, title: "Planning", description: "Creating a detailed roadmap and technical specification" },
-              { step: 3, title: "Execution", description: "Developing the solution with regular progress updates" },
-              { step: 4, title: "Launch", description: "Deploying the final product and providing support" },
-            ].map((process) => (
-              <div key={process.step} className="relative text-center">
-                {/* Step number */}
-                <div className="w-16 h-16 mx-auto mb-4 bg-primary dark:bg-primary-light text-white rounded-full flex items-center justify-center text-xl font-bold">
-                  {process.step}
-                </div>
-
-                {/* Connect line (except for last item) */}
-                {process.step < 4 && (
-                  <div className="hidden md:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-1 bg-gradient-to-r from-primary to-primary-light"></div>
-                )}
-
-                <h3 className="text-xl font-bold mb-2">{process.title}</h3>
-                <p className="text-accent-dark dark:text-accent-light">{process.description}</p>
-              </div>
-            ))}
+            </div>
           </div>
         </motion.div>
 
-        {/* FAQ Section */}
-        <motion.div variants={fadeInUp} className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
-
-          <div className="space-y-4">
-            {[
-              {
-                question: "How long does it typically take to complete a project?",
-                answer:
-                  "Project timelines vary based on complexity and scope. A simple website might take 2-3 weeks, while more complex applications can take 2-3 months or longer. After our initial consultation, I'll provide a detailed timeline estimate for your specific project.",
-              },
-              {
-                question: "Do you offer maintenance services after project completion?",
-                answer:
-                  "Yes, I provide ongoing maintenance and support services to ensure your project continues to run smoothly. Maintenance packages can be customized to fit your needs, from basic updates to comprehensive support.",
-              },
-              {
-                question: "How do we communicate during the project?",
-                answer:
-                  "Regular communication is key to project success. I typically use a combination of email, video calls, and project management tools to keep you updated on progress, address questions, and gather feedback throughout the development process.",
-              },
-              {
-                question: "What is your payment structure?",
-                answer:
-                  "I typically work with a 50% upfront deposit to begin work, with the remaining 50% due upon project completion. For larger projects, I can arrange milestone-based payments. All payment terms are clearly outlined in our contract before work begins.",
-              },
-            ].map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-6"
-              >
-                <h3 className="text-lg font-bold mb-2">{faq.question}</h3>
-                <p className="text-accent-dark dark:text-accent-light">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          variants={fadeInUp}
-          className="mt-16 p-8 bg-gradient-to-r from-primary via-primary-light to-primary text-white rounded-lg shadow-lg text-center"
-        >
-          <h3 className="text-2xl font-bold mb-4">Ready to start your project?</h3>
-          <p className="mb-6 max-w-2xl mx-auto">
-            Let's discuss how I can help bring your vision to life with tailored solutions that meet your specific
-            needs.
-          </p>
-          <Link
-            href="/contact"
-            className="px-8 py-4 bg-white/90 hover:bg-white text-gray-800 font-semibold border-2 border-white rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center"
-          >
-            Get in Touch
-          </Link>
-        </motion.div>
-      </motion.div>
+      </div>
     </div>
-  )
+  );
 }
 

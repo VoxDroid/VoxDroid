@@ -426,7 +426,7 @@ function FileTreeItem({ node, repoUrl, depth = 0 }: { node: FileTreeNode; repoUr
   return (
     <div>
       <div 
-        className={`flex items-center py-1 px-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded cursor-pointer group`}
+        className={`flex items-center py-1 px-2 hover:bg-gray-100 dark:hover:bg-[#161b22] rounded cursor-pointer group font-mono text-sm`}
         style={{ paddingLeft: `${depth * 16 + 8}px` }}
         onClick={() => {
           if (hasChildren) {
@@ -440,7 +440,7 @@ function FileTreeItem({ node, repoUrl, depth = 0 }: { node: FileTreeNode; repoUr
               className={`h-4 w-4 mr-1 text-gray-400 transition-transform ${isOpen ? "" : "-rotate-90"} ${!hasChildren ? "invisible" : ""}`} 
             />
             <Folder className="h-4 w-4 mr-2 text-yellow-500" />
-            <span className="text-foreground">{node.name}</span>
+            <span className="text-gray-800 dark:text-gray-200">{node.name}/</span>
           </>
         ) : (
           <>
@@ -450,13 +450,13 @@ function FileTreeItem({ node, repoUrl, depth = 0 }: { node: FileTreeNode; repoUr
               href={fileUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-primary hover:underline"
+              className="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 hover:underline"
               onClick={(e) => e.stopPropagation()}
             >
               {node.name}
             </a>
             {node.size !== undefined && (
-              <span className="ml-auto text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+              <span className="ml-auto text-xs text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity">
                 {formatBytes(node.size)}
               </span>
             )}
@@ -479,12 +479,12 @@ function FileTreeItem({ node, repoUrl, depth = 0 }: { node: FileTreeNode; repoUr
 // File tree view component
 function FileTreeView({ nodes, repoUrl }: { nodes: FileTreeNode[]; repoUrl: string }) {
   return (
-    <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 dark:bg-gray-800/50 px-4 py-2 border-b border-gray-200 dark:border-gray-700 flex items-center">
-        <FolderTree className="h-4 w-4 mr-2 text-gray-500" />
-        <span className="text-sm font-medium">Repository files</span>
+    <div className="border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden">
+      <div className="bg-gray-100 dark:bg-[#161b22] px-4 py-2 border-b border-gray-200 dark:border-gray-700/50 flex items-center">
+        <FolderTree className="h-4 w-4 mr-2 text-green-600 dark:text-green-400" />
+        <span className="text-sm font-mono text-gray-700 dark:text-gray-300">$ tree ./</span>
       </div>
-      <div className="max-h-[500px] overflow-y-auto p-2">
+      <div className="max-h-[500px] overflow-y-auto p-2 bg-white dark:bg-[#0d1117]">
         {nodes.map((node) => (
           <FileTreeItem key={node.path} node={node} repoUrl={repoUrl} />
         ))}
@@ -523,10 +523,10 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       <div className="container mx-auto px-4 mb-8">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-accent-dark dark:text-accent-light hover:text-primary dark:hover:text-primary-light transition-colors"
+          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors font-mono text-sm"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to Projects
+          <span className="text-green-600 dark:text-green-400">$</span> cd ../projects
         </Link>
       </div>
 
@@ -539,79 +539,91 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         >
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Header */}
+            {/* Header - Terminal Style */}
             <motion.div
               variants={fadeIn}
-              className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl p-6 shadow-custom dark:shadow-custom-dark"
+              className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
             >
-              <div className="flex items-start justify-between gap-4 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <h1 className="text-3xl md:text-4xl font-bold">{project.name}</h1>
-                    {project.archived && (
-                      <span className="px-2 py-1 bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 text-xs rounded-full flex items-center gap-1">
-                        <Archive className="h-3 w-3" />
-                        Archived
-                      </span>
-                    )}
-                    {project.fork && (
-                      <span className="px-2 py-1 bg-blue-500/20 text-blue-600 dark:text-blue-400 text-xs rounded-full flex items-center gap-1">
-                        <GitFork className="h-3 w-3" />
-                        Fork
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-accent-dark dark:text-accent-light text-lg">{project.description}</p>
+              {/* Terminal Header */}
+              <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <div className="flex gap-3">
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:scale-105 transition-transform"
-                    title="View on GitHub"
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
-                  {project.demoUrl && (
+                <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">{project.slug}</span>
+              </div>
+              
+              <div className="p-6">
+                <div className="flex items-start justify-between gap-4 flex-wrap">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2 flex-wrap">
+                      <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{project.name}</h1>
+                      {project.archived && (
+                        <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 text-xs rounded-full flex items-center gap-1 font-mono">
+                          <Archive className="h-3 w-3" />
+                          archived
+                        </span>
+                      )}
+                      {project.fork && (
+                        <span className="px-2 py-1 bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400 text-xs rounded-full flex items-center gap-1 font-mono">
+                          <GitFork className="h-3 w-3" />
+                          fork
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-400 text-lg">{project.description}</p>
+                  </div>
+                  <div className="flex gap-3">
                     <a
-                      href={project.demoUrl}
+                      href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-primary dark:bg-primary-light text-white rounded-lg hover:scale-105 transition-transform"
-                      title="View Demo"
+                      className="p-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:scale-105 transition-transform"
+                      title="View on GitHub"
                     >
-                      <ExternalLink className="h-5 w-5" />
+                      <Github className="h-5 w-5" />
                     </a>
-                  )}
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 bg-green-600 text-white rounded-lg hover:scale-105 transition-transform"
+                        title="View Demo"
+                      >
+                        <ExternalLink className="h-5 w-5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Stats Row */}
-              <div className="flex flex-wrap gap-4 mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <div className="flex items-center gap-2 text-sm">
-                  <Star className="h-4 w-4 text-yellow-500" />
-                  <span className="font-semibold">{formatNumber(project.stars)}</span>
-                  <span className="text-accent-dark dark:text-accent-light">stars</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <GitFork className="h-4 w-4 text-blue-500" />
-                  <span className="font-semibold">{formatNumber(project.forks)}</span>
-                  <span className="text-accent-dark dark:text-accent-light">forks</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Eye className="h-4 w-4 text-green-500" />
-                  <span className="font-semibold">{formatNumber(project.watchers)}</span>
-                  <span className="text-accent-dark dark:text-accent-light">watchers</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <AlertCircle className="h-4 w-4 text-orange-500" />
-                  <span className="font-semibold">{project.openIssues}</span>
-                  <span className="text-accent-dark dark:text-accent-light">issues</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <HardDrive className="h-4 w-4 text-purple-500" />
-                  <span className="font-semibold">{formatBytes(project.size * 1024)}</span>
+                {/* Stats Row */}
+                <div className="flex flex-wrap gap-4 mt-6 pt-6 border-t border-gray-200 dark:border-gray-700/50 font-mono text-sm">
+                  <div className="flex items-center gap-2">
+                    <Star className="h-4 w-4 text-yellow-500" />
+                    <span className="font-semibold text-gray-900 dark:text-white">{formatNumber(project.stars)}</span>
+                    <span className="text-gray-500 dark:text-gray-400">stars</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <GitFork className="h-4 w-4 text-blue-500" />
+                    <span className="font-semibold text-gray-900 dark:text-white">{formatNumber(project.forks)}</span>
+                    <span className="text-gray-500 dark:text-gray-400">forks</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Eye className="h-4 w-4 text-green-500" />
+                    <span className="font-semibold text-gray-900 dark:text-white">{formatNumber(project.watchers)}</span>
+                    <span className="text-gray-500 dark:text-gray-400">watchers</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="h-4 w-4 text-orange-500" />
+                    <span className="font-semibold text-gray-900 dark:text-white">{project.openIssues}</span>
+                    <span className="text-gray-500 dark:text-gray-400">issues</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <HardDrive className="h-4 w-4 text-purple-500" />
+                    <span className="font-semibold text-gray-900 dark:text-white">{formatBytes(project.size * 1024)}</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -620,45 +632,47 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             {project.screenshots.length > 0 && (
               <motion.div
                 variants={fadeIn}
-                className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl p-6 shadow-custom dark:shadow-custom-dark"
+                className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
               >
-                <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Eye className="h-5 w-5 text-primary" />
-                  Screenshots
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {project.screenshots.map((src, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.02 }}
-                      className="relative aspect-video rounded-lg overflow-hidden cursor-pointer bg-gray-100 dark:bg-gray-800"
-                      onClick={() => openLightbox(index)}
-                    >
-                      <Image
-                        src={src}
-                        alt={`${project.name} screenshot ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </motion.div>
-                  ))}
+                <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
+                  <Eye className="h-4 w-4 text-green-600 dark:text-green-400" />
+                  <span className="text-gray-700 dark:text-gray-300 font-mono text-sm">screenshots/</span>
+                </div>
+                <div className="p-6">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {project.screenshots.map((src, index) => (
+                      <motion.div
+                        key={index}
+                        whileHover={{ scale: 1.02 }}
+                        className="relative aspect-video rounded-lg overflow-hidden cursor-pointer bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700/50"
+                        onClick={() => openLightbox(index)}
+                      >
+                        <Image
+                          src={src}
+                          alt={`${project.name} screenshot ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             )}
 
-            {/* Tabs */}
+            {/* Tabs - Terminal Style */}
             <motion.div
               variants={fadeIn}
-              className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl shadow-custom dark:shadow-custom-dark overflow-hidden"
+              className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
             >
               {/* Tab Headers */}
-              <div className="flex border-b border-gray-200 dark:border-gray-700">
+              <div className="flex border-b border-gray-200 dark:border-gray-700/50 bg-gray-50 dark:bg-[#161b22]">
                 <button
                   onClick={() => setActiveTab("readme")}
-                  className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
+                  className={`flex-1 px-4 py-3 text-sm font-mono transition-colors ${
                     activeTab === "readme"
-                      ? "bg-primary/10 text-primary border-b-2 border-primary"
-                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                      ? "bg-white dark:bg-[#0d1117] text-green-600 dark:text-green-400 border-b-2 border-green-500"
+                      : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                   }`}
                 >
                   <FileCode className="h-4 w-4 inline mr-2" />
@@ -666,10 +680,10 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 </button>
                 <button
                   onClick={() => setActiveTab("files")}
-                  className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
+                  className={`flex-1 px-4 py-3 text-sm font-mono transition-colors ${
                     activeTab === "files"
-                      ? "bg-primary/10 text-primary border-b-2 border-primary"
-                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                      ? "bg-white dark:bg-[#0d1117] text-green-600 dark:text-green-400 border-b-2 border-green-500"
+                      : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                   }`}
                 >
                   <FolderTree className="h-4 w-4 inline mr-2" />
@@ -677,10 +691,10 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 </button>
                 <button
                   onClick={() => setActiveTab("commits")}
-                  className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
+                  className={`flex-1 px-4 py-3 text-sm font-mono transition-colors ${
                     activeTab === "commits"
-                      ? "bg-primary/10 text-primary border-b-2 border-primary"
-                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                      ? "bg-white dark:bg-[#0d1117] text-green-600 dark:text-green-400 border-b-2 border-green-500"
+                      : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                   }`}
                 >
                   <GitCommit className="h-4 w-4 inline mr-2" />
@@ -688,10 +702,10 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 </button>
                 <button
                   onClick={() => setActiveTab("releases")}
-                  className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
+                  className={`flex-1 px-4 py-3 text-sm font-mono transition-colors ${
                     activeTab === "releases"
-                      ? "bg-primary/10 text-primary border-b-2 border-primary"
-                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                      ? "bg-white dark:bg-[#0d1117] text-green-600 dark:text-green-400 border-b-2 border-green-500"
+                      : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
                   }`}
                 >
                   <Package className="h-4 w-4 inline mr-2" />
@@ -719,9 +733,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                           {project.readme}
                         </ReactMarkdown>
                       ) : (
-                        <div className="text-center py-12 text-accent-dark dark:text-accent-light">
+                        <div className="text-center py-12 text-gray-500 dark:text-gray-400 font-mono">
                           <FileCode className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                          <p>No README available for this project.</p>
+                          <p><span className="text-yellow-600 dark:text-yellow-400">⚠</span> No README.md available for this project.</p>
                         </div>
                       )}
                     </motion.div>
@@ -739,9 +753,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                           <FileTreeView nodes={project.fileTree} repoUrl={project.url} />
                         </div>
                       ) : (
-                        <div className="text-center py-12 text-accent-dark dark:text-accent-light">
+                        <div className="text-center py-12 text-gray-500 dark:text-gray-400 font-mono">
                           <FolderTree className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                          <p>Unable to load file structure.</p>
+                          <p><span className="text-red-600 dark:text-red-400">✗</span> Unable to load file structure.</p>
                         </div>
                       )}
                     </motion.div>
@@ -760,9 +774,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                           <CommitItem key={commit.sha} commit={commit} repoUrl={project.url} />
                         ))
                       ) : (
-                        <div className="text-center py-12 text-accent-dark dark:text-accent-light">
+                        <div className="text-center py-12 text-gray-500 dark:text-gray-400 font-mono">
                           <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                          <p>No commits available.</p>
+                          <p><span className="text-yellow-600 dark:text-yellow-400">⚠</span> No commits available.</p>
                         </div>
                       )}
                     </motion.div>
@@ -780,24 +794,24 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                         project.releases.map((release) => (
                           <div
                             key={release.tag_name}
-                            className="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg"
+                            className="p-4 bg-gray-50 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-lg"
                           >
                             <div className="flex items-center justify-between mb-2">
                               <a
                                 href={release.html_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-lg font-semibold hover:text-primary transition-colors flex items-center gap-2"
+                                className="text-lg font-semibold text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors flex items-center gap-2 font-mono"
                               >
-                                <Tag className="h-4 w-4" />
+                                <Tag className="h-4 w-4 text-green-600 dark:text-green-400" />
                                 {release.name || release.tag_name}
                               </a>
-                              <span className="text-sm text-accent-dark dark:text-accent-light">
+                              <span className="text-sm text-gray-500 dark:text-gray-400 font-mono">
                                 {formatDate(release.published_at)}
                               </span>
                             </div>
                             {release.body && (
-                              <p className="text-sm text-accent-dark dark:text-accent-light mb-3 line-clamp-3">
+                              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-3">
                                 {release.body}
                               </p>
                             )}
@@ -807,7 +821,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                                   <a
                                     key={asset.name}
                                     href={asset.download_url}
-                                    className="inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary text-sm rounded-full hover:bg-primary/20 transition-colors"
+                                    className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-sm rounded-full hover:bg-green-200 dark:hover:bg-green-500/20 transition-colors font-mono"
                                   >
                                     <Download className="h-3 w-3" />
                                     {asset.name}
@@ -821,9 +835,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                           </div>
                         ))
                       ) : (
-                        <div className="text-center py-12 text-accent-dark dark:text-accent-light">
+                        <div className="text-center py-12 text-gray-500 dark:text-gray-400 font-mono">
                           <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                          <p>No releases available yet.</p>
+                          <p><span className="text-yellow-600 dark:text-yellow-400">⚠</span> No releases available yet.</p>
                         </div>
                       )}
                     </motion.div>
@@ -839,7 +853,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             {!imageError && (
               <motion.div
                 variants={fadeIn}
-                className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl overflow-hidden shadow-custom dark:shadow-custom-dark"
+                className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
               >
                 <div className="relative aspect-video">
                   <Image
@@ -853,129 +867,139 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               </motion.div>
             )}
 
-            {/* Quick Info */}
+            {/* Quick Info - Terminal Style */}
             <motion.div
               variants={fadeIn}
-              className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl p-6 shadow-custom dark:shadow-custom-dark"
+              className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
             >
-              <h3 className="text-lg font-bold mb-4">About</h3>
-              <div className="space-y-3 text-sm">
+              <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
+                <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">$ cat ./about.json</h3>
+              </div>
+              <div className="p-4 space-y-3 text-sm font-mono">
                 <div className="flex items-center justify-between">
-                  <span className="text-accent-dark dark:text-accent-light flex items-center gap-2">
-                    <Tag className="h-4 w-4" />
-                    Category
+                  <span className="text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                    <Tag className="h-4 w-4 text-green-600 dark:text-green-400" />
+                    category
                   </span>
-                  <span className="font-medium">{project.category}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">{project.category}</span>
                 </div>
                 {project.language && (
                   <div className="flex items-center justify-between">
-                    <span className="text-accent-dark dark:text-accent-light flex items-center gap-2">
-                      <Code2 className="h-4 w-4" />
-                      Language
+                    <span className="text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                      <Code2 className="h-4 w-4 text-cyan-600 dark:text-cyan-400" />
+                      language
                     </span>
-                    <span className="font-medium">{project.language}</span>
+                    <span className="font-medium text-gray-900 dark:text-white">{project.language}</span>
                   </div>
                 )}
                 {project.license && (
                   <div className="flex items-center justify-between">
-                    <span className="text-accent-dark dark:text-accent-light flex items-center gap-2">
-                      <Scale className="h-4 w-4" />
-                      License
+                    <span className="text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                      <Scale className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
+                      license
                     </span>
-                    <span className="font-medium">{project.license}</span>
+                    <span className="font-medium text-gray-900 dark:text-white">{project.license}</span>
                   </div>
                 )}
                 <div className="flex items-center justify-between">
-                  <span className="text-accent-dark dark:text-accent-light flex items-center gap-2">
-                    <Calendar className="h-4 w-4" />
-                    Created
+                  <span className="text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                    created
                   </span>
-                  <span className="font-medium">{formatDate(project.createdAt)}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">{formatDate(project.createdAt)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-accent-dark dark:text-accent-light flex items-center gap-2">
-                    <Clock className="h-4 w-4" />
-                    Last Push
+                  <span className="text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-purple-600 dark:text-purple-400" />
+                    last_push
                   </span>
-                  <span className="font-medium">{formatRelativeTime(project.pushedAt)}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">{formatRelativeTime(project.pushedAt)}</span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Languages */}
+            {/* Languages - Terminal Style */}
             {project.languagePercentages.length > 0 && (
               <motion.div
                 variants={fadeIn}
-                className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl p-6 shadow-custom dark:shadow-custom-dark"
+                className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
               >
-                <h3 className="text-lg font-bold mb-4">Languages</h3>
-                {/* Language Bar */}
-                <div className="h-2 rounded-full overflow-hidden flex mb-4">
-                  {project.languagePercentages.map((lang) => (
-                    <div
-                      key={lang.name}
-                      style={{ width: `${lang.percentage}%`, backgroundColor: lang.color }}
-                      title={`${lang.name}: ${lang.percentage}%`}
-                    />
-                  ))}
+                <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
+                  <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">$ tokei ./</h3>
                 </div>
-                <div className="space-y-2">
-                  {project.languagePercentages.map((lang) => (
-                    <div key={lang.name} className="flex items-center justify-between text-sm">
-                      <div className="flex items-center gap-2">
-                        <div
-                          className="w-3 h-3 rounded-full"
-                          style={{ backgroundColor: lang.color }}
-                        />
-                        <span>{lang.name}</span>
+                <div className="p-4">
+                  {/* Language Bar */}
+                  <div className="h-2 rounded-full overflow-hidden flex mb-4">
+                    {project.languagePercentages.map((lang) => (
+                      <div
+                        key={lang.name}
+                        style={{ width: `${lang.percentage}%`, backgroundColor: lang.color }}
+                        title={`${lang.name}: ${lang.percentage}%`}
+                      />
+                    ))}
+                  </div>
+                  <div className="space-y-2 font-mono text-sm">
+                    {project.languagePercentages.map((lang) => (
+                      <div key={lang.name} className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div
+                            className="w-3 h-3 rounded-full"
+                            style={{ backgroundColor: lang.color }}
+                          />
+                          <span className="text-gray-900 dark:text-white">{lang.name}</span>
+                        </div>
+                        <span className="text-gray-500 dark:text-gray-400">
+                          {lang.percentage}%
+                        </span>
                       </div>
-                      <span className="text-accent-dark dark:text-accent-light">
-                        {lang.percentage}%
-                      </span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             )}
 
-            {/* Topics */}
+            {/* Topics - Terminal Style */}
             {project.topics.length > 0 && (
               <motion.div
                 variants={fadeIn}
-                className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl p-6 shadow-custom dark:shadow-custom-dark"
+                className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
               >
-                <h3 className="text-lg font-bold mb-4">Topics</h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.topics.map((topic) => (
-                    <span
-                      key={topic}
-                      className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
-                    >
-                      {topic}
-                    </span>
-                  ))}
+                <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
+                  <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">$ echo $TOPICS</h3>
+                </div>
+                <div className="p-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.topics.map((topic) => (
+                      <span
+                        key={topic}
+                        className="px-3 py-1 bg-cyan-100 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 text-sm rounded-full font-mono"
+                      >
+                        {topic}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             )}
 
-            {/* Contributors */}
+            {/* Contributors - Terminal Style */}
             {project.contributors.length > 0 && (
               <motion.div
                 variants={fadeIn}
-                className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl p-6 shadow-custom dark:shadow-custom-dark"
+                className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
               >
-                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                  <Users className="h-5 w-5" />
-                  Contributors
-                </h3>
-                <div className="space-y-3">
+                <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50 flex items-center gap-2">
+                  <Users className="h-4 w-4 text-green-600 dark:text-green-400" />
+                  <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">contributors</h3>
+                </div>
+                <div className="p-4 space-y-3">
                   {project.contributors.slice(0, 5).map((contributor) => (
                     <a
                       key={contributor.login}
                       href={contributor.html_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors"
+                      className="flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-[#161b22] p-2 rounded-lg transition-colors"
                     >
                       <Image
                         src={contributor.avatar_url}
@@ -985,8 +1009,8 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                         className="rounded-full"
                       />
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium truncate">{contributor.login}</p>
-                        <p className="text-xs text-accent-dark dark:text-accent-light">
+                        <p className="font-mono text-sm text-gray-900 dark:text-white truncate">{contributor.login}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 font-mono">
                           {contributor.contributions} commits
                         </p>
                       </div>
@@ -996,32 +1020,36 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               </motion.div>
             )}
 
-            {/* Owner */}
+            {/* Owner - Terminal Style */}
             <motion.div
               variants={fadeIn}
-              className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-xl p-6 shadow-custom dark:shadow-custom-dark"
+              className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
             >
-              <h3 className="text-lg font-bold mb-4">Owner</h3>
-              <a
-                href={project.owner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors"
-              >
-                <Image
-                  src={project.owner.avatar}
-                  alt={project.owner.login}
-                  width={48}
-                  height={48}
-                  className="rounded-full"
-                />
-                <div>
-                  <p className="font-medium">{project.owner.login}</p>
-                  <p className="text-sm text-accent-dark dark:text-accent-light">
-                    View Profile
-                  </p>
-                </div>
-              </a>
+              <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
+                <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">$ whoami</h3>
+              </div>
+              <div className="p-4">
+                <a
+                  href={project.owner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-[#161b22] p-2 rounded-lg transition-colors"
+                >
+                  <Image
+                    src={project.owner.avatar}
+                    alt={project.owner.login}
+                    width={48}
+                    height={48}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <p className="font-mono text-gray-900 dark:text-white">{project.owner.login}</p>
+                    <p className="text-sm text-green-600 dark:text-green-400 font-mono">
+                      <span className="mr-1">$</span> open profile
+                    </p>
+                  </div>
+                </a>
+              </div>
             </motion.div>
           </div>
         </motion.div>
@@ -1091,7 +1119,7 @@ function CommitItem({ commit, repoUrl }: { commit: GitHubCommit; repoUrl: string
   const hasMoreLines = commit.commit.message.includes("\n")
 
   return (
-    <div className="flex gap-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+    <div className="flex gap-4 p-4 bg-gray-50 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-lg">
       {commit.author ? (
         <Image
           src={commit.author.avatar_url}
@@ -1108,18 +1136,18 @@ function CommitItem({ commit, repoUrl }: { commit: GitHubCommit; repoUrl: string
           href={commit.html_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium hover:text-primary transition-colors line-clamp-2"
+          className="font-medium text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors line-clamp-2"
         >
           {message}
-          {hasMoreLines && <span className="text-accent-dark dark:text-accent-light">...</span>}
+          {hasMoreLines && <span className="text-gray-500 dark:text-gray-400">...</span>}
         </a>
-        <div className="flex items-center gap-2 mt-1 text-sm text-accent-dark dark:text-accent-light">
+        <div className="flex items-center gap-2 mt-1 text-sm text-gray-500 dark:text-gray-400 font-mono">
           {commit.author ? (
             <a
               href={commit.author.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
             >
               {commit.author.login}
             </a>
@@ -1129,7 +1157,7 @@ function CommitItem({ commit, repoUrl }: { commit: GitHubCommit; repoUrl: string
           <span>•</span>
           <span>{formatRelativeTime(commit.commit.author.date)}</span>
           <span>•</span>
-          <code className="text-xs bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded">
+          <code className="text-xs bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded text-green-700 dark:text-green-400">
             {commit.sha.substring(0, 7)}
           </code>
         </div>
