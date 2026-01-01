@@ -152,4 +152,4 @@ export default function ImageGallery({ images, alt }: ImageGalleryProps) {
     </div>
   )
 }
-
+}

@@ -251,22 +251,28 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
           transition={{ duration: 0.6, ease: smoothBezier, delay: 0.1 }}
           className="flex flex-wrap justify-center gap-3 mb-12"
         >
-          {categories.map((category, index) => (
-            <motion.button
+          {categories.map((category) => (
+            <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.3, ease: smoothBezier }}
-              className={`px-4 py-2 rounded-md font-mono text-sm transition-all duration-300 ${
+              className={`relative px-4 py-2 rounded-md font-mono text-sm transition-colors duration-300 ${
                 activeCategory === category
-                  ? "bg-green-600 text-white shadow-lg shadow-green-500/25"
+                  ? "text-white"
                   : "bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 text-gray-600 dark:text-gray-400 hover:border-green-500/50 hover:text-green-600 dark:hover:text-green-400"
               }`}
             >
-              {activeCategory === category && <span className="mr-1">●</span>}
-              {category}
-            </motion.button>
+              {activeCategory === category && (
+                <motion.div
+                  layoutId="activeProjectCategoryBg"
+                  className="absolute inset-0 bg-green-600 rounded-md shadow-lg shadow-green-500/25"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">
+                {activeCategory === category && <span className="mr-1">●</span>}
+                {category}
+              </span>
+            </button>
           ))}
         </motion.div>
 

@@ -82,24 +82,40 @@
       
       <!-- Info on Right -->
       <g transform="translate(400, 20)">
+        <!-- voxdroid @ vox header -->
         <text font-family="monospace" font-size="17" fill="white">
-          <tspan fill="#6366f1">Name:</tspan> VoxDroid
-          <tspan x="0" dy="20" fill="#6366f1">GitHub:</tspan> github.com/VoxDroid
-          <tspan x="0" dy="20" fill="#6366f1">Education:</tspan> Computer Science
-          <tspan x="0" dy="20" fill="#6366f1">Location:</tspan> Earth
-          <tspan x="0" dy="20" fill="#6366f1">Birthday:</tspan> 7/28
-          <tspan x="0" dy="20" fill="#6366f1">OS:</tspan> VoxCore Linux
-          <tspan x="0" dy="20" fill="#6366f1">Kernel:</tspan> VoxCore
-          <tspan x="0" dy="20" fill="#6366f1">Theme:</tspan> VoxDark
-          <tspan x="0" dy="20" fill="#6366f1">Shell:</tspan> Zsh
-          <tspan x="0" dy="20" fill="#6366f1">Uptime:</tspan> 6+ years
-          <tspan x="0" dy="20" fill="#6366f1">Host:</tspan> Vox Workstation
-          <tspan x="0" dy="20" fill="#6366f1">Resolution:</tspan> 7680x4320 (8K)
-          <tspan x="0" dy="20" fill="#6366f1">Timezone:</tspan> JST (UTC+9)
-          <tspan x="0" dy="20" fill="#6366f1">Languages:</tspan> Python, JavaScript, TypeScript, C++, Rust, Go
-          <tspan x="0" dy="20" fill="#6366f1">Interests:</tspan> Machine Learning, AI, CyberSecurity, OpenSource
+          <tspan fill="#6366f1" font-weight="bold">voxdroid</tspan><tspan fill="#666">@</tspan><tspan fill="#6366f1" font-weight="bold">vox</tspan>
+        </text>
+        <text y="18" font-family="monospace" font-size="17" fill="#444">─────────────────</text>
+        
+        <!-- System info -->
+        <text y="40" font-family="monospace" font-size="17" fill="white">
+          <tspan fill="#6366f1">OS:</tspan> VoxCore Linux x86_64
+          <tspan x="0" dy="20" fill="#6366f1">Host:</tspan> Voxstation
+          <tspan x="0" dy="20" fill="#6366f1">Kernel:</tspan> 6.x-voxcore
+          <tspan x="0" dy="20" fill="#6366f1">Uptime:</tspan> 6+ years coding
+          <tspan x="0" dy="20" fill="#6366f1">Shell:</tspan> zsh 5.9
+          <tspan x="0" dy="20" fill="#6366f1">DE:</tspan> Voxyland
+          <tspan x="0" dy="20" fill="#6366f1">Terminal:</tspan> Capybara
+          <tspan x="0" dy="20" fill="#6366f1">CPU:</tspan> Neural Engine @ ∞ GHz
+          <tspan x="0" dy="20" fill="#6366f1">Memory:</tspan> Unlimited Ideas
+          <tspan x="0" dy="20" fill="#6366f1">GPU:</tspan> Creative Processor
+          <tspan x="0" dy="20" fill="#6366f1">Languages:</tspan> Python, JS, TS, Rust, C++
+          <tspan x="0" dy="20" fill="#6366f1">Interests:</tspan> ML, AI, CyberSec, OpenSource
           <tspan x="0" dy="20" fill="#6366f1">Status:</tspan><tspan fill="#27c93f"> online</tspan>
         </text>
+        
+        <!-- Color palette -->
+        <g transform="translate(0, 310)">
+          <rect x="0" y="0" width="20" height="12" fill="#1e1e1e" />
+          <rect x="22" y="0" width="20" height="12" fill="#e06c75" />
+          <rect x="44" y="0" width="20" height="12" fill="#98c379" />
+          <rect x="66" y="0" width="20" height="12" fill="#e5c07b" />
+          <rect x="88" y="0" width="20" height="12" fill="#61afef" />
+          <rect x="110" y="0" width="20" height="12" fill="#c678dd" />
+          <rect x="132" y="0" width="20" height="12" fill="#56b6c2" />
+          <rect x="154" y="0" width="20" height="12" fill="#abb2bf" />
+        </g>
       </g>
     </g>
   </g>

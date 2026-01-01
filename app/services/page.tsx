@@ -241,9 +241,7 @@ export default function ServicesPage() {
                   Freelance Services
                 </p>
                 <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-3xl">
-                  Full-stack developer & hardware enthusiast offering comprehensive solutions
-                  for all your software and hardware needs. From web applications to custom
-                  PC builds, I bring versatility and expertise to every project.
+                  I work with both software and hardware because I enjoy the whole picture. I can build web applications from start to finish, handle servers and databases, and also put together custom computers or fix hardware issues. I try to keep things simple, reliable, and useful. Whatever the project needs code or physical components, I bring the same care and patience to make it work well.
                 </p>
               </div>
               
@@ -271,18 +269,27 @@ export default function ServicesPage() {
             <div className="flex items-center gap-2 mb-3 font-mono text-sm text-gray-600 dark:text-gray-400">
               <span className="text-green-600 dark:text-green-400">$</span> ls --category
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 relative">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`px-4 py-2 rounded-md font-mono text-sm transition-all duration-200 ${
+                  className={`relative px-4 py-2 rounded-md font-mono text-sm transition-colors duration-300 ${
                     activeCategory === cat.id
-                      ? "bg-green-600 text-white"
+                      ? "text-white"
                       : "bg-gray-100 dark:bg-[#21262d] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#30363d]"
                   }`}
                 >
-                  {cat.label} <span className="opacity-60">({cat.count})</span>
+                  {activeCategory === cat.id && (
+                    <motion.div
+                      layoutId="activeCategoryBg"
+                      className="absolute inset-0 bg-green-600 rounded-md"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">
+                    {cat.label} <span className="opacity-60">({cat.count})</span>
+                  </span>
                 </button>
               ))}
             </div>
@@ -291,7 +298,7 @@ export default function ServicesPage() {
 
         {/* Services Grid */}
         <div className="grid gap-4 mb-12">
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="sync">
             {filteredServices.map((service, index) => {
               const Icon = service.icon;
               const isExpanded = expandedService === service.id;
@@ -301,9 +308,12 @@ export default function ServicesPage() {
                   key={service.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, delay: index * 0.05, ease: hyprlandBezier }}
-                  layout
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ 
+                    duration: 0.35, 
+                    delay: index * 0.03, 
+                    ease: hyprlandBezier
+                  }}
                 >
                   <div className="bg-white dark:bg-[#161b22] rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden">
                     {/* Service Header - Clickable */}
@@ -340,10 +350,19 @@ export default function ServicesPage() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: hyprlandBezier }}
+                          transition={{ 
+                            height: { duration: 0.4, ease: hyprlandBezier },
+                            opacity: { duration: 0.3, ease: hyprlandBezier }
+                          }}
                           className="overflow-hidden"
                         >
-                          <div className="px-6 pb-6 pt-2 border-t border-gray-200 dark:border-gray-700">
+                          <motion.div 
+                            initial={{ y: -10 }}
+                            animate={{ y: 0 }}
+                            exit={{ y: -10 }}
+                            transition={{ duration: 0.3, ease: hyprlandBezier }}
+                            className="px-6 pb-6 pt-2 border-t border-gray-200 dark:border-gray-700"
+                          >
                             <div className="grid md:grid-cols-2 gap-6">
                               {/* Features */}
                               <div>
@@ -377,7 +396,7 @@ export default function ServicesPage() {
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </motion.div>
                         </motion.div>
                       )}
                     </AnimatePresence>

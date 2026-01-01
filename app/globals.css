@@ -199,6 +199,138 @@ body {
   }
 }
 
+/* Glitch effect animations */
+@keyframes glitch-1 {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(-2px, -2px);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: translate(2px, 2px);
+  }
+  40% {
+    clip-path: inset(43% 0 1% 0);
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(2px, -2px);
+  }
+  80% {
+    clip-path: inset(54% 0 7% 0);
+    transform: translate(-2px, 2px);
+  }
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip-path: inset(65% 0 31% 0);
+    transform: translate(2px, 2px);
+  }
+  20% {
+    clip-path: inset(15% 0 75% 0);
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    clip-path: inset(82% 0 5% 0);
+    transform: translate(2px, -2px);
+  }
+  60% {
+    clip-path: inset(31% 0 62% 0);
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    clip-path: inset(91% 0 2% 0);
+    transform: translate(2px, 2px);
+  }
+  100% {
+    clip-path: inset(12% 0 82% 0);
+    transform: translate(-2px, -2px);
+  }
+}
+
+.animate-glitch-1 {
+  animation: glitch-1 0.3s infinite linear alternate-reverse;
+}
+
+.animate-glitch-2 {
+  animation: glitch-2 0.3s infinite linear alternate-reverse;
+  animation-delay: 0.15s;
+}
+
+/* ASCII Wave Glow Animation - matching section_about.svg */
+@keyframes ascii-wave-glow {
+  0%, 100% {
+    color: rgb(22, 163, 74); /* green-600 */
+    text-shadow: none;
+  }
+  12.5% {
+    color: rgb(74, 222, 128); /* green-400 brighter */
+    text-shadow: 0 0 12px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.4);
+  }
+  25% {
+    color: rgb(22, 163, 74);
+    text-shadow: none;
+  }
+}
+
+.dark .ascii-glow-line {
+  color: rgb(74, 222, 128); /* green-400 base */
+}
+
+.ascii-glow-line {
+  color: rgb(22, 163, 74); /* green-600 base */
+  animation: ascii-wave-glow 4s ease-in-out infinite;
+  animation-delay: var(--glow-delay, 0s);
+}
+
+/* Apply staggered animation delays via CSS custom property */
+.ascii-glow-line {
+  animation: 
+    ascii-wave-glow-forward 4s ease-in-out infinite,
+    ascii-wave-glow-reverse 4s ease-in-out infinite 4s;
+}
+
+@keyframes ascii-wave-glow-forward {
+  0%, 5% {
+    color: rgb(22, 163, 74);
+    text-shadow: none;
+  }
+  7%, 10% {
+    color: rgb(134, 239, 172); /* green-300 */
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.7), 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+  12%, 100% {
+    color: rgb(22, 163, 74);
+    text-shadow: none;
+  }
+}
+
+.dark .ascii-glow-line {
+  animation: 
+    ascii-wave-glow-forward-dark 4s ease-in-out infinite;
+}
+
+@keyframes ascii-wave-glow-forward-dark {
+  0%, 5% {
+    color: rgb(74, 222, 128); /* green-400 */
+    text-shadow: 0 0 4px rgba(34, 197, 94, 0.3);
+  }
+  7%, 10% {
+    color: rgb(187, 247, 208); /* green-200 brighter */
+    text-shadow: 0 0 15px rgba(34, 197, 94, 0.9), 0 0 25px rgba(34, 197, 94, 0.5), 0 0 35px rgba(34, 197, 94, 0.2);
+  }
+  12%, 100% {
+    color: rgb(74, 222, 128);
+    text-shadow: 0 0 4px rgba(34, 197, 94, 0.3);
+  }
+}
+
 @keyframes slideInRight {
   from {
     transform: translateX(20px);

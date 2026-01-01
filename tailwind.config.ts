@@ -108,12 +108,17 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
       },
       animation: {
         fadeIn: "fadeIn 0.6s ease-in-out",
         slideUp: "slideUp 0.5s ease-out",
         pulse: "pulse 2s ease-in-out infinite",
         floatUp: "floatUp 3s ease-in-out infinite",
+        blink: "blink 1s step-end infinite",
       },
     },
   },
