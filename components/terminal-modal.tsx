@@ -52,6 +52,7 @@ export default function TerminalModal() {
     { cmd: "welcome", output: "Welcome to VoxDroid Terminal v2.0. Type 'help' for available commands." },
   ])
   const [isMaximized, setIsMaximized] = useState(false)
+  const [aiEnabled, setAiEnabled] = useState(true) // Default to true, will be updated on mount
   const inputRef = useRef<HTMLInputElement>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
@@ -78,6 +79,23 @@ export default function TerminalModal() {
       inputRef.current.focus()
     }
   }, [isOpen])
+
+  // Fetch AI enabled status
+  useEffect(() => {
+    const fetchAiStatus = async () => {
+      try {
+        const res = await fetch('/api/ai-status')
+        if (res.ok) {
+          const data = await res.json()
+          setAiEnabled(data.aiEnabled)
+        }
+      } catch (error) {
+        console.error('Failed to fetch AI status:', error)
+        // Keep default value (true) on error
+      }
+    }
+    fetchAiStatus()
+  }, [])
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -159,6 +177,9 @@ export default function TerminalModal() {
             <p className="pl-4"><span className="text-yellow-400">clear</span> - Clear terminal</p>
             <p className="pl-4"><span className="text-yellow-400">exit</span> - Close terminal</p>
             <p className="mt-2 text-gray-500 text-xs">Tip: Use Tab for auto-completion, ↑/↓ for command history</p>
+            {aiEnabled && (
+              <p className="mt-2 text-gray-500 text-xs">AI: Use <span className="text-yellow-400">ai &lt;question&gt;</span> to ask the site assistant (requires an API key).</p>
+            )}
           </div>
         )
         break
@@ -375,6 +396,90 @@ export default function TerminalModal() {
           </div>
         )
         break
+
+      case "ai": {
+        if (!aiEnabled) {
+          output = <span className="text-red-400">AI chat is currently disabled. Contact the administrator to enable this feature.</span>
+          break
+        }
+
+        if (!args) {
+          output = <span className="text-gray-300">Usage: ai &lt;your question&gt; — queries the site assistant (requires API key)</span>
+          break
+        }
+
+        // Append placeholder entry right away
+        output = <span className="text-gray-400">Querying AI assistant… (streaming)</span>
+        const placeholderIndex = history.length
+        setHistory((h) => [...h, { cmd: rawInput, output }])
+
+        ;(async () => {
+          const controller = new AbortController()
+          const timeoutId = setTimeout(() => controller.abort(), 30000) // 30s timeout
+
+          try {
+            const res = await fetch("/api/chat", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ messages: [{ role: "user", content: args }] }),
+              signal: controller.signal,
+            })
+
+            if (!res.ok) {
+              const errJson = await res.json().catch(() => ({}))
+              const err = errJson?.error || `AI request failed (${res.status})`
+              setHistory((h) => {
+                const copy = [...h]
+                copy[placeholderIndex] = { cmd: rawInput, output: <span className="text-red-400">{String(err)}</span> }
+                return copy
+              })
+              return
+            }
+
+            if (!res.body) {
+              setHistory((h) => {
+                const copy = [...h]
+                copy[placeholderIndex] = { cmd: rawInput, output: <span className="text-red-400">Empty response stream</span> }
+                return copy
+              })
+              return
+            }
+
+            const reader = res.body.getReader()
+            const decoder = new TextDecoder()
+            let done = false
+            let accumulated = ""
+
+            while (!done) {
+              const { value, done: readerDone } = await reader.read()
+              if (value) {
+                const chunk = decoder.decode(value, { stream: true })
+                accumulated += chunk
+
+                setHistory((h) => {
+                  const copy = [...h]
+                  copy[placeholderIndex] = { cmd: rawInput, output: <pre className="whitespace-pre-wrap text-sm">{accumulated}</pre> }
+                  return copy
+                })
+              }
+              done = !!readerDone
+            }
+
+            // final update done above during streaming
+          } catch (err: any) {
+            setHistory((h) => {
+              const copy = [...h]
+              copy[placeholderIndex] = { cmd: rawInput, output: <span className="text-red-400">{String(err?.message || err)}</span> }
+              return copy
+            })
+          } finally {
+            clearTimeout(timeoutId)
+          }
+        })()
+
+        setInput("")
+        return
+      }
 
       default:
         output = <span className="text-red-400">Command not found: {command}. Type &apos;help&apos; for available commands.</span>
