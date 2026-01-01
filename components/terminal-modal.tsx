@@ -24,8 +24,7 @@ export default function TerminalModal() {
 
   useEffect(() => {
     if (isOpen && inputRef.current) {
-      // Small delay to allow animation to start
-      setTimeout(() => inputRef.current?.focus(), 100)
+      inputRef.current.focus()
     }
   }, [isOpen])
 
@@ -98,27 +97,27 @@ export default function TerminalModal() {
   }
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          key="terminal-modal"
+          initial={{ opacity: 0, y: 100, scale: 0.95 }}
           animate={{ 
             opacity: 1, 
-            scale: 1, 
             y: 0,
-            width: isMaximized ? "100vw" : "min(600px, 90vw)",
-            height: isMaximized ? "100vh" : "500px",
-            bottom: isMaximized ? 0 : "1rem",
-            right: isMaximized ? 0 : "1rem",
-            borderRadius: isMaximized ? 0 : "0.5rem"
+            scale: 1,
           }}
-          exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className="fixed z-[100] overflow-hidden shadow-2xl border border-gray-800 bg-[#0c0c0c]/95 backdrop-blur-md flex flex-col font-mono text-sm"
-          style={{
-            // Ensure it stays fixed even if parent has transforms (though we moved it to root)
-            position: 'fixed', 
+          exit={{ opacity: 0, y: 100, scale: 0.95 }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 400, 
+            damping: 30,
           }}
+          className={`fixed z-[100] overflow-hidden shadow-2xl border border-gray-800 bg-[#0c0c0c]/95 backdrop-blur-md flex flex-col font-mono text-sm transition-[width,height,bottom,right,border-radius] duration-200 ${
+            isMaximized 
+              ? "w-screen h-screen bottom-0 right-0 rounded-none" 
+              : "w-[min(600px,90vw)] h-[500px] bottom-4 right-4 rounded-lg"
+          }`}
         >
           {/* Terminal Header */}
           <div 
