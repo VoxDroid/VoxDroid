@@ -1,14 +1,27 @@
+"use client"
+
 import Link from "next/link"
 import { Home, ArrowRight, ArrowLeft } from "lucide-react"
+import { motion } from "framer-motion"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 260, damping: 20 } },
+}
 
 export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="text-center max-w-md">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        className="text-center max-w-md"
+      >
         <h1 className="text-6xl md:text-8xl font-bold gradient-text dark:gradient-text-light mb-6">503</h1>
         <h2 className="text-2xl md:text-3xl font-bold mb-4">Page Coming Soon</h2>
         <p className="text-accent-dark dark:text-accent-light mb-8">
-            The content you're looking for isn't available yet, but it's on its way!
+          The content you're looking for isn't available yet, but it's on its way!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
@@ -25,7 +38,7 @@ export default function NotFound() {
             Contact Me <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

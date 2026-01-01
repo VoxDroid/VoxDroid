@@ -3,8 +3,31 @@
 import { useState } from "react"
 import { Code, Layout, Server, Smartphone, Database, Search, Zap, Layers, ChevronDown, CheckCircle } from "lucide-react"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import SectionHeader from "@/components/section-header"
 import AnimatedBackground from "@/components/animated-background"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
 const services = [
   {
@@ -180,21 +203,29 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen py-16">
       <AnimatedBackground patternSize={30} speed={0.2} />
-      <div className="container mx-auto px-4">
-        <SectionHeader
-          title="Services"
-          subtitle="Expert solutions to help your business thrive in the digital world"
-          centered
-        />
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-4"
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeader
+            title="Services"
+            subtitle="Expert solutions to help your business thrive in the digital world"
+            centered
+          />
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <motion.div variants={staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service) => {
             const Icon = service.icon
             const isExpanded = expandedService === service.id
 
             return (
-              <div
+              <motion.div
+                variants={fadeInUp}
                 key={service.id}
                 className={`bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark overflow-hidden transition-all duration-500 ${
                   isExpanded ? "transform scale-[1.03] shadow-xl z-10" : "hover:translate-y-[-10px] hover:shadow-xl"
@@ -233,19 +264,22 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
 
         {/* Pricing Section */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text dark:gradient-text-light inline-block">
-          Pricing Plans
-        </h2>
+        <motion.div variants={fadeInUp}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text dark:gradient-text-light inline-block">
+            Pricing Plans
+          </h2>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <motion.div variants={staggerContainer} className="grid md:grid-cols-3 gap-8 mb-16">
           {pricingPlans.map((plan) => (
-            <div
+            <motion.div
+              variants={fadeInUp}
               key={plan.id}
               className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark overflow-hidden transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl flex flex-col"
             >
@@ -277,12 +311,15 @@ export default function ServicesPage() {
                   Get Started
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Process Section */}
-        <div className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-8 mb-16">
+        <motion.div
+          variants={fadeInUp}
+          className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-8 mb-16"
+        >
           <h2 className="text-2xl font-bold mb-8 text-center">My Working Process</h2>
 
           <div className="grid md:grid-cols-4 gap-8">
@@ -308,10 +345,10 @@ export default function ServicesPage() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* FAQ Section */}
-        <div className="max-w-3xl mx-auto">
+        <motion.div variants={fadeInUp} className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
 
           <div className="space-y-4">
@@ -346,10 +383,13 @@ export default function ServicesPage() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Call to Action */}
-        <div className="mt-16 p-8 bg-gradient-to-r from-primary via-primary-light to-primary text-white rounded-lg shadow-lg text-center">
+        <motion.div
+          variants={fadeInUp}
+          className="mt-16 p-8 bg-gradient-to-r from-primary via-primary-light to-primary text-white rounded-lg shadow-lg text-center"
+        >
           <h3 className="text-2xl font-bold mb-4">Ready to start your project?</h3>
           <p className="mb-6 max-w-2xl mx-auto">
             Let's discuss how I can help bring your vision to life with tailored solutions that meet your specific
@@ -361,8 +401,8 @@ export default function ServicesPage() {
           >
             Get in Touch
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }

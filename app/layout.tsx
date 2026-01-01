@@ -1,5 +1,5 @@
 import type React from "react"
-import { Poppins } from "next/font/google"
+import { JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
@@ -7,11 +7,12 @@ import Footer from "@/components/footer"
 import ScrollToTop from "@/components/scroll-to-top"
 import ParticlesBackground from "@/components/particles-background"
 import PageTransition from "@/components/page-transition"
+import { TerminalProvider } from "@/context/terminal-context"
+import TerminalModal from "@/components/terminal-modal"
 
-const poppins = Poppins({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
+  variable: "--font-jetbrains-mono",
   display: "swap",
 })
 
@@ -31,17 +32,20 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/ico/vox.ico" />
       </head>
-      <body className={`${poppins.variable} font-sans relative min-h-screen`}>
-        <ThemeProvider>
-          <ParticlesBackground />
-          <div className="flex flex-col min-h-screen relative z-10">
-            <Navbar />
-            <main className="flex-grow">
-              <PageTransition>{children}</PageTransition>
-            </main>
-            <Footer />
-            <ScrollToTop />
-          </div>
+      <body className={`${jetbrainsMono.variable} font-mono relative min-h-screen bg-background text-foreground`}>
+        <ThemeProvider defaultTheme="system" attribute="class">
+          <TerminalProvider>
+            <ParticlesBackground />
+            <div className="flex flex-col min-h-screen relative z-10">
+              <Navbar />
+              <main className="flex-grow">
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <Footer />
+              <ScrollToTop />
+            </div>
+            <TerminalModal />
+          </TerminalProvider>
         </ThemeProvider>
       </body>
     </html>

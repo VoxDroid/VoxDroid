@@ -1,7 +1,24 @@
+"use client"
+
+import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, Tag, ChevronRight } from "lucide-react"
 import SectionHeader from "@/components/section-header"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 260, damping: 20 } },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
 const blogPosts = [
   {
@@ -91,11 +108,18 @@ const recentPosts = blogPosts.slice(1)
 export default function BlogPage() {
   return (
     <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <SectionHeader title="My Blog" subtitle="Thoughts, tutorials, and insights on web development" centered />
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-4"
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeader title="My Blog" subtitle="Thoughts, tutorials, and insights on web development" centered />
+        </motion.div>
 
         {/* Featured Post */}
-        <div className="mb-16">
+        <motion.div variants={fadeInUp} className="mb-16">
           <div className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark overflow-hidden transition-all duration-500 hover:shadow-xl">
             <div className="md:flex">
               <div className="md:w-1/2 relative h-64 md:h-auto">
@@ -136,13 +160,16 @@ export default function BlogPage() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Recent Posts Grid */}
-        <h3 className="text-2xl font-bold mb-8">Recent Articles</h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div variants={fadeInUp}>
+          <h3 className="text-2xl font-bold mb-8">Recent Articles</h3>
+        </motion.div>
+        <motion.div variants={staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {recentPosts.map((post) => (
-            <div
+            <motion.div
+              variants={fadeInUp}
               key={post.id}
               className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark overflow-hidden transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl"
             >
@@ -182,12 +209,15 @@ export default function BlogPage() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Newsletter Subscription */}
-        <div className="mt-16 p-8 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark text-center">
+        <motion.div
+          variants={fadeInUp}
+          className="mt-16 p-8 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark text-center"
+        >
           <h3 className="text-2xl font-bold mb-4">Subscribe to My Newsletter</h3>
           <p className="text-accent-dark dark:text-accent-light mb-6 max-w-2xl mx-auto">
             Stay updated with the latest articles, tutorials, and insights on web development. No spam, just valuable
@@ -207,8 +237,8 @@ export default function BlogPage() {
               Subscribe
             </button>
           </form>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }

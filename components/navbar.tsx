@@ -3,19 +3,20 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Sun, Moon, Github } from "lucide-react"
+import { Menu, X, Sun, Moon, Github, Terminal } from "lucide-react"
 import { useTheme } from "next-themes"
 import ScrollProgressBar from "./scroll-progress-bar"
+import { useTerminal } from "@/context/terminal-context"
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  // { href: "/skills", label: "Skills" },
-  // { href: "/services", label: "Services" },
-  // { href: "/achievements", label: "Achievements" },
-  // { href: "/blog", label: "Blog" },
-  // { href: "/testimonials", label: "Testimonials" },
+  { href: "/skills", label: "Skills" },
+  { href: "/services", label: "Services" },
+  { href: "/achievements", label: "Achievements" },
+  { href: "/blog", label: "Blog" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -23,6 +24,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { toggleTerminal, openTerminal } = useTerminal()
   const { theme, setTheme } = useTheme()
   const pathname = usePathname()
 
@@ -71,7 +73,7 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 w-full ${
         scrolled
-          ? "bg-gradient-to-r from-primary/10 to-primary-light/10 dark:from-primary/20 dark:to-primary-light/20 backdrop-blur-md shadow-md"
+          ? "bg-background/90 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       } transition-all duration-300`}
     >
@@ -79,8 +81,9 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold dark:gradient-text-light">VoxDroid</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <span className="text-xl font-bold text-foreground font-mono group-hover:text-primary transition-colors">~/voxdroid</span>
+            <span className="animate-pulse w-2 h-5 bg-primary block"></span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -107,11 +110,20 @@ export default function Navbar() {
               href="https://github.com/VoxDroid"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 hover:text-primary dark:hover:text-primary-light transition-colors duration-300"
+              className="p-2 hover:text-primary transition-colors duration-300"
               aria-label="GitHub Profile"
             >
               <Github className="h-5 w-5" />
             </a>
+
+            {/* Terminal Toggle */}
+            <button
+              onClick={toggleTerminal}
+              className="p-2 hover:text-primary transition-colors duration-300 hidden md:block"
+              aria-label="Open Terminal"
+            >
+              <Terminal className="h-5 w-5" />
+            </button>
 
             {/* Theme Toggle */}
             {mounted && (
@@ -138,7 +150,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       <div
-        className={`fixed inset-0 z-50 bg-gradient-to-b from-primary/5 to-primary-light/5 dark:from-primary/10 dark:to-primary-light/10 backdrop-blur-lg ${
+        className={`fixed inset-0 z-50 bg-background/95 backdrop-blur-lg border-t border-border ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         } md:hidden transition-opacity duration-300 ease-in-out`}
         style={{ top: "64px" }}
@@ -151,13 +163,22 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className={`text-xl font-medium transition-all duration-300 ${
                 pathname === link.href
-                  ? "text-primary dark:text-primary-light scale-105"
-                  : "text-accent-dark dark:text-accent-light"
+                  ? "text-primary scale-105"
+                  : "text-muted-foreground"
               }`}
             >
               {link.label}
             </Link>
           ))}
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false)
+              openTerminal()
+            }}
+            className="text-xl font-medium text-muted-foreground hover:text-primary transition-all duration-300 flex items-center gap-2"
+          >
+            <Terminal className="h-5 w-5" /> Terminal
+          </button>
         </nav>
       </div>
     </header>

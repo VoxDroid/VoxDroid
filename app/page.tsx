@@ -1,8 +1,35 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
+import { motion } from "framer-motion"
 import { ArrowRight, ArrowDown, Github, Code, Cpu, Monitor, ExternalLink, Quote } from "lucide-react"
 import TypingAnimation from "@/components/typing-animation"
+import BootSequence from "@/components/boot-sequence"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
 const featuredProjects = [
   {
@@ -45,15 +72,36 @@ const typingPhrases = [
 ]
 
 export default function Home() {
+  const [showBoot, setShowBoot] = useState(true)
+
+  useEffect(() => {
+    // Check if we've already shown the boot sequence this session
+    const hasBooted = sessionStorage.getItem("hasBooted")
+    if (hasBooted) {
+      setShowBoot(false)
+    }
+  }, [])
+
+  const handleBootComplete = () => {
+    setShowBoot(false)
+    sessionStorage.setItem("hasBooted", "true")
+  }
+
   return (
     <div className="min-h-screen">
+      {showBoot && <BootSequence onComplete={handleBootComplete} />}
       <Head>
         <link rel="icon" href="/ico/vox.ico" />
       </Head>
       {/* Hero Section */}
       <section className="py-20 md:py-28">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-10 md:mb-0 animate-fadeIn">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="container mx-auto px-4 flex flex-col md:flex-row items-center"
+        >
+          <motion.div variants={fadeInUp} className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Hi, I'm <span className="gradient-text dark:gradient-text-light">VoxDroid</span>
             </h1>
@@ -81,8 +129,8 @@ export default function Home() {
                 Download CV <ArrowDown className="ml-2 h-5 w-5" />
               </a>
             </div>
-          </div>
-          <div className="md:w-1/2 flex justify-center animate-fadeIn">
+          </motion.div>
+          <motion.div variants={fadeInUp} className="md:w-1/2 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 animate-floatUp">
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary-light rounded-full opacity-20 blur-xl"></div>
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-custom-dark">
@@ -96,8 +144,8 @@ export default function Home() {
                 />
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Featured Projects Section */}
@@ -107,9 +155,16 @@ export default function Home() {
             Featured Projects
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {featuredProjects.map((project) => (
-              <div
+              <motion.div
+                variants={fadeInUp}
                 key={project.id}
                 className="group bg-white/90 dark:bg-accent-dark/90 backdrop-blur-sm rounded-xl shadow-xl transition-all duration-500 hover:translate-y-[-10px] hover:shadow-2xl flex flex-col h-full glow-effect glow-blue"
               >
@@ -173,9 +228,9 @@ export default function Home() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           <div className="mt-12 text-center">
             <Link
@@ -195,8 +250,17 @@ export default function Home() {
             My Expertise
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark text-center transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-8"
+          >
+            <motion.div
+              variants={fadeInUp}
+              className="p-6 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark text-center transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl"
+            >
               <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 dark:bg-primary-light/10 rounded-full flex items-center justify-center">
                 <Code className="h-8 w-8 text-primary dark:text-primary-light" />
               </div>
@@ -204,11 +268,11 @@ export default function Home() {
               <p className="text-accent-dark dark:text-accent-light">
                 Designing and implementing machine learning models for data analysis, prediction, and automation using Python.
               </p>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              variants={fadeInUp}
               className="p-6 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark text-center transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl"
-              style={{ animationDelay: "0.1s" }}
             >
               <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 dark:bg-primary-light/10 rounded-full flex items-center justify-center">
                 <Monitor className="h-8 w-8 text-primary dark:text-primary-light" />
@@ -217,11 +281,11 @@ export default function Home() {
               <p className="text-accent-dark dark:text-accent-light">
                 Building cross-platform desktop applications with Python, focusing on functionality and user-friendly interfaces.
               </p>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              variants={fadeInUp}
               className="p-6 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark text-center transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl"
-              style={{ animationDelay: "0.2s" }}
             >
               <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 dark:bg-primary-light/10 rounded-full flex items-center justify-center">
                 <Cpu className="h-8 w-8 text-primary dark:text-primary-light" />
@@ -230,8 +294,8 @@ export default function Home() {
               <p className="text-accent-dark dark:text-accent-light">
                 Crafting efficient, scalable software solutions with a focus on clean Python code and robust architectures.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           <div className="mt-12 text-center">
             <Link

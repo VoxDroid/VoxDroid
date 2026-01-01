@@ -1,6 +1,23 @@
+"use client"
+
+import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Clock, Tag, ArrowLeft, Twitter, Linkedin, Share2 } from "lucide-react"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 260, damping: 20 } },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
 const post = {
   title: "VoxDroid's Blog",
@@ -42,19 +59,26 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-4"
+      >
         <div className="max-w-4xl mx-auto">
           {/* Back to Blog */}
-          <Link
-            href="/blog"
-            className="inline-flex items-center text-accent-dark dark:text-accent-light hover:text-primary dark:hover:text-primary-light mb-8 transition-colors duration-300"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Blog
-          </Link>
+          <motion.div variants={fadeInUp}>
+            <Link
+              href="/blog"
+              className="inline-flex items-center text-accent-dark dark:text-accent-light hover:text-primary dark:hover:text-primary-light mb-8 transition-colors duration-300"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Blog
+            </Link>
+          </motion.div>
 
           {/* Post Header */}
-          <header className="mb-8">
+          <motion.header variants={fadeInUp} className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
             <div className="flex flex-wrap items-center text-sm text-accent-dark dark:text-accent-light mb-6">
               <span className="flex items-center">
@@ -83,15 +107,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 className="w-full h-auto"
               />
             </div>
-          </header>
+          </motion.header>
 
           {/* Post Content */}
-          <article className="prose prose-lg dark:prose-invert max-w-none mb-12 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-8">
+          <motion.article
+            variants={fadeInUp}
+            className="prose prose-lg dark:prose-invert max-w-none mb-12 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-8"
+          >
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
-          </article>
+          </motion.article>
 
           {/* Author Bio */}
-          <div className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-6 mb-12 flex items-center">
+          <motion.div
+            variants={fadeInUp}
+            className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-6 mb-12 flex items-center"
+          >
             <div className="mr-4 rounded-full overflow-hidden w-16 h-16 border-2 border-primary/20 dark:border-primary-light/20">
               <Image
                 src={post.author.image || "/profile/VoxDroid.jpg"}
@@ -105,10 +135,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <h4 className="font-bold text-lg">Written by {post.author.name}</h4>
               <p className="text-accent-dark dark:text-accent-light">{post.author.bio}</p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Share Links */}
-          <div className="mb-12">
+          <motion.div variants={fadeInUp} className="mb-12">
             <h4 className="font-bold mb-4">Share this article</h4>
             <div className="flex space-x-4">
               <a
@@ -133,10 +163,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <Share2 className="h-5 w-5" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Related Posts */}
-          <div>
+          <motion.div variants={fadeInUp}>
             <h3 className="text-2xl font-bold mb-6">Related Articles</h3>
             <div className="grid md:grid-cols-3 gap-6">
               {post.relatedPosts.map((relatedPost) => (
@@ -160,9 +190,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 </Link>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

@@ -82,14 +82,13 @@ const fadeIn = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { type: "spring" as const, stiffness: 260, damping: 20 },
   },
 }
 
 const staggerContainer = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
       staggerChildren: 0.1,
     },
@@ -101,7 +100,7 @@ const item = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { type: "spring" as const, stiffness: 260, damping: 20 },
   },
 }
 
@@ -497,7 +496,7 @@ export default function ProjectDetailPage() {
                     onClick={() => navigateToScreenshots(currentImageIndex)}
                   >
                     <div className="relative w-full aspect-video overflow-hidden">
-                      <AnimatePresence mode="crossfade" initial={false}>
+                      <AnimatePresence mode="popLayout" initial={false}>
                         <motion.div
                           key={currentImageIndex}
                           initial={{ opacity: 0 }}
@@ -584,7 +583,7 @@ export default function ProjectDetailPage() {
                     onClick={() => handleImageClick(project.screenshots[currentImageIndex], currentImageIndex)}
                   >
                     <div className="relative w-full aspect-video overflow-hidden">
-                      <AnimatePresence mode="crossfade" initial={false}>
+                      <AnimatePresence mode="popLayout" initial={false}>
                         <motion.div
                           key={currentImageIndex}
                           initial={{ opacity: 0, x: 20 }}

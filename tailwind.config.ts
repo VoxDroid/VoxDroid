@@ -27,6 +27,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        linux: {
+          bg: "#050505",
+          primary: "#6366f1",
+          success: "#27c93f",
+          error: "#ff5f56",
+          warning: "#ffbd2e",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -35,7 +42,7 @@ const config: Config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          light: "#3b82f6", // lighter blue for light mode
+          light: "#818cf8", // Indigo 400
           DEFAULT_OLD: "#1e3a8a", // dark blue
         },
         secondary: {
@@ -54,7 +61,7 @@ const config: Config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
           light: "#94a3b8", // lighter gray for light mode
-          dark: "#334155", // darker gray for dark mode
+          dark: "#1e1e2e", // Darker blue-gray for Linux theme
           DEFAULT_OLD: "#64748b", // gray/silver
         },
         popover: {
@@ -76,7 +83,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-poppins)"],
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        sans: ["var(--font-jetbrains-mono)", "monospace"],
       },
       boxShadow: {
         custom: "0 4px 12px rgba(0, 0, 0, 0.15)",

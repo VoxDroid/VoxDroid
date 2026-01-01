@@ -1,7 +1,32 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { ArrowRight, Award, BookOpen, UserCheck, Coffee } from "lucide-react"
 import SectionHeader from "@/components/section-header"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
 const journeyItems = [
   {
@@ -37,12 +62,19 @@ const journeyItems = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <SectionHeader title="About Me" subtitle="Get to know more about me and my journey" centered />
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-4"
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeader title="About Me" subtitle="Get to know more about me and my journey" centered />
+        </motion.div>
 
         {/* Personal Info */}
         <div className="flex flex-col lg:flex-row gap-12 mb-16 items-center">
-          <div className="lg:w-2/5 animate-fadeIn">
+          <motion.div variants={fadeInUp} className="lg:w-2/5">
             <div className="relative w-full max-w-md mx-auto aspect-square rounded-2xl overflow-hidden gradient-border shadow-custom-dark">
               <Image
                 src="/profile/VoxDroid.jpg"
@@ -52,9 +84,9 @@ export default function AboutPage() {
                 className="transition-transform duration-500 hover:scale-105"
               />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:w-3/5 animate-slideUp">
+          <motion.div variants={fadeInUp} className="lg:w-3/5">
             <h3 className="text-2xl font-bold mb-4">Who is VoxDroid?</h3>
             <p className="text-accent-dark dark:text-accent-light mb-4">
               I'm a developer who enjoys solving tough problems with my keyboard.
@@ -88,11 +120,11 @@ export default function AboutPage() {
             >
               Get in Touch <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-          </div>
+          </motion.div>
         </div>
 
         {/* Journey Timeline */}
-        <div className="mb-16">
+        <motion.div variants={fadeInUp} className="mb-16">
           <h3 className="text-2xl font-bold mb-12 text-center">My Journey</h3>
 
           <div className="relative max-w-4xl mx-auto">
@@ -100,7 +132,8 @@ export default function AboutPage() {
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-primary-light to-primary/30 rounded-full"></div>
 
             {journeyItems.map((item, index) => (
-              <div
+              <motion.div
+                variants={fadeInUp}
                 key={item.id}
                 className={`flex flex-col md:flex-row items-center mb-16 last:mb-0 ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
@@ -126,31 +159,34 @@ export default function AboutPage() {
 
                 {/* Empty space for the other side */}
                 <div className="w-full md:w-5/12"></div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Interests Section */}
-        <div>
+        <motion.div variants={fadeInUp}>
           <h3 className="text-2xl font-bold mb-8 text-center">My Interests</h3>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {["Open Source", "UI/UX Design", "Web Performance", "Modern Frameworks", "AI/ML", "DevOps", "Software Development", "Desktop Applications", "Operating Systems", "Linux", "Computer Hardware"].map(
               (interest, index) => (
-                <div
+                <motion.div
+                  variants={fadeInUp}
                   key={interest}
                   className="p-6 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark text-center transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl"
-                  style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   <div className="text-xl font-bold mb-2">{interest}</div>
                   <div className="w-16 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto"></div>
-                </div>
+                </motion.div>
               ),
             )}
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }

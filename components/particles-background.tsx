@@ -71,12 +71,15 @@ export default function ParticlesBackground() {
       ctx.clearRect(0, 0, dimensions.width, dimensions.height)
 
       // Set particle color based on theme
-      const particleColor = theme === "dark" ? "59, 130, 246" : "30, 58, 138"
+      // Dark mode: Indigo (99, 102, 241)
+      // Light mode: Darker Indigo/Slate (79, 70, 229) for visibility against light bg
+      const particleColor = theme === "dark" ? "99, 102, 241" : "79, 70, 229"
 
       // Draw and update particles
       particlesRef.current.forEach((particle) => {
         ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
+        // Draw squares for terminal feel
+        ctx.rect(particle.x, particle.y, particle.size, particle.size)
         ctx.fillStyle = `rgba(${particleColor}, ${particle.opacity})`
         ctx.fill()
 

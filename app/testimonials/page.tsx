@@ -2,9 +2,32 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import SectionHeader from "@/components/section-header"
 import Link from "next/link"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
 const testimonials = [
   {
@@ -98,11 +121,18 @@ export default function TestimonialsPage() {
 
   return (
     <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <SectionHeader title="Client Testimonials" subtitle="What people say about working with me" centered />
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-4"
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeader title="Client Testimonials" subtitle="What people say about working with me" centered />
+        </motion.div>
 
         {/* Featured Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto mb-16">
+        <motion.div variants={fadeInUp} className="max-w-4xl mx-auto mb-16">
           <div className="relative bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-8 md:p-12 overflow-hidden">
             <div className="absolute top-8 left-8 text-primary/20 dark:text-primary-light/20">
               <Quote className="h-16 w-16" />
@@ -207,15 +237,15 @@ export default function TestimonialsPage() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* All Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div variants={staggerContainer} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
+              variants={fadeInUp}
               key={testimonial.id}
               className="bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-6 transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl"
-              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center">
@@ -250,12 +280,15 @@ export default function TestimonialsPage() {
                   </svg>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Call to Action */}
-        <div className="mt-16 p-8 bg-gradient-to-r from-primary via-primary-light to-primary text-white rounded-lg shadow-lg text-center">
+        <motion.div
+          variants={fadeInUp}
+          className="mt-16 p-8 bg-gradient-to-r from-primary via-primary-light to-primary text-white rounded-lg shadow-lg text-center"
+        >
           <h3 className="text-2xl font-bold mb-4">Ready to work together?</h3>
           <p className="mb-6 max-w-2xl mx-auto">Let's create something amazing that exceeds your expectations.</p>
           <Link
@@ -264,8 +297,8 @@ export default function TestimonialsPage() {
           >
             Contact Me <ChevronRight className="ml-2 h-5 w-5" />
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }

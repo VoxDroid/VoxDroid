@@ -3,8 +3,32 @@
 import type React from "react"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 import { Mail, Github, Linkedin, Send, Phone, MapPin } from "lucide-react"
 import SectionHeader from "@/components/section-header"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -55,16 +79,26 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <SectionHeader
-          title="Get In Touch"
-          subtitle="Have a question or want to work together? Let me know!"
-          centered
-        />
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-4"
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeader
+            title="Get In Touch"
+            subtitle="Have a question or want to work together? Let me know!"
+            centered
+          />
+        </motion.div>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-8">
           {/* Contact Information */}
-          <div className="md:col-span-2 bg-white dark:bg-accent-dark/20 p-6 rounded-lg shadow-custom dark:shadow-custom-dark animate-fadeIn">
+          <motion.div
+            variants={fadeInUp}
+            className="md:col-span-2 bg-white dark:bg-accent-dark/20 p-6 rounded-lg shadow-custom dark:shadow-custom-dark"
+          >
             <h3 className="text-xl font-bold mb-6">Contact Information</h3>
 
             <div className="space-y-6">
@@ -134,10 +168,13 @@ export default function ContactPage() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="md:col-span-3 bg-white dark:bg-accent-dark/20 p-6 rounded-lg shadow-custom dark:shadow-custom-dark animate-slideUp">
+          <motion.div
+            variants={fadeInUp}
+            className="md:col-span-3 bg-white dark:bg-accent-dark/20 p-6 rounded-lg shadow-custom dark:shadow-custom-dark"
+          >
             <h3 className="text-xl font-bold">Send Me a Message</h3>
             <p className="mb-6">(I disabled this, just message me directly via email)</p>
 
@@ -233,14 +270,14 @@ export default function ContactPage() {
                 </div>
               )}
             </form>
-          </div>
+          </motion.div>
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-3xl mx-auto mt-20">
+        <motion.div variants={fadeInUp} className="max-w-3xl mx-auto mt-20">
           <h3 className="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h3>
 
-          <div className="space-y-6">
+          <motion.div variants={staggerContainer} className="space-y-6">
             {[
               {
                 question: "What services do you offer?",
@@ -263,18 +300,18 @@ export default function ContactPage() {
                   "The process begins by reaching out through this contact form or via email. We'll schedule a consultation to discuss your project requirements, timeline, and budget. After that, I'll provide a detailed proposal for your consideration.",
               },
             ].map((faq, index) => (
-              <div
+              <motion.div
+                variants={fadeInUp}
                 key={index}
-                className="p-6 bg-white dark:bg-accent-dark/20 rounded-lg shadow-custom dark:shadow-custom-dark animate-slideUp"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="p-6 bg-white dark:bg-accent-dark/20 rounded-lg shadow-custom dark:shadow-custom-dark"
               >
                 <h4 className="text-lg font-semibold mb-2">{faq.question}</h4>
                 <p className="text-accent-dark dark:text-accent-light">{faq.answer}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }

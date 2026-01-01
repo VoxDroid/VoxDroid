@@ -18,6 +18,28 @@ import SectionHeader from "@/components/section-header"
 import { motion } from "framer-motion"
 import { Cloud, Workflow, GitBranch, Book, Award, Lightbulb, SmartphoneIcon as MobileIcon } from "lucide-react"
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
 type SkillCategory =
   | "frontend"
   | "backend"
@@ -209,14 +231,25 @@ export default function SkillsPage() {
   return (
     <div className="min-h-screen py-16">
       <div className="container mx-auto px-4">
-        <SectionHeader
-          title="My Skills"
-          subtitle="A comprehensive overview of my technical expertise and capabilities"
-          centered
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring" as const, stiffness: 260, damping: 20, delay: 0.1 }}
+        >
+          <SectionHeader
+            title="My Skills"
+            subtitle="A comprehensive overview of my technical expertise and capabilities"
+            centered
+          />
+        </motion.div>
 
         {/* Categories */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring" as const, stiffness: 260, damping: 20, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
+        >
           {categories.map((category) => {
             const Icon = category.icon
             return (
@@ -234,13 +267,13 @@ export default function SkillsPage() {
               </button>
             )
           })}
-        </div>
+        </motion.div>
 
         {/* Skills Grid */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           className="grid md:grid-cols-2 gap-8"
         >
           {filteredSkills.map((skill, index) => (
@@ -248,7 +281,7 @@ export default function SkillsPage() {
               key={skill.name}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05, duration: 0.3 }}
+              transition={{ delay: 0.3 + index * 0.03, duration: 0.2 }}
               className="p-4 bg-white dark:bg-accent-dark/20 rounded-lg shadow-custom dark:shadow-custom-dark"
             >
               <div className="flex justify-between items-center mb-2">
@@ -650,8 +683,9 @@ export default function SkillsPage() {
         {/* Education Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring" as const, stiffness: 260, damping: 20 }}
           className="mt-16 p-8 bg-white dark:bg-accent-dark/20 rounded-lg shadow-custom dark:shadow-custom-dark"
         >
           <h3 className="text-2xl font-bold mb-6 text-center flex items-center justify-center">
@@ -684,9 +718,10 @@ export default function SkillsPage() {
             ].map((edu, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1 + index * 0.2, duration: 0.5 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
                 className="p-6 border-l-4 border-primary dark:border-primary-light bg-white/50 dark:bg-accent-dark/30 rounded-r-lg"
               >
                 <h4 className="font-bold text-xl text-primary dark:text-primary-light">{edu.degree}</h4>
@@ -703,8 +738,9 @@ export default function SkillsPage() {
         {/* Professional Development */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring" as const, stiffness: 260, damping: 20 }}
           className="mt-16 p-8 bg-white dark:bg-accent-dark/20 rounded-lg shadow-custom dark:shadow-custom-dark"
         >
           <h3 className="text-2xl font-bold mb-6">Professional Development</h3>
@@ -738,9 +774,10 @@ export default function SkillsPage() {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.1 + index * 0.1, duration: 0.4 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
                 className="p-4 bg-white/50 dark:bg-accent-dark/30 rounded-lg"
               >
                 <h4 className="font-bold mb-2 text-primary dark:text-primary-light">{item.title}</h4>

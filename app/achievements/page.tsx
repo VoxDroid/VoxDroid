@@ -1,6 +1,23 @@
+"use client"
+
+import { motion } from "framer-motion"
 import { Award, Calendar, Trophy, Star, BadgeIcon as Certificate, BookOpen } from "lucide-react"
 import Image from "next/image"
 import SectionHeader from "@/components/section-header"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 260, damping: 20 } },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
 const achievements = [
   {
@@ -44,17 +61,29 @@ const achievements = [
 export default function AchievementsPage() {
   return (
     <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <SectionHeader
-          title="Achievements"
-          subtitle="Recognition and milestones throughout my professional journey"
-          centered
-        />
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-4"
+      >
+        <motion.div variants={fadeInUp}>
+          <SectionHeader
+            title="Achievements"
+            subtitle="Recognition and milestones throughout my professional journey"
+            centered
+          />
+        </motion.div>
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 h-full w-1 bg-gradient-to-b from-primary to-primary-light/30 transform md:translate-x-[-50%]"></div>
+            <motion.div
+              initial={{ height: 0 }}
+              animate={{ height: "100%" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute left-0 md:left-1/2 h-full w-1 bg-gradient-to-b from-primary to-primary-light/30 transform md:translate-x-[-50%]"
+            ></motion.div>
 
             {/* Achievements */}
             {achievements.map((achievement, index) => {
@@ -62,7 +91,7 @@ export default function AchievementsPage() {
               const isEven = index % 2 === 0
 
               return (
-                <div key={achievement.id} className="mb-16 last:mb-0">
+                <motion.div variants={fadeInUp} key={achievement.id} className="mb-16 last:mb-0">
                   <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} items-center`}>
                     {/* Timeline dot */}
                     <div className="absolute left-0 md:left-1/2 w-12 h-12 rounded-full bg-white dark:bg-accent-dark/70 border-4 border-primary dark:border-primary-light flex items-center justify-center transform translate-x-[-50%] z-10 shadow-lg">
@@ -98,14 +127,17 @@ export default function AchievementsPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )
             })}
           </div>
         </div>
 
         {/* Stats section */}
-        <div className="mt-20 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-8">
+        <motion.div
+          variants={fadeInUp}
+          className="mt-20 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark p-8"
+        >
           <h3 className="text-2xl font-bold mb-8 text-center">By the Numbers</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
@@ -126,8 +158,8 @@ export default function AchievementsPage() {
               )
             })}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }

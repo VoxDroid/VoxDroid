@@ -259,15 +259,64 @@ const projects = [
 // Project categories
 const categories = ["All", "Web", "Application", "UI/UX", "Course/Tutorial", "Scripts"]
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+}
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    scale: 0.95,
+    transition: { duration: 0.2 },
+  },
+}
+
 // Project card component
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4 }}
+      variants={cardVariants}
+      exit="exit"
       className="group bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark overflow-hidden hover:translate-y-[-10px] hover:shadow-xl flex flex-col h-full glow-effect glow-blue"
     >
       <div className="h-48 relative overflow-hidden">
@@ -344,10 +393,21 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen py-16">
       <div className="container mx-auto px-4">
-        <SectionHeader title="My Projects" subtitle="Explore my recent work and personal projects" centered />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring" as const, stiffness: 260, damping: 20, delay: 0.1 }}
+        >
+          <SectionHeader title="My Projects" subtitle="Explore my recent work and personal projects" centered />
+        </motion.div>
 
         {/* Categories */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring" as const, stiffness: 260, damping: 20, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
           {categories.map((category) => (
             <button
               key={category}
@@ -361,10 +421,16 @@ export default function ProjectsPage() {
               {category}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Projects Grid with Framer Motion Animation */}
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          layout
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           <AnimatePresence mode="popLayout">
             {filteredProjects.length > 0 ? (
               filteredProjects.map((project) => <ProjectCard key={project.id} project={project} />)
@@ -390,7 +456,12 @@ export default function ProjectsPage() {
         </motion.div>
 
         {/* More Projects CTA */}
-        <div className="mt-16 p-8 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark text-center transform transition-all duration-500 hover:scale-[1.02]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring" as const, stiffness: 260, damping: 20, delay: 0.4 }}
+          className="mt-16 p-8 bg-white/80 dark:bg-accent-dark/40 backdrop-blur-sm rounded-lg shadow-custom dark:shadow-custom-dark text-center transform transition-all duration-500 hover:scale-[1.02]"
+        >
           <h3 className="text-2xl font-bold mb-4">Interested in more projects?</h3>
           <p className="text-accent-dark dark:text-accent-light mb-6 max-w-2xl mx-auto">
             Check out my GitHub repositories for more projects, experiments, and contributions to open-source.
@@ -404,7 +475,7 @@ export default function ProjectsPage() {
             <Github className="mr-2 h-5 w-5" />
             View GitHub Profile
           </a>
-        </div>
+        </motion.div>
       </div>
     </div>
   )
