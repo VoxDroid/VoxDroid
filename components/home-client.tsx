@@ -58,8 +58,15 @@ function FeaturedProjectCard({ project }: { project: ProjectData }) {
             onError={() => setImageError(true)}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary-light/20">
-            <span className="text-4xl font-bold text-primary/50">{project.name.charAt(0)}</span>
+          <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#0d1117] to-[#161b22] font-mono text-sm">
+            <div className="text-green-400 mb-1">voxdroid@arch ~</div>
+            <div className="flex items-center gap-1">
+              <span className="text-primary dark:text-primary-light">$</span>
+              <span className="text-gray-300">./</span>
+              <span className="text-cyan-400 truncate max-w-[150px]">{project.slug}</span>
+              <span className="w-2 h-4 bg-green-400 animate-pulse"></span>
+            </div>
+            <div className="text-gray-500 text-xs mt-2">[no preview available]</div>
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

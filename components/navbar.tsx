@@ -12,11 +12,11 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { href: "/skills", label: "Skills" },
-  { href: "/services", label: "Services" },
-  { href: "/achievements", label: "Achievements" },
-  { href: "/blog", label: "Blog" },
-  { href: "/testimonials", label: "Testimonials" },
+  // { href: "/skills", label: "Skills" },
+  // { href: "/services", label: "Services" },
+  // { href: "/achievements", label: "Achievements" },
+  // { href: "/blog", label: "Blog" },
+  // { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ]
 
