@@ -157,6 +157,7 @@ export interface ProjectData {
   featured: boolean
   screenshots: string[]
   image: string | null
+  order?: number
   
   // Owner
   owner: {
@@ -1010,6 +1011,7 @@ export async function getFullProjectData(fullName: string): Promise<ProjectData 
     featured: override.featured || false,
     screenshots: screenshotPaths[fullName] || [],
     image: override.image || possibleImages[0],
+    order: override.order,
     
     owner: {
       login: repo.owner.login,

@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Github, ExternalLink, ArrowRight, Star, GitFork, Clock } from "lucide-react"
+import { Github, ExternalLink, ArrowRight, Star, GitFork, Clock, Search, SortAsc, SortDesc } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import type { ProjectData } from "@/lib/github"
 import { formatNumber, formatRelativeTime } from "@/lib/github"
@@ -221,12 +221,80 @@ function ProjectCard({ project, index }: { project: ProjectData; index: number }
 
 export default function ProjectsClient({ projects, categories }: ProjectsClientProps) {
   const [activeCategory, setActiveCategory] = useState("All")
+  const [searchQuery, setSearchQuery] = useState("")
+  const [sortBy, setSortBy] = useState("default")
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc")
 
-  const filteredProjects = useMemo(() => {
-    return activeCategory === "All"
+  const filteredAndSortedProjects = useMemo(() => {
+    // First filter by category
+    let filtered = activeCategory === "All"
       ? projects
       : projects.filter((project) => project.category === activeCategory)
-  }, [activeCategory, projects])
+
+    // Then filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase()
+      filtered = filtered.filter((project) =>
+        project.name.toLowerCase().includes(query) ||
+        project.description.toLowerCase().includes(query) ||
+        project.topics.some(topic => topic.toLowerCase().includes(query)) ||
+        (project.language && project.language.toLowerCase().includes(query))
+      )
+    }
+
+    // Then sort
+    filtered.sort((a, b) => {
+      if (sortBy === "default") {
+        // Custom default sorting: explicit order first, then featured/stars/push date
+        const aOrder = a.order ?? Infinity
+        const bOrder = b.order ?? Infinity
+        
+        if (aOrder !== bOrder) return aOrder - bOrder
+        
+        // Fall back to current default logic for projects without explicit order
+        const aFeatured = a.featured ?? false
+        const bFeatured = b.featured ?? false
+        if (aFeatured !== bFeatured) return bFeatured ? 1 : -1
+        if (a.stars !== b.stars) return b.stars - a.stars
+        return new Date(b.pushedAt).getTime() - new Date(a.pushedAt).getTime()
+      }
+      
+      let aValue: any, bValue: any
+
+      switch (sortBy) {
+        case "name":
+          aValue = a.name.toLowerCase()
+          bValue = b.name.toLowerCase()
+          break
+        case "stars":
+          aValue = a.stars
+          bValue = b.stars
+          break
+        case "forks":
+          aValue = a.forks
+          bValue = b.forks
+          break
+        case "updated":
+          aValue = new Date(a.pushedAt).getTime()
+          bValue = new Date(b.pushedAt).getTime()
+          break
+        case "created":
+          aValue = new Date(a.createdAt).getTime()
+          bValue = new Date(b.createdAt).getTime()
+          break
+        default:
+          return 0
+      }
+
+      if (sortOrder === "asc") {
+        return aValue > bValue ? 1 : aValue < bValue ? -1 : 0
+      } else {
+        return aValue < bValue ? 1 : aValue > bValue ? -1 : 0
+      }
+    })
+
+    return filtered
+  }, [activeCategory, projects, searchQuery, sortBy, sortOrder])
 
   return (
     <div className="min-h-screen py-16">
@@ -244,11 +312,97 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
           <p className="text-gray-500 font-mono text-sm">// Explore my GitHub repositories and recent work</p>
         </motion.div>
 
-        {/* Category Filter - Terminal Style */}
+        {/* Search and Sort Controls - Terminal Style */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: smoothBezier, delay: 0.1 }}
+          className="mb-8"
+        >
+          <div className="bg-white dark:bg-[#0d1117] rounded-lg border border-gray-200 dark:border-gray-700/50 overflow-hidden">
+            {/* Terminal Header */}
+            <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">project-filter</span>
+            </div>
+
+            {/* Controls */}
+            <div className="p-4">
+              {/* Terminal prompts at the top */}
+              <div className="flex items-center justify-between font-mono text-sm text-gray-500 dark:text-gray-400 mb-2">
+                <div>
+                  <span className="text-green-600 dark:text-green-400">voxdroid@vox</span>:<span className="text-blue-600 dark:text-blue-400">~/projects</span>$ <span className="text-gray-700 dark:text-gray-300">grep -r</span>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                {/* Search Bar */}
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Search projects, languages, topics..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-md font-mono text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-colors"
+                  />
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                    >
+                      ×
+                    </button>
+                  )}
+                </div>
+
+                {/* Sort Controls */}
+                <div className="flex items-center gap-2 min-w-fit">
+                  <div className="relative">
+                    <select
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value)}
+                      className="px-3 py-3 pr-8 bg-gray-50 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-md font-mono text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-colors min-w-[140px] appearance-none"
+                    >
+                      <option value="default">Default</option>
+                      <option value="name">Name</option>
+                      <option value="stars">Stars</option>
+                      <option value="forks">Forks</option>
+                      <option value="updated">Last Updated</option>
+                      <option value="created">Created</option>
+                    </select>
+                    {/* Custom Chevron Icon */}
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                      <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+                    className="px-3 py-3 bg-gray-50 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-md hover:bg-gray-100 dark:hover:bg-[#21262d] transition-colors flex items-center"
+                    title={sortOrder === "asc" ? "Ascending" : "Descending"}
+                  >
+                    {sortOrder === "asc" ? (
+                      <SortAsc className="h-4 w-4" />
+                    ) : (
+                      <SortDesc className="h-4 w-4" />
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Category Filter - Terminal Style */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: smoothBezier, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-3 mb-12"
         >
           {categories.map((category) => (
@@ -279,15 +433,15 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
         {/* Projects Grid */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeCategory}
+            key={`${activeCategory}-${searchQuery}-${sortBy}-${sortOrder}`}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {filteredProjects.length > 0 ? (
-              filteredProjects.map((project, index) => (
+            {filteredAndSortedProjects.length > 0 ? (
+              filteredAndSortedProjects.map((project, index) => (
                 <ProjectCard key={project.fullName} project={project} index={index} />
               ))
             ) : (
@@ -300,16 +454,32 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
               >
                 <div className="inline-block bg-white dark:bg-[#0d1117] rounded-lg border border-gray-200 dark:border-gray-700/50 p-8">
                   <p className="text-lg text-gray-600 dark:text-gray-400 font-mono mb-4">
-                    <span className="text-yellow-600 dark:text-yellow-400">⚠</span> No projects found in <span className="text-cyan-600 dark:text-cyan-400">{activeCategory}</span> category
+                    <span className="text-yellow-600 dark:text-yellow-400">⚠</span> No projects found
+                    {searchQuery && <span> matching "<span className="text-cyan-600 dark:text-cyan-400">{searchQuery}</span>"</span>}
+                    {activeCategory !== "All" && <span> in <span className="text-cyan-600 dark:text-cyan-400">{activeCategory}</span> category</span>}
                   </p>
-                  <motion.button
-                    onClick={() => setActiveCategory("All")}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-6 py-2 bg-green-600 hover:bg-green-500 text-white rounded-md font-mono text-sm transition-colors"
-                  >
-                    <span className="mr-2">$</span> ls ./all-projects
-                  </motion.button>
+                  <div className="flex gap-2 justify-center">
+                    {searchQuery && (
+                      <motion.button
+                        onClick={() => setSearchQuery("")}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md font-mono text-sm transition-colors"
+                      >
+                        <span className="mr-2">$</span> clear search
+                      </motion.button>
+                    )}
+                    {activeCategory !== "All" && (
+                      <motion.button
+                        onClick={() => setActiveCategory("All")}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-md font-mono text-sm transition-colors"
+                      >
+                        <span className="mr-2">$</span> show all
+                      </motion.button>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             )}
