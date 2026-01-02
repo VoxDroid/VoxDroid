@@ -102,7 +102,7 @@ function createMarkdownComponents(repoFullName: string): Components {
   return {
     // Fix relative image URLs - keep badges/shields inline
     img: ({ src, alt, ...props }) => {
-      let imageSrc = src || ""
+      let imageSrc = (src as string) || ""
       
       // Handle relative URLs
       if (imageSrc && !imageSrc.startsWith("http") && !imageSrc.startsWith("data:")) {
