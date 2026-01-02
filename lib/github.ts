@@ -578,42 +578,58 @@ export async function getGitHubUserStats(username: string): Promise<GitHubUserSt
     if (!userResponse.ok) return null
     const userData = await userResponse.json()
     
-    // Fetch user's repos to calculate stars, forks, and languages
-    const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`, {
-      headers,
-      next: { revalidate: 3600 },
-    })
+    // Fetch all user's repos with pagination to calculate stars, forks, and languages
+    let allRepos: GitHubRepo[] = []
+    let page = 1
+    const perPage = 100
+    
+    while (true) {
+      const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?per_page=${perPage}&page=${page}&sort=updated`, {
+        headers,
+        next: { revalidate: 3600 },
+      })
+      
+      if (!reposResponse.ok) break
+      
+      const repos = await reposResponse.json()
+      if (repos.length === 0) break
+      
+      allRepos = allRepos.concat(repos)
+      page++
+      
+      // Safety check to prevent infinite loops
+      if (page > 10) break // Max 1000 repos
+    }
     
     let totalStars = 0
     let totalForks = 0
     const languageBytes: Record<string, number> = {}
     
-    if (reposResponse.ok) {
-      const repos = await reposResponse.json()
-      
-      // Fetch languages for each repo to get byte counts
-      const languagePromises = repos.slice(0, 30).map(async (repo: GitHubRepo) => {
-        totalStars += repo.stargazers_count || 0
-        totalForks += repo.forks_count || 0
-        
-        try {
-          const langResponse = await fetch(`https://api.github.com/repos/${repo.full_name}/languages`, {
-            headers,
-            next: { revalidate: 3600 },
-          })
-          if (langResponse.ok) {
-            const langs = await langResponse.json()
-            for (const [lang, bytes] of Object.entries(langs)) {
-              languageBytes[lang] = (languageBytes[lang] || 0) + (bytes as number)
-            }
+    // Count stars and forks from all repos
+    allRepos.forEach(repo => {
+      totalStars += repo.stargazers_count || 0
+      totalForks += repo.forks_count || 0
+    })
+    
+    // Fetch languages for the most recently updated repos (limit to avoid rate limits)
+    const languagePromises = allRepos.slice(0, 30).map(async (repo: GitHubRepo) => {
+      try {
+        const langResponse = await fetch(`https://api.github.com/repos/${repo.full_name}/languages`, {
+          headers,
+          next: { revalidate: 3600 },
+        })
+        if (langResponse.ok) {
+          const langs = await langResponse.json()
+          for (const [lang, bytes] of Object.entries(langs)) {
+            languageBytes[lang] = (languageBytes[lang] || 0) + (bytes as number)
           }
-        } catch {
-          // Ignore individual repo language fetch errors
         }
-      })
-      
-      await Promise.all(languagePromises)
-    }
+      } catch {
+        // Ignore individual repo language fetch errors
+      }
+    })
+    
+    await Promise.all(languagePromises)
     
     // Calculate language percentages
     const totalBytes = Object.values(languageBytes).reduce((a, b) => a + b, 0)
