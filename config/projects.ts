@@ -35,6 +35,7 @@ export const githubRepos: string[] = [
   "VoxDroid/VoxSpace",
   "VoxDroid/llm-wikipedia",
   "VoxDroid/VoxDroid",
+  "VoxDroid/bldrx"
 ]
 
 // Custom overrides for specific repos (optional)
@@ -131,12 +132,17 @@ export const projectOverrides: Record<string, {
   "VoxDroid/VoxSpace": {
     image: "/project_images/VoxSpace.png",
     category: "Web App",
-    featured: true,
-    order: 1,
+    order: 2,
   },
   "VoxDroid/llm-wikipedia": {
     image: "/project_images/llm-wikipedia.png",
     category: "AI/ML/DL",
+  },
+  "VoxDroid/bldrx": {
+    image: "/project_images/bldrx.png",
+    category: "CLI Tool",
+    featured: true,
+    order: 1,
   },
 }
 
