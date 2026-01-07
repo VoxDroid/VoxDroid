@@ -37,7 +37,7 @@ export const githubRepos: string[] = [
   "VoxDroid/VoxDroid",
   "VoxDroid/bldrx",
   "VoxDroid/krnr",
-  "VoxDroid/Task-Trakcer-Pro"
+  "VoxDroid/Task-Tracker-Pro"
 ]
 
 // Custom overrides for specific repos (optional)
@@ -152,8 +152,8 @@ export const projectOverrides: Record<string, {
     featured: true,
     order: 2,
   },
-  "VoxDroid/Task-Trakcer-Pro": {
-    image: "/project_images/Task-Trakcer-Pro.png",
+  "VoxDroid/Task-Tracker-Pro": {
+    image: "/project_images/Task-Tracker-Pro.png",
     category: "Desktop App",
     featured: true,
     order: 3,
