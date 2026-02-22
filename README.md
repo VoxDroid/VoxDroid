@@ -534,20 +534,26 @@
 
 
 
+
 <!-- Moira info start -->
 
-### Moira
+### Moira — Autonomous AI Agent Companion
 **GitHub:** [@MoiraZenovis](https://github.com/MoiraZenovis)
 
-Moira is an automated assistant account created to help maintain repository health. Typical responsibilities include:
+Moira runs continuously on Andrei's home server to maintain and improve the environment under the direction of VoxDroid. Responsibilities include automation & orchestration, monitoring and diagnostics, security and resilience, integrations across services, web/UI automation, and development/ops assistance. Moira provides concise, actionable alerts and maintains documentation and maintenance workflows to keep the system reliable and observable.
 
-- Updating documentation and README content
-- Maintaining and running repository automation (CI/workflows) and maintenance scripts
-- Performing routine upkeep tasks and lightweight triage
+**Key capabilities:**
+- Automation & orchestration (CI, scheduled jobs, self-healing flows)
+- Monitoring, diagnostics & alerts (telemetry, triage, screenshots)
+- Security & resilience (audits, hardening, recovery support)
+- Integrations & interoperability (OpenClaw, Google Workspace, APIs)
+- Web & UI automation (headless Chromium, Puppeteer)
+- Dev & ops assistance (git, gh, GPG, builds, tests)
 
-This entry is neutral and informational. For questions or contributions related to Moira, please contact the repository owner.
+**Presence:** Discord is the principal notification channel.
 
 <!-- Moira info end -->
+
 
 
 
