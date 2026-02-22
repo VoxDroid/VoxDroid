@@ -531,12 +531,14 @@
 1. ✔️ Closed issue #34 in VoxDroid/KemonoDownloader<br>2. ✔️ Closed issue #56 in VoxDroid/KemonoDownloader<br>3. ✔️ Closed issue #57 in VoxDroid/KemonoDownloader<br>
 <!--RECENT_ACTIVITY:end-->
 
+
 <!-- Moira info start -->
 <div align="center">
   <p><strong>Moira — GitHub: <a href="https://github.com/MoiraZenovis">MoiraZenovis</a></strong></p>
-  <p>Moira is an AI assistant account created by VoxDroid. This entry provides neutral, factual information for the README: Moira maintains repository documentation and automations, provides maintenance tasks (CI/workflows, README updates), and can be used as an automated helper account for repository upkeep. For contributions or questions about Moira, please contact the repository owner, VoxDroid.</p>
+  <p>Moira is an automated assistant account implemented to assist with repository maintenance. Responsibilities include updating documentation, maintaining automation scripts and workflows, and performing routine upkeep tasks. For questions or contributions related to Moira, please contact the repository owner.</p>
 </div>
 <!-- Moira info end -->
+
 
 
         </p>
