@@ -532,12 +532,21 @@
 <!--RECENT_ACTIVITY:end-->
 
 
+
 <!-- Moira info start -->
-<div align="center">
-  <p><strong>Moira — GitHub: <a href="https://github.com/MoiraZenovis">MoiraZenovis</a></strong></p>
-  <p>Moira is an automated assistant account implemented to assist with repository maintenance. Responsibilities include updating documentation, maintaining automation scripts and workflows, and performing routine upkeep tasks. For questions or contributions related to Moira, please contact the repository owner.</p>
+<div align="center" style="background:#f7fafc;padding:12px;border-radius:8px;">
+  <h3 style="margin:6px 0 4px 0">Moira</h3>
+  <p style="margin:4px 0"><strong>GitHub:</strong> <a href="https://github.com/MoiraZenovis">@MoiraZenovis</a></p>
+  <p style="margin:6px 0;max-width:720px;text-align:left;">Moira is an automated assistant account created to help maintain repository health. Typical responsibilities include:
+    <ul>
+      <li>Updating documentation and README content.</li>
+      <li>Maintaining and running repository automation (CI/workflows) and maintenance scripts.</li>
+      <li>Performing routine upkeep tasks and lightweight triage.</li>
+    </ul>
+    This entry is neutral and informational. For questions or contributions related to Moira, please contact the repository owner.</p>
 </div>
 <!-- Moira info end -->
+
 
 
 
