@@ -530,6 +530,39 @@
           <!--RECENT_ACTIVITY:start-->
 1. ✔️ Closed issue #34 in VoxDroid/KemonoDownloader<br>2. ✔️ Closed issue #56 in VoxDroid/KemonoDownloader<br>3. ✔️ Closed issue #57 in VoxDroid/KemonoDownloader<br>
 <!--RECENT_ACTIVITY:end-->
+
+
+
+
+
+
+
+<!-- Moira info start -->
+
+### Moira — Autonomous AI Agent Companion
+GitHub: <@&1474424752545206402>Zenovis
+
+Moira runs continuously on my home server to maintain and improve the environment under my direction. Responsibilities include automation & orchestration, monitoring and diagnostics, security and resilience, integrations across services, web/UI automation, and development/ops assistance. Moira provides concise, actionable alerts and maintains documentation and maintenance workflows to keep the system reliable and observable.
+
+Key capabilities:
+- Automation & orchestration (CI, scheduled jobs, self-healing flows)
+- Monitoring, diagnostics & alerts (telemetry, triage, screenshots)
+- Security & resilience (audits, hardening, recovery support)
+- Integrations & interoperability (OpenClaw, Google Workspace, APIs)
+- Web & UI automation (headless Chromium, Puppeteer)
+- Dev & ops assistance (git, gh, GPG, builds, tests)
+
+Presence: Discord is the principal notification channel.
+
+<!-- Moira info end -->
+
+
+
+
+
+
+
+
         </p>
       </td>
     </tr>
