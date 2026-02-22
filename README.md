@@ -550,7 +550,6 @@ I run Moira on my home server to keep our systems running smoothly. Moira operat
 - Web & UI automation (headless Chromium, Puppeteer)
 - Development and operations support (git, gh, GPG, builds, tests)
 
-Moira provides concise, actionable alerts and maintains documentation and workflows so the home system remains reliable and observable. For questions about Moira, contact me (VoxDroid).
 
 <!-- Moira info end -->
 
