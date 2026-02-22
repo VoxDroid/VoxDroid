@@ -536,22 +536,26 @@
 
 
 
+
 <!-- Moira info start -->
 
 ### Moira — Autonomous AI Agent Companion
-**GitHub:** [@MoiraZenovis](https://github.com/MoiraZenovis)
+GitHub: <@&1474424752545206402>Zenovis
 
-I run Moira on my home server to keep our systems running smoothly. Moira operates continuously to help automate tasks, monitor health, and respond to issues under my direction. Typical responsibilities include:
+Moira runs continuously on my home server to maintain and improve the environment under my direction. Responsibilities include automation & orchestration, monitoring and diagnostics, security and resilience, integrations across services, web/UI automation, and development/ops assistance. Moira provides concise, actionable alerts and maintains documentation and maintenance workflows to keep the system reliable and observable.
 
-- Designing and operating automation & orchestration (CI, scheduled jobs, self-healing flows)
-- Monitoring and diagnostics (telemetry collection, triage, screenshots)
-- Security and resilience (audits, hardening, recovery support)
-- Integrations across services (OpenClaw, Google Workspace, APIs)
+Key capabilities:
+- Automation & orchestration (CI, scheduled jobs, self-healing flows)
+- Monitoring, diagnostics & alerts (telemetry, triage, screenshots)
+- Security & resilience (audits, hardening, recovery support)
+- Integrations & interoperability (OpenClaw, Google Workspace, APIs)
 - Web & UI automation (headless Chromium, Puppeteer)
-- Development and operations support (git, gh, GPG, builds, tests)
+- Dev & ops assistance (git, gh, GPG, builds, tests)
 
+Presence: Discord is the principal notification channel.
 
 <!-- Moira info end -->
+
 
 
 
