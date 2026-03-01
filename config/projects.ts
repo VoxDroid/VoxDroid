@@ -38,6 +38,8 @@ export const githubRepos: string[] = [
   "VoxDroid/bldrx",
   "VoxDroid/krnr",
   "VoxDroid/Task-Tracker-Pro",
+  "VoxDroid/AutoTable",
+  "VoxDroid/CodeStash",
 ];
 
 // Custom overrides for specific repos (optional)
@@ -161,6 +163,18 @@ export const projectOverrides: Record<
     featured: true,
     order: 3,
   },
+  "VoxDroid/AutoTable": {
+    image: "/project_images/AutoTable.png",
+    category: "Web App",
+    featured: true,
+    order: 4,
+  },
+  "VoxDroid/CodeStash": {
+    image: "/project_images/CodeStash.png",
+    category: "Web App",
+    featured: true,
+    order: 5,
+  },
 };
 
 // Screenshot paths mapping (for repos with local screenshots)
@@ -243,4 +257,9 @@ export const screenshotPaths: Record<string, string[]> = {
     "/project_screenshots/A300S/A300S-4.png",
   ],
   "VoxDroid/VoxSpace": ["/project_screenshots/VoxSpace/VoxSpace-1.png"],
+  "VoxDroid/AutoTable": [
+    "/project_screenshots/AutoTable/AT-1.png",
+    "/project_screenshots/AutoTable/AT-2.png",
+    "/project_screenshots/AutoTable/AT-3.png",
+  ],
 };
