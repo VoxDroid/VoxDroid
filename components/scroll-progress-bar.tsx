@@ -1,28 +1,29 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 export default function ScrollProgressBar() {
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight
-      const scrollPosition = window.scrollY
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPosition = window.scrollY;
       if (totalHeight) {
-        setScrollProgress((scrollPosition / totalHeight) * 100)
+        setScrollProgress((scrollPosition / totalHeight) * 100);
       }
-    }
+    };
 
     // Initial calculation
-    handleScroll()
+    handleScroll();
 
     // Add event listener
-    window.addEventListener("scroll", handleScroll, { passive: true })
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Cleanup
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="fixed top-0 left-0 w-full h-1 z-50">
@@ -31,6 +32,5 @@ export default function ScrollProgressBar() {
         style={{ width: `${scrollProgress}%` }}
       ></div>
     </div>
-  )
+  );
 }
-

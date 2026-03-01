@@ -1,10 +1,34 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowRight, Award, BookOpen, UserCheck, Coffee, Terminal, GitBranch, Calendar, Cpu, Monitor, Globe, Wrench, Heart, GraduationCap, Languages, Gamepad2, Music, Book, Code, Server, Laptop, Lock, Unlock } from "lucide-react"
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Award,
+  BookOpen,
+  UserCheck,
+  Coffee,
+  Terminal,
+  GitBranch,
+  Calendar,
+  Cpu,
+  Monitor,
+  Globe,
+  Wrench,
+  Heart,
+  GraduationCap,
+  Languages,
+  Gamepad2,
+  Music,
+  Book,
+  Code,
+  Server,
+  Laptop,
+  Lock,
+  Unlock,
+} from "lucide-react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -17,7 +41,7 @@ const fadeInUp = {
       damping: 20,
     },
   },
-}
+};
 
 const staggerContainer = {
   hidden: {},
@@ -26,7 +50,7 @@ const staggerContainer = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 const journeyItems = [
   {
@@ -61,14 +85,14 @@ const journeyItems = [
       "Currently focused on advanced technologies like Next.js, TypeScript, Rust Programming Language, and exploring new frontiers in web development and Data Science.",
     command: "systemctl status voxdroid.service",
   },
-]
+];
 
 const systemInfo = [
   { label: "USER", value: "VoxDroid", icon: UserCheck },
   { label: "ROLE", value: "Full Stack Developer", icon: Cpu },
   { label: "SHELL", value: "/bin/zsh", icon: Terminal },
   { label: "UPTIME", value: "∞", icon: Calendar },
-]
+];
 
 const interests = [
   { name: "Open Source", icon: GitBranch, color: "green" },
@@ -77,7 +101,7 @@ const interests = [
   { name: "AI/ML", icon: Cpu, color: "yellow" },
   { name: "DevOps", icon: Wrench, color: "orange" },
   { name: "Linux", icon: Terminal, color: "cyan" },
-]
+];
 
 const education = [
   {
@@ -102,7 +126,7 @@ const education = [
     degree: "Science, Technology, Engineering, and Math",
     achievements: ["With High Honors (95)"],
   },
-]
+];
 
 const technicalSkills = {
   operatingSystems: [
@@ -112,22 +136,34 @@ const technicalSkills = {
     { name: "MacOS/iOS", level: "Intermediate" },
   ],
   programmingLanguages: [
-    "Python", "C/C++/C#", "Java", "Javascript",
-    "Rust", "VBS", "Batch", "Lua",
-    "PHP", "Typescript", "Dart", "Swift",
+    "Python",
+    "C/C++/C#",
+    "Java",
+    "Javascript",
+    "Rust",
+    "VBS",
+    "Batch",
+    "Lua",
+    "PHP",
+    "Typescript",
+    "Dart",
+    "Swift",
   ],
   hardware: [
-    "PC Assembly", "Networking", "Electronics",
-    "Single-board Computers", "Embedded Systems Prototyping",
+    "PC Assembly",
+    "Networking",
+    "Electronics",
+    "Single-board Computers",
+    "Embedded Systems Prototyping",
   ],
   software: ["Git/GitHub", "Docker", "Tmux", "VMware"],
   other: ["Shell Scripting", "Vim/Neovim", "CLI", "Pacman"],
-}
+};
 
 const languageSkills = [
   { name: "English", level: "Fluent" },
   { name: "Tagalog", level: "Native" },
-]
+];
 
 const personalInterests = [
   { name: "Open-source development", icon: GitBranch },
@@ -136,80 +172,86 @@ const personalInterests = [
   { name: "Music", icon: Music },
   { name: "Games", icon: Gamepad2 },
   { name: "Computers", icon: Laptop },
-]
+];
 
 export default function AboutPage() {
-  const [terminalInput, setTerminalInput] = useState("")
-  const [terminalHistory, setTerminalHistory] = useState<string[]>([])
-  const [secretRevealed, setSecretRevealed] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const terminalHistoryRef = useRef<HTMLDivElement>(null)
-  
+  const [terminalInput, setTerminalInput] = useState("");
+  const [terminalHistory, setTerminalHistory] = useState<string[]>([]);
+  const [secretRevealed, setSecretRevealed] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const terminalHistoryRef = useRef<HTMLDivElement>(null);
+
   // Load saved state from localStorage on mount
   useEffect(() => {
-    setMounted(true)
-    const saved = localStorage.getItem("voxdroid-identity-unlocked")
+    setMounted(true);
+    const saved = localStorage.getItem("voxdroid-identity-unlocked");
     if (saved === "true") {
-      setSecretRevealed(true)
+      setSecretRevealed(true);
     }
-  }, [])
-  
+  }, []);
+
   // Auto-scroll to latest output
   useEffect(() => {
     if (terminalHistoryRef.current) {
-      terminalHistoryRef.current.scrollTop = terminalHistoryRef.current.scrollHeight
+      terminalHistoryRef.current.scrollTop =
+        terminalHistoryRef.current.scrollHeight;
     }
-  }, [terminalHistory])
-  
-  const SECRET_COMMAND = "sudo reveal --identity"
-  const LOCK_COMMAND = "lock"
-  
+  }, [terminalHistory]);
+
+  const SECRET_COMMAND = "sudo reveal --identity";
+  const LOCK_COMMAND = "lock";
+
   const handleTerminalSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const input = terminalInput.trim().toLowerCase()
-    const newHistory = [...terminalHistory, `$ ${terminalInput}`]
-    
-    if (input === SECRET_COMMAND.toLowerCase() || input === "sudo reveal --identity") {
-      newHistory.push("[sudo] password for voxdroid: ********")
-      newHistory.push("")
-      newHistory.push("✓ Identity decrypted successfully!")
-      newHistory.push("✓ Fastfetch panel extended.")
-      newHistory.push("")
-      newHistory.push("Type 'lock' to hide identity again.")
-      setSecretRevealed(true)
-      localStorage.setItem("voxdroid-identity-unlocked", "true")
+    e.preventDefault();
+    const input = terminalInput.trim().toLowerCase();
+    const newHistory = [...terminalHistory, `$ ${terminalInput}`];
+
+    if (
+      input === SECRET_COMMAND.toLowerCase() ||
+      input === "sudo reveal --identity"
+    ) {
+      newHistory.push("[sudo] password for voxdroid: ********");
+      newHistory.push("");
+      newHistory.push("✓ Identity decrypted successfully!");
+      newHistory.push("✓ Fastfetch panel extended.");
+      newHistory.push("");
+      newHistory.push("Type 'lock' to hide identity again.");
+      setSecretRevealed(true);
+      localStorage.setItem("voxdroid-identity-unlocked", "true");
     } else if (input === LOCK_COMMAND) {
-      newHistory.push("✓ Identity locked.")
-      newHistory.push("✓ Fastfetch panel collapsed.")
-      setSecretRevealed(false)
-      localStorage.setItem("voxdroid-identity-unlocked", "false")
+      newHistory.push("✓ Identity locked.");
+      newHistory.push("✓ Fastfetch panel collapsed.");
+      setSecretRevealed(false);
+      localStorage.setItem("voxdroid-identity-unlocked", "false");
     } else if (input === "help" || input === "--help" || input === "-h") {
-      newHistory.push("Available commands:")
-      newHistory.push("  help          - Show this help message")
-      newHistory.push("  clear         - Clear terminal")
-      newHistory.push("  whoami        - Display current user")
-      newHistory.push("  hint          - Get a hint for the secret")
-      newHistory.push("  lock          - Lock the identity (if unlocked)")
-      newHistory.push("  ???           - Try: sudo reveal --identity")
+      newHistory.push("Available commands:");
+      newHistory.push("  help          - Show this help message");
+      newHistory.push("  clear         - Clear terminal");
+      newHistory.push("  whoami        - Display current user");
+      newHistory.push("  hint          - Get a hint for the secret");
+      newHistory.push("  lock          - Lock the identity (if unlocked)");
+      newHistory.push("  ???           - Try: sudo reveal --identity");
     } else if (input === "clear") {
-      setTerminalHistory([])
-      setTerminalInput("")
-      return
+      setTerminalHistory([]);
+      setTerminalInput("");
+      return;
     } else if (input === "whoami") {
-      newHistory.push("voxdroid")
+      newHistory.push("voxdroid");
     } else if (input === "hint") {
-      newHistory.push("💡 Hint: To reveal the real identity, you need elevated privileges...")
-      newHistory.push("   Try using 'sudo' with 'reveal --identity'")
+      newHistory.push(
+        "💡 Hint: To reveal the real identity, you need elevated privileges...",
+      );
+      newHistory.push("   Try using 'sudo' with 'reveal --identity'");
     } else if (input === "") {
       // Do nothing for empty input
     } else {
-      newHistory.push(`bash: ${terminalInput}: command not found`)
-      newHistory.push("Type 'help' for available commands")
+      newHistory.push(`bash: ${terminalInput}: command not found`);
+      newHistory.push("Type 'help' for available commands");
     }
-    
-    setTerminalHistory(newHistory)
-    setTerminalInput("")
-  }
+
+    setTerminalHistory(newHistory);
+    setTerminalInput("");
+  };
 
   return (
     <div className="min-h-screen py-16">
@@ -222,9 +264,15 @@ export default function AboutPage() {
         {/* Header */}
         <motion.div variants={fadeInUp} className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-mono">
-            <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-700 dark:text-gray-300">cat</span> <span className="text-cyan-600 dark:text-cyan-400">/home/voxdroid/about.md</span>
+            <span className="text-green-600 dark:text-green-400">$</span>{" "}
+            <span className="text-gray-700 dark:text-gray-300">cat</span>{" "}
+            <span className="text-cyan-600 dark:text-cyan-400">
+              /home/voxdroid/about.md
+            </span>
           </h1>
-          <p className="text-gray-500 font-mono text-sm">// Personal information loaded</p>
+          <p className="text-gray-500 font-mono text-sm">
+            // Personal information loaded
+          </p>
         </motion.div>
 
         {/* Personal Info - Fastfetch Style */}
@@ -239,7 +287,9 @@ export default function AboutPage() {
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">fastfetch</span>
+                  <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">
+                    fastfetch
+                  </span>
                 </div>
                 {mounted && (
                   <div className="flex items-center gap-2">
@@ -251,7 +301,7 @@ export default function AboutPage() {
                   </div>
                 )}
               </div>
-              
+
               {/* Fastfetch Content */}
               <div className="p-6 flex gap-6">
                 {/* ASCII Art / Image */}
@@ -263,26 +313,38 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                
+
                 {/* System Info */}
                 <div className="font-mono text-sm space-y-1">
-                  <div className="text-cyan-600 dark:text-cyan-400 font-bold mb-2">voxdroid@arch</div>
-                  <div className="text-gray-400 dark:text-gray-600">─────────────</div>
+                  <div className="text-cyan-600 dark:text-cyan-400 font-bold mb-2">
+                    voxdroid@arch
+                  </div>
+                  <div className="text-gray-400 dark:text-gray-600">
+                    ─────────────
+                  </div>
                   {systemInfo.map((item) => (
                     <div key={item.label} className="flex">
-                      <span className="text-green-600 dark:text-green-400 w-20">{item.label}</span>
+                      <span className="text-green-600 dark:text-green-400 w-20">
+                        {item.label}
+                      </span>
                       <span className="text-gray-400">: </span>
-                      <span className="text-gray-700 dark:text-gray-300">{item.value}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {item.value}
+                      </span>
                     </div>
                   ))}
                   <div className="flex">
-                    <span className="text-green-600 dark:text-green-400 w-20">STATUS</span>
+                    <span className="text-green-600 dark:text-green-400 w-20">
+                      STATUS
+                    </span>
                     <span className="text-gray-400">: </span>
-                    <span className="text-green-600 dark:text-green-400">● Active</span>
+                    <span className="text-green-600 dark:text-green-400">
+                      ● Active
+                    </span>
                   </div>
                 </div>
               </div>
-              
+
               {/* Animated Identity Section */}
               <motion.div
                 initial={false}
@@ -300,23 +362,37 @@ export default function AboutPage() {
                   <div className="border-t border-dashed border-gray-300 dark:border-gray-700 pt-4">
                     <div className="flex items-center gap-2 mb-3">
                       <Unlock className="h-4 w-4 text-green-500" />
-                      <span className="text-green-600 dark:text-green-400 font-mono text-xs font-bold">IDENTITY DECRYPTED</span>
+                      <span className="text-green-600 dark:text-green-400 font-mono text-xs font-bold">
+                        IDENTITY DECRYPTED
+                      </span>
                     </div>
                     <div className="font-mono text-sm space-y-1">
                       <div className="flex">
-                        <span className="text-cyan-600 dark:text-cyan-400 w-20">NAME</span>
+                        <span className="text-cyan-600 dark:text-cyan-400 w-20">
+                          NAME
+                        </span>
                         <span className="text-gray-400">: </span>
-                        <span className="text-gray-700 dark:text-gray-300">Mhar Andrei C. Macapallag</span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          Mhar Andrei C. Macapallag
+                        </span>
                       </div>
                       <div className="flex">
-                        <span className="text-cyan-600 dark:text-cyan-400 w-20">BORN</span>
+                        <span className="text-cyan-600 dark:text-cyan-400 w-20">
+                          BORN
+                        </span>
                         <span className="text-gray-400">: </span>
-                        <span className="text-gray-700 dark:text-gray-300">July 28, 2003</span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          July 28, 2003
+                        </span>
                       </div>
                       <div className="flex">
-                        <span className="text-cyan-600 dark:text-cyan-400 w-20">ALIAS</span>
+                        <span className="text-cyan-600 dark:text-cyan-400 w-20">
+                          ALIAS
+                        </span>
                         <span className="text-gray-400">: </span>
-                        <span className="text-gray-700 dark:text-gray-300">VoxDroid</span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          VoxDroid
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -330,16 +406,33 @@ export default function AboutPage() {
               {/* Terminal Header */}
               <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
                 <Terminal className="h-4 w-4 text-gray-400 dark:text-gray-500" />
-                <span className="text-gray-500 dark:text-gray-400 text-sm font-mono">cat README.md</span>
+                <span className="text-gray-500 dark:text-gray-400 text-sm font-mono">
+                  cat README.md
+                </span>
               </div>
-              
+
               <div className="p-6 font-mono">
-                <div className="text-green-600 dark:text-green-400 text-lg mb-4"># Who is VoxDroid?</div>
+                <div className="text-green-600 dark:text-green-400 text-lg mb-4">
+                  # Who is VoxDroid?
+                </div>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                  I like making things that help people. I enjoy working on problems step by step, trying different ideas, and learning from others. I listen more than I speak, stay calm when things go wrong, and always try to do better. I still have a lot to learn, but I am happy to bring care and effort to any project. I look forward to working with good teams and growing together.
+                  I like making things that help people. I enjoy working on
+                  problems step by step, trying different ideas, and learning
+                  from others. I listen more than I speak, stay calm when things
+                  go wrong, and always try to do better. I still have a lot to
+                  learn, but I am happy to bring care and effort to any project.
+                  I look forward to working with good teams and growing
+                  together.
                 </p>
                 <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                  I am in this field because I truly enjoy it. Computers fascinate me, and I work on them mostly for my own curiosity and happiness. I love understanding how they work, from the simple flow of electricity through small parts, to how basic switches build into complex programs we use every day. I like both the hardware side, such as circuits and memory, and the software side, such as writing clear code and making systems that run smoothly.
+                  I am in this field because I truly enjoy it. Computers
+                  fascinate me, and I work on them mostly for my own curiosity
+                  and happiness. I love understanding how they work, from the
+                  simple flow of electricity through small parts, to how basic
+                  switches build into complex programs we use every day. I like
+                  both the hardware side, such as circuits and memory, and the
+                  software side, such as writing clear code and making systems
+                  that run smoothly.
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
@@ -365,7 +458,8 @@ export default function AboutPage() {
                   href="/contact"
                   className="px-6 py-3 bg-green-600 hover:bg-green-500 text-white rounded-md shadow-lg transition-all duration-300 hover:translate-y-[-3px] hover:shadow-green-500/25 inline-flex items-center font-mono text-sm"
                 >
-                  <span className="text-green-300 mr-2">$</span> ./contact.sh <ArrowRight className="ml-2 h-4 w-4" />
+                  <span className="text-green-300 mr-2">$</span> ./contact.sh{" "}
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -383,7 +477,9 @@ export default function AboutPage() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">identity.sh</span>
+                <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">
+                  identity.sh
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 {secretRevealed ? (
@@ -391,45 +487,69 @@ export default function AboutPage() {
                 ) : (
                   <Lock className="h-4 w-4 text-yellow-500" />
                 )}
-                <span className={`text-xs font-mono ${secretRevealed ? 'text-green-500' : 'text-yellow-500'}`}>
-                  {secretRevealed ? 'UNLOCKED' : 'LOCKED'}
+                <span
+                  className={`text-xs font-mono ${secretRevealed ? "text-green-500" : "text-yellow-500"}`}
+                >
+                  {secretRevealed ? "UNLOCKED" : "LOCKED"}
                 </span>
               </div>
             </div>
-            
+
             {/* Terminal Body */}
             <div className="p-4 font-mono text-sm">
               {/* Hint message */}
               <div className="mb-4 p-3 bg-gray-50 dark:bg-[#161b22] rounded border border-gray-200 dark:border-gray-700/50">
                 <p className="text-gray-500 dark:text-gray-500 text-xs mb-1">
-                  <span className="text-yellow-600 dark:text-yellow-400">#</span> This terminal contains a secret. Type <code className="text-cyan-600 dark:text-cyan-400">help</code> or <code className="text-cyan-600 dark:text-cyan-400">hint</code> to get started.
+                  <span className="text-yellow-600 dark:text-yellow-400">
+                    #
+                  </span>{" "}
+                  This terminal contains a secret. Type{" "}
+                  <code className="text-cyan-600 dark:text-cyan-400">help</code>{" "}
+                  or{" "}
+                  <code className="text-cyan-600 dark:text-cyan-400">hint</code>{" "}
+                  to get started.
                 </p>
               </div>
-              
+
               {/* Terminal History */}
-              <div ref={terminalHistoryRef} className="space-y-1 mb-3 max-h-48 overflow-y-auto scroll-smooth">
+              <div
+                ref={terminalHistoryRef}
+                className="space-y-1 mb-3 max-h-48 overflow-y-auto scroll-smooth"
+              >
                 {terminalHistory.map((line, index) => (
-                  <div key={index} className={`${
-                    line.startsWith('$') 
-                      ? 'text-gray-700 dark:text-gray-300' 
-                      : line.includes('IDENTITY DECRYPTED') || line.includes('🔓')
-                        ? 'text-green-600 dark:text-green-400'
-                        : line.includes('NAME') || line.includes('BORN') || line.includes('ALIAS')
-                          ? 'text-cyan-600 dark:text-cyan-400'
-                          : line.includes('bash:') || line.includes('command not found')
-                            ? 'text-red-500 dark:text-red-400'
-                            : line.includes('💡')
-                              ? 'text-yellow-600 dark:text-yellow-400'
-                              : 'text-gray-600 dark:text-gray-400'
-                  }`}>
+                  <div
+                    key={index}
+                    className={`${
+                      line.startsWith("$")
+                        ? "text-gray-700 dark:text-gray-300"
+                        : line.includes("IDENTITY DECRYPTED") ||
+                            line.includes("🔓")
+                          ? "text-green-600 dark:text-green-400"
+                          : line.includes("NAME") ||
+                              line.includes("BORN") ||
+                              line.includes("ALIAS")
+                            ? "text-cyan-600 dark:text-cyan-400"
+                            : line.includes("bash:") ||
+                                line.includes("command not found")
+                              ? "text-red-500 dark:text-red-400"
+                              : line.includes("💡")
+                                ? "text-yellow-600 dark:text-yellow-400"
+                                : "text-gray-600 dark:text-gray-400"
+                    }`}
+                  >
                     {line}
                   </div>
                 ))}
               </div>
-              
+
               {/* Input Line */}
-              <form onSubmit={handleTerminalSubmit} className="flex items-center gap-2 p-2 rounded-lg border border-transparent focus-within:border-green-500 dark:focus-within:border-green-400 focus-within:bg-gray-50 dark:focus-within:bg-[#161b22] transition-colors">
-                <span className="text-green-600 dark:text-green-400">voxdroid@arch</span>
+              <form
+                onSubmit={handleTerminalSubmit}
+                className="flex items-center gap-2 p-2 rounded-lg border border-transparent focus-within:border-green-500 dark:focus-within:border-green-400 focus-within:bg-gray-50 dark:focus-within:bg-[#161b22] transition-colors"
+              >
+                <span className="text-green-600 dark:text-green-400">
+                  voxdroid@arch
+                </span>
                 <span className="text-gray-400">:</span>
                 <span className="text-blue-600 dark:text-blue-400">~</span>
                 <span className="text-gray-400">$</span>
@@ -451,16 +571,22 @@ export default function AboutPage() {
         <motion.div variants={fadeInUp} className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold font-mono">
-              <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-700 dark:text-gray-300">git log</span> <span className="text-cyan-600 dark:text-cyan-400">--oneline ./journey</span>
+              <span className="text-green-600 dark:text-green-400">$</span>{" "}
+              <span className="text-gray-700 dark:text-gray-300">git log</span>{" "}
+              <span className="text-cyan-600 dark:text-cyan-400">
+                --oneline ./journey
+              </span>
             </h2>
-            <p className="text-gray-500 font-mono text-sm mt-2">// Commit history</p>
+            <p className="text-gray-500 font-mono text-sm mt-2">
+              // Commit history
+            </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             {/* Git branch line */}
             <div className="relative">
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 via-cyan-500 to-green-500/30"></div>
-              
+
               {journeyItems.map((item, index) => (
                 <motion.div
                   variants={fadeInUp}
@@ -471,18 +597,31 @@ export default function AboutPage() {
                   <div className="absolute left-6 top-2 w-5 h-5 rounded-full bg-white dark:bg-[#0d1117] border-2 border-green-500 flex items-center justify-center">
                     <div className="w-2 h-2 rounded-full bg-green-500 dark:bg-green-400"></div>
                   </div>
-                  
+
                   {/* Content */}
                   <div className="bg-white dark:bg-[#0d1117] rounded-lg border border-gray-200 dark:border-gray-700/50 overflow-hidden transition-all duration-300 hover:border-green-500/50 hover:shadow-lg hover:shadow-green-500/10">
                     <div className="px-4 py-2 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50 flex items-center justify-between">
-                      <span className="text-yellow-600 dark:text-yellow-400 font-mono text-sm">{item.title}</span>
-                      <span className="text-gray-500 font-mono text-xs">{item.period}</span>
+                      <span className="text-yellow-600 dark:text-yellow-400 font-mono text-sm">
+                        {item.title}
+                      </span>
+                      <span className="text-gray-500 font-mono text-xs">
+                        {item.period}
+                      </span>
                     </div>
                     <div className="p-4">
                       <div className="font-mono text-xs text-gray-500 mb-2">
-                        <span className="text-green-600 dark:text-green-400">voxdroid@arch</span>:<span className="text-blue-600 dark:text-blue-400">~</span>$ {item.command}
+                        <span className="text-green-600 dark:text-green-400">
+                          voxdroid@arch
+                        </span>
+                        :
+                        <span className="text-blue-600 dark:text-blue-400">
+                          ~
+                        </span>
+                        $ {item.command}
                       </div>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm">{item.description}</p>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -495,9 +634,17 @@ export default function AboutPage() {
         <motion.div variants={fadeInUp}>
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold font-mono">
-              <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-700 dark:text-gray-300">pacman -Qi</span> <span className="text-cyan-600 dark:text-cyan-400">interests</span>
+              <span className="text-green-600 dark:text-green-400">$</span>{" "}
+              <span className="text-gray-700 dark:text-gray-300">
+                pacman -Qi
+              </span>{" "}
+              <span className="text-cyan-600 dark:text-cyan-400">
+                interests
+              </span>
             </h2>
-            <p className="text-gray-500 font-mono text-sm mt-2">// Installed packages</p>
+            <p className="text-gray-500 font-mono text-sm mt-2">
+              // Installed packages
+            </p>
           </div>
 
           <motion.div
@@ -506,13 +653,17 @@ export default function AboutPage() {
           >
             {interests.map((interest) => {
               const colorClasses: Record<string, string> = {
-                green: "border-green-500/50 hover:border-green-500 hover:shadow-green-500/10",
-                purple: "border-purple-500/50 hover:border-purple-500 hover:shadow-purple-500/10",
+                green:
+                  "border-green-500/50 hover:border-green-500 hover:shadow-green-500/10",
+                purple:
+                  "border-purple-500/50 hover:border-purple-500 hover:shadow-purple-500/10",
                 blue: "border-blue-500/50 hover:border-blue-500 hover:shadow-blue-500/10",
-                yellow: "border-yellow-500/50 hover:border-yellow-500 hover:shadow-yellow-500/10",
-                orange: "border-orange-500/50 hover:border-orange-500 hover:shadow-orange-500/10",
+                yellow:
+                  "border-yellow-500/50 hover:border-yellow-500 hover:shadow-yellow-500/10",
+                orange:
+                  "border-orange-500/50 hover:border-orange-500 hover:shadow-orange-500/10",
                 cyan: "border-cyan-500/50 hover:border-cyan-500 hover:shadow-cyan-500/10",
-              }
+              };
               const iconColorClasses: Record<string, string> = {
                 green: "text-green-600 dark:text-green-400",
                 purple: "text-purple-600 dark:text-purple-400",
@@ -520,29 +671,42 @@ export default function AboutPage() {
                 yellow: "text-yellow-600 dark:text-yellow-400",
                 orange: "text-orange-600 dark:text-orange-400",
                 cyan: "text-cyan-600 dark:text-cyan-400",
-              }
-              
+              };
+
               return (
                 <motion.div
                   variants={fadeInUp}
                   key={interest.name}
                   className={`bg-white dark:bg-[#0d1117] rounded-lg border ${colorClasses[interest.color]} p-4 transition-all duration-300 hover:translate-y-[-3px] hover:shadow-lg flex items-center gap-4`}
                 >
-                  <div className={`p-2 rounded-lg bg-gray-100 dark:bg-[#161b22] ${iconColorClasses[interest.color]}`}>
+                  <div
+                    className={`p-2 rounded-lg bg-gray-100 dark:bg-[#161b22] ${iconColorClasses[interest.color]}`}
+                  >
                     <interest.icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="text-gray-900 dark:text-white font-mono text-sm">{interest.name}</div>
-                    <div className="text-gray-500 text-xs font-mono">● installed</div>
+                    <div className="text-gray-900 dark:text-white font-mono text-sm">
+                      {interest.name}
+                    </div>
+                    <div className="text-gray-500 text-xs font-mono">
+                      ● installed
+                    </div>
                   </div>
                 </motion.div>
-              )
+              );
             })}
           </motion.div>
-          
+
           {/* Additional interests as tags */}
           <div className="mt-6 flex flex-wrap justify-center gap-2">
-            {["Modern Frameworks", "Web Performance", "Software Development", "Desktop Applications", "Operating Systems", "Computer Hardware"].map((tag) => (
+            {[
+              "Modern Frameworks",
+              "Web Performance",
+              "Software Development",
+              "Desktop Applications",
+              "Operating Systems",
+              "Computer Hardware",
+            ].map((tag) => (
               <span
                 key={tag}
                 className="px-3 py-1 bg-gray-100 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 text-gray-600 dark:text-gray-400 text-xs rounded-full font-mono hover:border-green-500/50 hover:text-green-600 dark:hover:text-green-400 transition-colors"
@@ -557,9 +721,15 @@ export default function AboutPage() {
         <motion.div variants={fadeInUp} className="mt-16">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold font-mono">
-              <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-700 dark:text-gray-300">cat</span> <span className="text-cyan-600 dark:text-cyan-400">./education.log</span>
+              <span className="text-green-600 dark:text-green-400">$</span>{" "}
+              <span className="text-gray-700 dark:text-gray-300">cat</span>{" "}
+              <span className="text-cyan-600 dark:text-cyan-400">
+                ./education.log
+              </span>
             </h2>
-            <p className="text-gray-500 font-mono text-sm mt-2">// Academic history</p>
+            <p className="text-gray-500 font-mono text-sm mt-2">
+              // Academic history
+            </p>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-4">
@@ -572,15 +742,25 @@ export default function AboutPage() {
                 <div className="px-4 py-3 bg-gray-100 dark:bg-[#0d1117] border-b border-gray-200 dark:border-gray-700/50 flex items-center justify-between flex-wrap gap-2">
                   <div className="flex items-center gap-2">
                     <GraduationCap className="h-4 w-4 text-green-600 dark:text-green-400" />
-                    <span className="font-mono text-sm text-gray-900 dark:text-white">{edu.institution}</span>
+                    <span className="font-mono text-sm text-gray-900 dark:text-white">
+                      {edu.institution}
+                    </span>
                   </div>
-                  <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400">{edu.period}</span>
+                  <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400">
+                    {edu.period}
+                  </span>
                 </div>
                 <div className="p-4">
-                  <p className="text-gray-500 dark:text-gray-500 text-xs font-mono mb-2">📍 {edu.campus}</p>
-                  <p className="text-gray-800 dark:text-gray-200 font-mono text-sm mb-1">{edu.degree}</p>
+                  <p className="text-gray-500 dark:text-gray-500 text-xs font-mono mb-2">
+                    📍 {edu.campus}
+                  </p>
+                  <p className="text-gray-800 dark:text-gray-200 font-mono text-sm mb-1">
+                    {edu.degree}
+                  </p>
                   {edu.specialization && (
-                    <p className="text-yellow-600 dark:text-yellow-400 text-xs font-mono mb-3">└─ {edu.specialization}</p>
+                    <p className="text-yellow-600 dark:text-yellow-400 text-xs font-mono mb-3">
+                      └─ {edu.specialization}
+                    </p>
                   )}
                   <div className="flex flex-wrap gap-2 mt-3">
                     {edu.achievements.map((achievement, i) => (
@@ -602,9 +782,13 @@ export default function AboutPage() {
         <motion.div variants={fadeInUp} className="mt-16">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold font-mono">
-              <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-700 dark:text-gray-300">neofetch</span> <span className="text-cyan-600 dark:text-cyan-400">--skills</span>
+              <span className="text-green-600 dark:text-green-400">$</span>{" "}
+              <span className="text-gray-700 dark:text-gray-300">neofetch</span>{" "}
+              <span className="text-cyan-600 dark:text-cyan-400">--skills</span>
             </h2>
-            <p className="text-gray-500 font-mono text-sm mt-2">// System capabilities</p>
+            <p className="text-gray-500 font-mono text-sm mt-2">
+              // System capabilities
+            </p>
           </div>
 
           <div className="max-w-5xl mx-auto">
@@ -616,7 +800,9 @@ export default function AboutPage() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">skills.sh</span>
+                <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">
+                  skills.sh
+                </span>
               </div>
 
               <div className="p-6 grid md:grid-cols-2 gap-6">
@@ -629,12 +815,21 @@ export default function AboutPage() {
 
                   {/* Operating Systems */}
                   <div className="bg-gray-50 dark:bg-[#0d1117] rounded-lg p-4 border border-gray-200 dark:border-gray-700/50">
-                    <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">operating_systems:</div>
+                    <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">
+                      operating_systems:
+                    </div>
                     <div className="space-y-1">
                       {technicalSkills.operatingSystems.map((os) => (
-                        <div key={os.name} className="flex justify-between font-mono text-sm">
-                          <span className="text-gray-700 dark:text-gray-300">├─ {os.name}</span>
-                          <span className={`text-xs ${os.level === 'Proficient' ? 'text-green-600 dark:text-green-400' : 'text-yellow-600 dark:text-yellow-400'}`}>
+                        <div
+                          key={os.name}
+                          className="flex justify-between font-mono text-sm"
+                        >
+                          <span className="text-gray-700 dark:text-gray-300">
+                            ├─ {os.name}
+                          </span>
+                          <span
+                            className={`text-xs ${os.level === "Proficient" ? "text-green-600 dark:text-green-400" : "text-yellow-600 dark:text-yellow-400"}`}
+                          >
                             [{os.level}]
                           </span>
                         </div>
@@ -644,7 +839,9 @@ export default function AboutPage() {
 
                   {/* Programming Languages */}
                   <div className="bg-gray-50 dark:bg-[#0d1117] rounded-lg p-4 border border-gray-200 dark:border-gray-700/50">
-                    <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">programming_languages:</div>
+                    <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">
+                      programming_languages:
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
                       {technicalSkills.programmingLanguages.map((lang) => (
                         <span
@@ -659,7 +856,9 @@ export default function AboutPage() {
 
                   {/* Hardware */}
                   <div className="bg-gray-50 dark:bg-[#0d1117] rounded-lg p-4 border border-gray-200 dark:border-gray-700/50">
-                    <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">hardware:</div>
+                    <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">
+                      hardware:
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
                       {technicalSkills.hardware.map((hw) => (
                         <span
@@ -675,18 +874,32 @@ export default function AboutPage() {
                   {/* Software & Other */}
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-gray-50 dark:bg-[#0d1117] rounded-lg p-3 border border-gray-200 dark:border-gray-700/50">
-                      <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">software:</div>
+                      <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">
+                        software:
+                      </div>
                       <div className="space-y-1">
                         {technicalSkills.software.map((sw) => (
-                          <div key={sw} className="text-xs font-mono text-cyan-600 dark:text-cyan-400">• {sw}</div>
+                          <div
+                            key={sw}
+                            className="text-xs font-mono text-cyan-600 dark:text-cyan-400"
+                          >
+                            • {sw}
+                          </div>
                         ))}
                       </div>
                     </div>
                     <div className="bg-gray-50 dark:bg-[#0d1117] rounded-lg p-3 border border-gray-200 dark:border-gray-700/50">
-                      <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">other:</div>
+                      <div className="text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">
+                        other:
+                      </div>
                       <div className="space-y-1">
                         {technicalSkills.other.map((item) => (
-                          <div key={item} className="text-xs font-mono text-purple-600 dark:text-purple-400">• {item}</div>
+                          <div
+                            key={item}
+                            className="text-xs font-mono text-purple-600 dark:text-purple-400"
+                          >
+                            • {item}
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -704,13 +917,20 @@ export default function AboutPage() {
                   <div className="bg-gray-50 dark:bg-[#0d1117] rounded-lg p-4 border border-gray-200 dark:border-gray-700/50">
                     <div className="space-y-2">
                       {languageSkills.map((lang) => (
-                        <div key={lang.name} className="flex items-center justify-between font-mono text-sm">
-                          <span className="text-gray-700 dark:text-gray-300">{lang.name}</span>
-                          <span className={`px-2 py-0.5 rounded text-xs ${
-                            lang.level === 'Native' 
-                              ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' 
-                              : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
-                          }`}>
+                        <div
+                          key={lang.name}
+                          className="flex items-center justify-between font-mono text-sm"
+                        >
+                          <span className="text-gray-700 dark:text-gray-300">
+                            {lang.name}
+                          </span>
+                          <span
+                            className={`px-2 py-0.5 rounded text-xs ${
+                              lang.level === "Native"
+                                ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
+                                : "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400"
+                            }`}
+                          >
                             {lang.level}
                           </span>
                         </div>
@@ -742,9 +962,13 @@ export default function AboutPage() {
                   <div className="bg-gray-50 dark:bg-[#0d1117] rounded-lg p-4 border border-gray-200 dark:border-gray-700/50 mt-4">
                     <div className="font-mono text-xs space-y-1">
                       <div className="text-gray-500">$ echo $STATUS</div>
-                      <div className="text-green-600 dark:text-green-400">▸ Available for opportunities</div>
+                      <div className="text-green-600 dark:text-green-400">
+                        ▸ Available for opportunities
+                      </div>
                       <div className="text-gray-500 mt-2">$ echo $LEARNING</div>
-                      <div className="text-yellow-600 dark:text-yellow-400">▸ Always exploring new technologies</div>
+                      <div className="text-yellow-600 dark:text-yellow-400">
+                        ▸ Always exploring new technologies
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -754,6 +978,5 @@ export default function AboutPage() {
         </motion.div>
       </motion.div>
     </div>
-  )
+  );
 }
-

@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { usePathname } from "next/navigation"
-import { type ReactNode } from "react"
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { type ReactNode } from "react";
 
 interface PageTransitionProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export default function PageTransition({ children }: PageTransitionProps) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <motion.div
@@ -24,6 +24,5 @@ export default function PageTransition({ children }: PageTransitionProps) {
     >
       {children}
     </motion.div>
-  )
+  );
 }
-

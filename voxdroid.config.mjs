@@ -3,9 +3,8 @@ const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
   images: {
-    domains: ['placeholder.svg'],
+    domains: ["placeholder.svg"],
   },
 };
 
 export default nextConfig;
-

@@ -2,7 +2,7 @@ name: Recent Activity
 
 on:
   schedule:
-    - cron: '0 2,14 * * *'  # Runs at 2 AM and 2 PM UTC (11 AM and 11 PM JST)
+    - cron: "0 2,14 * * *" # Runs at 2 AM and 2 PM UTC (11 AM and 11 PM JST)
   workflow_dispatch:
 
 jobs:
@@ -17,13 +17,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         run: npm install axios
 
       - name: Fetch recent activity and update README
-        env: 
+        env:
           GITHUB_TOKEN: ${{ secrets.RECENT_ACTIVITY }}
           COMMITTER_EMAIL: 78334105+VoxDroid@users.noreply.github.com
           COMMITTER_NAME: VoxDroid

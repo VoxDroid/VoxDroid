@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Home, ArrowRight, Terminal } from "lucide-react"
-import { motion } from "framer-motion"
+import Link from "next/link";
+import { Home, ArrowRight, Terminal } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function NotFound() {
   return (
@@ -21,13 +21,19 @@ export default function NotFound() {
         </div>
 
         <h1 className="text-4xl md:text-6xl font-bold mb-2">ERROR 404</h1>
-        <h2 className="text-xl md:text-2xl mb-6 text-red-400">SEGMENTATION FAULT (CORE DUMPED)</h2>
+        <h2 className="text-xl md:text-2xl mb-6 text-red-400">
+          SEGMENTATION FAULT (CORE DUMPED)
+        </h2>
 
         <div className="space-y-2 mb-8 text-sm md:text-base text-red-300/80 font-mono">
           <p>{`> The requested resource could not be found at the specified memory address.`}</p>
           <p>{`> Stack trace:`}</p>
-          <p className="pl-4 opacity-70">at /app/pages/unknown_route.tsx:404:12</p>
-          <p className="pl-4 opacity-70">at NextServer.render (server.js:123:45)</p>
+          <p className="pl-4 opacity-70">
+            at /app/pages/unknown_route.tsx:404:12
+          </p>
+          <p className="pl-4 opacity-70">
+            at NextServer.render (server.js:123:45)
+          </p>
           <p className="pl-4 opacity-70">at process.emit (events.js:321:10)</p>
           <p>{`> System halted.`}</p>
         </div>
@@ -49,6 +55,5 @@ export default function NotFound() {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }
-

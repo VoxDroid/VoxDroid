@@ -1,7 +1,7 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="py-8 border-t border-border bg-background/90 backdrop-blur-sm transition-colors duration-300 font-mono">
@@ -55,6 +55,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

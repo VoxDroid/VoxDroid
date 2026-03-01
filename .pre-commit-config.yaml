@@ -1,0 +1,37 @@
+repos:
+  - repo: local
+    hooks:
+      - id: format
+        name: Format
+        entry: npm run format
+        language: system
+        files: \.(ts|tsx|js|jsx|json|md|css)$
+        pass_filenames: false
+
+      - id: lint-fix
+        name: Lint Fix
+        entry: npm run lint:fix
+        language: system
+        files: \.(ts|tsx|js|jsx)$
+        pass_filenames: false
+
+      - id: type-check
+        name: Type Check
+        entry: npm run type-check
+        language: system
+        files: \.(ts|tsx)$
+        pass_filenames: false
+
+      - id: test
+        name: Test
+        entry: npm run test
+        language: system
+        files: \.(ts|tsx|js|jsx)$
+        pass_filenames: false
+
+      - id: build
+        name: Build
+        entry: npm run build
+        language: system
+        files: \.(ts|tsx|js|jsx|css|json)$
+        pass_filenames: false

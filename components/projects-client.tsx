@@ -1,21 +1,31 @@
-"use client"
+"use client";
 
-import { useState, useMemo } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Github, ExternalLink, ArrowRight, Star, GitFork, Clock, Search, SortAsc, SortDesc } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import type { ProjectData } from "@/lib/github"
-import { formatNumber, formatRelativeTime } from "@/lib/github"
+import { useState, useMemo } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Github,
+  ExternalLink,
+  ArrowRight,
+  Star,
+  GitFork,
+  Clock,
+  Search,
+  SortAsc,
+  SortDesc,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import type { ProjectData } from "@/lib/github";
+import { formatNumber, formatRelativeTime } from "@/lib/github";
 
 interface ProjectsClientProps {
-  projects: ProjectData[]
-  categories: string[]
+  projects: ProjectData[];
+  categories: string[];
 }
 
 // Hyprland-style smooth bezier curves
-const smoothBezier: [number, number, number, number] = [0.22, 1, 0.36, 1] // Similar to Hyprland's default animation curve
-const snappyBezier: [number, number, number, number] = [0.16, 1, 0.3, 1] // Snappier version for exits
+const smoothBezier: [number, number, number, number] = [0.22, 1, 0.36, 1]; // Similar to Hyprland's default animation curve
+const snappyBezier: [number, number, number, number] = [0.16, 1, 0.3, 1]; // Snappier version for exits
 
 // Container variants for staggered children
 const containerVariants = {
@@ -34,13 +44,13 @@ const containerVariants = {
       staggerDirection: -1,
     },
   },
-}
+};
 
 // Card variants with smooth Hyprland-style animations
 const cardVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 40, 
+  hidden: {
+    opacity: 0,
+    y: 40,
     scale: 0.92,
     filter: "blur(8px)",
   },
@@ -59,16 +69,22 @@ const cardVariants = {
     y: -30,
     scale: 0.95,
     filter: "blur(4px)",
-    transition: { 
+    transition: {
       duration: 0.3,
       ease: snappyBezier,
     },
   },
-}
+};
 
-function ProjectCard({ project, index }: { project: ProjectData; index: number }) {
-  const [imageError, setImageError] = useState(false)
-  
+function ProjectCard({
+  project,
+  index,
+}: {
+  project: ProjectData;
+  index: number;
+}) {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <motion.div
       variants={cardVariants}
@@ -76,7 +92,7 @@ function ProjectCard({ project, index }: { project: ProjectData; index: number }
       animate="visible"
       exit="exit"
       className="group bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden hover:translate-y-[-10px] hover:shadow-xl hover:shadow-green-500/10 hover:border-green-500/50 flex flex-col h-full transition-all duration-300"
-      style={{ 
+      style={{
         willChange: "transform, opacity, filter",
       }}
     >
@@ -91,18 +107,24 @@ function ProjectCard({ project, index }: { project: ProjectData; index: number }
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-[#0d1117] dark:to-[#161b22] font-mono text-sm">
-            <div className="text-green-600 dark:text-green-400 mb-1">voxdroid@vox ~</div>
+            <div className="text-green-600 dark:text-green-400 mb-1">
+              voxdroid@vox ~
+            </div>
             <div className="flex items-center gap-1">
               <span className="text-primary dark:text-primary-light">$</span>
               <span className="text-gray-600 dark:text-gray-300">./</span>
-              <span className="text-cyan-600 dark:text-cyan-400 truncate max-w-[150px]">{project.slug}</span>
+              <span className="text-cyan-600 dark:text-cyan-400 truncate max-w-[150px]">
+                {project.slug}
+              </span>
               <span className="w-2 h-4 bg-green-500 dark:bg-green-400 animate-pulse"></span>
             </div>
-            <div className="text-gray-500 text-xs mt-2">[no preview available]</div>
+            <div className="text-gray-500 text-xs mt-2">
+              [no preview available]
+            </div>
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
+
         {/* Stats Badge */}
         <div className="absolute top-3 right-3 flex gap-2">
           {project.stars > 0 && (
@@ -118,7 +140,7 @@ function ProjectCard({ project, index }: { project: ProjectData; index: number }
             </span>
           )}
         </div>
-        
+
         {/* Featured Badge */}
         {project.featured && (
           <div className="absolute top-3 left-3">
@@ -128,19 +150,21 @@ function ProjectCard({ project, index }: { project: ProjectData; index: number }
           </div>
         )}
       </div>
-      
+
       <div className="p-6 flex-grow flex flex-col">
         <div className="flex items-center justify-between mb-2 gap-2">
-          <h3 className="text-xl font-bold truncate text-gray-900 dark:text-white">{project.name}</h3>
+          <h3 className="text-xl font-bold truncate text-gray-900 dark:text-white">
+            {project.name}
+          </h3>
           <span className="px-2 py-1 text-xs bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 rounded-full whitespace-nowrap font-mono">
             {project.category}
           </span>
         </div>
-        
+
         <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow line-clamp-2">
           {project.description}
         </p>
-        
+
         {/* Language and Last Updated */}
         <div className="flex items-center gap-4 mb-4 text-sm text-gray-500 dark:text-gray-400 font-mono">
           {project.language && (
@@ -149,7 +173,9 @@ function ProjectCard({ project, index }: { project: ProjectData; index: number }
                 className="w-3 h-3 rounded-full"
                 style={{
                   backgroundColor:
-                    project.languagePercentages.find((l) => l.name === project.language)?.color || "#808080",
+                    project.languagePercentages.find(
+                      (l) => l.name === project.language,
+                    )?.color || "#808080",
                 }}
               />
               <span>{project.language}</span>
@@ -160,7 +186,7 @@ function ProjectCard({ project, index }: { project: ProjectData; index: number }
             <span>{formatRelativeTime(project.pushedAt)}</span>
           </div>
         </div>
-        
+
         <div className="mt-auto">
           {/* Topics */}
           {project.topics.length > 0 && (
@@ -180,7 +206,7 @@ function ProjectCard({ project, index }: { project: ProjectData; index: number }
               )}
             </div>
           )}
-          
+
           <div className="flex justify-between items-center pt-3 border-t border-gray-200 dark:border-gray-700/50">
             <div className="flex space-x-3">
               <a
@@ -210,91 +236,97 @@ function ProjectCard({ project, index }: { project: ProjectData; index: number }
               href={`/projects/${project.slug}`}
               className="flex items-center text-green-600 dark:text-green-400 hover:text-green-500 dark:hover:text-green-300 font-mono text-sm transition-colors"
             >
-              <span className="mr-1">$</span> cat README <ArrowRight className="ml-1 h-4 w-4" />
+              <span className="mr-1">$</span> cat README{" "}
+              <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </div>
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
-export default function ProjectsClient({ projects, categories }: ProjectsClientProps) {
-  const [activeCategory, setActiveCategory] = useState("All")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [sortBy, setSortBy] = useState("default")
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc")
+export default function ProjectsClient({
+  projects,
+  categories,
+}: ProjectsClientProps) {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState("default");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
   const filteredAndSortedProjects = useMemo(() => {
     // First filter by category
-    let filtered = activeCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory)
+    let filtered =
+      activeCategory === "All"
+        ? projects
+        : projects.filter((project) => project.category === activeCategory);
 
     // Then filter by search query
     if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase()
-      filtered = filtered.filter((project) =>
-        project.name.toLowerCase().includes(query) ||
-        project.description.toLowerCase().includes(query) ||
-        project.topics.some(topic => topic.toLowerCase().includes(query)) ||
-        (project.language && project.language.toLowerCase().includes(query))
-      )
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(
+        (project) =>
+          project.name.toLowerCase().includes(query) ||
+          project.description.toLowerCase().includes(query) ||
+          project.topics.some((topic) => topic.toLowerCase().includes(query)) ||
+          (project.language && project.language.toLowerCase().includes(query)),
+      );
     }
 
     // Then sort
     filtered.sort((a, b) => {
       if (sortBy === "default") {
         // Custom default sorting: explicit order first, then featured/stars/push date
-        const aOrder = a.order ?? Infinity
-        const bOrder = b.order ?? Infinity
-        
-        if (aOrder !== bOrder) return aOrder - bOrder
-        
+        const aOrder = a.order ?? Infinity;
+        const bOrder = b.order ?? Infinity;
+
+        if (aOrder !== bOrder) return aOrder - bOrder;
+
         // Fall back to current default logic for projects without explicit order
-        const aFeatured = a.featured ?? false
-        const bFeatured = b.featured ?? false
-        if (aFeatured !== bFeatured) return bFeatured ? 1 : -1
-        if (a.stars !== b.stars) return b.stars - a.stars
-        return new Date(b.pushedAt).getTime() - new Date(a.pushedAt).getTime()
+        const aFeatured = a.featured ?? false;
+        const bFeatured = b.featured ?? false;
+        if (aFeatured !== bFeatured) return bFeatured ? 1 : -1;
+        if (a.stars !== b.stars) return b.stars - a.stars;
+        return new Date(b.pushedAt).getTime() - new Date(a.pushedAt).getTime();
       }
-      
-      let aValue: any, bValue: any
+
+      let aValue: any, bValue: any;
 
       switch (sortBy) {
         case "name":
-          aValue = a.name.toLowerCase()
-          bValue = b.name.toLowerCase()
-          break
+          aValue = a.name.toLowerCase();
+          bValue = b.name.toLowerCase();
+          break;
         case "stars":
-          aValue = a.stars
-          bValue = b.stars
-          break
+          aValue = a.stars;
+          bValue = b.stars;
+          break;
         case "forks":
-          aValue = a.forks
-          bValue = b.forks
-          break
+          aValue = a.forks;
+          bValue = b.forks;
+          break;
         case "updated":
-          aValue = new Date(a.pushedAt).getTime()
-          bValue = new Date(b.pushedAt).getTime()
-          break
+          aValue = new Date(a.pushedAt).getTime();
+          bValue = new Date(b.pushedAt).getTime();
+          break;
         case "created":
-          aValue = new Date(a.createdAt).getTime()
-          bValue = new Date(b.createdAt).getTime()
-          break
+          aValue = new Date(a.createdAt).getTime();
+          bValue = new Date(b.createdAt).getTime();
+          break;
         default:
-          return 0
+          return 0;
       }
 
       if (sortOrder === "asc") {
-        return aValue > bValue ? 1 : aValue < bValue ? -1 : 0
+        return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
       } else {
-        return aValue < bValue ? 1 : aValue > bValue ? -1 : 0
+        return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
       }
-    })
+    });
 
-    return filtered
-  }, [activeCategory, projects, searchQuery, sortBy, sortOrder])
+    return filtered;
+  }, [activeCategory, projects, searchQuery, sortBy, sortOrder]);
 
   return (
     <div className="min-h-screen py-16">
@@ -307,9 +339,15 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-mono">
-            <span className="text-green-600 dark:text-green-400">$</span> <span className="text-gray-700 dark:text-gray-300">ls -la</span> <span className="text-cyan-600 dark:text-cyan-400">./projects/</span>
+            <span className="text-green-600 dark:text-green-400">$</span>{" "}
+            <span className="text-gray-700 dark:text-gray-300">ls -la</span>{" "}
+            <span className="text-cyan-600 dark:text-cyan-400">
+              ./projects/
+            </span>
           </h1>
-          <p className="text-gray-500 font-mono text-sm">// Explore my GitHub repositories and recent work</p>
+          <p className="text-gray-500 font-mono text-sm">
+            // Explore my GitHub repositories and recent work
+          </p>
         </motion.div>
 
         {/* Search and Sort Controls - Terminal Style */}
@@ -327,7 +365,9 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">project-filter</span>
+              <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">
+                project-filter
+              </span>
             </div>
 
             {/* Controls */}
@@ -335,7 +375,17 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
               {/* Terminal prompts at the top */}
               <div className="flex items-center justify-between font-mono text-sm text-gray-500 dark:text-gray-400 mb-2">
                 <div>
-                  <span className="text-green-600 dark:text-green-400">voxdroid@vox</span>:<span className="text-blue-600 dark:text-blue-400">~/projects</span>$ <span className="text-gray-700 dark:text-gray-300">grep -r</span>
+                  <span className="text-green-600 dark:text-green-400">
+                    voxdroid@vox
+                  </span>
+                  :
+                  <span className="text-blue-600 dark:text-blue-400">
+                    ~/projects
+                  </span>
+                  ${" "}
+                  <span className="text-gray-700 dark:text-gray-300">
+                    grep -r
+                  </span>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -376,13 +426,25 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
                     </select>
                     {/* Custom Chevron Icon */}
                     <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      <svg
+                        className="h-4 w-4 text-gray-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     </div>
                   </div>
                   <button
-                    onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+                    onClick={() =>
+                      setSortOrder(sortOrder === "asc" ? "desc" : "asc")
+                    }
                     className="px-3 py-3 bg-gray-50 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-md hover:bg-gray-100 dark:hover:bg-[#21262d] transition-colors flex items-center"
                     title={sortOrder === "asc" ? "Ascending" : "Descending"}
                   >
@@ -442,7 +504,11 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
           >
             {filteredAndSortedProjects.length > 0 ? (
               filteredAndSortedProjects.map((project, index) => (
-                <ProjectCard key={project.fullName} project={project} index={index} />
+                <ProjectCard
+                  key={project.fullName}
+                  project={project}
+                  index={index}
+                />
               ))
             ) : (
               <motion.div
@@ -454,9 +520,30 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
               >
                 <div className="inline-block bg-white dark:bg-[#0d1117] rounded-lg border border-gray-200 dark:border-gray-700/50 p-8">
                   <p className="text-lg text-gray-600 dark:text-gray-400 font-mono mb-4">
-                    <span className="text-yellow-600 dark:text-yellow-400">⚠</span> No projects found
-                    {searchQuery && <span> matching "<span className="text-cyan-600 dark:text-cyan-400">{searchQuery}</span>"</span>}
-                    {activeCategory !== "All" && <span> in <span className="text-cyan-600 dark:text-cyan-400">{activeCategory}</span> category</span>}
+                    <span className="text-yellow-600 dark:text-yellow-400">
+                      ⚠
+                    </span>{" "}
+                    No projects found
+                    {searchQuery && (
+                      <span>
+                        {" "}
+                        matching "
+                        <span className="text-cyan-600 dark:text-cyan-400">
+                          {searchQuery}
+                        </span>
+                        "
+                      </span>
+                    )}
+                    {activeCategory !== "All" && (
+                      <span>
+                        {" "}
+                        in{" "}
+                        <span className="text-cyan-600 dark:text-cyan-400">
+                          {activeCategory}
+                        </span>{" "}
+                        category
+                      </span>
+                    )}
                   </p>
                   <div className="flex gap-2 justify-center">
                     {searchQuery && (
@@ -501,17 +588,28 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">github-profile</span>
+              <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">
+                github-profile
+              </span>
             </div>
-            
+
             {/* Content */}
             <div className="p-8 text-center">
               <div className="font-mono text-sm text-gray-500 dark:text-gray-400 mb-2">
-                <span className="text-green-600 dark:text-green-400">voxdroid@vox</span>:<span className="text-blue-600 dark:text-blue-400">~</span>$ <span className="text-gray-700 dark:text-gray-300">echo $MORE_PROJECTS</span>
+                <span className="text-green-600 dark:text-green-400">
+                  voxdroid@vox
+                </span>
+                :<span className="text-blue-600 dark:text-blue-400">~</span>${" "}
+                <span className="text-gray-700 dark:text-gray-300">
+                  echo $MORE_PROJECTS
+                </span>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Interested in more projects?</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                Interested in more projects?
+              </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-                Check out my GitHub profile for more repositories, experiments, and open-source contributions.
+                Check out my GitHub profile for more repositories, experiments,
+                and open-source contributions.
               </p>
               <a
                 href="https://github.com/VoxDroid"
@@ -520,12 +618,13 @@ export default function ProjectsClient({ projects, categories }: ProjectsClientP
                 className="px-6 py-3 bg-green-600 hover:bg-green-500 text-white rounded-md shadow-lg transition-all duration-300 hover:translate-y-[-3px] hover:shadow-green-500/25 inline-flex items-center font-mono text-sm"
               >
                 <Github className="mr-2 h-5 w-5" />
-                <span className="text-green-300 mr-2">$</span> open github.com/VoxDroid
+                <span className="text-green-300 mr-2">$</span> open
+                github.com/VoxDroid
               </a>
             </div>
           </div>
         </motion.div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import React from "react"
-import ReactMarkdown, { Components } from "react-markdown"
-import remarkGfm from "remark-gfm"
-import remarkMath from "remark-math"
-import rehypeRaw from "rehype-raw"
-import rehypeHighlight from "rehype-highlight"
-import rehypeSlug from "rehype-slug"
-import rehypeKatex from "rehype-katex"
-import "katex/dist/katex.min.css"
-import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
-import Link from "next/link"
-import { useState, useMemo } from "react"
+import React from "react";
+import ReactMarkdown, { Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeRaw from "rehype-raw";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useMemo } from "react";
 import {
   ArrowLeft,
   Github,
@@ -40,12 +40,17 @@ import {
   File,
   Folder,
   ChevronDown,
-} from "lucide-react"
-import type { ProjectData, GitHubCommit, FileTreeNode } from "@/lib/github"
-import { formatDate, formatRelativeTime, formatNumber, formatBytes } from "@/lib/github"
+} from "lucide-react";
+import type { ProjectData, GitHubCommit, FileTreeNode } from "@/lib/github";
+import {
+  formatDate,
+  formatRelativeTime,
+  formatNumber,
+  formatBytes,
+} from "@/lib/github";
 
 interface ProjectDetailClientProps {
-  project: ProjectData
+  project: ProjectData;
 }
 
 const fadeIn = {
@@ -55,7 +60,7 @@ const fadeIn = {
     y: 0,
     transition: { type: "spring" as const, stiffness: 260, damping: 20 },
   },
-}
+};
 
 const staggerContainer = {
   hidden: {},
@@ -64,75 +69,81 @@ const staggerContainer = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 // Helper function to extract text content from React children
 function getTextContent(children: React.ReactNode): string {
-  if (typeof children === 'string') {
+  if (typeof children === "string") {
     // Strip HTML tags from string content
-    return children.replace(/<[^>]*>/g, '')
+    return children.replace(/<[^>]*>/g, "");
   }
-  if (typeof children === 'number') return String(children)
-  if (Array.isArray(children)) return children.map(getTextContent).join('')
+  if (typeof children === "number") return String(children);
+  if (Array.isArray(children)) return children.map(getTextContent).join("");
   if (React.isValidElement(children) && children.props) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return getTextContent((children.props as any).children)
+    return getTextContent((children.props as any).children);
   }
-  return ''
+  return "";
 }
 
 // Helper function to create URL-friendly slug from text
 function slugify(text: string): string {
-  return text
-    // First strip any HTML tags
-    .replace(/<[^>]*>/g, '')
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-')      // Replace spaces with hyphens
-    .replace(/-+/g, '-')       // Replace multiple hyphens with single
-    .replace(/^-|-$/g, '')     // Remove leading/trailing hyphens
+  return (
+    text
+      // First strip any HTML tags
+      .replace(/<[^>]*>/g, "")
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "") // Remove special characters
+      .replace(/\s+/g, "-") // Replace spaces with hyphens
+      .replace(/-+/g, "-") // Replace multiple hyphens with single
+      .replace(/^-|-$/g, "")
+  ); // Remove leading/trailing hyphens
 }
 
 // Custom markdown components for better rendering
 function createMarkdownComponents(repoFullName: string): Components {
-  const rawBaseUrl = `https://raw.githubusercontent.com/${repoFullName}/HEAD`
-  const repoBaseUrl = `https://github.com/${repoFullName}/blob/HEAD`
+  const rawBaseUrl = `https://raw.githubusercontent.com/${repoFullName}/HEAD`;
+  const repoBaseUrl = `https://github.com/${repoFullName}/blob/HEAD`;
 
   return {
     // Fix relative image URLs - keep badges/shields inline
     img: ({ src, alt, ...props }) => {
-      let imageSrc = (src as string) || ""
-      
+      let imageSrc = (src as string) || "";
+
       // Handle relative URLs
-      if (imageSrc && !imageSrc.startsWith("http") && !imageSrc.startsWith("data:")) {
+      if (
+        imageSrc &&
+        !imageSrc.startsWith("http") &&
+        !imageSrc.startsWith("data:")
+      ) {
         // Remove leading ./ or /
-        imageSrc = imageSrc.replace(/^\.?\//, "")
-        imageSrc = `${rawBaseUrl}/${imageSrc}`
+        imageSrc = imageSrc.replace(/^\.?\//, "");
+        imageSrc = `${rawBaseUrl}/${imageSrc}`;
       }
-      
+
       // Check if this is a badge/shield (common badge services)
-      const isBadge = imageSrc.includes("shields.io") || 
-                      imageSrc.includes("badge") ||
-                      imageSrc.includes("img.shields") ||
-                      imageSrc.includes("badgen.net") ||
-                      imageSrc.includes("forthebadge.com") ||
-                      imageSrc.includes("github.com") && imageSrc.includes("/badge") ||
-                      imageSrc.includes("travis-ci") ||
-                      imageSrc.includes("circleci") ||
-                      imageSrc.includes("codecov") ||
-                      imageSrc.includes("coveralls") ||
-                      imageSrc.includes("david-dm.org") ||
-                      imageSrc.includes("npmjs.com") ||
-                      imageSrc.includes("packagephobia") ||
-                      imageSrc.includes("snyk.io") ||
-                      (alt && alt.toLowerCase().includes("badge")) ||
-                      (alt && alt.toLowerCase().includes("shield")) ||
-                      (alt && alt.toLowerCase().includes("license")) ||
-                      (alt && alt.toLowerCase().includes("version")) ||
-                      (alt && alt.toLowerCase().includes("build")) ||
-                      (alt && alt.toLowerCase().includes("status"))
-      
+      const isBadge =
+        imageSrc.includes("shields.io") ||
+        imageSrc.includes("badge") ||
+        imageSrc.includes("img.shields") ||
+        imageSrc.includes("badgen.net") ||
+        imageSrc.includes("forthebadge.com") ||
+        (imageSrc.includes("github.com") && imageSrc.includes("/badge")) ||
+        imageSrc.includes("travis-ci") ||
+        imageSrc.includes("circleci") ||
+        imageSrc.includes("codecov") ||
+        imageSrc.includes("coveralls") ||
+        imageSrc.includes("david-dm.org") ||
+        imageSrc.includes("npmjs.com") ||
+        imageSrc.includes("packagephobia") ||
+        imageSrc.includes("snyk.io") ||
+        (alt && alt.toLowerCase().includes("badge")) ||
+        (alt && alt.toLowerCase().includes("shield")) ||
+        (alt && alt.toLowerCase().includes("license")) ||
+        (alt && alt.toLowerCase().includes("version")) ||
+        (alt && alt.toLowerCase().includes("build")) ||
+        (alt && alt.toLowerCase().includes("status"));
+
       // Badges stay inline, regular images are block
       if (isBadge) {
         return (
@@ -144,9 +155,9 @@ function createMarkdownComponents(repoFullName: string): Components {
             loading="lazy"
             {...props}
           />
-        )
+        );
       }
-      
+
       return (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -156,63 +167,83 @@ function createMarkdownComponents(repoFullName: string): Components {
           loading="lazy"
           {...props}
         />
-      )
+      );
     },
     // Fix relative links and handle anchor navigation
     a: ({ href, children, ...props }) => {
-      const linkHref = href || ""
-      
+      const linkHref = href || "";
+
       // Handle anchor links (table of contents)
       if (linkHref.startsWith("#")) {
-        const anchorId = linkHref.slice(1)
-        
+        const anchorId = linkHref.slice(1);
+
         return (
           <a
             href={linkHref}
             onClick={(e) => {
-              e.preventDefault()
-              
+              e.preventDefault();
+
               // Generate the slug the same way we do for headings
               const expectedSlug = anchorId
                 .toLowerCase()
                 .trim()
-                .replace(/[^\w\s-]/g, '')
-                .replace(/\s+/g, '-')
-                .replace(/-+/g, '-')
-              
+                .replace(/[^\w\s-]/g, "")
+                .replace(/\s+/g, "-")
+                .replace(/-+/g, "-");
+
               // Try to find element by exact ID first
-              let element: HTMLElement | null = document.getElementById(expectedSlug) || document.getElementById(anchorId)
-              
+              let element: HTMLElement | null =
+                document.getElementById(expectedSlug) ||
+                document.getElementById(anchorId);
+
               // Fallback: search for IDs that END with the expected slug
               // This handles cases like "color546e7asftextimportant-notices" -> matches "important-notices"
               if (!element) {
-                const allHeadings = document.querySelectorAll('.readme-content h1[id], .readme-content h2[id], .readme-content h3[id], .readme-content h4[id], .readme-content h5[id], .readme-content h6[id]')
+                const allHeadings = document.querySelectorAll(
+                  ".readme-content h1[id], .readme-content h2[id], .readme-content h3[id], .readme-content h4[id], .readme-content h5[id], .readme-content h6[id]",
+                );
                 for (const heading of allHeadings) {
                   // Check if the ID ends with our expected slug (handles the color prefix issue)
-                  if (heading.id.endsWith(expectedSlug) || heading.id.endsWith(anchorId.toLowerCase())) {
-                    element = heading as HTMLElement
-                    break
+                  if (
+                    heading.id.endsWith(expectedSlug) ||
+                    heading.id.endsWith(anchorId.toLowerCase())
+                  ) {
+                    element = heading as HTMLElement;
+                    break;
                   }
                 }
               }
-              
+
               // Second fallback: search headings by text content
               if (!element) {
-                const headings = document.querySelectorAll('.readme-content h1, .readme-content h2, .readme-content h3, .readme-content h4, .readme-content h5, .readme-content h6')
+                const headings = document.querySelectorAll(
+                  ".readme-content h1, .readme-content h2, .readme-content h3, .readme-content h4, .readme-content h5, .readme-content h6",
+                );
                 for (const heading of headings) {
-                  const headingText = heading.textContent?.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')
-                  if (headingText === expectedSlug || headingText?.endsWith(expectedSlug)) {
-                    element = heading as HTMLElement
-                    break
+                  const headingText = heading.textContent
+                    ?.toLowerCase()
+                    .trim()
+                    .replace(/[^\w\s-]/g, "")
+                    .replace(/\s+/g, "-")
+                    .replace(/-+/g, "-");
+                  if (
+                    headingText === expectedSlug ||
+                    headingText?.endsWith(expectedSlug)
+                  ) {
+                    element = heading as HTMLElement;
+                    break;
                   }
                 }
               }
-              
+
               if (element) {
-                const yOffset = -100 // Account for fixed header
-                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
-                window.scrollTo({ top: y, behavior: 'smooth' })
-                window.history.pushState(null, '', linkHref)
+                const yOffset = -100; // Account for fixed header
+                const y =
+                  element.getBoundingClientRect().top +
+                  window.pageYOffset +
+                  yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
+                window.history.pushState(null, "", linkHref);
               }
             }}
             className="text-primary hover:text-primary-light underline-offset-2 cursor-pointer"
@@ -220,18 +251,22 @@ function createMarkdownComponents(repoFullName: string): Components {
           >
             {children}
           </a>
-        )
+        );
       }
-      
+
       // Handle relative URLs (but not mailto links)
-      let resolvedHref = linkHref
-      if (linkHref && !linkHref.startsWith("http") && !linkHref.startsWith("mailto:")) {
-        resolvedHref = linkHref.replace(/^\.?\//, "")
-        resolvedHref = `${repoBaseUrl}/${resolvedHref}`
+      let resolvedHref = linkHref;
+      if (
+        linkHref &&
+        !linkHref.startsWith("http") &&
+        !linkHref.startsWith("mailto:")
+      ) {
+        resolvedHref = linkHref.replace(/^\.?\//, "");
+        resolvedHref = `${repoBaseUrl}/${resolvedHref}`;
       }
-      
-      const isExternal = resolvedHref.startsWith("http")
-      
+
+      const isExternal = resolvedHref.startsWith("http");
+
       return (
         <a
           href={resolvedHref}
@@ -242,22 +277,28 @@ function createMarkdownComponents(repoFullName: string): Components {
         >
           {children}
         </a>
-      )
+      );
     },
     // Paragraphs - handle inline content properly
     p: ({ children, node, ...props }) => {
       // Check if paragraph contains only images (for badge rows)
-      const hasOnlyInlineContent = Array.isArray(children) && children.every((child: any) => {
-        if (typeof child === 'string') return child.trim() === '' || child.trim() === '\n'
-        if (child?.type === 'img' || child?.type === 'a') return true
-        return false
-      })
-      
+      const hasOnlyInlineContent =
+        Array.isArray(children) &&
+        children.every((child: any) => {
+          if (typeof child === "string")
+            return child.trim() === "" || child.trim() === "\n";
+          if (child?.type === "img" || child?.type === "a") return true;
+          return false;
+        });
+
       return (
-        <p className={`my-3 leading-relaxed ${hasOnlyInlineContent ? 'space-x-1' : ''}`} {...props}>
+        <p
+          className={`my-3 leading-relaxed ${hasOnlyInlineContent ? "space-x-1" : ""}`}
+          {...props}
+        >
           {children}
         </p>
-      )
+      );
     },
     // Better code blocks
     pre: ({ children, ...props }) => (
@@ -270,7 +311,7 @@ function createMarkdownComponents(repoFullName: string): Components {
     ),
     // Inline code
     code: ({ className, children, ...props }) => {
-      const isInline = !className
+      const isInline = !className;
       if (isInline) {
         return (
           <code
@@ -279,18 +320,21 @@ function createMarkdownComponents(repoFullName: string): Components {
           >
             {children}
           </code>
-        )
+        );
       }
       return (
         <code className={className} {...props}>
           {children}
         </code>
-      )
+      );
     },
     // Better tables
     table: ({ children, ...props }) => (
       <div className="overflow-x-auto my-4">
-        <table className="min-w-full border-collapse border border-gray-300 dark:border-gray-700" {...props}>
+        <table
+          className="min-w-full border-collapse border border-gray-300 dark:border-gray-700"
+          {...props}
+        >
           {children}
         </table>
       </div>
@@ -304,7 +348,10 @@ function createMarkdownComponents(repoFullName: string): Components {
       </th>
     ),
     td: ({ children, ...props }) => (
-      <td className="border border-gray-300 dark:border-gray-700 px-4 py-2" {...props}>
+      <td
+        className="border border-gray-300 dark:border-gray-700 px-4 py-2"
+        {...props}
+      >
         {children}
       </td>
     ),
@@ -319,58 +366,82 @@ function createMarkdownComponents(repoFullName: string): Components {
     ),
     // Better headings with auto-generated IDs for anchor links
     h1: ({ children, ...props }) => {
-      const text = getTextContent(children)
-      const id = slugify(text)
+      const text = getTextContent(children);
+      const id = slugify(text);
       return (
-        <h1 id={id} className="text-3xl font-bold mt-8 mb-4 pb-2 border-b border-gray-200 dark:border-gray-700 scroll-mt-24" {...props}>
+        <h1
+          id={id}
+          className="text-3xl font-bold mt-8 mb-4 pb-2 border-b border-gray-200 dark:border-gray-700 scroll-mt-24"
+          {...props}
+        >
           {children}
         </h1>
-      )
+      );
     },
     h2: ({ children, ...props }) => {
-      const text = getTextContent(children)
-      const id = slugify(text)
+      const text = getTextContent(children);
+      const id = slugify(text);
       return (
-        <h2 id={id} className="text-2xl font-bold mt-6 mb-3 pb-2 border-b border-gray-200 dark:border-gray-700 scroll-mt-24" {...props}>
+        <h2
+          id={id}
+          className="text-2xl font-bold mt-6 mb-3 pb-2 border-b border-gray-200 dark:border-gray-700 scroll-mt-24"
+          {...props}
+        >
           {children}
         </h2>
-      )
+      );
     },
     h3: ({ children, ...props }) => {
-      const text = getTextContent(children)
-      const id = slugify(text)
+      const text = getTextContent(children);
+      const id = slugify(text);
       return (
-        <h3 id={id} className="text-xl font-bold mt-5 mb-2 scroll-mt-24" {...props}>
+        <h3
+          id={id}
+          className="text-xl font-bold mt-5 mb-2 scroll-mt-24"
+          {...props}
+        >
           {children}
         </h3>
-      )
+      );
     },
     h4: ({ children, ...props }) => {
-      const text = getTextContent(children)
-      const id = slugify(text)
+      const text = getTextContent(children);
+      const id = slugify(text);
       return (
-        <h4 id={id} className="text-lg font-bold mt-4 mb-2 scroll-mt-24" {...props}>
+        <h4
+          id={id}
+          className="text-lg font-bold mt-4 mb-2 scroll-mt-24"
+          {...props}
+        >
           {children}
         </h4>
-      )
+      );
     },
     h5: ({ children, ...props }) => {
-      const text = getTextContent(children)
-      const id = slugify(text)
+      const text = getTextContent(children);
+      const id = slugify(text);
       return (
-        <h5 id={id} className="text-base font-bold mt-3 mb-2 scroll-mt-24" {...props}>
+        <h5
+          id={id}
+          className="text-base font-bold mt-3 mb-2 scroll-mt-24"
+          {...props}
+        >
           {children}
         </h5>
-      )
+      );
     },
     h6: ({ children, ...props }) => {
-      const text = getTextContent(children)
-      const id = slugify(text)
+      const text = getTextContent(children);
+      const id = slugify(text);
       return (
-        <h6 id={id} className="text-sm font-bold mt-3 mb-2 scroll-mt-24" {...props}>
+        <h6
+          id={id}
+          className="text-sm font-bold mt-3 mb-2 scroll-mt-24"
+          {...props}
+        >
           {children}
         </h6>
-      )
+      );
     },
     // Better lists
     ul: ({ children, ...props }) => (
@@ -392,19 +463,28 @@ function createMarkdownComponents(repoFullName: string): Components {
     hr: ({ ...props }) => (
       <hr className="my-6 border-gray-200 dark:border-gray-700" {...props} />
     ),
-  }
+  };
 }
 
 // File tree item component
-function FileTreeItem({ node, repoUrl, depth = 0 }: { node: FileTreeNode; repoUrl: string; depth?: number }) {
-  const [isOpen, setIsOpen] = useState(depth < 1) // Auto-expand first level
-  const hasChildren = node.type === "folder" && node.children && node.children.length > 0
-  
-  const fileUrl = `${repoUrl}/blob/HEAD/${node.path}`
-  const folderUrl = `${repoUrl}/tree/HEAD/${node.path}`
-  
+function FileTreeItem({
+  node,
+  repoUrl,
+  depth = 0,
+}: {
+  node: FileTreeNode;
+  repoUrl: string;
+  depth?: number;
+}) {
+  const [isOpen, setIsOpen] = useState(depth < 1); // Auto-expand first level
+  const hasChildren =
+    node.type === "folder" && node.children && node.children.length > 0;
+
+  const fileUrl = `${repoUrl}/blob/HEAD/${node.path}`;
+  const folderUrl = `${repoUrl}/tree/HEAD/${node.path}`;
+
   // Get file extension for icon coloring
-  const extension = node.name.split('.').pop()?.toLowerCase()
+  const extension = node.name.split(".").pop()?.toLowerCase();
   const fileColors: Record<string, string> = {
     ts: "text-blue-500",
     tsx: "text-blue-500",
@@ -420,33 +500,37 @@ function FileTreeItem({ node, repoUrl, depth = 0 }: { node: FileTreeNode; repoUr
     html: "text-orange-600",
     yml: "text-purple-500",
     yaml: "text-purple-500",
-  }
-  const fileColor = extension ? fileColors[extension] || "text-gray-400" : "text-gray-400"
-  
+  };
+  const fileColor = extension
+    ? fileColors[extension] || "text-gray-400"
+    : "text-gray-400";
+
   return (
     <div>
-      <div 
+      <div
         className={`flex items-center py-1 px-2 hover:bg-gray-100 dark:hover:bg-[#161b22] rounded cursor-pointer group font-mono text-sm`}
         style={{ paddingLeft: `${depth * 16 + 8}px` }}
         onClick={() => {
           if (hasChildren) {
-            setIsOpen(!isOpen)
+            setIsOpen(!isOpen);
           }
         }}
       >
         {node.type === "folder" ? (
           <>
-            <ChevronDown 
-              className={`h-4 w-4 mr-1 text-gray-400 transition-transform ${isOpen ? "" : "-rotate-90"} ${!hasChildren ? "invisible" : ""}`} 
+            <ChevronDown
+              className={`h-4 w-4 mr-1 text-gray-400 transition-transform ${isOpen ? "" : "-rotate-90"} ${!hasChildren ? "invisible" : ""}`}
             />
             <Folder className="h-4 w-4 mr-2 text-yellow-500" />
-            <span className="text-gray-800 dark:text-gray-200">{node.name}/</span>
+            <span className="text-gray-800 dark:text-gray-200">
+              {node.name}/
+            </span>
           </>
         ) : (
           <>
             <span className="w-4 mr-1" /> {/* Spacer for alignment */}
             <File className={`h-4 w-4 mr-2 ${fileColor}`} />
-            <a 
+            <a
               href={fileUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -463,26 +547,39 @@ function FileTreeItem({ node, repoUrl, depth = 0 }: { node: FileTreeNode; repoUr
           </>
         )}
       </div>
-      
+
       {/* Children */}
       {hasChildren && isOpen && (
         <div>
           {node.children!.map((child) => (
-            <FileTreeItem key={child.path} node={child} repoUrl={repoUrl} depth={depth + 1} />
+            <FileTreeItem
+              key={child.path}
+              node={child}
+              repoUrl={repoUrl}
+              depth={depth + 1}
+            />
           ))}
         </div>
       )}
     </div>
-  )
+  );
 }
 
 // File tree view component
-function FileTreeView({ nodes, repoUrl }: { nodes: FileTreeNode[]; repoUrl: string }) {
+function FileTreeView({
+  nodes,
+  repoUrl,
+}: {
+  nodes: FileTreeNode[];
+  repoUrl: string;
+}) {
   return (
     <div className="border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden">
       <div className="bg-gray-100 dark:bg-[#161b22] px-4 py-2 border-b border-gray-200 dark:border-gray-700/50 flex items-center">
         <FolderTree className="h-4 w-4 mr-2 text-green-600 dark:text-green-400" />
-        <span className="text-sm font-mono text-gray-700 dark:text-gray-300">$ tree ./</span>
+        <span className="text-sm font-mono text-gray-700 dark:text-gray-300">
+          $ tree ./
+        </span>
       </div>
       <div className="max-h-[500px] overflow-y-auto p-2 bg-white dark:bg-[#0d1117]">
         {nodes.map((node) => (
@@ -490,32 +587,39 @@ function FileTreeView({ nodes, repoUrl }: { nodes: FileTreeNode[]; repoUrl: stri
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default function ProjectDetailClient({ project }: ProjectDetailClientProps) {
-  const [activeTab, setActiveTab] = useState<"readme" | "files" | "commits" | "releases">("readme")
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
-  const [imageError, setImageError] = useState(false)
+export default function ProjectDetailClient({
+  project,
+}: ProjectDetailClientProps) {
+  const [activeTab, setActiveTab] = useState<
+    "readme" | "files" | "commits" | "releases"
+  >("readme");
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [imageError, setImageError] = useState(false);
 
   // Memoize markdown components
   const markdownComponents = useMemo(
     () => createMarkdownComponents(project.fullName),
-    [project.fullName]
-  )
+    [project.fullName],
+  );
 
-  const openLightbox = (index: number) => setSelectedImage(index)
-  const closeLightbox = () => setSelectedImage(null)
+  const openLightbox = (index: number) => setSelectedImage(index);
+  const closeLightbox = () => setSelectedImage(null);
   const nextImage = () => {
     if (selectedImage !== null && project.screenshots.length > 0) {
-      setSelectedImage((selectedImage + 1) % project.screenshots.length)
+      setSelectedImage((selectedImage + 1) % project.screenshots.length);
     }
-  }
+  };
   const prevImage = () => {
     if (selectedImage !== null && project.screenshots.length > 0) {
-      setSelectedImage((selectedImage - 1 + project.screenshots.length) % project.screenshots.length)
+      setSelectedImage(
+        (selectedImage - 1 + project.screenshots.length) %
+          project.screenshots.length,
+      );
     }
-  }
+  };
 
   return (
     <main className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background via-background to-background/95">
@@ -526,7 +630,8 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors font-mono text-sm"
         >
           <ArrowLeft className="h-4 w-4" />
-          <span className="text-green-600 dark:text-green-400">$</span> cd ../projects
+          <span className="text-green-600 dark:text-green-400">$</span> cd
+          ../projects
         </Link>
       </div>
 
@@ -551,14 +656,18 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">{project.slug}</span>
+                <span className="text-gray-500 dark:text-gray-400 text-sm font-mono ml-2">
+                  {project.slug}
+                </span>
               </div>
-              
+
               <div className="p-6">
                 <div className="flex items-start justify-between gap-4 flex-wrap">
                   <div>
                     <div className="flex items-center gap-3 mb-2 flex-wrap">
-                      <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{project.name}</h1>
+                      <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                        {project.name}
+                      </h1>
                       {project.archived && (
                         <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 text-xs rounded-full flex items-center gap-1 font-mono">
                           <Archive className="h-3 w-3" />
@@ -572,7 +681,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                         </span>
                       )}
                     </div>
-                    <p className="text-gray-600 dark:text-gray-400 text-lg">{project.description}</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-lg">
+                      {project.description}
+                    </p>
                   </div>
                   <div className="flex gap-3">
                     <a
@@ -602,27 +713,45 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 <div className="flex flex-wrap gap-4 mt-6 pt-6 border-t border-gray-200 dark:border-gray-700/50 font-mono text-sm">
                   <div className="flex items-center gap-2">
                     <Star className="h-4 w-4 text-yellow-500" />
-                    <span className="font-semibold text-gray-900 dark:text-white">{formatNumber(project.stars)}</span>
-                    <span className="text-gray-500 dark:text-gray-400">stars</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      {formatNumber(project.stars)}
+                    </span>
+                    <span className="text-gray-500 dark:text-gray-400">
+                      stars
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <GitFork className="h-4 w-4 text-blue-500" />
-                    <span className="font-semibold text-gray-900 dark:text-white">{formatNumber(project.forks)}</span>
-                    <span className="text-gray-500 dark:text-gray-400">forks</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      {formatNumber(project.forks)}
+                    </span>
+                    <span className="text-gray-500 dark:text-gray-400">
+                      forks
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Eye className="h-4 w-4 text-green-500" />
-                    <span className="font-semibold text-gray-900 dark:text-white">{formatNumber(project.watchers)}</span>
-                    <span className="text-gray-500 dark:text-gray-400">watchers</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      {formatNumber(project.watchers)}
+                    </span>
+                    <span className="text-gray-500 dark:text-gray-400">
+                      watchers
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <AlertCircle className="h-4 w-4 text-orange-500" />
-                    <span className="font-semibold text-gray-900 dark:text-white">{project.openIssues}</span>
-                    <span className="text-gray-500 dark:text-gray-400">issues</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      {project.openIssues}
+                    </span>
+                    <span className="text-gray-500 dark:text-gray-400">
+                      issues
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <HardDrive className="h-4 w-4 text-purple-500" />
-                    <span className="font-semibold text-gray-900 dark:text-white">{formatBytes(project.size * 1024)}</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      {formatBytes(project.size * 1024)}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -636,7 +765,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               >
                 <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
                   <Eye className="h-4 w-4 text-green-600 dark:text-green-400" />
-                  <span className="text-gray-700 dark:text-gray-300 font-mono text-sm">screenshots/</span>
+                  <span className="text-gray-700 dark:text-gray-300 font-mono text-sm">
+                    screenshots/
+                  </span>
                 </div>
                 <div className="p-6">
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -727,7 +858,12 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                       {project.readme ? (
                         <ReactMarkdown
                           remarkPlugins={[remarkGfm, remarkMath]}
-                          rehypePlugins={[rehypeRaw, rehypeHighlight, rehypeSlug, rehypeKatex]}
+                          rehypePlugins={[
+                            rehypeRaw,
+                            rehypeHighlight,
+                            rehypeSlug,
+                            rehypeKatex,
+                          ]}
                           components={markdownComponents}
                         >
                           {project.readme}
@@ -735,7 +871,12 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                       ) : (
                         <div className="text-center py-12 text-gray-500 dark:text-gray-400 font-mono">
                           <FileCode className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                          <p><span className="text-yellow-600 dark:text-yellow-400">⚠</span> No README.md available for this project.</p>
+                          <p>
+                            <span className="text-yellow-600 dark:text-yellow-400">
+                              ⚠
+                            </span>{" "}
+                            No README.md available for this project.
+                          </p>
                         </div>
                       )}
                     </motion.div>
@@ -750,12 +891,20 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     >
                       {project.fileTree.length > 0 ? (
                         <div className="font-mono text-sm">
-                          <FileTreeView nodes={project.fileTree} repoUrl={project.url} />
+                          <FileTreeView
+                            nodes={project.fileTree}
+                            repoUrl={project.url}
+                          />
                         </div>
                       ) : (
                         <div className="text-center py-12 text-gray-500 dark:text-gray-400 font-mono">
                           <FolderTree className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                          <p><span className="text-red-600 dark:text-red-400">✗</span> Unable to load file structure.</p>
+                          <p>
+                            <span className="text-red-600 dark:text-red-400">
+                              ✗
+                            </span>{" "}
+                            Unable to load file structure.
+                          </p>
                         </div>
                       )}
                     </motion.div>
@@ -771,12 +920,21 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     >
                       {project.commits.length > 0 ? (
                         project.commits.map((commit) => (
-                          <CommitItem key={commit.sha} commit={commit} repoUrl={project.url} />
+                          <CommitItem
+                            key={commit.sha}
+                            commit={commit}
+                            repoUrl={project.url}
+                          />
                         ))
                       ) : (
                         <div className="text-center py-12 text-gray-500 dark:text-gray-400 font-mono">
                           <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                          <p><span className="text-yellow-600 dark:text-yellow-400">⚠</span> No commits available.</p>
+                          <p>
+                            <span className="text-yellow-600 dark:text-yellow-400">
+                              ⚠
+                            </span>{" "}
+                            No commits available.
+                          </p>
                         </div>
                       )}
                     </motion.div>
@@ -837,7 +995,12 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                       ) : (
                         <div className="text-center py-12 text-gray-500 dark:text-gray-400 font-mono">
                           <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                          <p><span className="text-yellow-600 dark:text-yellow-400">⚠</span> No releases available yet.</p>
+                          <p>
+                            <span className="text-yellow-600 dark:text-yellow-400">
+                              ⚠
+                            </span>{" "}
+                            No releases available yet.
+                          </p>
                         </div>
                       )}
                     </motion.div>
@@ -873,7 +1036,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
             >
               <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
-                <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">$ cat ./about.json</h3>
+                <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">
+                  $ cat ./about.json
+                </h3>
               </div>
               <div className="p-4 space-y-3 text-sm font-mono">
                 <div className="flex items-center justify-between">
@@ -881,7 +1046,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     <Tag className="h-4 w-4 text-green-600 dark:text-green-400" />
                     category
                   </span>
-                  <span className="font-medium text-gray-900 dark:text-white">{project.category}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {project.category}
+                  </span>
                 </div>
                 {project.language && (
                   <div className="flex items-center justify-between">
@@ -889,7 +1056,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                       <Code2 className="h-4 w-4 text-cyan-600 dark:text-cyan-400" />
                       language
                     </span>
-                    <span className="font-medium text-gray-900 dark:text-white">{project.language}</span>
+                    <span className="font-medium text-gray-900 dark:text-white">
+                      {project.language}
+                    </span>
                   </div>
                 )}
                 {project.license && (
@@ -898,7 +1067,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                       <Scale className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
                       license
                     </span>
-                    <span className="font-medium text-gray-900 dark:text-white">{project.license}</span>
+                    <span className="font-medium text-gray-900 dark:text-white">
+                      {project.license}
+                    </span>
                   </div>
                 )}
                 <div className="flex items-center justify-between">
@@ -906,14 +1077,18 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     <Calendar className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                     created
                   </span>
-                  <span className="font-medium text-gray-900 dark:text-white">{formatDate(project.createdAt)}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {formatDate(project.createdAt)}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-500 dark:text-gray-400 flex items-center gap-2">
                     <Clock className="h-4 w-4 text-purple-600 dark:text-purple-400" />
                     last_push
                   </span>
-                  <span className="font-medium text-gray-900 dark:text-white">{formatRelativeTime(project.pushedAt)}</span>
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {formatRelativeTime(project.pushedAt)}
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -925,7 +1100,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
               >
                 <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
-                  <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">$ tokei ./</h3>
+                  <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">
+                    $ tokei ./
+                  </h3>
                 </div>
                 <div className="p-4">
                   {/* Language Bar */}
@@ -933,20 +1110,28 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     {project.languagePercentages.map((lang) => (
                       <div
                         key={lang.name}
-                        style={{ width: `${lang.percentage}%`, backgroundColor: lang.color }}
+                        style={{
+                          width: `${lang.percentage}%`,
+                          backgroundColor: lang.color,
+                        }}
                         title={`${lang.name}: ${lang.percentage}%`}
                       />
                     ))}
                   </div>
                   <div className="space-y-2 font-mono text-sm">
                     {project.languagePercentages.map((lang) => (
-                      <div key={lang.name} className="flex items-center justify-between">
+                      <div
+                        key={lang.name}
+                        className="flex items-center justify-between"
+                      >
                         <div className="flex items-center gap-2">
                           <div
                             className="w-3 h-3 rounded-full"
                             style={{ backgroundColor: lang.color }}
                           />
-                          <span className="text-gray-900 dark:text-white">{lang.name}</span>
+                          <span className="text-gray-900 dark:text-white">
+                            {lang.name}
+                          </span>
                         </div>
                         <span className="text-gray-500 dark:text-gray-400">
                           {lang.percentage}%
@@ -965,7 +1150,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
               >
                 <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
-                  <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">$ echo $TOPICS</h3>
+                  <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">
+                    $ echo $TOPICS
+                  </h3>
                 </div>
                 <div className="p-4">
                   <div className="flex flex-wrap gap-2">
@@ -990,7 +1177,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               >
                 <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50 flex items-center gap-2">
                   <Users className="h-4 w-4 text-green-600 dark:text-green-400" />
-                  <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">contributors</h3>
+                  <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">
+                    contributors
+                  </h3>
                 </div>
                 <div className="p-4 space-y-3">
                   {project.contributors.slice(0, 5).map((contributor) => (
@@ -1009,7 +1198,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                         className="rounded-full"
                       />
                       <div className="flex-1 min-w-0">
-                        <p className="font-mono text-sm text-gray-900 dark:text-white truncate">{contributor.login}</p>
+                        <p className="font-mono text-sm text-gray-900 dark:text-white truncate">
+                          {contributor.login}
+                        </p>
                         <p className="text-xs text-gray-500 dark:text-gray-400 font-mono">
                           {contributor.contributions} commits
                         </p>
@@ -1026,7 +1217,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
             >
               <div className="px-4 py-3 bg-gray-100 dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-700/50">
-                <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">$ whoami</h3>
+                <h3 className="font-mono text-sm text-gray-700 dark:text-gray-300">
+                  $ whoami
+                </h3>
               </div>
               <div className="p-4">
                 <a
@@ -1043,7 +1236,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     className="rounded-full"
                   />
                   <div>
-                    <p className="font-mono text-gray-900 dark:text-white">{project.owner.login}</p>
+                    <p className="font-mono text-gray-900 dark:text-white">
+                      {project.owner.login}
+                    </p>
                     <p className="text-sm text-green-600 dark:text-green-400 font-mono">
                       <span className="mr-1">$</span> open profile
                     </p>
@@ -1073,8 +1268,8 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             </button>
             <button
               onClick={(e) => {
-                e.stopPropagation()
-                prevImage()
+                e.stopPropagation();
+                prevImage();
               }}
               className="absolute left-4 p-2 text-white hover:text-gray-300 transition-colors"
             >
@@ -1097,8 +1292,8 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             </motion.div>
             <button
               onClick={(e) => {
-                e.stopPropagation()
-                nextImage()
+                e.stopPropagation();
+                nextImage();
               }}
               className="absolute right-4 p-2 text-white hover:text-gray-300 transition-colors"
             >
@@ -1111,12 +1306,18 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         )}
       </AnimatePresence>
     </main>
-  )
+  );
 }
 
-function CommitItem({ commit, repoUrl }: { commit: GitHubCommit; repoUrl: string }) {
-  const message = commit.commit.message.split("\n")[0]
-  const hasMoreLines = commit.commit.message.includes("\n")
+function CommitItem({
+  commit,
+  repoUrl,
+}: {
+  commit: GitHubCommit;
+  repoUrl: string;
+}) {
+  const message = commit.commit.message.split("\n")[0];
+  const hasMoreLines = commit.commit.message.includes("\n");
 
   return (
     <div className="flex gap-4 p-4 bg-gray-50 dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-lg">
@@ -1139,7 +1340,9 @@ function CommitItem({ commit, repoUrl }: { commit: GitHubCommit; repoUrl: string
           className="font-medium text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors line-clamp-2"
         >
           {message}
-          {hasMoreLines && <span className="text-gray-500 dark:text-gray-400">...</span>}
+          {hasMoreLines && (
+            <span className="text-gray-500 dark:text-gray-400">...</span>
+          )}
         </a>
         <div className="flex items-center gap-2 mt-1 text-sm text-gray-500 dark:text-gray-400 font-mono">
           {commit.author ? (
@@ -1163,5 +1366,5 @@ function CommitItem({ commit, repoUrl }: { commit: GitHubCommit; repoUrl: string
         </div>
       </div>
     </div>
-  )
+  );
 }

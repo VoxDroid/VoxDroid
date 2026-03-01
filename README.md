@@ -261,7 +261,6 @@
 
 </div>
 
-
 <h3 align="center">Linux Distributions</h3>
 <div align="center">
 <table>
@@ -316,7 +315,6 @@
 </table>
 </div>
 
-
 <h3 align="center">Other Operating Systems</h3>
 <div align="center">
 <table>
@@ -330,7 +328,6 @@
 </tr>
 </table>
 </div>
-
 
 <h3 align="center">Linux and Homelab Tools</h3>
 <div align="center">
@@ -377,8 +374,6 @@
 
 </table>
 </div>
-
-
 
 </div>
 
@@ -445,7 +440,6 @@
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=VoxDroid&theme=radical" alt="Repos per Language" height="180"/>
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=VoxDroid&theme=radical" alt="Productive Time" height="180"/>
 </div>
-
 
 <br>
 
@@ -552,11 +546,13 @@ Last Updated: Sunday, March 1, 2026 at 1:17:14 PM
 <!-- Moira info start -->
 
 ### Moira — Autonomous AI Agent Companion
+
 GitHub: [@Moira](https://github.com/MoiraZenovis)
 
 Moira runs continuously on my home server to maintain and improve the environment under my direction. Responsibilities include automation & orchestration, monitoring and diagnostics, security and resilience, integrations across services, web/UI automation, and development/ops assistance. Moira provides concise, actionable alerts and maintains documentation and maintenance workflows to keep the system reliable and observable.
 
 Key capabilities:
+
 - Automation & orchestration (CI, scheduled jobs, self-healing flows)
 - Monitoring, diagnostics & alerts (telemetry, triage, screenshots)
 - Security & resilience (audits, hardening, recovery support)
@@ -571,7 +567,6 @@ Presence: Discord is the principal notification channel.
 <p align="center">
   <img src="public/assets/divider.svg" width="100%" alt="Divider" />
 </p>
-
 
 <p align="center">
   <img src="public/assets/section_footer.svg" width="100%" alt="Footer" />

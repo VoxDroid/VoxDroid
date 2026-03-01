@@ -8,7 +8,7 @@ export const projectCategories: string[] = [
   "Web Template",
   "AI/ML/DL",
   "CLI Tool",
-]
+];
 
 // GitHub repositories to display as projects
 // Format: "owner/repo"
@@ -37,18 +37,21 @@ export const githubRepos: string[] = [
   "VoxDroid/VoxDroid",
   "VoxDroid/bldrx",
   "VoxDroid/krnr",
-  "VoxDroid/Task-Tracker-Pro"
-]
+  "VoxDroid/Task-Tracker-Pro",
+];
 
 // Custom overrides for specific repos (optional)
 // Use this to provide custom demo URLs, images, categories, etc.
-export const projectOverrides: Record<string, {
-  demoUrl?: string
-  image?: string
-  category?: string
-  featured?: boolean
-  order?: number
-}> = {
+export const projectOverrides: Record<
+  string,
+  {
+    demoUrl?: string;
+    image?: string;
+    category?: string;
+    featured?: boolean;
+    order?: number;
+  }
+> = {
   "VoxDroid/Bytey": {
     demoUrl: "https://bytey.vercel.app/",
     image: "/project_images/Bytey.png",
@@ -158,7 +161,7 @@ export const projectOverrides: Record<string, {
     featured: true,
     order: 3,
   },
-}
+};
 
 // Screenshot paths mapping (for repos with local screenshots)
 export const screenshotPaths: Record<string, string[]> = {
@@ -239,7 +242,5 @@ export const screenshotPaths: Record<string, string[]> = {
     "/project_screenshots/A300S/A300S-3.png",
     "/project_screenshots/A300S/A300S-4.png",
   ],
-  "VoxDroid/VoxSpace": [
-    "/project_screenshots/VoxSpace/VoxSpace-1.png",
-  ],
-}
+  "VoxDroid/VoxSpace": ["/project_screenshots/VoxSpace/VoxSpace-1.png"],
+};

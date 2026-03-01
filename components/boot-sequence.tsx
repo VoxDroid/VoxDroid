@@ -1,11 +1,15 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function BootSequence({ onComplete }: { onComplete: () => void }) {
-  const [logs, setLogs] = useState<string[]>([])
-  const [isVisible, setIsVisible] = useState(true)
+export default function BootSequence({
+  onComplete,
+}: {
+  onComplete: () => void;
+}) {
+  const [logs, setLogs] = useState<string[]>([]);
+  const [isVisible, setIsVisible] = useState(true);
 
   const bootLogs = [
     "[  OK  ] Started VoxDroid Kernel v1.2.0-generic.",
@@ -20,27 +24,27 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
     "Compiling styles...",
     "Starting UI components...",
     "Welcome to VoxDroid OS.",
-  ]
+  ];
 
   useEffect(() => {
-    let currentIndex = 0
-    
+    let currentIndex = 0;
+
     const interval = setInterval(() => {
       if (currentIndex < bootLogs.length) {
-        const logToAdd = bootLogs[currentIndex]
-        setLogs((prev) => [...prev, logToAdd])
-        currentIndex++
+        const logToAdd = bootLogs[currentIndex];
+        setLogs((prev) => [...prev, logToAdd]);
+        currentIndex++;
       } else {
-        clearInterval(interval)
+        clearInterval(interval);
         setTimeout(() => {
-          setIsVisible(false)
-          setTimeout(onComplete, 500) // Wait for fade out
-        }, 800)
+          setIsVisible(false);
+          setTimeout(onComplete, 500); // Wait for fade out
+        }, 800);
       }
-    }, 150) // Speed of logs
+    }, 150); // Speed of logs
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <AnimatePresence>
@@ -54,10 +58,13 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
           <div className="max-w-3xl w-full mx-auto">
             {logs.map((log, index) => (
               <div key={index} className="mb-1">
-                <span className="text-gray-500 mr-2">[{new Date().toLocaleTimeString()}]</span>
+                <span className="text-gray-500 mr-2">
+                  [{new Date().toLocaleTimeString()}]
+                </span>
                 {log && log.startsWith("[  OK  ]") ? (
                   <span>
-                    <span className="text-green-400 font-bold">[ OK ]</span> {log.substring(8)}
+                    <span className="text-green-400 font-bold">[ OK ]</span>{" "}
+                    {log.substring(8)}
                   </span>
                 ) : (
                   log
@@ -69,5 +76,5 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }

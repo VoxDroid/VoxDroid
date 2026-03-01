@@ -14,33 +14,33 @@ html {
   --background-start-rgb: 248, 250, 252;
   --background-end-rgb: 241, 245, 249;
   --radius: 0rem;
-  
+
   /* Light Theme Colors (Clean Terminal) */
   --background: 210 40% 98%; /* #f8fafc */
   --foreground: 222.2 47.4% 11.2%; /* #0f172a */
-  
+
   --primary: 239 84% 67%; /* #6366f1 */
   --primary-foreground: 210 40% 98%;
-  
+
   --secondary: 210 40% 96.1%;
   --secondary-foreground: 222.2 47.4% 11.2%;
-  
+
   --muted: 210 40% 96.1%;
   --muted-foreground: 215.4 16.3% 46.9%;
-  
+
   --accent: 210 40% 96.1%;
   --accent-foreground: 222.2 47.4% 11.2%;
-  
+
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
-  
+
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
   --ring: 239 84% 67%;
-  
+
   --card: 0 0% 100%;
   --card-foreground: 222.2 84% 4.9%;
-  
+
   --popover: 0 0% 100%;
   --popover-foreground: 222.2 84% 4.9%;
 }
@@ -49,32 +49,32 @@ html {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 5, 5, 5;
   --background-end-rgb: 5, 5, 5;
-  
+
   --background: 0 0% 2%;
   --foreground: 0 0% 100%;
-  
+
   --primary: 239 84% 67%;
   --primary-foreground: 0 0% 100%;
-  
+
   --secondary: 0 0% 9%;
   --secondary-foreground: 0 0% 100%;
-  
+
   --muted: 0 0% 15%;
   --muted-foreground: 0 0% 60%;
-  
+
   --accent: 239 84% 67%;
   --accent-foreground: 0 0% 100%;
-  
+
   --destructive: 3 100% 67%;
   --destructive-foreground: 0 0% 100%;
-  
+
   --border: 0 0% 20%;
   --input: 0 0% 20%;
   --ring: 239 84% 67%;
-  
+
   --card: 0 0% 3%;
   --card-foreground: 0 0% 100%;
-  
+
   --popover: 0 0% 3%;
   --popover-foreground: 0 0% 100%;
 }
@@ -85,7 +85,9 @@ body {
   /* Light mode pattern (darker stroke) */
   background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 12 12 L 25 25 L 12 38' fill='none' stroke='%236366f1' stroke-width='0.8' opacity='0.1' /%3E%3C/svg%3E");
   min-height: 100vh;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .dark body {
@@ -94,7 +96,9 @@ body {
 }
 
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card-hover:hover {
@@ -102,7 +106,10 @@ body {
 }
 
 .button-hover {
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .button-hover:hover {
@@ -140,7 +147,9 @@ body {
   border-radius: 0rem;
   padding: 1px; /* Thinner border */
   background: linear-gradient(45deg, #6366f1, #27c93f);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
@@ -265,13 +274,16 @@ body {
 
 /* ASCII Wave Glow Animation - matching section_about.svg */
 @keyframes ascii-wave-glow {
-  0%, 100% {
+  0%,
+  100% {
     color: rgb(22, 163, 74); /* green-600 */
     text-shadow: none;
   }
   12.5% {
     color: rgb(74, 222, 128); /* green-400 brighter */
-    text-shadow: 0 0 12px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.4);
+    text-shadow:
+      0 0 12px rgba(34, 197, 94, 0.8),
+      0 0 20px rgba(34, 197, 94, 0.4);
   }
   25% {
     color: rgb(22, 163, 74);
@@ -291,41 +303,51 @@ body {
 
 /* Apply staggered animation delays via CSS custom property */
 .ascii-glow-line {
-  animation: 
+  animation:
     ascii-wave-glow-forward 4s ease-in-out infinite,
     ascii-wave-glow-reverse 4s ease-in-out infinite 4s;
 }
 
 @keyframes ascii-wave-glow-forward {
-  0%, 5% {
+  0%,
+  5% {
     color: rgb(22, 163, 74);
     text-shadow: none;
   }
-  7%, 10% {
+  7%,
+  10% {
     color: rgb(134, 239, 172); /* green-300 */
-    text-shadow: 0 0 10px rgba(34, 197, 94, 0.7), 0 0 20px rgba(34, 197, 94, 0.3);
+    text-shadow:
+      0 0 10px rgba(34, 197, 94, 0.7),
+      0 0 20px rgba(34, 197, 94, 0.3);
   }
-  12%, 100% {
+  12%,
+  100% {
     color: rgb(22, 163, 74);
     text-shadow: none;
   }
 }
 
 .dark .ascii-glow-line {
-  animation: 
-    ascii-wave-glow-forward-dark 4s ease-in-out infinite;
+  animation: ascii-wave-glow-forward-dark 4s ease-in-out infinite;
 }
 
 @keyframes ascii-wave-glow-forward-dark {
-  0%, 5% {
+  0%,
+  5% {
     color: rgb(74, 222, 128); /* green-400 */
     text-shadow: 0 0 4px rgba(34, 197, 94, 0.3);
   }
-  7%, 10% {
+  7%,
+  10% {
     color: rgb(187, 247, 208); /* green-200 brighter */
-    text-shadow: 0 0 15px rgba(34, 197, 94, 0.9), 0 0 25px rgba(34, 197, 94, 0.5), 0 0 35px rgba(34, 197, 94, 0.2);
+    text-shadow:
+      0 0 15px rgba(34, 197, 94, 0.9),
+      0 0 25px rgba(34, 197, 94, 0.5),
+      0 0 35px rgba(34, 197, 94, 0.2);
   }
-  12%, 100% {
+  12%,
+  100% {
     color: rgb(74, 222, 128);
     text-shadow: 0 0 4px rgba(34, 197, 94, 0.3);
   }
@@ -449,7 +471,9 @@ body {
 .card-transition-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 500ms, transform 500ms;
+  transition:
+    opacity 500ms,
+    transform 500ms;
 }
 
 .card-transition-exit {
@@ -459,7 +483,9 @@ body {
 .card-transition-exit-active {
   opacity: 0;
   transform: translateY(-20px);
-  transition: opacity 300ms, transform 300ms;
+  transition:
+    opacity 300ms,
+    transform 300ms;
 }
 
 /* Ensure rounded corners work in production */

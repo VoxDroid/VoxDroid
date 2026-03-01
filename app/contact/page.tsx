@@ -1,10 +1,19 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Mail, Github, Linkedin, Send, Phone, MapPin, Terminal, MessageSquare } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Send,
+  Phone,
+  MapPin,
+  Terminal,
+  MessageSquare,
+} from "lucide-react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -16,7 +25,7 @@ const fadeInUp = {
       ease: [0.22, 1, 0.36, 1] as const,
     },
   },
-}
+};
 
 const staggerContainer = {
   hidden: {},
@@ -25,7 +34,7 @@ const staggerContainer = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -33,47 +42,49 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message: "",
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    success?: boolean
-    message?: string
-  } | null>(null)
+    success?: boolean;
+    message?: string;
+  } | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setSubmitStatus({
       success: true,
       message: "Thank you for your message! I will get back to you soon.",
-    })
+    });
 
     setFormData({
       name: "",
       email: "",
       subject: "",
       message: "",
-    })
+    });
 
-    setIsSubmitting(false)
+    setIsSubmitting(false);
 
     // Reset status after 5 seconds
     setTimeout(() => {
-      setSubmitStatus(null)
-    }, 5000)
-  }
+      setSubmitStatus(null);
+    }, 5000);
+  };
 
   return (
     <div className="min-h-screen py-16">
@@ -87,22 +98,23 @@ export default function ContactPage() {
         <motion.div variants={fadeInUp} className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-lg mb-4">
             <Terminal className="h-4 w-4 text-green-600 dark:text-green-400" />
-            <code className="text-sm font-mono text-gray-700 dark:text-gray-300">$ mail --compose</code>
+            <code className="text-sm font-mono text-gray-700 dark:text-gray-300">
+              $ mail --compose
+            </code>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold font-mono mb-4 text-gray-900 dark:text-white">
-            <span className="text-green-600 dark:text-green-400">~/</span>contact
+            <span className="text-green-600 dark:text-green-400">~/</span>
+            contact
           </h1>
           <p className="text-gray-600 dark:text-gray-400 font-mono">
-            <span className="text-yellow-600 dark:text-yellow-400">#</span> Have a question or want to work together? Let me know!
+            <span className="text-yellow-600 dark:text-yellow-400">#</span> Have
+            a question or want to work together? Let me know!
           </p>
         </motion.div>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-8">
           {/* Contact Information */}
-          <motion.div
-            variants={fadeInUp}
-            className="md:col-span-2"
-          >
+          <motion.div variants={fadeInUp} className="md:col-span-2">
             <div className="bg-white dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden">
               {/* Terminal Header */}
               <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-[#0d1117] border-b border-gray-200 dark:border-gray-700/50">
@@ -111,20 +123,28 @@ export default function ContactPage() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <span className="text-xs font-mono text-gray-500 dark:text-gray-400 ml-2">contact.json</span>
+                <span className="text-xs font-mono text-gray-500 dark:text-gray-400 ml-2">
+                  contact.json
+                </span>
               </div>
-              
+
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="text-green-600 dark:text-green-400 font-mono">$</span>
-                  <span className="font-mono text-gray-700 dark:text-gray-300">cat ./contact.json</span>
+                  <span className="text-green-600 dark:text-green-400 font-mono">
+                    $
+                  </span>
+                  <span className="font-mono text-gray-700 dark:text-gray-300">
+                    cat ./contact.json
+                  </span>
                 </div>
 
                 <div className="space-y-4 font-mono text-sm">
                   <div className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-[#0d1117] rounded-lg border border-gray-200 dark:border-gray-700/50">
                     <Mail className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5" />
                     <div>
-                      <p className="text-gray-500 dark:text-gray-500 text-xs">"email":</p>
+                      <p className="text-gray-500 dark:text-gray-500 text-xs">
+                        "email":
+                      </p>
                       <a
                         href="mailto:izeno.contact@gmail.com"
                         className="text-cyan-600 dark:text-cyan-400 hover:underline"
@@ -137,24 +157,36 @@ export default function ContactPage() {
                   <div className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-[#0d1117] rounded-lg border border-gray-200 dark:border-gray-700/50">
                     <Phone className="h-5 w-5 text-yellow-600 dark:text-yellow-400 mt-0.5" />
                     <div>
-                      <p className="text-gray-500 dark:text-gray-500 text-xs">"phone":</p>
-                      <p className="text-gray-700 dark:text-gray-300">"+63 (999) 888-7777"</p>
+                      <p className="text-gray-500 dark:text-gray-500 text-xs">
+                        "phone":
+                      </p>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        "+63 (999) 888-7777"
+                      </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-[#0d1117] rounded-lg border border-gray-200 dark:border-gray-700/50">
                     <MapPin className="h-5 w-5 text-red-600 dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="text-gray-500 dark:text-gray-500 text-xs">"location":</p>
-                      <p className="text-gray-700 dark:text-gray-300">"Tokyo, Japan"</p>
+                      <p className="text-gray-500 dark:text-gray-500 text-xs">
+                        "location":
+                      </p>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        "Tokyo, Japan"
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700/50">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-green-600 dark:text-green-400 font-mono">$</span>
-                    <span className="font-mono text-gray-700 dark:text-gray-300 text-sm">echo $SOCIAL_LINKS</span>
+                    <span className="text-green-600 dark:text-green-400 font-mono">
+                      $
+                    </span>
+                    <span className="font-mono text-gray-700 dark:text-gray-300 text-sm">
+                      echo $SOCIAL_LINKS
+                    </span>
                   </div>
                   <div className="flex gap-3">
                     <a
@@ -189,10 +221,7 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div
-            variants={fadeInUp}
-            className="md:col-span-3"
-          >
+          <motion.div variants={fadeInUp} className="md:col-span-3">
             <div className="bg-white dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden">
               {/* Terminal Header */}
               <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-[#0d1117] border-b border-gray-200 dark:border-gray-700/50">
@@ -201,22 +230,32 @@ export default function ContactPage() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <span className="text-xs font-mono text-gray-500 dark:text-gray-400 ml-2">compose-message.sh</span>
+                <span className="text-xs font-mono text-gray-500 dark:text-gray-400 ml-2">
+                  compose-message.sh
+                </span>
               </div>
-              
+
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-2">
                   <MessageSquare className="h-5 w-5 text-green-600 dark:text-green-400" />
-                  <h3 className="text-lg font-bold font-mono text-gray-900 dark:text-white">Send Message</h3>
+                  <h3 className="text-lg font-bold font-mono text-gray-900 dark:text-white">
+                    Send Message
+                  </h3>
                 </div>
                 <p className="mb-6 text-sm font-mono text-gray-500 dark:text-gray-500">
-                  <span className="text-yellow-600 dark:text-yellow-400">#</span> Form disabled - contact via email directly
+                  <span className="text-yellow-600 dark:text-yellow-400">
+                    #
+                  </span>{" "}
+                  Form disabled - contact via email directly
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-xs font-mono text-gray-500 dark:text-gray-500 mb-2"
+                      >
                         name=""
                       </label>
                       <input
@@ -231,7 +270,10 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-xs font-mono text-gray-500 dark:text-gray-500 mb-2"
+                      >
                         email=""
                       </label>
                       <input
@@ -248,7 +290,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-xs font-mono text-gray-500 dark:text-gray-500 mb-2"
+                    >
                       subject=""
                     </label>
                     <input
@@ -264,7 +309,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-xs font-mono text-gray-500 dark:text-gray-500 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-xs font-mono text-gray-500 dark:text-gray-500 mb-2"
+                    >
                       message=""
                     </label>
                     <textarea
@@ -301,7 +349,10 @@ export default function ContactPage() {
                           : "bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800"
                       }`}
                     >
-                      <span className="text-green-600 dark:text-green-400">✓</span> {submitStatus.message}
+                      <span className="text-green-600 dark:text-green-400">
+                        ✓
+                      </span>{" "}
+                      {submitStatus.message}
                     </div>
                   )}
                 </form>
@@ -314,10 +365,16 @@ export default function ContactPage() {
         <motion.div variants={fadeInUp} className="max-w-3xl mx-auto mt-20">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-[#161b22] border border-gray-200 dark:border-gray-700/50 rounded-lg mb-4">
-              <span className="text-green-600 dark:text-green-400 font-mono text-sm">$</span>
-              <span className="font-mono text-sm text-gray-700 dark:text-gray-300">man faq</span>
+              <span className="text-green-600 dark:text-green-400 font-mono text-sm">
+                $
+              </span>
+              <span className="font-mono text-sm text-gray-700 dark:text-gray-300">
+                man faq
+              </span>
             </div>
-            <h3 className="text-2xl font-bold font-mono text-gray-900 dark:text-white">Frequently Asked Questions</h3>
+            <h3 className="text-2xl font-bold font-mono text-gray-900 dark:text-white">
+              Frequently Asked Questions
+            </h3>
           </div>
 
           <motion.div variants={staggerContainer} className="space-y-4">
@@ -350,13 +407,18 @@ export default function ContactPage() {
               >
                 <div className="p-4 bg-gray-50 dark:bg-[#0d1117] border-b border-gray-200 dark:border-gray-700/50">
                   <h4 className="font-mono text-sm text-gray-900 dark:text-white flex items-center gap-2">
-                    <span className="text-cyan-600 dark:text-cyan-400">Q{index + 1}:</span>
+                    <span className="text-cyan-600 dark:text-cyan-400">
+                      Q{index + 1}:
+                    </span>
                     {faq.question}
                   </h4>
                 </div>
                 <div className="p-4">
                   <p className="font-mono text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                    <span className="text-green-600 dark:text-green-400">→</span> {faq.answer}
+                    <span className="text-green-600 dark:text-green-400">
+                      →
+                    </span>{" "}
+                    {faq.answer}
                   </p>
                 </div>
               </motion.div>
@@ -365,6 +427,5 @@ export default function ContactPage() {
         </motion.div>
       </motion.div>
     </div>
-  )
+  );
 }
-
