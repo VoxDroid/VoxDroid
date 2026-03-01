@@ -258,8 +258,8 @@ export const screenshotPaths: Record<string, string[]> = {
   ],
   "VoxDroid/VoxSpace": ["/project_screenshots/VoxSpace/VoxSpace-1.png"],
   "VoxDroid/AutoTable": [
-    "/project_screenshots/AutoTable/AT-1.png",
-    "/project_screenshots/AutoTable/AT-2.png",
-    "/project_screenshots/AutoTable/AT-3.png",
+    "/project_screenshots/AutoTable/at-1.png",
+    "/project_screenshots/AutoTable/at-2.png",
+    "/project_screenshots/AutoTable/at-3.png",
   ],
 };
