@@ -262,4 +262,10 @@ export const screenshotPaths: Record<string, string[]> = {
     "/project_screenshots/AutoTable/at-2.png",
     "/project_screenshots/AutoTable/at-3.png",
   ],
+  "VoxDroid/CodeStash": [
+    "/project_screenshots/CodeStash/cs-1.png",
+    "/project_screenshots/CodeStash/cs-2.png",
+    "/project_screenshots/CodeStash/cs-3.png",
+    "/project_screenshots/CodeStash/cs-4.png",
+  ],
 };
