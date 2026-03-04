@@ -139,12 +139,15 @@ export const projectOverrides: Record<
   "VoxDroid/VoxSpace": {
     image: "/project_images/VoxSpace.png",
     category: "Web App",
-    order: 3,
   },
   "VoxDroid/llm-wikipedia": {
     image: "/project_images/llm-wikipedia.png",
     category: "AI/ML/DL",
   },
+  "VoxDroid/VoxDroid": {
+    image: "/project_images/VoxDroid.jpg",
+    category: "Web App",
+  },  
   "VoxDroid/bldrx": {
     image: "/project_images/bldrx.png",
     category: "CLI Tool",
