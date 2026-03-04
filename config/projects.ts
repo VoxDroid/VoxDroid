@@ -158,7 +158,7 @@ export const projectOverrides: Record<
     order: 2,
   },
   "VoxDroid/Task-Tracker-Pro": {
-    image: "/project_images/Task-Tracker-Pro.png",
+    image: "/project_images/TaskTrackerPro.png",
     category: "Desktop App",
     featured: true,
     order: 3,
