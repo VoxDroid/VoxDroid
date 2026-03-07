@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/", label: "~", fullLabel: "home" },
   { href: "/about", label: "./about", fullLabel: "about" },
   { href: "/projects", label: "./projects", fullLabel: "projects" },
+  { href: "/github", label: "./github", fullLabel: "github" },
   { href: "/services", label: "./services", fullLabel: "services" },
   { href: "/contact", label: "./contact", fullLabel: "contact" },
 ];

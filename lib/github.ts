@@ -245,6 +245,7 @@ export interface StreakStats {
 }
 
 export interface GitHubUserStats {
+  username: string;
   publicRepos: number;
   publicGists: number;
   followers: number;
@@ -252,9 +253,23 @@ export interface GitHubUserStats {
   totalStars: number;
   totalForks: number;
   topLanguages: { name: string; percentage: number; color: string }[];
+  allLanguages: { name: string; percentage: number; color: string }[];
+  totalDiskUsage: number;
+  totalOpenIssues: number;
   accountAge: number; // years
   accountCreated: string; // formatted date
   totalCommits: number;
+  totalPRs: number;
+  totalIssues: number;
+  linesOfCode: number;
+  topRepos: {
+    name: string;
+    stars: number;
+    forks: number;
+    description: string;
+    language: string;
+    url: string;
+  }[];
   currentStreak: number;
   currentStreakStart: string;
   currentStreakEnd: string;
@@ -651,25 +666,27 @@ export async function getGitHubUserStats(
 
     let totalStars = 0;
     let totalForks = 0;
+    let totalDiskUsage = 0;
+    let totalOpenIssues = 0;
     const languageBytes: Record<string, number> = {};
 
     // Count stars and forks from all repos
     allRepos.forEach((repo) => {
       totalStars += repo.stargazers_count || 0;
       totalForks += repo.forks_count || 0;
+      totalDiskUsage += repo.size || 0;
+      totalOpenIssues += repo.open_issues_count || 0;
     });
 
     // Fetch languages for the most recently updated repos (limit to avoid rate limits)
     const languagePromises = allRepos
-      .slice(0, 30)
+      .filter((repo) => !repo.fork)
+      .slice(0, 100)
       .map(async (repo: GitHubRepo) => {
         try {
           const langResponse = await fetch(
             `https://api.github.com/repos/${repo.full_name}/languages`,
-            {
-              headers,
-              next: { revalidate: 3600 },
-            },
+            { headers, next: { revalidate: 3600 } },
           );
           if (langResponse.ok) {
             const langs = await langResponse.json();
@@ -683,18 +700,57 @@ export async function getGitHubUserStats(
         }
       });
 
-    await Promise.all(languagePromises);
+    // Fetch lines of code from stats/contributors
+    let linesOfCode = 0;
+    const linesPromises = allRepos
+      .filter((repo) => !repo.fork)
+      .slice(0, 50)
+      .map(async (repo: GitHubRepo) => {
+        try {
+          const statsResponse = await fetch(
+            `https://api.github.com/repos/${repo.full_name}/stats/contributors`,
+            { headers, next: { revalidate: 3600 } },
+          );
+          if (statsResponse.ok && statsResponse.status === 200) {
+            const stats = await statsResponse.json();
+            if (Array.isArray(stats)) {
+              const userStats = stats.find(
+                (s: any) =>
+                  s.author?.login?.toLowerCase() === username.toLowerCase(),
+              );
+              if (userStats && Array.isArray(userStats.weeks)) {
+                return userStats.weeks.reduce(
+                  (acc: number, week: any) => acc + (week.a || 0),
+                  0,
+                );
+              }
+            }
+          }
+        } catch {
+          // Ignore
+        }
+        return 0;
+      });
+
+    const [linesResults] = await Promise.all([
+      Promise.all(linesPromises),
+      Promise.all(languagePromises),
+    ]);
+    linesOfCode = linesResults.reduce((acc, val) => acc + val, 0);
 
     // Calculate language percentages
-    const totalBytes = Object.values(languageBytes).reduce((a, b) => a + b, 0);
-    const topLanguages = Object.entries(languageBytes)
+    const totalBytes =
+      Object.values(languageBytes).reduce((a, b) => a + b, 0) || 1;
+
+    const allLanguages = Object.entries(languageBytes)
       .sort((a, b) => b[1] - a[1])
-      .slice(0, 6)
       .map(([name, bytes]) => ({
         name,
-        percentage: Math.round((bytes / totalBytes) * 100),
+        percentage: Number(((bytes / totalBytes) * 100).toFixed(1)),
         color: languageColors[name] || "#858585",
       }));
+
+    const topLanguages = allLanguages.slice(0, 6);
 
     // Calculate account age
     const createdAt = new Date(userData.created_at);
@@ -708,12 +764,67 @@ export async function getGitHubUserStats(
     });
 
     // Fetch streak stats and lifetime contributions in parallel
-    const [streakStats, lifetimeContributions, graphqlStreak] =
-      await Promise.all([
-        fetchStreakStats(username),
-        fetchLifetimeContributions(username, userData.created_at),
-        fetchStreakFromGraphQL(username),
-      ]);
+    const [
+      streakStats,
+      lifetimeContributions,
+      graphqlStreak,
+      commitsResponse,
+      prsResponse,
+      issuesResponse,
+    ] = await Promise.all([
+      fetchStreakStats(username),
+      fetchLifetimeContributions(username, userData.created_at),
+      fetchStreakFromGraphQL(username),
+      fetch(`https://api.github.com/search/commits?q=author:${username}`, {
+        headers: { ...headers, Accept: "application/vnd.github.cloak-preview" },
+        next: { revalidate: 3600 },
+      }).catch(() => null),
+      fetch(
+        `https://api.github.com/search/issues?q=author:${username}+type:pr`,
+        {
+          headers,
+          next: { revalidate: 3600 },
+        },
+      ).catch(() => null),
+      fetch(
+        `https://api.github.com/search/issues?q=author:${username}+type:issue`,
+        {
+          headers,
+          next: { revalidate: 3600 },
+        },
+      ).catch(() => null),
+    ]);
+
+    let totalCommits = 0;
+    let totalPRs = 0;
+    let totalIssues = 0;
+
+    if (commitsResponse?.ok) {
+      const data = await commitsResponse.json();
+      totalCommits = data.total_count || 0;
+    }
+    if (prsResponse?.ok) {
+      const data = await prsResponse.json();
+      totalPRs = data.total_count || 0;
+    }
+    if (issuesResponse?.ok) {
+      const data = await issuesResponse.json();
+      totalIssues = data.total_count || 0;
+    }
+
+    const topRepos = allRepos
+      .filter((repo) => !repo.fork)
+      .slice()
+      .sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0))
+      .slice(0, 5)
+      .map((repo) => ({
+        name: repo.name,
+        stars: repo.stargazers_count || 0,
+        forks: repo.forks_count || 0,
+        description: repo.description || "",
+        language: repo.language || "",
+        url: repo.html_url,
+      }));
 
     // Fetch contribution data from GitHub's public events
     const eventsResponse = await fetch(
@@ -727,7 +838,6 @@ export async function getGitHubUserStats(
     let contributionsThisYear = 0;
     let currentStreak = 0;
     let longestStreak = 0;
-    let totalCommits = 0;
     const contributionGraph: number[] = new Array(52).fill(0);
     const recentActivity: RecentActivity[] = [];
 
@@ -759,7 +869,6 @@ export async function getGitHubUserStats(
           case "PushEvent":
             activityType = "push";
             const commits = event.payload?.commits || [];
-            totalCommits += commits.length;
             message =
               commits.length > 0
                 ? commits[0].message?.split("\n")[0] || "Pushed commits"
@@ -873,6 +982,7 @@ export async function getGitHubUserStats(
     }
 
     return {
+      username,
       publicRepos: userData.public_repos || 0,
       publicGists: userData.public_gists || 0,
       followers: userData.followers || 0,
@@ -880,9 +990,16 @@ export async function getGitHubUserStats(
       totalStars,
       totalForks,
       topLanguages,
+      allLanguages,
+      totalDiskUsage,
+      totalOpenIssues,
       accountAge,
       accountCreated,
       totalCommits,
+      totalPRs,
+      totalIssues,
+      linesOfCode,
+      topRepos,
       // Use GraphQL streak data if available, then API, then calculated
       currentStreak:
         graphqlStreak?.currentStreak ??
