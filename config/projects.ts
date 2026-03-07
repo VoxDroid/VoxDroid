@@ -147,7 +147,7 @@ export const projectOverrides: Record<
   "VoxDroid/VoxDroid": {
     image: "/project_images/VoxDroid.jpg",
     category: "Web App",
-  },  
+  },
   "VoxDroid/bldrx": {
     image: "/project_images/bldrx.png",
     category: "CLI Tool",

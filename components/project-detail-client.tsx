@@ -596,7 +596,9 @@ export default function ProjectDetailClient({
   const [activeTab, setActiveTab] = useState<
     "readme" | "files" | "commits" | "releases"
   >("readme");
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<number | "main" | null>(
+    null,
+  );
   const [imageError, setImageError] = useState(false);
 
   // Memoize markdown components
@@ -605,15 +607,15 @@ export default function ProjectDetailClient({
     [project.fullName],
   );
 
-  const openLightbox = (index: number) => setSelectedImage(index);
+  const openLightbox = (index: number | "main") => setSelectedImage(index);
   const closeLightbox = () => setSelectedImage(null);
   const nextImage = () => {
-    if (selectedImage !== null && project.screenshots.length > 0) {
+    if (typeof selectedImage === "number" && project.screenshots.length > 0) {
       setSelectedImage((selectedImage + 1) % project.screenshots.length);
     }
   };
   const prevImage = () => {
-    if (selectedImage !== null && project.screenshots.length > 0) {
+    if (typeof selectedImage === "number" && project.screenshots.length > 0) {
       setSelectedImage(
         (selectedImage - 1 + project.screenshots.length) %
           project.screenshots.length,
@@ -1016,14 +1018,15 @@ export default function ProjectDetailClient({
             {!imageError && (
               <motion.div
                 variants={fadeIn}
-                className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden"
+                className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-gray-700/50 rounded-lg overflow-hidden cursor-pointer group"
+                onClick={() => openLightbox("main")}
               >
                 <div className="relative aspect-video">
                   <Image
                     src={project.image || "/project_images/placeholder.png"}
                     alt={project.name}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={() => setImageError(true)}
                   />
                 </div>
@@ -1252,7 +1255,7 @@ export default function ProjectDetailClient({
 
       {/* Lightbox */}
       <AnimatePresence>
-        {selectedImage !== null && project.screenshots.length > 0 && (
+        {selectedImage !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -1262,19 +1265,22 @@ export default function ProjectDetailClient({
           >
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 p-2 text-white hover:text-gray-300 transition-colors"
+              className="absolute top-4 right-4 p-2 text-white hover:text-gray-300 transition-colors z-[60]"
             >
               <X className="h-8 w-8" />
             </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prevImage();
-              }}
-              className="absolute left-4 p-2 text-white hover:text-gray-300 transition-colors"
-            >
-              <ChevronLeft className="h-8 w-8" />
-            </button>
+            {typeof selectedImage === "number" &&
+              project.screenshots.length > 0 && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevImage();
+                  }}
+                  className="absolute left-4 p-2 text-white hover:text-gray-300 transition-colors z-[60]"
+                >
+                  <ChevronLeft className="h-8 w-8" />
+                </button>
+              )}
             <motion.div
               key={selectedImage}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -1284,24 +1290,38 @@ export default function ProjectDetailClient({
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={project.screenshots[selectedImage]}
-                alt={`Screenshot ${selectedImage + 1}`}
+                src={
+                  selectedImage === "main"
+                    ? project.image || "/project_images/placeholder.png"
+                    : project.screenshots[selectedImage as number]
+                }
+                alt={
+                  selectedImage === "main"
+                    ? project.name
+                    : `Screenshot ${(selectedImage as number) + 1}`
+                }
                 fill
                 className="object-contain"
               />
             </motion.div>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                nextImage();
-              }}
-              className="absolute right-4 p-2 text-white hover:text-gray-300 transition-colors"
-            >
-              <ChevronRight className="h-8 w-8" />
-            </button>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
-              {selectedImage + 1} / {project.screenshots.length}
-            </div>
+            {typeof selectedImage === "number" &&
+              project.screenshots.length > 0 && (
+                <>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      nextImage();
+                    }}
+                    className="absolute right-4 p-2 text-white hover:text-gray-300 transition-colors z-[60]"
+                  >
+                    <ChevronRight className="h-8 w-8" />
+                  </button>
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm z-[60]">
+                    {(selectedImage as number) + 1} /{" "}
+                    {project.screenshots.length}
+                  </div>
+                </>
+              )}
           </motion.div>
         )}
       </AnimatePresence>
