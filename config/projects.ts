@@ -144,6 +144,8 @@ export const projectOverrides: Record<
   "VoxDroid/Web-Inventory": {
     image: "/project_images/Web-Inventory.png",
     category: "Web App",
+    featured: true,
+    order: 6,
   },
   "VoxDroid/llm-wikipedia": {
     image: "/project_images/llm-wikipedia.png",
