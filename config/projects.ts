@@ -40,6 +40,7 @@ export const githubRepos: string[] = [
   "VoxDroid/Task-Tracker-Pro",
   "VoxDroid/AutoTable",
   "VoxDroid/CodeStash",
+  "VoxDroid/Web-Inventory",
 ];
 
 // Custom overrides for specific repos (optional)
@@ -138,6 +139,10 @@ export const projectOverrides: Record<
   },
   "VoxDroid/VoxSpace": {
     image: "/project_images/VoxSpace.png",
+    category: "Web App",
+  },
+  "VoxDroid/Web-Inventory": {
+    image: "/project_images/Web-Inventory.png",
     category: "Web App",
   },
   "VoxDroid/llm-wikipedia": {
