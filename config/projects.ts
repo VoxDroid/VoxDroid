@@ -8,6 +8,9 @@ export const projectCategories: string[] = [
   "Web Template",
   "AI/ML/DL",
   "CLI Tool",
+  "iOS App",
+  "Android App",
+  "Dev Tool"
 ];
 
 // GitHub repositories to display as projects
@@ -41,6 +44,8 @@ export const githubRepos: string[] = [
   "VoxDroid/AutoTable",
   "VoxDroid/CodeStash",
   "VoxDroid/Web-Inventory",
+  "VoxDroid/Izel",
+  "VoxDroid/CycleOne"
 ];
 
 // Custom overrides for specific repos (optional)
@@ -184,6 +189,17 @@ export const projectOverrides: Record<
     category: "Web App",
     featured: true,
     order: 5,
+  },
+  "VoxDroid/Izel": {
+    image: "/project_images/Izel.png",
+    category: "Dev Tool",
+    featured: true,
+  },
+  "VoxDroid/CycleOne": {
+    image: "/project_images/CycleOne.png",
+    category: "iOS App",
+    featured: true,
+    order: 0,
   },
 };
 
