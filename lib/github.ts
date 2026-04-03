@@ -171,6 +171,7 @@ export interface ProjectData {
   };
 
   // Status
+  visibility: "public" | "private" | "internal";
   archived: boolean;
   fork: boolean;
 }
@@ -1211,6 +1212,12 @@ export async function getFullProjectData(
 
   const override = projectOverrides[fullName] || {};
   const slug = repo.name;
+  const visibility =
+    repo.visibility === "private"
+      ? "private"
+      : repo.visibility === "internal"
+        ? "internal"
+        : "public";
 
   // Try to find an image in public folder or use a placeholder
   const imageBaseName = slug.toLowerCase().replace(/-/g, "");
@@ -1265,6 +1272,7 @@ export async function getFullProjectData(
       url: repo.owner.html_url,
     },
 
+    visibility,
     archived: repo.archived,
     fork: repo.fork,
   };

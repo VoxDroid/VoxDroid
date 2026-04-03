@@ -9,6 +9,8 @@ import {
   ArrowRight,
   Star,
   GitFork,
+  Globe,
+  Lock,
   Clock,
   Search,
   SortAsc,
@@ -84,6 +86,19 @@ function ProjectCard({
   index: number;
 }) {
   const [imageError, setImageError] = useState(false);
+  const visibilityLabel =
+    project.visibility === "private"
+      ? "private"
+      : project.visibility === "internal"
+        ? "internal"
+        : "public";
+
+  const visibilityBadgeClass =
+    visibilityLabel === "private"
+      ? "bg-rose-100 dark:bg-rose-500/10 text-rose-700 dark:text-rose-400"
+      : visibilityLabel === "internal"
+        ? "bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400"
+        : "bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400";
 
   return (
     <motion.div
@@ -156,9 +171,21 @@ function ProjectCard({
           <h3 className="text-xl font-bold truncate text-gray-900 dark:text-white">
             {project.name}
           </h3>
-          <span className="px-2 py-1 text-xs bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 rounded-full whitespace-nowrap font-mono">
-            {project.category}
-          </span>
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="px-2 py-1 text-xs bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 rounded-full whitespace-nowrap font-mono">
+              {project.category}
+            </span>
+            <span
+              className={`px-2 py-1 text-xs rounded-full whitespace-nowrap font-mono inline-flex items-center gap-1 ${visibilityBadgeClass}`}
+            >
+              {visibilityLabel === "public" ? (
+                <Globe className="h-3 w-3" />
+              ) : (
+                <Lock className="h-3 w-3" />
+              )}
+              {visibilityLabel}
+            </span>
+          </div>
         </div>
 
         <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow line-clamp-2">

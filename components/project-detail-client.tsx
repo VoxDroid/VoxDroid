@@ -34,6 +34,8 @@ import {
   Download,
   AlertCircle,
   Archive,
+  Globe,
+  Lock,
   Code2,
   HardDrive,
   FolderTree,
@@ -600,6 +602,19 @@ export default function ProjectDetailClient({
     null,
   );
   const [imageError, setImageError] = useState(false);
+  const visibilityLabel =
+    project.visibility === "private"
+      ? "private"
+      : project.visibility === "internal"
+        ? "internal"
+        : "public";
+
+  const visibilityBadgeClass =
+    visibilityLabel === "private"
+      ? "bg-rose-100 dark:bg-rose-500/20 text-rose-700 dark:text-rose-400"
+      : visibilityLabel === "internal"
+        ? "bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400"
+        : "bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400";
 
   // Memoize markdown components
   const markdownComponents = useMemo(
@@ -682,6 +697,16 @@ export default function ProjectDetailClient({
                           fork
                         </span>
                       )}
+                      <span
+                        className={`px-2 py-1 text-xs rounded-full flex items-center gap-1 font-mono ${visibilityBadgeClass}`}
+                      >
+                        {visibilityLabel === "public" ? (
+                          <Globe className="h-3 w-3" />
+                        ) : (
+                          <Lock className="h-3 w-3" />
+                        )}
+                        {visibilityLabel}
+                      </span>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 text-lg">
                       {project.description}
@@ -1051,6 +1076,21 @@ export default function ProjectDetailClient({
                   </span>
                   <span className="font-medium text-gray-900 dark:text-white">
                     {project.category}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                    {visibilityLabel === "public" ? (
+                      <Globe className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                    ) : (
+                      <Lock className="h-4 w-4 text-rose-600 dark:text-rose-400" />
+                    )}
+                    visibility
+                  </span>
+                  <span
+                    className={`px-2 py-0.5 text-xs rounded-full font-medium ${visibilityBadgeClass}`}
+                  >
+                    {visibilityLabel}
                   </span>
                 </div>
                 {project.language && (
