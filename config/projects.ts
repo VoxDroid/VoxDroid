@@ -10,7 +10,7 @@ export const projectCategories: string[] = [
   "CLI Tool",
   "iOS App",
   "Android App",
-  "Dev Tool"
+  "Dev Tool",
 ];
 
 // GitHub repositories to display as projects
@@ -45,7 +45,8 @@ export const githubRepos: string[] = [
   "VoxDroid/CodeStash",
   "VoxDroid/Web-Inventory",
   "VoxDroid/Izel",
-  "VoxDroid/CycleOne"
+  "VoxDroid/CycleOne",
+  "VoxDroid/Eventra",
 ];
 
 // Custom overrides for specific repos (optional)
@@ -200,6 +201,10 @@ export const projectOverrides: Record<
     category: "iOS App",
     featured: true,
     order: 0,
+  },
+  "VoxDroid/Eventra": {
+    image: "/project_images/Eventra.png",
+    category: "Web App",
   },
 };
 
