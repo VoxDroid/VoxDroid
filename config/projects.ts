@@ -205,6 +205,8 @@ export const projectOverrides: Record<
   "VoxDroid/Eventra": {
     image: "/project_images/Eventra.png",
     category: "Web App",
+    featured: true,
+    order: -1,
   },
 };
 
