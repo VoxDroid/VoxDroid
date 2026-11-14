@@ -1,0 +1,111 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>README art studio</title>
+<!--
+  Draws every static README image and hands each one to build-art.mjs to save under readme/.
+  Run it with:  node scripts/readme/build-art.mjs
+  Edit the lists below to rename a section or change the featured projects, then run it again.
+-->
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+/>
+<script src="vox.js"></script>
+<script src="signal.js"></script>
+<script src="poster.js"></script>
+<script>
+  var AVATAR = "/public/profile/VoxDroid.jpg";
+
+  var HEADS = {
+    poster: {
+      about: "ABOUT",
+      focus: "FOCUS",
+      stack: "STACK",
+      work: "SELECTED WORK",
+      certified: "CERTIFIED",
+      recent: "RECENT ACTIVITY",
+    },
+    voxel: {
+      about: "ABOUT",
+      focus: "FOCUS",
+      stack: "STACK",
+      work: "PROJECTS",
+      certified: "CERTIFIED",
+      recent: "RECENT",
+    },
+    voice: {
+      about: "ABOUT",
+      focus: "FOCUS",
+      stack: "STACK",
+      languages: "LANGUAGES",
+      work: "WORK",
+      certified: "CERTIFIED",
+      year: "THIS YEAR",
+      recent: "RECENT",
+    },
+  };
+
+  // Selected projects, biggest billing first. Each inner list is one line of the poster,
+  // and a line with more characters comes out smaller, so keep the lines getting longer.
+  var LINEUP = [
+    ["KEMONODOWNLOADER"],
+    ["PPE-DETECTION", "EVENTRA"],
+    ["CYCLEONE", "KRNR", "VOXSPACE"],
+    ["PYEXE-BUILDER", "BLDRX", "TASK-TRACKER-PRO", "IZEL"],
+  ];
+
+  function post(path, body) {
+    return fetch(path, { method: "POST", body: body || "" });
+  }
+  function loadImage(src) {
+    return new Promise(function (ok, fail) {
+      var i = new Image();
+      i.onload = function () {
+        ok(i);
+      };
+      i.onerror = function () {
+        fail(new Error("could not load " + src));
+      };
+      i.src = src;
+    });
+  }
+
+  (async function () {
+    await document.fonts.load("200px Anton");
+    if (!document.fonts.check("200px Anton"))
+      throw new Error("Anton did not load, so the poster type would be wrong");
+    var img = await loadImage(AVATAR),
+      files = {};
+    ["light", "dark"].forEach(function (t) {
+      files["poster/hero." + t + ".svg"] = Poster.heroSVG(img, t);
+      files["poster/lineup." + t + ".svg"] = Poster.lineupSVG(LINEUP, t);
+      Object.keys(HEADS.poster).forEach(function (k) {
+        files["poster/h-" + k + "." + t + ".svg"] = Poster.headSVG(
+          HEADS.poster[k],
+          t,
+        );
+      });
+      files["voxel/hero." + t + ".svg"] = Vox.heroSVG(t);
+      Object.keys(HEADS.voxel).forEach(function (k) {
+        files["voxel/h-" + k + "." + t + ".svg"] = Vox.headSVG(
+          HEADS.voxel[k],
+          t,
+        );
+      });
+      files["voice/hero." + t + ".svg"] = Signal.heroSVG(t);
+      Object.keys(HEADS.voice).forEach(function (k) {
+        files["voice/h-" + k + "." + t + ".svg"] = Signal.headSVG(
+          HEADS.voice[k],
+          t,
+        );
+      });
+    });
+    for (var name of Object.keys(files))
+      await post("/save?file=" + encodeURIComponent(name), files[name]);
+    await post("/done?count=" + Object.keys(files).length);
+    document.body.textContent =
+      "Saved " + Object.keys(files).length + " files.";
+  })().catch(function (e) {
+    post("/done?error=" + encodeURIComponent(e.message));
+  });
+</script>
