@@ -95,11 +95,11 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 <div>
 <!--RECENT_ACTIVITY:start-->
 <table>
-<tr><td>Nov&nbsp;15</td><td>Merged 8 pull requests in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/pull/99">#99</a> Keep history and favorites when the save folder changes</td></tr>
-<tr><td>Nov&nbsp;15</td><td>Pushed 43 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
-<tr><td>Nov&nbsp;13</td><td>Released 2 versions of <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/releases/tag/v5.15.0">v5.15.0</a></td></tr>
-<tr><td>Nov&nbsp;11</td><td>Closed 11 issues in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/issues/85">#85</a> 403 Client Error: Forbidden for all posts from pawchive.pw</td></tr>
+<tr><td>Nov&nbsp;17</td><td>Pushed 48 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
+<tr><td>Nov&nbsp;17</td><td>Merged 9 pull requests in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/pull/103">#103</a> Make every setting wait for Apply Changes, with a proper Tor flow</td></tr>
+<tr><td>Nov&nbsp;17</td><td>Closed 14 issues in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/issues/101">#101</a> Coordinate API rate-limit handling during creator post discovery</td></tr>
+<tr><td>Nov&nbsp;13</td><td>Released <a href="https://github.com/VoxDroid/KemonoDownloader/releases/tag/v5.15.0">v5.15.0</a> of <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
 </table>
-<sub>Last 14 days: 43 commits, 8 pull requests merged, 11 issues closed, 2 releases. Updated Nov 17, 2026, 8:26 AM GMT+9.</sub>
+<sub>Last 14 days: 48 commits, 9 pull requests merged, 14 issues closed, 1 release. Updated Nov 17, 2026, 7:51 PM GMT+9.</sub>
 <!--RECENT_ACTIVITY:end-->
 </div>
