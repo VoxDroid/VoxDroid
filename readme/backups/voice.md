@@ -95,12 +95,11 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 <div>
 <!--RECENT_ACTIVITY:start-->
 <table>
-<tr><td>Nov&nbsp;17</td><td>Pushed 48 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
-<tr><td>Nov&nbsp;17</td><td>Pushed 5 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
+<tr><td>Nov&nbsp;17</td><td>Pushed 41 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
 <tr><td>Nov&nbsp;17</td><td>Merged 9 pull requests in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/pull/103">#103</a> Make every setting wait for Apply Changes, with a proper Tor flow</td></tr>
 <tr><td>Nov&nbsp;17</td><td>Closed 14 issues in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/issues/101">#101</a> Coordinate API rate-limit handling during creator post discovery</td></tr>
 <tr><td>Nov&nbsp;13</td><td>Released <a href="https://github.com/VoxDroid/KemonoDownloader/releases/tag/v5.15.0">v5.15.0</a> of <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
 </table>
-<sub>Last 14 days: 53 commits, 9 pull requests merged, 14 issues closed, 1 release. Updated Nov 18, 2026, 7:29 AM GMT+9.</sub>
+<sub>Last 14 days: 41 commits, 9 pull requests merged, 14 issues closed, 1 release. Updated Nov 18, 2026, 7:22 PM GMT+9.</sub>
 <!--RECENT_ACTIVITY:end-->
 </div>
