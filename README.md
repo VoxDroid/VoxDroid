@@ -56,6 +56,17 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 [Ethical Hacker](https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url) · [Network Defense](https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url) · [AI Fundamentals](https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url) · [AI Fundamentals](https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url) · [I2CS](https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url) · [CHB](https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url)
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-numbers.dark.svg">
+  <img src="readme/poster/h-numbers.light.svg" width="100%" alt="By the numbers">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/numbers.dark.svg">
+  <img src="readme/poster/numbers.light.svg" width="100%" alt="Total stars and profile views, updated twice a day">
+</picture>
+<img src="https://komarev.com/ghpvc/?username=VoxDroid" width="1" height="1" alt="">
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-recent.dark.svg">
   <img src="readme/poster/h-recent.light.svg" width="100%" alt="Recent activity">
 </picture>

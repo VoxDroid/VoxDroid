@@ -23,6 +23,7 @@
       stack: "STACK",
       work: "SELECTED WORK",
       certified: "CERTIFIED",
+      numbers: "BY THE NUMBERS",
       recent: "RECENT ACTIVITY",
     },
     voxel: {
@@ -76,6 +77,9 @@
       throw new Error("Anton did not load, so the poster type would be wrong");
     var img = await loadImage(AVATAR),
       files = {};
+    // Anton digits for the live stats panel, which charts.mjs redraws on a schedule.
+    files["poster/digits.json"] =
+      JSON.stringify(Poster.glyphs("0123456789,.K+", 200)) + "\n";
     ["light", "dark"].forEach(function (t) {
       files["poster/hero." + t + ".svg"] = Poster.heroSVG(img, t);
       files["poster/lineup." + t + ".svg"] = Poster.lineupSVG(LINEUP, t);

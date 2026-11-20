@@ -4,6 +4,8 @@
  *   readme/voxel/skyline.svg               contributions per day, last 30 weeks
  *   readme/voice/languages.{light,dark}.svg  share of code by language, public repos
  *   readme/voice/year.{light,dark}.svg       contributions per week, last 52 weeks
+ *   readme/poster/numbers.{light,dark}.svg   total stars on public repos and profile views (komarev),
+ *                                            set in Anton from readme/poster/digits.json (see build-art.mjs)
  *
  *   GITHUB_TOKEN=... node scripts/readme/charts.mjs
  *
@@ -112,11 +114,179 @@ function yearSVG(weeks, T) {
   );
 }
 
+/* ---- "By the numbers" panel for the poster edition: big Anton figures from pre-traced glyphs ---- */
+const POSTER = {
+  light: { fg: "#1f2328", a: "#4338ca", b: "#ff5a4f" },
+  dark: { fg: "#f0f6fc", a: "#a5a8ff", b: "#ff6f61" },
+};
+const VIEWS_URL =
+  "https://komarev.com/ghpvc/?username=" + encodeURIComponent(login);
+
+async function loadStars() {
+  let total = 0,
+    repos = 0,
+    after = null;
+  do {
+    const res = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+        "User-Agent": "readme-charts",
+      },
+      body: JSON.stringify({
+        query: `query($login: String!, $after: String) { user(login: $login) {
+          repositories(first: 100, after: $after, ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) {
+            pageInfo { hasNextPage endCursor } nodes { stargazerCount } } } }`,
+        variables: { login, after },
+      }),
+    });
+    const json = await res.json();
+    const page = json.data && json.data.user && json.data.user.repositories;
+    if (!res.ok || json.errors || !page)
+      throw new Error("stars: " + JSON.stringify(json.errors || res.status));
+    page.nodes.forEach((r) => {
+      total += r.stargazerCount;
+      repos++;
+    });
+    after = page.pageInfo.hasNextPage ? page.pageInfo.endCursor : null;
+  } while (after);
+  return { stars: total, repos };
+}
+
+/* The count comes from the komarev badge that the README embeds; reading it here adds one view. */
+async function loadViews() {
+  const res = await fetch(VIEWS_URL, {
+    headers: { "User-Agent": "readme-charts" },
+  });
+  if (!res.ok) throw new Error("views: " + res.status);
+  const nums = [...(await res.text()).matchAll(/>\s*([\d,.]+)\s*</g)];
+  if (!nums.length) throw new Error("views: no number in the badge");
+  return Number(nums[nums.length - 1][1].replace(/[^\d]/g, ""));
+}
+
+/* The previous figures, read back from the drawn panel, stand in for any source that is down. */
+function previousNumbers() {
+  try {
+    const old = fs.readFileSync(
+      path.join(root, "readme/poster/numbers.light.svg"),
+      "utf8",
+    );
+    const pick = (re) => {
+      const m = old.match(re);
+      return m ? Number(m[1].replace(/,/g, "")) : null;
+    };
+    return {
+      stars: pick(/([\d,]+) stars/),
+      repos: pick(/across ([\d,]+) public/),
+      views: pick(/([\d,]+) profile views/),
+    };
+  } catch {
+    return {};
+  }
+}
+
+function numbersSVG({ stars, repos, views }, font, T) {
+  const fmt = (n) => n.toLocaleString("en-US");
+  const MAX = 104, // tallest the figures get
+    COL = 413, // each column's width; there are two with a 20px gutter
+    widthAt = (text, size) =>
+      [...text].reduce((w, c) => w + font.glyphs[c].w, 0) * (size / font.size);
+  const figs = [fmt(stars), fmt(views)];
+  // One size for both figures, so they read as a pair; shrink only if one would overflow.
+  const size = Math.min(
+    MAX,
+    ...figs.map((t) => (MAX * (COL - 8)) / widthAt(t, MAX)),
+  );
+  const k = size / font.size,
+    base = Math.ceil(font.top * k) + 2,
+    bar = base + 16,
+    H = bar + 40;
+  // Each glyph is defined once and placed with <use>, which keeps the file small.
+  const ids = new Map();
+  const word = (text, x, y, attrs) => {
+    let out = "",
+      cx = 0;
+    for (const c of text) {
+      if (!ids.has(c)) ids.set(c, "g" + ids.size);
+      out += `<use href="#${ids.get(c)}" transform="translate(${(x + cx).toFixed(2)} ${y}) scale(${k.toFixed(4)})"/>`;
+      cx += font.glyphs[c].w * k;
+    }
+    return `<g ${attrs}>${out}</g>`;
+  };
+  const mono = `font-family="${MONO}" font-size="10.5" letter-spacing="1.5" fill="${T.fg}"`;
+  const cols = [
+    {
+      x: 0,
+      fig: figs[0],
+      front: T.a,
+      back: T.b,
+      label: "TOTAL STARS",
+      note: `ACROSS ${fmt(repos)} PUBLIC REPOS`,
+    },
+    {
+      x: COL + 20,
+      fig: figs[1],
+      front: T.b,
+      back: T.a,
+      label: "PROFILE VIEWS",
+      note: "ALL TIME",
+    },
+  ];
+  let body = "";
+  for (const c of cols) {
+    // Ink B (or A) offset behind, then the front ink on top, as in the section headings.
+    body +=
+      word(c.fig, c.x + 4, base + 4, `fill="${c.back}"`) +
+      word(c.fig, c.x, base, `fill="${c.front}"`) +
+      `<rect fill="${c.front}" x="${c.x}" y="${bar}" width="${COL}" height="6"/>` +
+      `<text ${mono} x="${c.x}" y="${bar + 26}">${c.label}</text>` +
+      `<text ${mono} x="${c.x + COL}" y="${bar + 26}" text-anchor="end" fill-opacity=".7">${c.note}</text>`;
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 846 ${H}" width="846" height="${H}" role="img" aria-label="${esc(
+    `${fmt(stars)} stars across ${fmt(repos)} public repositories. ${fmt(views)} profile views.`,
+  )}" style="isolation:isolate"><defs>${[...ids]
+    .map(
+      ([c, id]) =>
+        `<path id="${id}" fill-rule="evenodd" d="${font.glyphs[c].d}"/>`,
+    )
+    .join("")}</defs>${body}</svg>\n`;
+}
+
+async function drawNumbers() {
+  const font = JSON.parse(
+    fs.readFileSync(path.join(root, "readme/poster/digits.json"), "utf8"),
+  );
+  const old = previousNumbers(),
+    [s, v] = await Promise.allSettled([loadStars(), loadViews()]);
+  if (s.status === "rejected")
+    console.error("Stars not updated: " + s.reason.message);
+  if (v.status === "rejected")
+    console.error("Views not updated: " + v.reason.message);
+  const n = {
+    stars: s.status === "fulfilled" ? s.value.stars : old.stars,
+    repos: s.status === "fulfilled" ? s.value.repos : old.repos,
+    views: v.status === "fulfilled" ? v.value : old.views,
+  };
+  if ([n.stars, n.repos, n.views].some((x) => x == null))
+    throw new Error("numbers panel: no current or previous figures to draw");
+  for (const [name, T] of Object.entries(POSTER))
+    write(`poster/numbers.${name}.svg`, numbersSVG(n, font, T));
+  if (s.status === "rejected" || v.status === "rejected") process.exitCode = 1;
+}
+
 function write(file, content) {
   const target = path.join(root, "readme", file);
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, content);
   console.log("wrote readme/" + file);
+}
+
+try {
+  await drawNumbers();
+} catch (err) {
+  console.error("Numbers not updated: " + err.message);
+  process.exitCode = 1;
 }
 
 try {

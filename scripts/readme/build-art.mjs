@@ -77,7 +77,10 @@ const server = http.createServer((req, res) => {
       if (url.pathname === "/save") {
         const name = url.searchParams.get("file") || "";
         const target = path.resolve(outDir, name);
-        if (!target.startsWith(outDir + path.sep) || !target.endsWith(".svg"))
+        if (
+          !target.startsWith(outDir + path.sep) ||
+          !/\.(svg|json)$/.test(target)
+        )
           return;
         fs.mkdirSync(path.dirname(target), { recursive: true });
         fs.writeFileSync(target, body);

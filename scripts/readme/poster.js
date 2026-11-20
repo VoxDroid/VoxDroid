@@ -523,10 +523,26 @@
     );
   }
 
+  /* Outlines for a set of characters, so charts.mjs can set live numbers in Anton without a browser.
+     Each glyph is drawn from its own origin; w is its advance and top is the tallest ascent, all at `size`. */
+  function glyphs(chars, size) {
+    var out = { size: size, top: 0, glyphs: {} };
+    chars.split("").forEach(function (c) {
+      var o = outline(c, size);
+      out.glyphs[c] = { w: r2(o.w), d: o.d };
+      (o.d.match(/-?\d+(\.\d+)?/g) || []).forEach(function (v, i) {
+        if (i % 2) out.top = Math.max(out.top, -parseFloat(v));
+      });
+    });
+    out.top = r2(out.top);
+    return out;
+  }
+
   root.Poster = {
     heroSVG: heroSVG,
     headSVG: headSVG,
     lineupSVG: lineupSVG,
+    glyphs: glyphs,
     FACE: FACE,
   };
 })(window);
