@@ -71,6 +71,6 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 <tr><td>Nov&nbsp;20</td><td>Released <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/releases/tag/v1.0.0">v1.0.0</a> of <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
 <tr><td>Nov&nbsp;20</td><td>Merged 14 pull requests in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/pull/109">#109</a> Show Pawchive Downloader's download button in the READMEs</td></tr>
 </table>
-<sub>Last 14 days: 124 commits, 24 pull requests merged, 14 issues closed, 4 releases. Updated Nov 20, 2026, 7:12 PM GMT+9.</sub>
+<sub>Last 14 days: 124 commits, 24 pull requests merged, 14 issues closed, 4 releases. Updated Nov 21, 2026, 6:53 AM GMT+9.</sub>
 <!--RECENT_ACTIVITY:end-->
 </div>
