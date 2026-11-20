@@ -63,11 +63,14 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 <div>
 <!--RECENT_ACTIVITY:start-->
 <table>
-<tr><td>Nov&nbsp;17</td><td>Pushed 41 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
-<tr><td>Nov&nbsp;17</td><td>Merged 9 pull requests in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/pull/103">#103</a> Make every setting wait for Apply Changes, with a proper Tor flow</td></tr>
-<tr><td>Nov&nbsp;17</td><td>Closed 14 issues in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/issues/101">#101</a> Coordinate API rate-limit handling during creator post discovery</td></tr>
-<tr><td>Nov&nbsp;13</td><td>Released <a href="https://github.com/VoxDroid/KemonoDownloader/releases/tag/v5.15.0">v5.15.0</a> of <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
+<tr><td>Nov&nbsp;20</td><td>Pushed 53 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
+<tr><td>Nov&nbsp;20</td><td>Pushed 47 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a></td></tr>
+<tr><td>Nov&nbsp;20</td><td>Pushed 24 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
+<tr><td>Nov&nbsp;20</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/pull/5">#5</a> Decode HTML entities once and strip tags completely</td></tr>
+<tr><td>Nov&nbsp;20</td><td>Merged 7 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/pull/10">#10</a> Decode HTML entities once and strip tags completely</td></tr>
+<tr><td>Nov&nbsp;20</td><td>Released <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/releases/tag/v1.0.0">v1.0.0</a> of <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
+<tr><td>Nov&nbsp;20</td><td>Merged 14 pull requests in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/pull/109">#109</a> Show Pawchive Downloader's download button in the READMEs</td></tr>
 </table>
-<sub>Last 14 days: 41 commits, 9 pull requests merged, 14 issues closed, 1 release. Updated Nov 20, 2026, 7:18 AM GMT+9.</sub>
+<sub>Last 14 days: 124 commits, 24 pull requests merged, 14 issues closed, 4 releases. Updated Nov 20, 2026, 7:12 PM GMT+9.</sub>
 <!--RECENT_ACTIVITY:end-->
 </div>
