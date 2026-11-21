@@ -1,15 +1,8 @@
-import { getFeaturedProjects, getGitHubUserStats } from "@/lib/github";
-import HomeClient from "@/components/home-client";
+import { editions } from "@/editions";
+import { getHomeData } from "@/lib/content";
+import { getEdition } from "@/lib/edition-server";
 
-export const revalidate = 3600; // Revalidate every hour
-
-export default async function Home() {
-  const [featuredProjects, githubStats] = await Promise.all([
-    getFeaturedProjects(),
-    getGitHubUserStats("VoxDroid"),
-  ]);
-
-  return (
-    <HomeClient featuredProjects={featuredProjects} githubStats={githubStats} />
-  );
+export default async function HomePage() {
+  const { Home } = editions[await getEdition()];
+  return <Home data={getHomeData()} />;
 }

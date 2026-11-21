@@ -1,49 +1,37 @@
-import nextPlugin from "@next/eslint-plugin-next";
-import tsParser from "@typescript-eslint/parser";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTypeScript from "eslint-config-next/typescript";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-export default [
+export default defineConfig([
+  ...nextVitals,
+  ...nextTypeScript,
   {
-    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
-    plugins: {
-      "@next/next": nextPlugin,
-      "@typescript-eslint": tsPlugin,
-    },
-    languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
     rules: {
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs["core-web-vitals"].rules,
-      "react/no-unescaped-entities": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-    },
-    settings: {
-      react: {
-        version: "detect",
-      },
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          ignoreRestSiblings: true,
+        },
+      ],
     },
   },
   {
-    ignores: [
-      ".next/**",
-      "node_modules/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-    ],
+    files: ["scripts/**/*.{js,mjs}"],
+    rules: {
+      // Build scripts run in Node or in the README art studio, never in the app.
+      "@next/next/no-assign-module-variable": "off",
+    },
   },
-];
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    "design/**",
+    "test-results/**",
+    "playwright-report/**",
+    "scripts/readme/**",
+  ]),
+]);

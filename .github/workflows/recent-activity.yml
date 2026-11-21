@@ -44,9 +44,15 @@ jobs:
         continue-on-error: true
         run: node scripts/readme/charts.mjs
 
+      # The portfolio site renders from this snapshot instead of calling GitHub per request.
+      # Files change only when the data does, and each change redeploys the site.
+      - name: Refresh the portfolio snapshot
+        continue-on-error: true
+        run: node scripts/github/snapshot.mjs
+
       - name: Commit and push
         run: |
-          git add README.md readme
+          git add README.md readme data/github.json data/readme
           if git diff --cached --quiet; then
             echo "Nothing changed."
             exit 0

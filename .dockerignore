@@ -1,4 +1,11 @@
 node_modules
+.next
 .git
 .gitignore
+.env
+.venv
+test-results
+playwright-report
+design
 README.md
+readme

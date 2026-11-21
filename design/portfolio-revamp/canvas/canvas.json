@@ -1,0 +1,84 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Bench.dc.html": {
+      "expand": "fill",
+      "h": 5000,
+      "is_interactive": true,
+      "title": "03 · Bench Instrument",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 5600,
+      "title": "01 · Datasheet",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Poster.dc.html": {
+      "expand": "fill",
+      "h": 7200,
+      "is_interactive": true,
+      "title": "02 · Two Inks — Issue 02",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Xerox.dc.html": {
+      "expand": "fill",
+      "h": 6800,
+      "is_interactive": true,
+      "title": "02B · Photocopy",
+      "w": 1440,
+      "x": 0,
+      "y": 7900
+    },
+    "Cyanotype.dc.html": {
+      "expand": "fill",
+      "h": 6600,
+      "is_interactive": true,
+      "title": "02C · Sun Print",
+      "w": 1440,
+      "x": 1520,
+      "y": 7900
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-21T07:40:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "heading": {
+      "kind": "title1",
+      "maxW": 4480,
+      "text": "voxdroid.vercel.app — three directions, same content",
+      "w": 240,
+      "x": 0,
+      "y": -320
+    },
+    "family": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "Two Inks family — same zine idea, two more print processes",
+      "x": 0,
+      "y": 7580
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Poster.dc.html",
+    "Bench.dc.html",
+    "Xerox.dc.html",
+    "Cyanotype.dc.html"
+  ],
+  "pages": [],
+  "title": "VoxDroid Portfolio Revamp"
+}

@@ -1,59 +1,39 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getProjectBySlug, getAllProjectSlugs } from "@/lib/github";
-import ProjectDetailClient from "@/components/project-detail-client";
+import { editions } from "@/editions";
+import { getProject, getProjects, getReadme } from "@/lib/content";
+import { getEdition } from "@/lib/edition-server";
 
-// Revalidate every hour
-export const revalidate = 3600;
+type Props = { params: Promise<{ slug: string }> };
 
-// Generate static params for all projects
-export async function generateStaticParams() {
-  const slugs = getAllProjectSlugs();
-  return slugs.map((slug) => ({ slug }));
+// Every project is known at build time; any other slug is a 404 rendered by app/not-found.tsx
+// inside the edition layout, never a bare error shell.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getProjects().map((p) => ({ slug: p.slug }));
 }
 
-// Generate metadata dynamically
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const project = await getProjectBySlug(slug);
-
-  if (!project) {
-    return {
-      title: "Project Not Found | VoxDroid",
-    };
-  }
-
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const project = getProject((await params).slug);
+  if (!project) notFound();
   return {
-    title: `${project.name} | VoxDroid Projects`,
-    description: project.description,
-    openGraph: {
-      title: project.name,
-      description: project.description,
-      type: "website",
-      images: project.image ? [project.image] : [],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: project.name,
-      description: project.description,
-    },
+    title: project.name,
+    description:
+      project.summary ||
+      `${project.name}, a ${project.category.toLowerCase()} by VoxDroid.`,
+    alternates: { canonical: `/projects/${project.slug}` },
   };
 }
 
-export default async function ProjectPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const project = await getProjectBySlug(slug);
-
-  if (!project) {
-    notFound();
-  }
-
-  return <ProjectDetailClient project={project} />;
+export default async function ProjectPage({ params }: Props) {
+  const project = getProject((await params).slug);
+  if (!project) notFound();
+  const { Detail } = editions[await getEdition()];
+  return (
+    <Detail
+      project={project}
+      readme={project.private ? null : getReadme(project.slug)}
+    />
+  );
 }

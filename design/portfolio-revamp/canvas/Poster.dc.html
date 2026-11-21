@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VoxDroid — Two Inks, Issue 02</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wdth,wght@62..125,300..900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap">
+<style>
+body{margin:0;background:#EDE8DD}
+a{color:#1C1E24;text-underline-offset:4px;text-decoration-thickness:2px}
+a:hover{color:#4338CA}
+.vx-key{-webkit-mask:url(/_blob/b0a0ab552330b2688352c9b46064ef5b) center/100% 100% no-repeat;mask:url(/_blob/b0a0ab552330b2688352c9b46064ef5b) center/100% 100% no-repeat}
+.vx-warm{-webkit-mask:url(/_blob/fc27b25f0f35627210dfec89d94f08f2) center/100% 100% no-repeat;mask:url(/_blob/fc27b25f0f35627210dfec89d94f08f2) center/100% 100% no-repeat}
+.vx-dots{background-image:radial-gradient(circle,currentColor 0 33%,transparent 35%);background-size:10px 10px}
+.vx-hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:20px}
+@media (max-width:860px){.vx-hero>*{grid-column:1/-1 !important;grid-row:auto !important;margin-left:0 !important;margin-right:0 !important}.vx-hide-sm{display:none !important}}
+</style>
+</helmet>
+<div style="position: relative; isolation: isolate; min-height: 100vh; background: #EDE8DD; color: #1C1E24; font-family: Archivo, 'Arial Narrow', sans-serif; font-size: 17px; line-height: 1.55; overflow: hidden">
+
+  <sc-if value="{{grain}}" hint-placeholder-val="{{ true }}">
+    <svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; mix-blend-mode: multiply; opacity: .38"><filter id="vxgrain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="matrix" values="0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .42  0 0 0 -1.1 1.05"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#vxgrain)"></rect></svg>
+  </sc-if>
+
+  <!-- ============ COVER ============ -->
+  <section style="position: relative; padding: 0 40px 64px">
+    <svg aria-hidden="true" width="26" height="26" style="position: absolute; left: 12px; top: 12px"><path d="M0 18h12M18 0v12" stroke="#1C1E24"></path></svg>
+    <svg aria-hidden="true" width="26" height="26" style="position: absolute; right: 12px; top: 12px"><path d="M14 18h12M8 0v12" stroke="#1C1E24"></path></svg>
+
+    <!-- slug + contents -->
+    <header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px 32px; padding: 26px 0 14px; border-bottom: 1.5px solid #1C1E24; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase">
+      <span>Job 0002 · VoxDroid · Inks: <span style="display: inline-block; width: 10px; height: 10px; background: {{inkA}}; vertical-align: -1px"></span> + <span style="display: inline-block; width: 10px; height: 10px; background: {{inkB}}; vertical-align: -1px"></span> · Natural 90gsm</span>
+      <nav aria-label="Contents" style="display: flex; flex-wrap: wrap; gap: 0 18px">
+        <a href="#numbers" style="text-decoration: none; padding: 8px 0">02 Numbers</a>
+        <a href="#lineup" style="text-decoration: none; padding: 8px 0">03 Work</a>
+        <a href="#interview" style="text-decoration: none; padding: 8px 0">05 About</a>
+        <a href="#setlist" style="text-decoration: none; padding: 8px 0">07 Services</a>
+        <a href="#takeone" style="text-decoration: none; padding: 8px 0; font-weight: 700">08 Contact</a>
+      </nav>
+    </header>
+
+    <div class="vx-hero" style="position: relative; padding-top: 18px">
+      <!-- portrait: two ink layers, the warm one knocked off register -->
+      <div style="grid-column: 5 / 13; grid-row: 1 / 3; margin-right: -40px; position: relative; aspect-ratio: 1 / 1; isolation: isolate">
+        <div class="vx-warm" role="img" aria-label="VoxDroid's avatar as a two-colour risograph halftone" style="position: absolute; inset: 0; background: {{inkB}}; mix-blend-mode: multiply; transform: translate({{shift}}, {{shiftY}})"></div>
+        <div class="vx-key" style="position: absolute; inset: 0; background: {{inkA}}; mix-blend-mode: multiply"></div>
+        <span class="vx-hide-sm" style="position: absolute; right: 56px; bottom: -28px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em">FIG. 1 — THE DEVELOPER, REFUELING</span>
+      </div>
+
+      <h1 style="grid-column: 1 / 11; grid-row: 1; margin: 0; align-self: end; position: relative; z-index: 2; font-family: Anton, Impact, sans-serif; font-weight: 400; line-height: .8; letter-spacing: -.01em; pointer-events: none">
+        <span style="display: block; font-size: clamp(150px, 27vw, 430px); color: {{inkA}}; mix-blend-mode: multiply">VOX</span>
+        <span style="display: block; font-size: clamp(116px, 20.6vw, 330px); color: {{inkB}}; mix-blend-mode: multiply; margin-left: .1em; margin-top: -.02em">DROID</span>
+      </h1>
+
+      <div style="grid-column: 1 / 6; grid-row: 2; align-self: end; display: flex; flex-direction: column; gap: 16px; padding-top: 28px; position: relative; z-index: 3">
+        <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .18em">ISSUE Nº 02 · NOV 2026 · SYSTEMS. INTELLIGENCE. CODE.</p>
+        <p style="margin: 0; font-size: clamp(20px, 1.7vw, 25px); line-height: 1.32; font-variation-settings: 'wdth' 88; font-weight: 500; max-width: 30ch">Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I build command-line tools, web and desktop apps and machine-learning projects, and I run a self-hosted homelab.</p>
+        <p style="margin: 0; display: flex; flex-wrap: wrap; gap: 4px 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700">
+          <a href="#lineup" style="padding: 10px 0">→ The work, p.03</a>
+          <a href="/cv/VoxDroid_CV.pdf" style="padding: 10px 0">→ CV as PDF</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 NUMBERS ============ -->
+  <section id="numbers" style="position: relative; padding: 40px 40px 72px; border-top: 1.5px solid #1C1E24">
+    <div class="vx-dots" aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 100%; color: {{inkB}}; opacity: .5; -webkit-mask-image: linear-gradient(100deg, transparent 30%, #000 95%); mask-image: linear-gradient(100deg, transparent 30%, #000 95%); mix-blend-mode: multiply"></div>
+    <div style="position: relative; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .1em; margin-bottom: 8px"><span>02 — BY THE NUMBERS, FROM GITHUB.COM/VOXDROID</span><span class="vx-hide-sm">VOXDROID / ISSUE 02</span></div>
+    <div style="position: relative; display: flex; flex-wrap: wrap; align-items: flex-end; row-gap: 24px">
+      <sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+        <div style="position: relative; margin-right: -.04em; display: flex; flex-direction: column">
+          <span style="font-family: Anton, Impact, sans-serif; font-size: clamp(110px, 15.5vw, 236px); line-height: .82; color: {{s.ink}}; mix-blend-mode: multiply">{{s.v}}</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .12em; padding: 10px 0 0 4px">{{s.label}}</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #4A4D55; padding-left: 4px">{{s.note}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ 03 THE LINEUP ============ -->
+  <section id="lineup" style="position: relative; background: {{inkB}}; padding: 56px 40px 64px">
+    <div aria-hidden="true" style="position: absolute; left: 24px; right: 24px; top: 22px; bottom: 22px; border: 3px solid {{inkA}}; mix-blend-mode: multiply; transform: translate({{shiftNeg}}, {{shift}})"></div>
+    <div style="position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .16em; color: #1C1E24; border-bottom: 2px solid #1C1E24; padding: 4px 0 12px">
+      <span>VOXDROID PRESENTS</span><span>SELECTED WORK · 2021 — 2026</span><span>OPEN SOURCE · ALL AGES</span>
+    </div>
+    <div style="position: relative; text-align: center; font-family: Anton, Impact, sans-serif; line-height: .92; color: {{inkA}}; mix-blend-mode: multiply">
+      <a href="https://github.com/VoxDroid/KemonoDownloader" style="display: block; color: {{inkA}}; text-decoration: none; font-size: clamp(50px, 11.6vw, 172px); margin-top: 22px">KEMONODOWNLOADER</a>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .22em; color: #1C1E24; margin: 10px 0 30px">HEADLINING · 382 ★ · PYTHON / PYQT6 · WINDOWS, MAC, LINUX</div>
+    </div>
+    <div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 28px 40px; text-align: center">
+      <sc-for list="{{stages}}" as="st" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 6px; border-top: 2px solid #1C1E24; padding-top: 12px">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .16em; color: #1C1E24">{{st.name}}</span>
+          <sc-for list="{{st.acts}}" as="a" hint-placeholder-count="3">
+            <a href="{{a.url}}" style="font-family: Anton, Impact, sans-serif; font-size: {{a.size}}; line-height: 1.02; color: {{inkA}}; mix-blend-mode: multiply; text-decoration: none">{{a.name}}</a>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+    <p style="position: relative; margin: 34px 0 0; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .14em; color: #1C1E24">+ 63 MORE ACTS AT <a href="https://github.com/VoxDroid?tab=repositories" style="color: #1C1E24">GITHUB.COM/VOXDROID</a></p>
+  </section>
+
+  <!-- ============ 04 PROGRAMME NOTES ============ -->
+  <section style="padding: 64px 40px 40px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; border-bottom: 1.5px solid #1C1E24; padding-bottom: 10px; margin-bottom: 26px">
+      <h2 style="margin: 0; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 125; font-weight: 900; font-size: clamp(30px, 3.6vw, 52px); letter-spacing: -.01em; line-height: 1">Programme notes</h2>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .1em">04 — WHAT EACH ACT ACTUALLY DOES</span>
+    </div>
+    <div style="column-width: 300px; column-gap: 40px; column-rule: 1px solid #1C1E24">
+      <sc-for list="{{apps}}" as="a" hint-placeholder-count="10">
+        <article style="break-inside: avoid; padding: 0 0 22px; display: flex; flex-direction: column; gap: 4px">
+          <div style="display: flex; align-items: baseline; gap: 10px">
+            <span style="font-family: Anton, Impact, sans-serif; font-size: 40px; line-height: 1; color: {{a.ink}}; mix-blend-mode: multiply">{{a.n}}</span>
+            <a href="{{a.url}}" style="font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 21px; line-height: 1.1; text-decoration: none">{{a.name}}</a>
+          </div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #4A4D55">{{a.cat}} · {{a.lang}} · {{a.stars}} ★</span>
+          <p style="margin: 0; font-size: 16px">{{a.desc}}</p>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ 05 INTERVIEW ============ -->
+  <section id="interview" style="position: relative; padding: 56px 40px 64px; border-top: 1.5px solid #1C1E24; display: flex; flex-wrap: wrap; gap: 40px 56px">
+    <div style="flex: 1 1 420px; position: relative; min-height: 380px">
+      <div class="vx-dots" aria-hidden="true" style="position: absolute; left: -40px; top: 40px; width: 78%; height: 86%; color: {{inkB}}; mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(circle at 30% 40%, #000 20%, transparent 72%); mask-image: radial-gradient(circle at 30% 40%, #000 20%, transparent 72%)"></div>
+      <p style="position: relative; margin: 0 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .1em">05 — INTERVIEW · CAT README.MD</p>
+      <blockquote style="position: relative; margin: 0; font-family: Anton, Impact, sans-serif; font-size: clamp(64px, 8.4vw, 132px); line-height: .9; color: {{inkA}}; mix-blend-mode: multiply">“I LIKE MAKING THINGS THAT HELP PEOPLE.”</blockquote>
+    </div>
+    <div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 22px; max-width: 640px">
+      <sc-for list="{{qa}}" as="x" hint-placeholder-count="4">
+        <div>
+          <p style="margin: 0 0 4px; font-variation-settings: 'wdth' 118; font-weight: 800; font-size: 19px">Q. {{x.q}}</p>
+          <p style="margin: 0; font-size: 17px">{{x.a}}</p>
+        </div>
+      </sc-for>
+    </div>
+    <!-- liner notes -->
+    <div style="flex: 1 1 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 24px 40px; border-top: 1.5px solid #1C1E24; padding-top: 18px; font-size: 14.5px">
+      <div>
+        <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: .12em">GENRES</p>
+        <p style="margin: 0">AI and machine learning · Web development · Open source · Cybersecurity · Linux and homelab · Cloud and DevOps</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: .12em">BACKLINE</p>
+        <p style="margin: 0"><strong>Languages</strong> Python, TypeScript, JavaScript, PHP, Rust, C++. <strong>ML</strong> PyTorch, TensorFlow, scikit-learn, Jupyter. <strong>Web</strong> React, Next.js, FastAPI. <strong>Infra</strong> Docker, Kubernetes, Linux, Proxmox, nginx, WireGuard.</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: .12em">SCHOOLED AT</p>
+        <p style="margin: 0"><strong>Laguna State Polytechnic University</strong>, BS Computer Science, Intelligent Systems, 2022–now. <strong>Laguna Senior High School</strong>, STEM, 2020–22. <strong>Pedro Guevara Memorial NHS</strong>, STEM, 2016–20.</p>
+      </div>
+      <div>
+        <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: .12em">CERTIFIED</p>
+        <p style="margin: 0"><a href="https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url">Ethical Hacker</a> · <a href="https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url">Network Defense</a> · <a href="https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url">AI Fundamentals</a> · <a href="https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url">AI Fundamentals</a> · <a href="https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url">I2CS</a> · <a href="https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url">CHB</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 TOUR DATES ============ -->
+  <section style="padding: 56px 40px 64px; border-top: 1.5px solid #1C1E24">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; margin-bottom: 18px">
+      <h2 style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: clamp(64px, 9vw, 140px); line-height: .85; color: {{inkB}}; mix-blend-mode: multiply">TOUR DATES</h2>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .1em">06 — 2015 TO TONIGHT</span>
+    </div>
+    <sc-for list="{{tour}}" as="t" hint-placeholder-count="4">
+      <div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 6px 32px; align-items: baseline; padding: 20px 0; border-top: 2px solid #1C1E24">
+        <span style="font-family: Anton, Impact, sans-serif; font-size: clamp(44px, 5vw, 72px); line-height: .9">{{t.period}}</span>
+        <div><div style="font-variation-settings: 'wdth' 118; font-weight: 800; font-size: 20px">{{t.file}}</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #4A4D55">$ {{t.cmd}}</div></div>
+        <p style="margin: 0; font-size: 16px; max-width: 44ch">{{t.desc}}</p>
+        <span aria-hidden="true" style="position: absolute; right: 2%; top: 50%; transform: translateY(-50%) rotate({{t.rot}}); border: 4px solid {{t.ink}}; color: {{t.ink}}; mix-blend-mode: multiply; font-family: Anton, Impact, sans-serif; font-size: clamp(26px, 3vw, 44px); line-height: 1; padding: 6px 14px 4px; letter-spacing: .04em; opacity: .9; pointer-events: none">{{t.stamp}}</span>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- ============ 07 SET LIST ============ -->
+  <section id="setlist" style="position: relative; background: {{inkA}}; color: #EDE8DD; padding: 72px 40px 80px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+    <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 18px">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .1em">07 — SERVICES, TAPED TO THE STAGE</span>
+      <h2 style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: clamp(80px, 10vw, 160px); line-height: .84">THE SET LIST</h2>
+      <p style="margin: 0; font-size: 18px; max-width: 34ch">Ten things I can play for you, and the same four-song encore every night.</p>
+      <ol style="margin: 8px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border-top: 1.5px solid #EDE8DD">
+        <li style="padding: 10px 0; border-bottom: 1.5px solid #EDE8DD"><strong style="font-family: Anton, Impact, sans-serif; font-size: 22px; font-weight: 400">E1 DISCUSS</strong><br><span style="font-size: 14px">Requirements and goals</span></li>
+        <li style="padding: 10px 0 10px 14px; border-bottom: 1.5px solid #EDE8DD; border-left: 1.5px solid #EDE8DD"><strong style="font-family: Anton, Impact, sans-serif; font-size: 22px; font-weight: 400">E2 PLAN</strong><br><span style="font-size: 14px">Timeline, deliverables</span></li>
+        <li style="padding: 10px 0; border-bottom: 1.5px solid #EDE8DD"><strong style="font-family: Anton, Impact, sans-serif; font-size: 22px; font-weight: 400">E3 BUILD</strong><br><span style="font-size: 14px">Regular updates</span></li>
+        <li style="padding: 10px 0 10px 14px; border-bottom: 1.5px solid #EDE8DD; border-left: 1.5px solid #EDE8DD"><strong style="font-family: Anton, Impact, sans-serif; font-size: 22px; font-weight: 400">E4 DELIVER</strong><br><span style="font-size: 14px">Docs and support</span></li>
+      </ol>
+    </div>
+    <!-- the taped sheet -->
+    <div style="flex: 999 1 520px; position: relative; transform: rotate(-1.2deg); margin-top: 12px">
+      <div aria-hidden="true" style="position: absolute; left: 8%; top: -16px; width: 120px; height: 34px; background: rgba(236,226,196,.82); transform: rotate(-5deg); z-index: 2"></div>
+      <div aria-hidden="true" style="position: absolute; right: 9%; top: -14px; width: 110px; height: 34px; background: rgba(236,226,196,.82); transform: rotate(4deg); z-index: 2"></div>
+      <div style="background: #F6F2E8; color: #1C1E24; padding: 40px clamp(20px, 3.4vw, 48px) 32px">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .12em; border-bottom: 2px solid #1C1E24; padding-bottom: 10px; margin-bottom: 6px"><span>VOXDROID — SET</span><span>10 SONGS · NO FILLER</span></div>
+        <ol style="margin: 0; padding: 0; list-style: none">
+          <sc-for list="{{services}}" as="s" hint-placeholder-count="10">
+            <li style="display: grid; grid-template-columns: 58px 1fr; gap: 2px 14px; align-items: baseline; padding: 10px 0; border-bottom: 1px dashed #8A8C92">
+              <span style="font-family: Anton, Impact, sans-serif; font-size: 30px; line-height: 1; color: {{inkB}}; mix-blend-mode: multiply">{{s.n}}</span>
+              <span style="font-family: Anton, Impact, sans-serif; font-size: clamp(26px, 2.6vw, 38px); line-height: 1; letter-spacing: .01em">{{s.title}}</span>
+              <span></span>
+              <span style="font-size: 14.5px; color: #3A3D45">{{s.desc}} <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #4A4D55">· {{s.tech}}</span></span>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 TAKE ONE ============ -->
+  <section id="takeone" style="padding: 80px 40px 56px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+    <div style="flex: 999 1 560px; transform: rotate(.6deg); background: #F8F5EE; box-shadow: 0 1px 0 #C9C2B2">
+      <div style="padding: clamp(24px, 4vw, 56px) clamp(22px, 4vw, 56px) 30px; display: flex; flex-direction: column; gap: 16px">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .1em">08 — $ ECHO $COLLABORATION_STATUS</span>
+        <h2 style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: clamp(70px, 9.6vw, 150px); line-height: .84; color: {{inkA}}; mix-blend-mode: multiply">GOT A PROJECT?</h2>
+        <p style="margin: 0; font-size: 19px; max-width: 46ch">Interested in working together? I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+        <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700">▸ Available for opportunities. Take a tab ↓</p>
+      </div>
+      <div style="display: flex; border-top: 2px dashed #1C1E24; height: 210px">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="10">
+          <sc-if value="{{t.torn}}" hint-placeholder-val="{{ false }}">
+            <span aria-hidden="true" style="flex: 1 1 0; min-width: 44px; border-left: 1.5px dashed #1C1E24; background: #EDE8DD; clip-path: polygon(0 0, 100% 0, 100% 18%, 80% 22%, 60% 16%, 40% 24%, 20% 17%, 0 21%)"></span>
+          </sc-if>
+          <sc-if value="{{t.keep}}" hint-placeholder-val="{{ true }}">
+            <a href="{{t.href}}" style="flex: 1 1 0; min-width: 44px; border-left: 1.5px dashed #1C1E24; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #1C1E24">
+              <span style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 700; white-space: nowrap">{{t.label}}</span>
+            </a>
+          </sc-if>
+        </sc-for>
+      </div>
+    </div>
+    <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 4px">
+      <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: .12em">THE FINE PRINT</p>
+      <sc-for list="{{faq}}" as="f" hint-placeholder-count="4">
+        <div style="border-top: 1.5px solid #1C1E24; padding: 12px 0">
+          <p style="margin: 0 0 2px; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 16px">{{f.q}}</p>
+          <p style="margin: 0; font-size: 15px; color: #3A3D45">{{f.a}}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <footer style="position: relative; padding: 22px 40px 40px; border-top: 1.5px solid #1C1E24; display: flex; flex-wrap: wrap; gap: 18px 40px; align-items: center; justify-content: space-between">
+    <div aria-label="Colour control strip" role="img" style="display: flex; isolation: isolate">
+      <span style="width: 26px; height: 26px; background: {{inkA}}"></span><span style="width: 26px; height: 26px; background: {{inkA}}; opacity: .7"></span><span style="width: 26px; height: 26px; background: {{inkA}}; opacity: .45"></span><span style="width: 26px; height: 26px; background: {{inkA}}; opacity: .2"></span>
+      <span style="width: 26px; height: 26px; background: {{inkB}}; margin-left: 8px"></span><span style="width: 26px; height: 26px; background: {{inkB}}; opacity: .7"></span><span style="width: 26px; height: 26px; background: {{inkB}}; opacity: .45"></span><span style="width: 26px; height: 26px; background: {{inkB}}; opacity: .2"></span>
+      <span style="position: relative; width: 26px; height: 26px; margin-left: 8px; background: {{inkB}}"><span style="position: absolute; inset: 0; background: {{inkA}}; mix-blend-mode: multiply"></span></span>
+    </div>
+    <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .06em; max-width: 70ch">COLOPHON — Set in Anton, Archivo and JetBrains Mono. Printed in two inks on natural stock; where they cross, they overprint. © 2026 VoxDroid. VOXDROID v1.2.0 | UTF-8 | LINUX_OSX_CORE</p>
+    <svg aria-hidden="true" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="8" fill="none" stroke="#1C1E24"></circle><path d="M0 15h30M15 0v30" stroke="#1C1E24"></path></svg>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;inkA&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#4338CA&quot;,&quot;options&quot;:[&quot;#4338CA&quot;,&quot;#0078BF&quot;,&quot;#00838A&quot;,&quot;#1C1E24&quot;],&quot;section&quot;:&quot;Inks&quot;},&quot;inkB&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FF6C2F&quot;,&quot;options&quot;:[&quot;#FF5A4F&quot;,&quot;#FF48B0&quot;,&quot;#FFE800&quot;,&quot;#FF6C2F&quot;],&quot;section&quot;:&quot;Inks&quot;},&quot;misregister&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:5,&quot;min&quot;:0,&quot;max&quot;:14,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;section&quot;:&quot;Press&quot;},&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;section&quot;:&quot;Press&quot;},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:7200}}">
+class Component extends DCLogic {
+  renderVals() {
+    var A = this.props.inkA ?? '#4338CA', B = this.props.inkB ?? '#FF5A4F';
+    var m = this.props.misregister ?? 5, grain = this.props.grain ?? true;
+    var gh = 'https://github.com/VoxDroid/';
+    var stats = [
+      { v: '685', label: 'STARS', note: 'across public repos', ink: A },
+      { v: '73', label: 'REPOSITORIES', note: 'public, and counting', ink: B },
+      { v: '2,222', label: 'CONTRIBUTIONS', note: 'in the last 12 months', ink: A },
+      { v: '6+', label: 'YEARS OF CODE', note: 'interest sparked in 2015', ink: B }
+    ];
+    var act = function (name, size) { return { name: name.toUpperCase(), url: gh + name, size: size }; };
+    var stages = [
+      { name: 'STAGE A — APPS', acts: [act('Eventra', 'clamp(40px, 5vw, 76px)'), act('CycleOne', 'clamp(40px, 5vw, 76px)'), act('Task-Tracker-Pro', 'clamp(28px, 3.2vw, 48px)'), act('AutoTable', 'clamp(28px, 3.2vw, 48px)')] },
+      { name: 'STAGE B — CLI & DEV TOOLS', acts: [act('krnr', 'clamp(52px, 6.4vw, 98px)'), act('bldrx', 'clamp(40px, 5vw, 76px)'), act('izel', 'clamp(28px, 3.2vw, 48px)')] },
+      { name: 'STAGE C — WEB SYSTEMS', acts: [act('CodeStash', 'clamp(40px, 5vw, 76px)'), act('Web-Inventory', 'clamp(28px, 3.2vw, 48px)')] }
+    ];
+    var apps = [
+      ['KemonoDownloader','Python','382','Desktop app','A cross-platform PyQt6 app to download posts and creator content from Kemono, Coomer and Pawchive, with concurrent downloads, file deduplication and customizable settings.'],
+      ['Eventra','PHP','4','Web app','An open-source, organization-focused event management system built on Laravel 12 and Filament v4.'],
+      ['CycleOne','Swift','5','iOS app','A privacy-first, subscription-free period and cycle tracker. No cloud, no accounts: just your data on your device, exactly where it belongs.'],
+      ['krnr','Go','7','CLI tool','A cross-platform Go CLI with a global, persistent command registry backed by SQLite, for registering, running, importing, exporting and managing commands.'],
+      ['bldrx','Python','4','CLI tool','A template-driven project scaffolder for creating reproducible CI/CD workflows and starter projects.'],
+      ['Task-Tracker-Pro','TypeScript','3','Desktop app','A self-hosted task and time-tracking app with projects, tasks and time entries. Web or Electron, built with Next.js and Tailwind, with SQLite for local-first storage.'],
+      ['AutoTable','TypeScript','3','Web app','A specialized SaaS application engineered for high-efficiency spreadsheet sanitization.'],
+      ['CodeStash','PHP','1','Web app','A private, organization-scoped code snippet manager where team members save, tag, search and share reusable snippets.'],
+      ['Web-Inventory','PHP','0','Web app','A private web inventory and monitoring system for DIC-UP Los Baños, with a website registry, status checks, role-based admin tools and audit-ready operations.'],
+      ['izel','Rust','3','Dev tool','A developer tool written in Rust.']
+    ].map(function (p, i) { return { n: (i < 9 ? '0' : '') + (i + 1), name: p[0], lang: p[1], stars: p[2], cat: p[3], desc: p[4], url: gh + p[0], ink: i % 2 ? B : A }; });
+    var qa = [
+      { q: 'Who is VoxDroid?', a: 'I like making things that help people. I enjoy working on problems step by step, trying different ideas, and learning from others.' },
+      { q: 'What are you like to work with?', a: 'I listen more than I speak, stay calm when things go wrong, and always try to do better. I still have a lot to learn, but I am happy to bring care and effort to any project. I look forward to working with good teams and growing.' },
+      { q: 'Why computers?', a: 'I am in this field because I truly enjoy it. Computers fascinate me, from the simple flow of electricity through small parts, to how basic switches build into complex programs we use every day. I like both the hardware side, such as circuits and memory, and the software side, such as writing clear code and making systems that run smoothly.' },
+      { q: 'What are you into right now?', a: 'Next.js, TypeScript, the Rust programming language, and exploring new frontiers in web development and data science. Always exploring new technologies.' }
+    ];
+    var tour = [
+      ['2015–16','init_journey.sh','My interest in computers sparked; I started learning LUA, BATCH scripts and SHELL scripts.','chmod +x ./learning.sh && ./learning.sh','PLAYED','-7deg',B],
+      ['2017–20','expand_skills.sh','Desktop software and web development, then Android development and machine learning.','pacman -S webdev android ml --noconfirm','PLAYED','5deg',B],
+      ['2021–23','level_up.sh','Personal side projects, refining system architecture, AI/ML and application development.',"git commit -m 'feat: personal growth'",'PLAYED','-4deg',B],
+      ['2024–NOW','current_status.sh','Next.js, TypeScript, Rust, and new frontiers in web development and data science.','systemctl status voxdroid.service','TONIGHT','6deg',A]
+    ].map(function (t) { return { period: t[0], file: t[1], desc: t[2], cmd: t[3], stamp: t[4], rot: t[5], ink: t[6] }; });
+    var services = [
+      ['WEB DEVELOPMENT','Modern, responsive websites and web applications.','React, Next.js, Tailwind'],
+      ['DESKTOP APPLICATIONS','Cross-platform, with native performance.','Rust, C#, Electron, Tauri, Qt'],
+      ['MOBILE DEVELOPMENT','Native and cross-platform for iOS and Android.','Flutter, Swift, React Native'],
+      ['BACKEND & APIS','Scalable backends and REST or GraphQL APIs.','Node.js, Python, GraphQL'],
+      ['AUTOMATION & SCRIPTING','Scripts and tools that streamline workflows.','Python, Bash, PowerShell, GitHub Actions'],
+      ['AI & MACHINE LEARNING','Intelligent solutions powered by ML and AI.','Python, TensorFlow, PyTorch'],
+      ['PC BUILDING & REPAIR','Custom builds, upgrades and repairs.','CPUs, GPUs, NVMe, custom cooling'],
+      ['NETWORKING','Network setup, configuration and security.','Cisco, MikroTik, Ubiquiti, pfSense'],
+      ['EMBEDDED SYSTEMS','IoT devices on single-board computers.','SBCs, sensors, prototyping'],
+      ['SYSTEM ADMINISTRATION','Linux and Windows server management.','Linux, Windows Server, Proxmox']
+    ].map(function (s, i) { return { n: (i < 9 ? '0' : '') + (i + 1), title: s[0], desc: s[1], tech: s[2] }; });
+    var mail = 'mailto:izeno.contact@gmail.com';
+    var tabs = [
+      ['izeno.contact@gmail.com', mail], ['github.com/VoxDroid', 'https://github.com/VoxDroid'], ['', '', true],
+      ['izeno.contact@gmail.com', mail], ['kaggle.com/VoxDroid', 'https://www.kaggle.com/VoxDroid'], ['huggingface.co/iZELX1', 'https://huggingface.co/iZELX1'],
+      ['', '', true], ['izeno.contact@gmail.com', mail], ['VoxDroid_CV.pdf', '/cv/VoxDroid_CV.pdf'], ['izeno.contact@gmail.com', mail]
+    ].map(function (t) { return { label: t[0], href: t[1], torn: !!t[2], keep: !t[2] }; });
+    var faq = [
+      { q: 'What services do you offer?', a: 'Mostly web development: responsive, user-friendly websites and web apps with React, Next.js and more.' },
+      { q: 'How quickly can you complete a project?', a: 'It depends on complexity and scope. After we discuss your requirements, I can give a more accurate estimate.' },
+      { q: 'Do you offer maintenance?', a: 'Yes: updates, bug fixes and performance improvements so it keeps running well after launch.' },
+      { q: 'How do we get started?', a: 'Email me. We schedule a consultation on requirements, timeline and budget, then I send a detailed proposal.' }
+    ];
+    return {
+      inkA: A, inkB: B, grain: grain,
+      shift: m + 'px', shiftY: Math.round(m * 0.7) + 'px', shiftNeg: (-m) + 'px',
+      stats: stats, stages: stages, apps: apps, qa: qa, tour: tour, services: services, tabs: tabs, faq: faq
+    };
+  }
+}
+</script>
+</body>
+</html>

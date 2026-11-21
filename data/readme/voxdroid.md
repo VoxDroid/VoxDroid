@@ -1,0 +1,87 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/hero.dark.svg">
+  <img src="readme/poster/hero.light.svg" width="100%" alt="VOX DROID in poster type beside a two-colour halftone portrait. Systems. Intelligence. Code.">
+</picture>
+
+[Portfolio](https://voxdroid.vercel.app) · [GitHub](https://github.com/VoxDroid) · [Kaggle](https://www.kaggle.com/VoxDroid) · [Hugging Face](https://huggingface.co/iZELX1)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-about.dark.svg">
+  <img src="readme/poster/h-about.light.svg" width="100%" alt="About">
+</picture>
+
+Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I build command-line tools, web and desktop apps and machine-learning projects, and I run a self-hosted homelab.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-focus.dark.svg">
+  <img src="readme/poster/h-focus.light.svg" width="100%" alt="Focus">
+</picture>
+
+- **AI and machine learning.** LLMs, computer vision, neural networks and agents.
+- **Web development.** Modern, high-performance, responsive applications.
+- **Open source.** Contributing, maintaining, and scaling core modules.
+- **Cybersecurity.** Ethical hacking, privacy, and network defense.
+- **Linux and homelab.** Self-hosted infrastructure and system-level automation.
+- **Cloud and DevOps.** Containers, Kubernetes, CI/CD pipelines, and scalable architecture.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-stack.dark.svg">
+  <img src="readme/poster/h-stack.light.svg" width="100%" alt="Stack">
+</picture>
+
+<table>
+  <tr><th align="left">Languages</th><td>Python · TypeScript · JavaScript · PHP · Rust · C++</td></tr>
+  <tr><th align="left">Machine learning</th><td>PyTorch · TensorFlow · scikit-learn · Jupyter</td></tr>
+  <tr><th align="left">Web</th><td>React · Next.js · FastAPI</td></tr>
+  <tr><th align="left">Infrastructure</th><td>Docker · Kubernetes · Linux · Proxmox · nginx · WireGuard</td></tr>
+</table>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-work.dark.svg">
+  <img src="readme/poster/h-work.light.svg" width="100%" alt="Selected work">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/lineup.dark.svg">
+  <img src="readme/poster/lineup.light.svg" width="100%" alt="KemonoDownloader, Construction-Site-Safety-PPE-Detection, Eventra, CycleOne, krnr, VoxSpace, PyExe-Builder, bldrx, Task-Tracker-Pro, Izel">
+</picture>
+
+<sub>[KemonoDownloader](https://github.com/VoxDroid/KemonoDownloader) · [Construction-Site-Safety-PPE-Detection](https://github.com/VoxDroid/Construction-Site-Safety-PPE-Detection) · [Eventra](https://github.com/VoxDroid/Eventra) · [CycleOne](https://github.com/VoxDroid/CycleOne) · [krnr](https://github.com/VoxDroid/krnr) · [VoxSpace](https://github.com/VoxDroid/VoxSpace) · [PyExe-Builder](https://github.com/VoxDroid/PyExe-Builder) · [bldrx](https://github.com/VoxDroid/bldrx) · [Task-Tracker-Pro](https://github.com/VoxDroid/Task-Tracker-Pro) · [Izel](https://github.com/VoxDroid/izel)</sub>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-certified.dark.svg">
+  <img src="readme/poster/h-certified.light.svg" width="100%" alt="Certified">
+</picture>
+
+[Ethical Hacker](https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url) · [Network Defense](https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url) · [AI Fundamentals](https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url) · [AI Fundamentals](https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url) · [I2CS](https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url) · [CHB](https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-numbers.dark.svg">
+  <img src="readme/poster/h-numbers.light.svg" width="100%" alt="By the numbers">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/numbers.dark.svg">
+  <img src="readme/poster/numbers.light.svg" width="100%" alt="Total stars and profile views, updated twice a day">
+</picture>
+<img src="https://komarev.com/ghpvc/?username=VoxDroid" width="1" height="1" alt="">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-recent.dark.svg">
+  <img src="readme/poster/h-recent.light.svg" width="100%" alt="Recent activity">
+</picture>
+
+<div>
+<!--RECENT_ACTIVITY:start-->
+<table>
+<tr><td>Nov&nbsp;20</td><td>Pushed 53 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
+<tr><td>Nov&nbsp;20</td><td>Pushed 47 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a></td></tr>
+<tr><td>Nov&nbsp;20</td><td>Pushed 24 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
+<tr><td>Nov&nbsp;20</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/pull/5">#5</a> Decode HTML entities once and strip tags completely</td></tr>
+<tr><td>Nov&nbsp;20</td><td>Merged 7 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/pull/10">#10</a> Decode HTML entities once and strip tags completely</td></tr>
+<tr><td>Nov&nbsp;20</td><td>Released <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/releases/tag/v1.0.0">v1.0.0</a> of <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
+<tr><td>Nov&nbsp;20</td><td>Merged 14 pull requests in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/pull/109">#109</a> Show Pawchive Downloader's download button in the READMEs</td></tr>
+</table>
+<sub>Last 14 days: 124 commits, 24 pull requests merged, 14 issues closed, 4 releases. Updated Nov 21, 2026, 6:53 AM GMT+9.</sub>
+<!--RECENT_ACTIVITY:end-->
+</div>

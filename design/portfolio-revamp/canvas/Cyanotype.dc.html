@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VoxDroid — Sun Print</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#F1ECDF}
+a{color:#123F8C;text-underline-offset:4px;text-decoration-thickness:1px}
+a:hover{color:#1A2236}
+.cy-m{-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.cy-avatar{-webkit-mask-image:url(/_blob/2d437a9127e86b873d6450b9f3af80f7);mask-image:url(/_blob/2d437a9127e86b873d6450b9f3af80f7)}
+.cy-panel{-webkit-mask-image:url(/_blob/609fd3bdad88b7ff5cd4b3ba87712655);mask-image:url(/_blob/609fd3bdad88b7ff5cd4b3ba87712655)}
+.cy-kemono{-webkit-mask-image:url(/_blob/28bf4994451a72d138ec0c318c4c4d46);mask-image:url(/_blob/28bf4994451a72d138ec0c318c4c4d46)}
+.cy-krnr{-webkit-mask-image:url(/_blob/496a14610a33c555f88533f2c11cfc04);mask-image:url(/_blob/496a14610a33c555f88533f2c11cfc04)}
+.cy-eventra{-webkit-mask-image:url(/_blob/5171903fe967de223cab223d7fb0e903);mask-image:url(/_blob/5171903fe967de223cab223d7fb0e903)}
+.cy-cycleone{-webkit-mask-image:url(/_blob/8fdb9764141be12f17cf5299b925305f);mask-image:url(/_blob/8fdb9764141be12f17cf5299b925305f)}
+.cy-ttp{-webkit-mask-image:url(/_blob/38f4f1a3b7fb8cad078050f5b344550b);mask-image:url(/_blob/38f4f1a3b7fb8cad078050f5b344550b)}
+.cy-bldrx{-webkit-mask-image:url(/_blob/455d2d28eea798aca73ba4efda44f8e3);mask-image:url(/_blob/455d2d28eea798aca73ba4efda44f8e3)}
+.cy-autotable{-webkit-mask-image:url(/_blob/806eeffcbc6db6c2a07de60d45b44996);mask-image:url(/_blob/806eeffcbc6db6c2a07de60d45b44996)}
+.cy-codestash{-webkit-mask-image:url(/_blob/fb317d5de3a4fccfac6fe8f10baa11bb);mask-image:url(/_blob/fb317d5de3a4fccfac6fe8f10baa11bb)}
+</style>
+</helmet>
+<div style="position: relative; isolation: isolate; min-height: 100vh; background: #F1ECDF; color: #1A2236; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.6; overflow: hidden">
+
+  <!-- cotton rag fibres -->
+  <svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 30; mix-blend-mode: multiply; opacity: .16"><filter id="cyfibre"><feTurbulence type="fractalNoise" baseFrequency=".012 .5" numOctaves="3" seed="9"></feTurbulence><feColorMatrix type="matrix" values="0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .42  0 0 0 -1.4 1.2"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#cyfibre)"></rect></svg>
+
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 40px">
+
+    <!-- header / plate index -->
+    <header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px 32px; padding: 28px 0 16px; border-bottom: 1px solid #1A2236">
+      <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: .14em">VOXDROID · A SUN-PRINTED PORTFOLIO · VOL. II</span>
+      <nav aria-label="Plates" style="display: flex; flex-wrap: wrap; gap: 0 22px; font-family: 'Instrument Serif', serif; font-size: 19px">
+        <a href="#cy-work" style="text-decoration: none; padding: 8px 0"><em>II</em> The Work</a>
+        <a href="#cy-notes" style="text-decoration: none; padding: 8px 0"><em>III</em> Field Notes</a>
+        <a href="#cy-practice" style="text-decoration: none; padding: 8px 0"><em>IV</em> Practices</a>
+        <a href="#cy-write" style="text-decoration: none; padding: 8px 0"><em>V</em> Correspondence</a>
+      </nav>
+    </header>
+
+    <!-- cover -->
+    <section style="display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; padding: 56px 0 72px">
+      <div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: .14em; color: {{blue}}">PLATE I · EXPOSED 2015 — 2026</span>
+        <h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(104px, 15vw, 232px); line-height: .82; letter-spacing: -.02em">Vox<em style="color: {{blue}}">Droid</em></h1>
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(26px, 2.8vw, 38px); line-height: 1.2; max-width: 22ch">Photograms of systems, intelligence &amp; code.</p>
+        <p style="margin: 0; max-width: 54ch; font-size: 18px; color: #2A3246">Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I build command-line tools, web and desktop apps and machine-learning projects, and I run a self-hosted homelab.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px 28px; font-family: 'Courier Prime', monospace; font-size: 14px; font-weight: 700">
+          <a href="#cy-work" style="padding: 10px 0">→ Turn to the plates</a>
+          <a href="/cv/VoxDroid_CV.pdf" style="padding: 10px 0">→ Curriculum vitae (PDF)</a>
+        </div>
+      </div>
+      <figure style="flex: 1 1 380px; margin: 0; max-width: 500px; display: flex; flex-direction: column; align-items: center; gap: 18px">
+        <div style="position: relative; width: 100%; aspect-ratio: 820 / 960; background: #F6F2E7; padding: 0">
+          <div class="cy-m cy-avatar" role="img" aria-label="VoxDroid's avatar as a cyanotype sun print" style="position: absolute; inset: 0; background: {{blue}}"></div>
+          <span aria-hidden="true" style="position: absolute; left: -6px; top: -6px; width: 0; height: 0; border-top: 34px solid #1A2236; border-right: 34px solid transparent; opacity: .82"></span>
+          <span aria-hidden="true" style="position: absolute; right: -6px; top: -6px; width: 0; height: 0; border-top: 34px solid #1A2236; border-left: 34px solid transparent; opacity: .82"></span>
+          <span aria-hidden="true" style="position: absolute; left: -6px; bottom: -6px; width: 0; height: 0; border-bottom: 34px solid #1A2236; border-right: 34px solid transparent; opacity: .82"></span>
+          <span aria-hidden="true" style="position: absolute; right: -6px; bottom: -6px; width: 0; height: 0; border-bottom: 34px solid #1A2236; border-left: 34px solid transparent; opacity: .82"></span>
+        </div>
+        <figcaption style="background: #FBF8F0; border: 1px solid #C9C1AE; padding: 10px 16px; font-family: 'Courier Prime', monospace; font-size: 13.5px; transform: rotate(-.8deg); box-shadow: 0 1px 0 #C9C1AE">Plate I. <em>The developer, refuelling.</em> Exposure: 6+ yrs. Medium: bread.</figcaption>
+      </figure>
+    </section>
+
+    <!-- measurements -->
+    <section aria-label="GitHub measurements" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); border-top: 1px solid #1A2236; border-bottom: 1px solid #1A2236">
+      <sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+        <div style="padding: 26px 22px 22px; border-right: 1px solid #C9C1AE">
+          <div style="font-family: 'Instrument Serif', serif; font-size: clamp(64px, 7vw, 104px); line-height: .9; color: {{blue}}">{{s.v}}</div>
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 21px; margin-top: 6px">{{s.label}}</div>
+          <div style="font-family: 'Courier Prime', monospace; font-size: 13px; color: #4B5266">{{s.note}}</div>
+        </div>
+      </sc-for>
+    </section>
+
+    <!-- the work -->
+    <section id="cy-work" style="padding: 88px 0 40px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 32px; margin-bottom: 34px">
+        <div>
+          <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: .14em; color: {{blue}}">PLATES II — XI</span>
+          <h2 style="margin: 4px 0 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(56px, 7vw, 104px); line-height: .9">The Work</h2>
+        </div>
+        <p style="margin: 0; max-width: 46ch; color: #2A3246">Ten projects, each laid on coated paper and left in the sun. What blocked the light stays white. <a href="https://github.com/VoxDroid?tab=repositories">63 more specimens on GitHub ↗</a></p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 44px 32px">
+        <sc-for list="{{plates}}" as="p" hint-placeholder-count="10">
+          <article style="display: flex; flex-direction: column; gap: 14px">
+            <div style="position: relative; aspect-ratio: 1 / 1">
+              <sc-if value="{{p.hasLogo}}" hint-placeholder-val="{{ true }}">
+                <div class="{{p.cls}}" role="img" aria-label="Photogram of the {{p.name}} logo" style="position: absolute; inset: 0; background: {{blue}}"></div>
+              </sc-if>
+              <sc-if value="{{p.noLogo}}" hint-placeholder-val="{{ false }}">
+                <div class="cy-m cy-panel" aria-hidden="true" style="position: absolute; inset: 0; background: {{blue}}"></div>
+                <span aria-hidden="true" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 170px; color: #F3EEE2; opacity: .92; filter: blur(.8px)">{{p.initial}}</span>
+              </sc-if>
+            </div>
+            <div style="background: #FBF8F0; border: 1px solid #C9C1AE; padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; transform: rotate({{p.rot}})">
+              <div style="display: flex; justify-content: space-between; gap: 8px; font-family: 'Courier Prime', monospace; font-size: 12.5px; color: #4B5266"><span>PLATE {{p.roman}}</span><span>★ {{p.stars}}</span></div>
+              <h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; font-size: 32px; line-height: 1.05; word-break: break-word">{{p.name}}</h3>
+              <div style="font-family: 'Courier Prime', monospace; font-size: 13px">Genus: {{p.cat}} · Medium: {{p.lang}}</div>
+              <p style="margin: 2px 0 4px; font-size: 15.5px; color: #2A3246">{{p.desc}}</p>
+              <a href="{{p.url}}" style="font-family: 'Courier Prime', monospace; font-size: 13.5px; font-weight: 700; padding: 6px 0">View specimen ↗</a>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- field notes -->
+    <section id="cy-notes" style="padding: 72px 0 40px; border-top: 1px solid #1A2236; display: flex; flex-wrap: wrap; gap: 48px 72px">
+      <div style="flex: 999 1 540px; min-width: 0">
+        <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: .14em; color: {{blue}}">PLATE III</span>
+        <h2 style="margin: 4px 0 26px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(56px, 7vw, 104px); line-height: .9">Field Notes</h2>
+        <p style="margin: 0 0 22px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.15; color: {{blue}}">“I like making things that help people.”</p>
+        <div style="column-width: 280px; column-gap: 40px; font-size: 17px; color: #2A3246">
+          <p style="margin: 0 0 14px"><span style="float: left; font-family: 'Instrument Serif', serif; font-size: 86px; line-height: .78; padding: 6px 10px 0 0; color: {{blue}}">I</span> enjoy working on problems step by step, trying different ideas, and learning from others. I listen more than I speak, stay calm when things go wrong, and always try to do better.</p>
+          <p style="margin: 0 0 14px">I still have a lot to learn, but I am happy to bring care and effort to any project. I look forward to working with good teams and growing.</p>
+          <p style="margin: 0 0 14px">I am in this field because I truly enjoy it. Computers fascinate me, from the simple flow of electricity through small parts, to how basic switches build into complex programs we use every day.</p>
+          <p style="margin: 0 0 14px">I like both the hardware side, such as circuits and memory, and the software side, such as writing clear code and making systems that run smoothly. Available for opportunities; always exploring new technologies.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 18px 40px; margin-top: 30px; border-top: 1px solid #C9C1AE; padding-top: 18px; font-size: 15px">
+          <div><div style="font-family: 'Courier Prime', monospace; font-size: 12.5px; letter-spacing: .12em; color: {{blue}}; margin-bottom: 6px">HABITATS</div>AI and machine learning · Web development · Open source · Cybersecurity · Linux and homelab · Cloud and DevOps</div>
+          <div><div style="font-family: 'Courier Prime', monospace; font-size: 12.5px; letter-spacing: .12em; color: {{blue}}; margin-bottom: 6px">INSTRUMENTS</div>Python, TypeScript, JavaScript, PHP, Rust, C++ · PyTorch, TensorFlow, scikit-learn, Jupyter · React, Next.js, FastAPI · Docker, Kubernetes, Linux, Proxmox, nginx, WireGuard</div>
+          <div><div style="font-family: 'Courier Prime', monospace; font-size: 12.5px; letter-spacing: .12em; color: {{blue}}; margin-bottom: 6px">PROVENANCE</div>Laguna State Polytechnic University, BS Computer Science, Intelligent Systems (2022–now). Laguna Senior High School, STEM (2020–22). Pedro Guevara Memorial National High School, STEM (2016–20).</div>
+          <div><div style="font-family: 'Courier Prime', monospace; font-size: 12.5px; letter-spacing: .12em; color: {{blue}}; margin-bottom: 6px">CERTIFIED</div><a href="https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url">Ethical Hacker</a> · <a href="https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url">Network Defense</a> · <a href="https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url">AI Fundamentals</a> · <a href="https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url">AI Fundamentals</a> · <a href="https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url">I2CS</a> · <a href="https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url">CHB</a></div>
+        </div>
+      </div>
+      <!-- growth rings -->
+      <figure style="flex: 1 1 380px; margin: 0; display: flex; flex-direction: column; gap: 18px; max-width: 480px">
+        <svg viewBox="0 0 400 400" role="img" aria-label="Growth rings, one per year from 2015 at the centre to 2026 at the bark, grouped into four phases." style="width: 100%; height: auto; display: block">
+          <sc-for list="{{rings}}" as="r" hint-placeholder-count="12">
+            <circle cx="200" cy="200" r="{{r.r}}" fill="none" stroke="{{blue}}" stroke-width="{{r.w}}" stroke-opacity="{{r.o}}"></circle>
+          </sc-for>
+          <path d="M200 200 L394 160" stroke="#1A2236" stroke-width="1" stroke-dasharray="2 4"></path>
+          <g font-family="'Courier Prime', monospace" font-size="11" fill="#1A2236">
+            <text x="206" y="196">2015</text>
+            <text x="352" y="150">2026</text>
+          </g>
+        </svg>
+        <figcaption style="font-family: 'Courier Prime', monospace; font-size: 13px; color: #4B5266">Fig. 3. Cross-section, one ring per year. Darker rings, faster growth.</figcaption>
+        <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+          <sc-for list="{{phases}}" as="ph" hint-placeholder-count="4">
+            <li style="padding: 12px 0; border-top: 1px solid #C9C1AE">
+              <div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline"><span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px">{{ph.file}}</span><span style="font-family: 'Courier Prime', monospace; font-size: 13px; color: {{blue}}">{{ph.period}}</span></div>
+              <div style="font-size: 15px; color: #2A3246">{{ph.desc}}</div>
+              <code style="font-family: 'Courier Prime', monospace; font-size: 12.5px; color: #4B5266">$ {{ph.cmd}}</code>
+            </li>
+          </sc-for>
+        </ol>
+      </figure>
+    </section>
+
+    <!-- practices -->
+    <section id="cy-practice" style="padding: 72px 0 40px; border-top: 1px solid #1A2236">
+      <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: .14em; color: {{blue}}">PLATE IV</span>
+      <h2 style="margin: 4px 0 30px; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(56px, 7vw, 104px); line-height: .9">Index of Practices</h2>
+      <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 470px), 1fr)); gap: 0 56px">
+        <sc-for list="{{services}}" as="s" hint-placeholder-count="10">
+          <li style="padding: 16px 0; border-bottom: 1px solid #C9C1AE">
+            <div style="display: flex; align-items: baseline; gap: 10px"><span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: {{blue}}; min-width: 40px">{{s.n}}</span><span style="font-family: 'Instrument Serif', serif; font-size: 28px; line-height: 1.1">{{s.title}}</span><span aria-hidden="true" style="flex: 1; border-bottom: 1px dotted #4B5266; transform: translateY(-6px)"></span></div>
+            <div style="padding-left: 50px; font-size: 15.5px; color: #2A3246">{{s.desc}} <em style="font-family: 'Instrument Serif', serif; font-size: 17px; color: #4B5266">{{s.tech}}</em></div>
+          </li>
+        </sc-for>
+      </ol>
+      <div style="margin-top: 40px">
+        <div style="font-family: 'Courier Prime', monospace; font-size: 12.5px; letter-spacing: .12em; color: {{blue}}; margin-bottom: 12px">METHOD — HOW A PROJECT IS PRINTED</div>
+        <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px">
+          <sc-for list="{{method}}" as="m" hint-placeholder-count="4">
+            <li style="position: relative; padding: 22px 20px; min-height: 150px; display: flex; flex-direction: column; gap: 4px; color: #F3EEE2">
+              <div class="cy-m cy-panel" aria-hidden="true" style="position: absolute; inset: 0; background: {{blue}}; opacity: {{m.o}}"></div>
+              <span style="position: relative; font-family: 'Courier Prime', monospace; font-size: 12.5px; letter-spacing: .12em">{{m.n}} · {{m.step}}</span>
+              <span style="position: relative; font-family: 'Instrument Serif', serif; font-size: 34px; line-height: 1">{{m.title}}</span>
+              <span style="position: relative; font-size: 15px">{{m.desc}}</span>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </section>
+
+    <!-- correspondence -->
+    <section id="cy-write" style="padding: 72px 0 40px; border-top: 1px solid #1A2236; display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start">
+      <div style="flex: 999 1 600px; min-width: 0; position: relative; padding: clamp(36px, 5vw, 72px) clamp(28px, 5vw, 72px); color: #F3EEE2">
+        <div class="cy-m cy-panel" aria-hidden="true" style="position: absolute; inset: 0; background: {{blue}}"></div>
+        <div style="position: relative; display: flex; flex-direction: column; gap: 18px">
+          <span style="font-family: 'Courier Prime', monospace; font-size: 13px; letter-spacing: .14em">PLATE V · ECHO $COLLABORATION_STATUS</span>
+          <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(60px, 7.4vw, 112px); line-height: .88">Correspondence</h2>
+          <p style="margin: 0; max-width: 48ch; font-size: 18px">Interested in working together? I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+          <a href="mailto:izeno.contact@gmail.com" style="color: #F3EEE2; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(30px, 3.4vw, 48px); line-height: 1.1; text-decoration-thickness: 1px; padding: 6px 0; word-break: break-word">izeno.contact@gmail.com</a>
+          <div style="display: flex; flex-wrap: wrap; gap: 4px 26px; font-family: 'Courier Prime', monospace; font-size: 14px; font-weight: 700">
+            <a href="https://github.com/VoxDroid" style="color: #F3EEE2; padding: 8px 0">GitHub ↗</a>
+            <a href="https://www.kaggle.com/VoxDroid" style="color: #F3EEE2; padding: 8px 0">Kaggle ↗</a>
+            <a href="https://huggingface.co/iZELX1" style="color: #F3EEE2; padding: 8px 0">Hugging Face ↗</a>
+            <a href="/cv/VoxDroid_CV.pdf" style="color: #F3EEE2; padding: 8px 0">CV ↗</a>
+          </div>
+        </div>
+      </div>
+      <div style="flex: 1 1 320px">
+        <div style="font-family: 'Instrument Serif', serif; font-size: 34px; line-height: 1.05; margin-bottom: 10px">Questions often asked</div>
+        <sc-for list="{{faq}}" as="f" hint-placeholder-count="4">
+          <div style="padding: 12px 0; border-top: 1px solid #C9C1AE">
+            <p style="margin: 0 0 2px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 21px; line-height: 1.2">{{f.q}}</p>
+            <p style="margin: 0; font-size: 15.5px; color: #2A3246">{{f.a}}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 32px; padding: 24px 0 40px; border-top: 1px solid #1A2236; font-family: 'Courier Prime', monospace; font-size: 13px; color: #4B5266">
+      <span>Printed by sunlight on cotton rag, washed in water. Set in Instrument Serif, Instrument Sans &amp; Courier Prime.</span>
+      <span>© 2026 VoxDroid · VOXDROID v1.2.0 | UTF-8</span>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"blue":{"editor":"color","default":"#123F8C","options":["#123F8C","#0E5A8A","#4A3424","#1B2A4A"],"section":"Toning"},"$preview":{"width":1440,"height":6600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var blue = this.props.blue ?? '#123F8C';
+    var gh = 'https://github.com/VoxDroid/';
+    var romans = ['II','III','IV','V','VI','VII','VIII','IX','X','XI'];
+    var cls = { KemonoDownloader: 'cy-kemono', krnr: 'cy-krnr', Eventra: 'cy-eventra', CycleOne: 'cy-cycleone', 'Task-Tracker-Pro': 'cy-ttp', bldrx: 'cy-bldrx', AutoTable: 'cy-autotable', CodeStash: 'cy-codestash' };
+    var tilts = ['-0.6deg','0.5deg','-0.3deg','0.7deg','-0.5deg','0.3deg','-0.7deg','0.4deg','-0.2deg','0.6deg'];
+    var plates = [
+      ['KemonoDownloader','Python','382','Desktop app','A cross-platform PyQt6 app to download posts and creator content from Kemono, Coomer and Pawchive, with concurrent downloads, file deduplication and customizable settings.'],
+      ['Eventra','PHP','4','Web app','An open-source, organization-focused event management system built on Laravel 12 and Filament v4.'],
+      ['CycleOne','Swift','5','iOS app','A privacy-first, subscription-free period and cycle tracker. No cloud, no accounts: just your data on your device.'],
+      ['krnr','Go','7','CLI tool','A cross-platform CLI with a global, persistent command registry backed by SQLite, for registering, running, importing and exporting commands.'],
+      ['bldrx','Python','4','CLI tool','A template-driven project scaffolder for creating reproducible CI/CD workflows and starter projects.'],
+      ['Task-Tracker-Pro','TypeScript','3','Desktop app','Self-hosted task and time tracking with projects, tasks and time entries; web or Electron, with local-first SQLite storage.'],
+      ['AutoTable','TypeScript','3','Web app','A specialized SaaS application engineered for high-efficiency spreadsheet sanitization.'],
+      ['CodeStash','PHP','1','Web app','A private, organization-scoped code snippet manager to save, tag, search and share reusable snippets.'],
+      ['Web-Inventory','PHP','0','Web app','A private web inventory and monitoring system for DIC-UP Los Baños: website registry, status checks, role-based admin tools.'],
+      ['izel','Rust','3','Dev tool','A developer tool written in Rust.']
+    ].map(function (p, i) {
+      var c = cls[p[0]];
+      return { name: p[0], lang: p[1], stars: p[2], cat: p[3], desc: p[4], url: gh + p[0], roman: romans[i], rot: tilts[i],
+        cls: c ? 'cy-m ' + c : '', hasLogo: !!c, noLogo: !c, initial: p[0].charAt(0).toUpperCase() };
+    });
+    var stats = [
+      { v: '685', label: 'stars', note: 'across public repositories' },
+      { v: '73', label: 'repositories', note: 'public, on github.com/VoxDroid' },
+      { v: '2,222', label: 'contributions', note: 'in the last twelve months' },
+      { v: '6+', label: 'years of code', note: 'first exposure, 2015' }
+    ];
+    var phaseOf = function (y) { return y < 2017 ? 0 : y < 2021 ? 1 : y < 2024 ? 2 : 3; };
+    var rings = [];
+    for (var y = 2015; y <= 2026; y++) {
+      var k = y - 2015, ph = phaseOf(y);
+      rings.push({ r: 14 + k * 15.5, w: [3, 6, 9, 12][ph], o: [0.35, 0.55, 0.75, 0.95][ph] });
+    }
+    var phases = [
+      ['init_journey.sh','2015 – 2016','Interest in computers sparked; started learning LUA, BATCH scripts and SHELL scripts.','chmod +x ./learning.sh && ./learning.sh'],
+      ['expand_skills.sh','2017 – 2020','Desktop software and web development, then Android development and machine learning.','pacman -S webdev android ml --noconfirm'],
+      ['level_up.sh','2021 – 2023','Personal side projects, refining system architecture, AI/ML and application development.',"git commit -m 'feat: personal growth'"],
+      ['current_status.sh','2024 – now','Next.js, TypeScript, Rust, and new frontiers in web development and data science.','systemctl status voxdroid.service']
+    ].map(function (p) { return { file: p[0], period: p[1], desc: p[2], cmd: p[3] }; });
+    var services = [
+      ['Web Development','Modern, responsive websites and web applications.','React, Next.js, Tailwind CSS'],
+      ['Desktop Applications','Cross-platform, with native performance.','Rust, C#, Python, Electron, Tauri, Qt'],
+      ['Mobile Development','Native and cross-platform for iOS and Android.','Flutter, Dart, Swift, React Native'],
+      ['Backend & APIs','Scalable backends and REST or GraphQL APIs.','Node.js, Python, GraphQL'],
+      ['Automation & Scripting','Scripts and tools that streamline workflows.','Python, Bash, PowerShell, GitHub Actions'],
+      ['AI & Machine Learning','Intelligent solutions powered by ML and AI.','Python, TensorFlow, PyTorch'],
+      ['PC Building & Repair','Custom builds, upgrades and repairs.','CPUs, GPUs, NVMe, custom cooling'],
+      ['Networking Solutions','Network setup, configuration and security.','Cisco, MikroTik, Ubiquiti, pfSense'],
+      ['Embedded Systems','IoT devices on single-board computers.','SBCs, sensors, prototyping'],
+      ['System Administration','Linux and Windows server management.','Linux, Windows Server, Proxmox']
+    ].map(function (s, i) { return { n: ['i','ii','iii','iv','v','vi','vii','viii','ix','x'][i] + '.', title: s[0], desc: s[1], tech: s[2] }; });
+    var method = [
+      { n: '01', step: 'COAT', title: 'Discuss', desc: 'We talk through your requirements and goals.', o: 0.55 },
+      { n: '02', step: 'EXPOSE', title: 'Plan', desc: 'A detailed plan with timeline and deliverables.', o: 0.7 },
+      { n: '03', step: 'WASH', title: 'Build', desc: 'Development with regular updates and feedback.', o: 0.85 },
+      { n: '04', step: 'MOUNT', title: 'Deliver', desc: 'Final delivery with documentation and support.', o: 1 }
+    ];
+    var faq = [
+      { q: 'What services do you offer?', a: 'Mostly web development: responsive, user-friendly websites and web apps with React, Next.js and more.' },
+      { q: 'How quickly can you complete a project?', a: 'It depends on complexity and scope. After we discuss your requirements, I can give an accurate estimate.' },
+      { q: 'Do you offer maintenance?', a: 'Yes: updates, bug fixes and performance improvements so it keeps running well after launch.' },
+      { q: 'How do we get started?', a: 'Write to me. We schedule a consultation on requirements, timeline and budget, then I send a detailed proposal.' }
+    ];
+    return { blue: blue, plates: plates, stats: stats, rings: rings, phases: phases, services: services, method: method, faq: faq };
+  }
+}
+</script>
+</body>
+</html>
