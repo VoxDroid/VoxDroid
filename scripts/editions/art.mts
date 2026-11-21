@@ -355,33 +355,7 @@ async function main() {
   if (JSON.stringify(sorted) !== JSON.stringify(previous))
     write(manifestFile, JSON.stringify(sorted, null, 2) + "\n");
   await recordImageSizes();
-  recordProjectSlugs();
   console.log(`Art: ${Object.keys(next).length} groups, ${drawn} redrawn.`);
-}
-
-/**
- * Every valid project slug (content files plus repos discovered by topic), for the proxy, which
- * sends unknown /projects/<slug> URLs straight to the not-found page.
- */
-function recordProjectSlugs() {
-  const dir = path.join(root, "content/projects");
-  const named = new Set<string>();
-  const slugs = new Set<string>();
-  for (const file of fs.readdirSync(dir).filter((f) => f.endsWith(".md"))) {
-    slugs.add(file.replace(/\.md$/, ""));
-    const data = splitFrontmatter(fs.readFileSync(path.join(dir, file), "utf8"))
-      .data as { repo?: string };
-    if (data.repo) named.add(data.repo.toLowerCase());
-  }
-  const snapshot = JSON.parse(
-    fs.readFileSync(path.join(root, "data/github.json"), "utf8"),
-  ) as { repos: Record<string, { slug: string; repo: string }> };
-  for (const r of Object.values(snapshot.repos))
-    if (!named.has(r.repo.toLowerCase())) slugs.add(r.slug);
-  const out = path.join(root, "data/project-slugs.json");
-  const text = JSON.stringify([...slugs].sort(), null, 2) + "\n";
-  if (!fs.existsSync(out) || fs.readFileSync(out, "utf8") !== text)
-    write(out, text);
 }
 
 /** Pixel sizes of every logo and screenshot the content names, so pages can reserve their space. */

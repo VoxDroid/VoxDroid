@@ -74,23 +74,40 @@ test.describe("old routes and metadata", () => {
     expect(robots).toMatch(/Sitemap: .*\/sitemap\.xml/);
   });
 
-  test("an unknown project is a 404 rendered on the server, in the visitor's edition", async ({
+  test("unknown pages answer 404 with noindex, and plain unknown URLs render fully on the server", async ({
     request,
   }) => {
+    // A thrown notFound() (unknown project) streams its UI for the browser to render; the status
+    // and robots tag are still right. Browser rendering is covered in pages.spec.ts.
+    const project = await request.get("/projects/no-such-project");
+    expect(project.status()).toBe(404);
+    expect(await project.text()).toContain(
+      '<meta name="robots" content="noindex"/>',
+    );
+
+    // An unmatched URL is rendered completely on the server, in the visitor's edition.
     for (const [edition, words] of [
       ["two-inks", "Misprint"],
       ["photocopy", "PAPER JAM"],
       ["sun-print", "Plate missing"],
     ] as const) {
-      const res = await request.get("/projects/no-such-project", {
+      const res = await request.get("/no-such-page", {
         headers: { cookie: `edition=${edition}` },
       });
       expect(res.status()).toBe(404);
       const html = await res.text();
       expect(html).toContain(`data-edition="${edition}"`);
       expect(html).toContain(words);
-      expect(html).not.toContain('id="__next_error__"');
     }
+  });
+
+  test("the favicon is served where browsers ask for it", async ({
+    request,
+  }) => {
+    // Chrome requests /favicon.ico directly on some navigations, whatever the page links to.
+    const res = await request.get("/favicon.ico");
+    expect(res.status()).toBe(200);
+    expect(res.headers()["content-type"]).toContain("image/");
   });
 
   test("security headers are set", async ({ request }) => {

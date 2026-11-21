@@ -145,16 +145,3 @@ describe("GitHub snapshot", () => {
       ).toBe(r.hasReadme);
   });
 });
-
-describe("project slug list for the proxy", () => {
-  it("matches the real project list exactly", () => {
-    const listed = JSON.parse(
-      fs.readFileSync(path.join(root, "data/project-slugs.json"), "utf8"),
-    ) as string[];
-    expect(listed).toEqual(
-      getProjects()
-        .map((p) => p.slug)
-        .sort(),
-    );
-  });
-});

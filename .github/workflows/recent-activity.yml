@@ -34,21 +34,22 @@ jobs:
         with:
           node-version: lts/*
 
-      # Both scripts have no dependencies, so there is nothing to install.
+      # None of these scripts has dependencies, so there is nothing to install.
       # Each keeps the existing content if GitHub's API is unavailable.
       - name: Write the activity digest
         continue-on-error: true
         run: node scripts/readme/activity.mjs
 
-      - name: Redraw README charts
-        continue-on-error: true
-        run: node scripts/readme/charts.mjs
-
       # The portfolio site renders from this snapshot instead of calling GitHub per request.
       # Files change only when the data does, and each change redeploys the site.
+      # It runs before the charts because the README's streak figure reads it.
       - name: Refresh the portfolio snapshot
         continue-on-error: true
         run: node scripts/github/snapshot.mjs
+
+      - name: Redraw README charts
+        continue-on-error: true
+        run: node scripts/readme/charts.mjs
 
       - name: Commit and push
         run: |

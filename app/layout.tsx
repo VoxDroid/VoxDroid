@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   description: site.intro,
   applicationName: site.handle,
   authors: [{ name: site.handle, url: site.links[0].href }],
-  icons: { icon: "/ico/vox.ico" },
   openGraph: {
     type: "website",
     siteName: site.handle,
