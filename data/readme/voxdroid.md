@@ -53,7 +53,14 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
   <img src="readme/poster/h-certified.light.svg" width="100%" alt="Certified">
 </picture>
 
-[Ethical Hacker](https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url) · [Network Defense](https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url) · [AI Fundamentals](https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url) · [AI Fundamentals](https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url) · [I2CS](https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url) · [CHB](https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url)
+<table>
+  <tr><th align="left">Certificate</th><th align="left">Issued by</th><th align="left">Date</th><th align="left">Credential ID</th></tr>
+  <tr><td>Cisco Certified Support Technician – Cybersecurity (CCST)</td><td>Cisco</td><td>April 2026</td><td><code>w9war-H9Qu</code></td></tr>
+  <tr><td>IBM and ISC2 Cybersecurity Specialist</td><td>IBM / ISC2 via Coursera</td><td>January 2026</td><td><code>M45DYKASB6LV</code></td></tr>
+  <tr><td>Google Cybersecurity Professional Certificate</td><td>Google via Coursera</td><td>January 2026</td><td><code>MQ2VW1YU0JSD</code></td></tr>
+  <tr><td>Google Data Analytics Professional Certificate</td><td>Google via Coursera</td><td>January 2026</td><td><code>PVDA1J1US6P6</code></td></tr>
+  <tr><td>IBM AI Developer Professional Certificate</td><td>IBM via Coursera</td><td>December 2025</td><td><code>WX69NPK042I0</code></td></tr>
+</table>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-numbers.dark.svg">
@@ -62,7 +69,7 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="readme/poster/numbers.dark.svg">
-  <img src="readme/poster/numbers.light.svg" width="100%" alt="Total stars and profile views, updated twice a day">
+  <img src="readme/poster/numbers.light.svg" width="100%" alt="Total stars, profile views and contribution streak, updated twice a day">
 </picture>
 <img src="https://komarev.com/ghpvc/?username=VoxDroid" width="1" height="1" alt="">
 
@@ -74,14 +81,14 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 <div>
 <!--RECENT_ACTIVITY:start-->
 <table>
+<tr><td>Nov&nbsp;21</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/VoxDroid">VoxDroid</a>, latest <a href="https://github.com/VoxDroid/VoxDroid/pull/9">#9</a> Replace the certifications on the site, CVs and README</td></tr>
 <tr><td>Nov&nbsp;20</td><td>Pushed 53 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
 <tr><td>Nov&nbsp;20</td><td>Pushed 47 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a></td></tr>
 <tr><td>Nov&nbsp;20</td><td>Pushed 24 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
 <tr><td>Nov&nbsp;20</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/pull/5">#5</a> Decode HTML entities once and strip tags completely</td></tr>
 <tr><td>Nov&nbsp;20</td><td>Merged 7 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/pull/10">#10</a> Decode HTML entities once and strip tags completely</td></tr>
 <tr><td>Nov&nbsp;20</td><td>Released <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/releases/tag/v1.0.0">v1.0.0</a> of <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
-<tr><td>Nov&nbsp;20</td><td>Merged 14 pull requests in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/pull/109">#109</a> Show Pawchive Downloader's download button in the READMEs</td></tr>
 </table>
-<sub>Last 14 days: 124 commits, 24 pull requests merged, 14 issues closed, 4 releases. Updated Nov 21, 2026, 6:53 AM GMT+9.</sub>
+<sub>Last 14 days: 124 commits, 27 pull requests merged, 14 issues closed, 4 releases. Updated Nov 21, 2026, 6:58 PM GMT+9.</sub>
 <!--RECENT_ACTIVITY:end-->
 </div>

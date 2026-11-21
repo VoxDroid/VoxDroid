@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-21T02:35:59.638Z",
+  "generatedAt": "2026-11-21T20:36:57.355Z",
   "login": "VoxDroid",
   "profile": {
     "createdAt": "2021-02-01T03:47:48Z",
     "followers": 24,
     "following": 8,
     "publicRepos": 73,
-    "stars": 685,
+    "stars": 687,
     "forks": 88
   },
   "contributions": {
-    "total": 6049,
-    "lastYear": 2215,
+    "total": 6057,
+    "lastYear": 2223,
     "weeks": [
       16,
       17,
@@ -65,7 +65,7 @@
       30,
       71,
       149,
-      6
+      14
     ],
     "current": 612,
     "longest": 612
@@ -112,6 +112,21 @@
     },
     {
       "date": "2026-11-20",
+      "text": "Pushed to KemonoDownloader",
+      "url": "https://github.com/VoxDroid/KemonoDownloader"
+    },
+    {
+      "date": "2026-11-21",
+      "text": "Pushed to VoxDroid",
+      "url": "https://github.com/VoxDroid/VoxDroid"
+    },
+    {
+      "date": "2026-11-20",
+      "text": "Pushed to PawchiveDownloader",
+      "url": "https://github.com/VoxDroid/PawchiveDownloader"
+    },
+    {
+      "date": "2026-11-20",
       "text": "Pushed to PawchiveDownloader-BrowserExtension",
       "url": "https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension"
     },
@@ -139,21 +154,6 @@
       "date": "2026-11-20",
       "text": "Released v2.0.0 of PawchiveDownloader",
       "url": "https://github.com/VoxDroid/PawchiveDownloader"
-    },
-    {
-      "date": "2026-11-20",
-      "text": "Released v5.16.0 of KemonoDownloader",
-      "url": "https://github.com/VoxDroid/KemonoDownloader"
-    },
-    {
-      "date": "2026-11-18",
-      "text": "Pushed to PawchiveDownloader-BrowserExtension",
-      "url": "https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension"
-    },
-    {
-      "date": "2026-11-17",
-      "text": "Pushed to KemonoDownloader",
-      "url": "https://github.com/VoxDroid/KemonoDownloader"
     }
   ],
   "repos": {
@@ -2934,14 +2934,14 @@
       "forks": 2,
       "archived": false,
       "createdAt": "2024-10-31T05:59:54Z",
-      "pushedAt": "2026-11-21T01:34:59Z",
+      "pushedAt": "2026-11-21T09:58:32Z",
       "defaultBranch": "main",
       "language": "TypeScript",
       "languages": [
         {
           "name": "TypeScript",
           "color": "#3178c6",
-          "bytes": 264482
+          "bytes": 267030
         },
         {
           "name": "HTML",
@@ -2951,7 +2951,7 @@
         {
           "name": "JavaScript",
           "color": "#f1e05a",
-          "bytes": 92390
+          "bytes": 94193
         },
         {
           "name": "CSS",
@@ -2983,6 +2983,42 @@
       "releases": [],
       "commits": [
         {
+          "sha": "ec9972f",
+          "message": "Update README with recent activity",
+          "date": "2026-11-21T09:58:31Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/ec9972f9ca764c14813a3ce3f5f25e538a9a36ba"
+        },
+        {
+          "sha": "f63c278",
+          "message": "Merge pull request #9: replace the certifications",
+          "date": "2026-11-21T06:05:45Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/f63c278e24fdbff0c25c3246d58ab8cbcda8e8c9"
+        },
+        {
+          "sha": "2d44b6a",
+          "message": "Link each certification to its verification page on the CV",
+          "date": "2026-11-21T05:58:29Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/2d44b6ad47353447673bee028fa2c7804603528e"
+        },
+        {
+          "sha": "f552a0a",
+          "message": "Replace the certifications on the site, CVs and README",
+          "date": "2026-11-21T05:46:51Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/f552a0abc5699b6930eecb6a836cf3364cdf2a4a"
+        },
+        {
+          "sha": "d01e244",
+          "message": "Merge pull request #8: contribution streak in the README and two fixes",
+          "date": "2026-11-21T04:37:51Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/d01e244d803a4b5b4e4fa2d038407e0650acfe0c"
+        },
+        {
+          "sha": "5534cf3",
+          "message": "Add the contribution streak to the README and fix two edge cases",
+          "date": "2026-11-21T04:32:19Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/5534cf3246ed16232727b610b16c22d8ed42c110"
+        },
+        {
           "sha": "78587f7",
           "message": "Merge pull request #7: three switchable print editions and CV",
           "date": "2026-11-21T01:34:53Z",
@@ -2993,42 +3029,6 @@
           "message": "Add CV editions for each print style",
           "date": "2026-11-21T01:29:57Z",
           "url": "https://github.com/VoxDroid/VoxDroid/commit/d5d62a5eb2b9753ba8e09c10c4387fb49f21b946"
-        },
-        {
-          "sha": "0f10908",
-          "message": "Sync the lockfile's engine range with package.json",
-          "date": "2026-11-21T01:15:11Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/0f10908d5fae57c7ae17dcc4391ac0db8c1631a5"
-        },
-        {
-          "sha": "a14cd3f",
-          "message": "Rebuild the portfolio as three switchable print editions",
-          "date": "2026-11-21T01:13:54Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/a14cd3f2a46b27ffa788464e2883f478aad91141"
-        },
-        {
-          "sha": "2a36c5c",
-          "message": "Add \"By the numbers\" section with total stars and profile views",
-          "date": "2026-11-20T23:24:14Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/2a36c5cb17e8b3538fe5cfc030fdb533a91ff4a3"
-        },
-        {
-          "sha": "3d881f3",
-          "message": "Update README with recent activity",
-          "date": "2026-11-20T21:53:42Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/3d881f32f147c111c41053fd9da76d830ab9ed40"
-        },
-        {
-          "sha": "0211293",
-          "message": "Update README with recent activity",
-          "date": "2026-11-20T10:12:12Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/0211293fe3d1ea8c65a290bafde005c93f70d9bd"
-        },
-        {
-          "sha": "dfc51c3",
-          "message": "Update README with recent activity",
-          "date": "2026-11-19T22:18:38Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/dfc51c31368ef5394b8a4d8d0ec65fc7ec2e25dc"
         }
       ],
       "readmePath": "VoxDroid/VoxDroid/README.md",
