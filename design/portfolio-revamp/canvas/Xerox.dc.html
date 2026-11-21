@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VoxDroid — Photocopy Zine</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Anton&amp;family=Archivo+Black&amp;family=Bungee&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=DM+Serif+Display&amp;family=Permanent+Marker&amp;family=Rubik+Mono+One&amp;family=Special+Elite&amp;display=swap">
+<style>
+body{margin:0;background:#E9E6DF}
+a{color:#141414;text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{color:#C81E16}
+input,textarea{font:inherit}
+input:focus,textarea:focus{outline:3px solid #141414;outline-offset:2px}
+.zx-hl{box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 .18em;margin:0 -.1em}
+</style>
+</helmet>
+<div style="position: relative; isolation: isolate; min-height: 100vh; background: #F2F0EA; color: #141414; font-family: 'Courier Prime', 'Courier New', monospace; font-size: 17px; line-height: 1.55; overflow: hidden; max-width: 1440px; margin: 0 auto">
+
+  <!-- copier noise: toner specks and two drum streaks -->
+  <sc-if value="{{toner}}" hint-placeholder-val="{{ true }}">
+    <svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 40; mix-blend-mode: multiply"><filter id="zxspeck"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="1" seed="4"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix><feComponentTransfer><feFuncR type="discrete" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></feFuncR><feFuncG type="discrete" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></feFuncG><feFuncB type="discrete" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></feFuncB></feComponentTransfer></filter><rect width="100%" height="100%" filter="url(#zxspeck)" opacity=".55"></rect></svg>
+    <div aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: 18%; width: 2px; background: linear-gradient(#141414 0 20%, transparent 20% 34%, #141414 34% 61%, transparent 61% 70%, #141414 70%); opacity: .08; z-index: 40; pointer-events: none"></div>
+    <div aria-hidden="true" style="position: absolute; top: 0; bottom: 0; right: 7%; width: 1px; background: #141414; opacity: .12; z-index: 40; pointer-events: none"></div>
+    <div aria-hidden="true" style="position: absolute; top: 0; bottom: 0; right: 0; width: 26px; background: linear-gradient(90deg, transparent, rgba(20,20,20,.22)); z-index: 40; pointer-events: none"></div>
+  </sc-if>
+
+  <!-- masthead -->
+  <header style="position: relative; padding: 26px 40px 0">
+    <div aria-hidden="true" style="position: absolute; left: 34px; top: 18px; width: 46px; height: 5px; background: linear-gradient(#9A9A9A, #5C5C5C); border-radius: 1px; transform: rotate(-4deg)"></div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 14px; border-bottom: 3px solid #141414; padding-bottom: 8px; font-family: 'Special Elite', monospace; font-size: 14px; letter-spacing: .04em">
+      <span>VOXDROID ZINE · ISSUE #03 · NOV 2026</span>
+      <span>FREE. PLEASE COPY &amp; PASS IT ON.</span>
+    </div>
+  </header>
+
+  <!-- cover -->
+  <section style="position: relative; padding: 24px 40px 40px; display: flex; flex-wrap: wrap; gap: 32px 40px; align-items: flex-start">
+    <div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+      <h1 aria-label="VoxDroid" style="margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; line-height: 1">
+        <sc-for list="{{ransom}}" as="r" hint-placeholder-count="8">
+          <span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; font-family: {{r.font}}; font-size: {{r.size}}; color: {{r.fg}}; background: {{r.bg}}; padding: {{r.pad}}; transform: rotate({{r.rot}}) translateY({{r.dy}}); box-shadow: 1px 2px 0 rgba(20,20,20,.25); border: {{r.border}}">{{r.ch}}</span>
+        </sc-for>
+      </h1>
+      <p style="margin: 0; font-family: 'Archivo Black', sans-serif; font-size: clamp(22px, 2.4vw, 34px); line-height: 1.25; text-transform: uppercase"><span class="zx-hl" style="background: linear-gradient(176deg, transparent 12%, {{hi}} 14%, {{hi}} 86%, transparent 88%)">systems. intelligence. code.</span></p>
+      <div style="background: #FBFAF7; padding: 18px 22px; transform: rotate({{tilt1}}); max-width: 620px; box-shadow: 1px 2px 0 rgba(20,20,20,.18); position: relative">
+        <div aria-hidden="true" style="position: absolute; left: 40%; top: -12px; width: 90px; height: 24px; background: rgba(226,221,203,.85); transform: rotate(3deg)"></div>
+        <p style="margin: 0; font-size: 18px">Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I build command-line tools, web and desktop apps and machine-learning projects, and I run a self-hosted homelab.</p>
+      </div>
+      <!-- contents as nav -->
+      <nav aria-label="Contents" style="max-width: 520px; font-family: 'Special Elite', monospace; font-size: 15px">
+        <div style="font-family: 'Permanent Marker', cursive; font-size: 22px; color: #C81E16; transform: rotate(-2deg); margin-bottom: 4px">inside this issue:</div>
+        <a href="#zx-work" style="display: flex; gap: 6px; text-decoration: none; padding: 7px 0"><span>the work (10 clippings)</span><span style="flex: 1; border-bottom: 2px dotted #141414; transform: translateY(-5px)"></span><span>p.3</span></a>
+        <a href="#zx-numbers" style="display: flex; gap: 6px; text-decoration: none; padding: 7px 0"><span>github, by the numbers</span><span style="flex: 1; border-bottom: 2px dotted #141414; transform: translateY(-5px)"></span><span>p.2</span></a>
+        <a href="#zx-letter" style="display: flex; gap: 6px; text-decoration: none; padding: 7px 0"><span>a letter (about me)</span><span style="flex: 1; border-bottom: 2px dotted #141414; transform: translateY(-5px)"></span><span>p.5</span></a>
+        <a href="#zx-services" style="display: flex; gap: 6px; text-decoration: none; padding: 7px 0"><span>things i can do for you</span><span style="flex: 1; border-bottom: 2px dotted #141414; transform: translateY(-5px)"></span><span>p.7</span></a>
+        <a href="#zx-coupon" style="display: flex; gap: 6px; text-decoration: none; padding: 7px 0"><span>cut-out coupon (contact)</span><span style="flex: 1; border-bottom: 2px dotted #141414; transform: translateY(-5px)"></span><span>p.8</span></a>
+      </nav>
+    </div>
+    <figure style="flex: 1 1 380px; margin: 0; position: relative; max-width: 560px; transform: rotate({{tilt2}})">
+      <div aria-hidden="true" style="position: absolute; left: -16px; top: 26px; width: 110px; height: 28px; background: rgba(226,221,203,.88); transform: rotate(-38deg); z-index: 2"></div>
+      <div aria-hidden="true" style="position: absolute; right: -14px; top: 22px; width: 110px; height: 28px; background: rgba(226,221,203,.88); transform: rotate(36deg); z-index: 2"></div>
+      <img src="/_blob/b904d0597a9ac05dbd25bfabe374d4a5" alt="VoxDroid's avatar, photocopied in black toner" style="display: block; width: 100%; aspect-ratio: 1 / 1; background: #FBFAF7; clip-path: {{jag}}">
+      <figcaption style="position: absolute; left: -8px; bottom: -64px; display: flex; align-items: center; gap: 6px; font-family: 'Permanent Marker', cursive; font-size: 22px; color: #C81E16; transform: rotate(-4deg)">
+        <svg width="70" height="44" viewBox="0 0 70 44" aria-hidden="true"><path d="M66 6 C 48 2, 26 8, 10 30 M10 30 l2 -14 M10 30 l13 -4" fill="none" stroke="#C81E16" stroke-width="3" stroke-linecap="round"></path></svg>
+        me, eating bread (fig. 1)
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- numbers -->
+  <section id="zx-numbers" style="position: relative; padding: 72px 40px 40px">
+    <h2 style="margin: 0 0 18px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px"><span style="font-family: 'Rubik Mono One', sans-serif; font-size: clamp(26px, 3vw, 40px); background: #141414; color: #F2F0EA; padding: 4px 12px; transform: rotate(-1deg)">THE NUMBERS</span><span style="font-family: 'Permanent Marker', cursive; font-size: 22px; color: #C81E16">(yes we counted)</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 28px">
+      <div style="position: relative; padding: 26px 10px 8px; text-align: center">
+        <svg aria-hidden="true" viewBox="0 0 240 150" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 150px"><path d="M30 80 C 26 30, 200 18, 214 66 C 228 118, 60 136, 34 96 C 24 80, 60 40, 120 34" fill="none" stroke="#C81E16" stroke-width="3.5" stroke-linecap="round"></path></svg>
+        <div style="position: relative; font-family: 'Permanent Marker', cursive; font-size: 84px; line-height: 1">685</div>
+        <div style="position: relative; font-family: 'Special Elite', monospace; font-size: 15px; margin-top: 30px">STARS, across public repos</div>
+      </div>
+      <div style="position: relative; padding: 26px 10px 8px; text-align: center">
+        <svg aria-hidden="true" viewBox="0 0 240 150" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 150px"><path d="M58 22 L 186 18 L 190 120 L 52 124 Z M54 30 L 60 118" fill="none" stroke="#C81E16" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+        <div style="position: relative; font-family: 'Permanent Marker', cursive; font-size: 84px; line-height: 1">73</div>
+        <div style="position: relative; font-family: 'Special Elite', monospace; font-size: 15px; margin-top: 30px">PUBLIC REPOSITORIES</div>
+      </div>
+      <div style="position: relative; padding: 26px 10px 8px; text-align: center">
+        <svg aria-hidden="true" viewBox="0 0 240 150" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 150px"><path d="M24 116 C 90 108, 160 114, 220 106 M30 128 C 100 122, 150 130, 214 120" fill="none" stroke="#C81E16" stroke-width="3.5" stroke-linecap="round"></path></svg>
+        <div style="position: relative; font-family: 'Permanent Marker', cursive; font-size: 84px; line-height: 1">2,222</div>
+        <div style="position: relative; font-family: 'Special Elite', monospace; font-size: 15px; margin-top: 30px">CONTRIBUTIONS, last 12 months</div>
+      </div>
+      <div style="position: relative; padding: 26px 10px 8px; text-align: center">
+        <svg aria-hidden="true" viewBox="0 0 240 150" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 150px"><path d="M40 30 l6 14 l15 2 l-11 10 l3 15 l-13 -8 l-13 8 l3 -15 l-11 -10 l15 -2 Z M200 24 l5 11 l12 2 l-9 8 l2 12 l-10 -6 l-10 6 l2 -12 l-9 -8 l12 -2 Z" fill="none" stroke="#C81E16" stroke-width="3" stroke-linejoin="round"></path></svg>
+        <div style="position: relative; font-family: 'Permanent Marker', cursive; font-size: 84px; line-height: 1">6+</div>
+        <div style="position: relative; font-family: 'Special Elite', monospace; font-size: 15px; margin-top: 30px">YEARS OF CODE (since 2015)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- clippings -->
+  <section id="zx-work" style="position: relative; padding: 56px 40px 40px">
+    <h2 style="margin: 0 0 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px">
+      <span style="font-family: 'Abril Fatface', serif; font-size: clamp(48px, 6vw, 88px); line-height: .9; transform: rotate(-1.5deg)">The Work,</span>
+      <span style="font-family: 'Bungee', sans-serif; font-size: clamp(22px, 2.4vw, 34px); background: {{hi}}; padding: 4px 12px; transform: rotate(2deg)">IN 10 CLIPPINGS</span>
+      <a href="https://github.com/VoxDroid?tab=repositories" style="font-family: 'Permanent Marker', cursive; font-size: 20px; color: #C81E16; padding: 8px 0; margin-left: auto">+ 63 more on github →</a>
+    </h2>
+    <div style="column-width: 300px; column-gap: 34px">
+      <sc-for list="{{clips}}" as="c" hint-placeholder-count="10">
+        <article style="break-inside: avoid; position: relative; margin: 0 0 38px; padding: 26px 22px 22px; background: #FBFAF7; transform: rotate({{c.rot}}); clip-path: {{c.edge}}; box-shadow: 1px 2px 0 rgba(20,20,20,.18)">
+          <div aria-hidden="true" style="position: absolute; left: 34%; top: 0; width: 84px; height: 20px; background: rgba(226,221,203,.9); transform: rotate({{c.tape}})"></div>
+          <div style="display: flex; gap: 14px; align-items: flex-start">
+            <sc-if value="{{c.hasLogo}}" hint-placeholder-val="{{ true }}">
+              <img src="{{c.logo}}" alt="" style="width: 86px; height: 86px; flex: none">
+            </sc-if>
+            <sc-if value="{{c.noLogo}}" hint-placeholder-val="{{ false }}">
+              <span aria-hidden="true" style="width: 86px; height: 86px; flex: none; display: flex; align-items: center; justify-content: center; background: #141414; color: #F2F0EA; font-family: 'Abril Fatface', serif; font-size: 54px">{{c.initial}}</span>
+            </sc-if>
+            <div style="min-width: 0">
+              <h3 style="margin: 0; font-family: 'Archivo Black', sans-serif; font-size: 22px; line-height: 1.1; text-transform: uppercase; word-break: break-word"><span class="zx-hl" style="background: {{c.hl}}">{{c.name}}</span></h3>
+              <div style="font-family: 'Special Elite', monospace; font-size: 13.5px; margin-top: 6px">{{c.cat}} · {{c.lang}} · {{c.stars}} ★</div>
+            </div>
+          </div>
+          <p style="margin: 12px 0 8px; font-size: 15.5px">{{c.desc}}</p>
+          <a href="{{c.url}}" style="font-family: 'Permanent Marker', cursive; font-size: 18px; padding: 6px 0; display: inline-block">read the source →</a>
+          <sc-if value="{{c.hasNote}}" hint-placeholder-val="{{ false }}">
+            <div style="font-family: 'Permanent Marker', cursive; font-size: 20px; color: #C81E16; transform: rotate(-3deg); margin-top: 4px">{{c.note}}</div>
+          </sc-if>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- letter -->
+  <section id="zx-letter" style="position: relative; padding: 48px 40px 40px; display: flex; flex-wrap: wrap; gap: 40px">
+    <div style="flex: 999 1 560px; min-width: 0; background: #FBFAF7; padding: clamp(24px, 4vw, 56px); transform: rotate({{tilt3}}); box-shadow: 1px 2px 0 rgba(20,20,20,.18); background-image: linear-gradient(90deg, transparent 54px, rgba(200,30,22,.35) 54px 56px, transparent 56px)">
+      <div style="padding-left: 30px">
+        <div style="font-family: 'Special Elite', monospace; font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 22px"><span>FROM: VoxDroid, 127.0.0.2</span><span>RE: who is VoxDroid?</span></div>
+        <p style="margin: 0 0 16px; font-size: 19px">Dear reader,</p>
+        <p style="margin: 0 0 16px; font-size: 18px">I like <span class="zx-hl" style="background: {{hi}}">making things that help people</span>. I enjoy working on problems step by step, trying different ideas, and learning from others.</p>
+        <p style="margin: 0 0 16px; font-size: 18px"><span class="zx-hl" style="background: {{hi}}">I listen more than I speak</span>, stay calm when things go wrong, and always try to do better. I still have a lot to learn, but I am happy to bring care and effort to any project. I look forward to working with good teams and growing.</p>
+        <p style="margin: 0 0 16px; font-size: 18px">I am in this field because I truly enjoy it. Computers fascinate me, from the simple flow of electricity through small parts, to how basic switches build into complex programs we use every day. I like both the hardware side, such as circuits and memory, and the software side, such as writing clear code and making systems that run smoothly.</p>
+        <p style="margin: 0; font-size: 18px">Yours, available for opportunities,</p>
+        <p style="margin: 6px 0 0; font-family: 'Permanent Marker', cursive; font-size: 40px; transform: rotate(-3deg); transform-origin: left">VoxDroid</p>
+      </div>
+    </div>
+    <aside style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 26px">
+      <div>
+        <div style="font-family: 'Rubik Mono One', sans-serif; font-size: 17px; background: #141414; color: #F2F0EA; display: inline-block; padding: 4px 10px; transform: rotate(-1deg)">STUFF I'M INTO</div>
+        <ul style="margin: 12px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 16px">
+          <sc-for list="{{focus}}" as="f" hint-placeholder-count="6">
+            <li style="display: flex; gap: 10px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M3 3 L19 2 L20 19 L2 20 Z" fill="none" stroke="#141414" stroke-width="1.8"></path><path d="M5 11 L9 16 L20 1" fill="none" stroke="#C81E16" stroke-width="3" stroke-linecap="round"></path></svg><span><strong>{{f.t}}</strong> {{f.d}}</span></li>
+          </sc-for>
+        </ul>
+      </div>
+      <div style="font-size: 15px">
+        <div style="font-family: 'Rubik Mono One', sans-serif; font-size: 17px; background: #141414; color: #F2F0EA; display: inline-block; padding: 4px 10px; transform: rotate(1deg)">THE KIT</div>
+        <p style="margin: 12px 0 0"><strong>LANG</strong> Python, TypeScript, JavaScript, PHP, Rust, C++<br><strong>ML</strong> PyTorch, TensorFlow, scikit-learn, Jupyter<br><strong>WEB</strong> React, Next.js, FastAPI<br><strong>INFRA</strong> Docker, Kubernetes, Linux, Proxmox, nginx, WireGuard</p>
+      </div>
+      <div style="font-size: 15px">
+        <div style="font-family: 'Rubik Mono One', sans-serif; font-size: 17px; background: #141414; color: #F2F0EA; display: inline-block; padding: 4px 10px; transform: rotate(-1deg)">SCHOOL + CERTS</div>
+        <p style="margin: 12px 0 6px">Laguna State Polytechnic University, BS Computer Science (Intelligent Systems), 2022–now · Laguna Senior High School, STEM, 2020–22 · Pedro Guevara Memorial NHS, STEM, 2016–20</p>
+        <p style="margin: 0"><a href="https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url">Ethical Hacker</a> · <a href="https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url">Network Defense</a> · <a href="https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url">AI Fundamentals</a> · <a href="https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url">AI Fundamentals</a> · <a href="https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url">I2CS</a> · <a href="https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url">CHB</a></p>
+      </div>
+    </aside>
+  </section>
+
+  <!-- timeline -->
+  <section style="position: relative; padding: 48px 40px 40px">
+    <h2 style="margin: 0 0 8px; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(44px, 5vw, 72px); line-height: 1">How I got here</h2>
+    <div style="position: relative; overflow-x: auto">
+      <div style="min-width: 900px; position: relative; padding-top: 70px">
+        <svg aria-hidden="true" viewBox="0 0 1000 60" preserveAspectRatio="none" style="position: absolute; left: 0; right: 0; top: 40px; width: 100%; height: 60px"><path d="M10 34 C 120 20, 200 44, 300 30 S 480 18, 560 34 S 760 44, 840 26 S 950 30, 990 22 l -16 -10 M990 22 l -14 12" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round"></path></svg>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; position: relative">
+          <sc-for list="{{tour}}" as="t" hint-placeholder-count="4">
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <span style="width: 22px; height: 22px; border-radius: 50%; background: #C81E16; border: 3px solid #141414; margin-top: -40px"></span>
+              <span style="font-family: 'Permanent Marker', cursive; font-size: 32px; line-height: 1; color: #C81E16; transform: rotate({{t.rot}}); transform-origin: left">{{t.period}}</span>
+              <span style="font-family: 'Special Elite', monospace; font-size: 15px"><span class="zx-hl" style="background: {{hi}}">{{t.file}}</span></span>
+              <span style="font-size: 15.5px">{{t.desc}}</span>
+              <code style="font-family: 'Courier Prime', monospace; font-size: 13px; color: #3A3A3A">$ {{t.cmd}}</code>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- services checklist -->
+  <section id="zx-services" style="position: relative; padding: 56px 40px 40px">
+    <h2 style="margin: 0 0 22px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline">
+      <span style="font-family: 'Bungee', sans-serif; font-size: clamp(30px, 3.6vw, 52px); line-height: 1">THINGS I CAN DO FOR YOU</span>
+      <span style="font-family: 'Special Elite', monospace; font-size: 15px">(check all that apply)</span>
+    </h2>
+    <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 0 48px">
+      <sc-for list="{{services}}" as="s" hint-placeholder-count="10">
+        <li style="display: grid; grid-template-columns: 42px 1fr; gap: 12px; padding: 14px 0; border-bottom: 2px dashed #141414">
+          <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><path d="M4 5 L31 3 L33 32 L3 33 Z" fill="none" stroke="#141414" stroke-width="2.2"></path><path d="{{s.check}}" fill="none" stroke="#C81E16" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <div><div style="font-family: 'Archivo Black', sans-serif; font-size: 19px; text-transform: uppercase; line-height: 1.2">{{s.title}}</div><div style="font-size: 15.5px">{{s.desc}}</div><div style="font-family: 'Special Elite', monospace; font-size: 13.5px; color: #3A3A3A">{{s.tech}}</div></div>
+        </li>
+      </sc-for>
+    </ul>
+    <p style="margin: 26px 0 0; font-family: 'Permanent Marker', cursive; font-size: 26px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center">how it goes: <span>discuss</span><span style="color: #C81E16">→</span><span>plan</span><span style="color: #C81E16">→</span><span>build</span><span style="color: #C81E16">→</span><span>deliver</span></p>
+  </section>
+
+  <!-- coupon -->
+  <section id="zx-coupon" style="position: relative; padding: 56px 40px 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+    <div style="flex: 999 1 560px; min-width: 0; position: relative; border: 3px dashed #141414; padding: clamp(22px, 3.6vw, 44px); background: #FBFAF7">
+      <span aria-hidden="true" style="position: absolute; left: 22px; top: -20px; background: #F2F0EA; padding: 0 8px; font-size: 26px">✂ - - - cut here</span>
+      <h2 style="margin: 0 0 6px; font-family: 'Abril Fatface', serif; font-weight: 400; font-size: clamp(40px, 5vw, 70px); line-height: .95">YES! Let's build something.</h2>
+      <p style="margin: 0 0 22px; font-size: 17px">Interested in working together? I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px 24px">
+        <label style="display: flex; flex-direction: column; gap: 4px; font-family: 'Special Elite', monospace; font-size: 14px">YOUR NAME<input type="text" style="border: none; border-bottom: 2px solid #141414; background: transparent; padding: 8px 2px; font-family: 'Permanent Marker', cursive; font-size: 20px; min-height: 44px"></label>
+        <label style="display: flex; flex-direction: column; gap: 4px; font-family: 'Special Elite', monospace; font-size: 14px">YOUR EMAIL<input type="email" style="border: none; border-bottom: 2px solid #141414; background: transparent; padding: 8px 2px; font-family: 'Permanent Marker', cursive; font-size: 20px; min-height: 44px"></label>
+        <label style="display: flex; flex-direction: column; gap: 4px; font-family: 'Special Elite', monospace; font-size: 14px; grid-column: 1 / -1">THE PROJECT, IN A SENTENCE<input type="text" style="border: none; border-bottom: 2px solid #141414; background: transparent; padding: 8px 2px; font-family: 'Permanent Marker', cursive; font-size: 20px; min-height: 44px"></label>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; margin-top: 26px">
+        <a href="mailto:izeno.contact@gmail.com" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 22px; border: 4px solid #C81E16; color: #C81E16; text-decoration: none; font-family: 'Rubik Mono One', sans-serif; font-size: 18px; transform: rotate(-3deg)">MAIL IT IN</a>
+        <span style="font-size: 15px">or write to <a href="mailto:izeno.contact@gmail.com">izeno.contact@gmail.com</a></span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 18px; font-family: 'Special Elite', monospace; font-size: 15px">
+        <a href="https://github.com/VoxDroid" style="padding: 8px 0">github.com/VoxDroid</a>
+        <a href="https://www.kaggle.com/VoxDroid" style="padding: 8px 0">kaggle</a>
+        <a href="https://huggingface.co/iZELX1" style="padding: 8px 0">hugging face</a>
+        <a href="/cv/VoxDroid_CV.pdf" style="padding: 8px 0">CV.pdf</a>
+      </div>
+    </div>
+    <div style="flex: 1 1 320px">
+      <div style="font-family: 'DM Serif Display', serif; font-size: 34px; line-height: 1; margin-bottom: 10px">Letters to the editor</div>
+      <sc-for list="{{faq}}" as="f" hint-placeholder-count="4">
+        <div style="padding: 12px 0; border-top: 2px solid #141414">
+          <p style="margin: 0 0 4px; font-style: italic; font-size: 15.5px">“{{f.q}}” <span style="font-family: 'Special Elite', monospace; font-style: normal; font-size: 13px">— a reader</span></p>
+          <p style="margin: 0; font-size: 15.5px"><strong>Ed:</strong> {{f.a}}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer style="position: relative; padding: 20px 40px 36px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 24px; border-top: 3px solid #141414; font-family: 'Special Elite', monospace; font-size: 14px">
+    <span>© 2026 VoxDroid · photocopy this and pass it on.</span>
+    <span style="font-family: 'Permanent Marker', cursive; font-size: 22px; transform: rotate(-4deg)">— 8 —</span>
+    <span>VOXDROID v1.2.0 | UTF-8 | LINUX_OSX_CORE</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"hi":{"editor":"color","default":"#F5FF3D","options":["#F5FF3D","#FF6FB5","#7CFF6B","#FFA63A"],"section":"Markers"},"mess":{"editor":"range","default":1,"min":0,"max":2,"step":0.1,"section":"Paste-up"},"toner":{"editor":"boolean","default":true,"section":"Copier"},"$preview":{"width":1440,"height":6800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var hi = this.props.hi ?? '#F5FF3D', mess = this.props.mess ?? 1, toner = this.props.toner ?? true;
+    var s = 11;
+    var rnd = function () { s = (s * 16807) % 2147483647; return s / 2147483647; };
+    var deg = function (max) { return ((rnd() * 2 - 1) * max * mess).toFixed(2) + 'deg'; };
+    var jagged = function (amp) {
+      var pts = [], i, n = 14;
+      for (i = 0; i <= n; i++) pts.push((i / n * 100).toFixed(1) + '% ' + (rnd() * amp).toFixed(1) + '%');
+      for (i = 1; i <= n; i++) pts.push((100 - rnd() * amp * 0.6).toFixed(1) + '% ' + (i / n * 100).toFixed(1) + '%');
+      for (i = n - 1; i >= 0; i--) pts.push((i / n * 100).toFixed(1) + '% ' + (100 - rnd() * amp).toFixed(1) + '%');
+      for (i = n - 1; i >= 1; i--) pts.push((rnd() * amp * 0.6).toFixed(1) + '% ' + (i / n * 100).toFixed(1) + '%');
+      return 'polygon(' + pts.join(', ') + ')';
+    };
+    var fonts = ["'Abril Fatface', serif", "Anton, sans-serif", "'Bungee', sans-serif", "'Rubik Mono One', sans-serif", "'DM Serif Display', serif", "'Archivo Black', sans-serif", "'Special Elite', monospace", "'Courier Prime', monospace"];
+    var looks = [
+      { bg: '#141414', fg: '#F2F0EA', border: 'none' },
+      { bg: '#FBFAF7', fg: '#141414', border: '2px solid #141414' },
+      { bg: hi, fg: '#141414', border: 'none' },
+      { bg: '#D9D6CE', fg: '#141414', border: 'none' },
+      { bg: '#FBFAF7', fg: '#C81E16', border: 'none' }
+    ];
+    var ransom = 'VOXDROID'.split('').map(function (ch, i) {
+      var L = looks[[0, 1, 2, 0, 3, 1, 4, 0][i]];
+      return { ch: ch, font: fonts[[0, 2, 1, 3, 4, 5, 6, 0][i]], size: 'clamp(64px, ' + (9 + rnd() * 3).toFixed(1) + 'vw, ' + Math.round(130 + rnd() * 60) + 'px)', fg: L.fg, bg: L.bg, border: L.border, pad: Math.round(2 + rnd() * 8) + 'px ' + Math.round(10 + rnd() * 10) + 'px', rot: deg(7), dy: ((rnd() * 2 - 1) * 10 * mess).toFixed(0) + 'px' };
+    });
+    var gh = 'https://github.com/VoxDroid/';
+    var logos = { KemonoDownloader: '/_blob/85787de8ad23caaf14fc59e7496fcabf', krnr: '/_blob/69b3bb1c39715b91700b3c5e397d46f6', Eventra: '/_blob/6d990901c710c7c089956687b7525a6c', CycleOne: '/_blob/088bab90b9633508aa893a3f5f7f5037', 'Task-Tracker-Pro': '/_blob/d5a8c969cb9144259f5fce6a23cfa5b4', bldrx: '/_blob/dbfedc1c7a163c7708958caf48c41877', AutoTable: '/_blob/9d810f06fb732afd1914618a44f5e858', CodeStash: '/_blob/a8f0b5e6255421103328bc1c73e3df0a' };
+    var notes = { KemonoDownloader: '382 stars!! the big one', CycleOne: 'no cloud. no accounts.', krnr: 'most stars after KD (7!)' };
+    var raw = [
+      ['KemonoDownloader','Python','382','Desktop app','A cross-platform PyQt6 app to download posts and creator content from Kemono, Coomer and Pawchive. Concurrent downloads, file deduplication, customizable settings.'],
+      ['Eventra','PHP','4','Web app','An open-source, organization-focused event management system built on Laravel 12 and Filament v4.'],
+      ['CycleOne','Swift','5','iOS app','A privacy-first, subscription-free period and cycle tracker. Just your data on your device, exactly where it belongs.'],
+      ['krnr','Go','7','CLI tool','A cross-platform CLI with a global, persistent command registry backed by SQLite, for registering, running, importing and exporting commands.'],
+      ['bldrx','Python','4','CLI tool','A template-driven project scaffolder for reproducible CI/CD workflows and starter projects.'],
+      ['Task-Tracker-Pro','TypeScript','3','Desktop app','Self-hosted task and time tracking with projects, tasks and time entries. Web or Electron, Next.js and Tailwind, local-first SQLite.'],
+      ['AutoTable','TypeScript','3','Web app','A specialized SaaS application engineered for high-efficiency spreadsheet sanitization.'],
+      ['CodeStash','PHP','1','Web app','A private, organization-scoped snippet manager: save, tag, search and share reusable code.'],
+      ['Web-Inventory','PHP','0','Web app','A private web inventory and monitoring system for DIC-UP Los Baños: website registry, status checks, role-based admin tools.'],
+      ['izel','Rust','3','Dev tool','A developer tool written in Rust.']
+    ];
+    var clips = raw.map(function (p, i) {
+      var logo = logos[p[0]] || '';
+      return { name: p[0], lang: p[1], stars: p[2], cat: p[3], desc: p[4], url: gh + p[0], rot: deg(2.2), tape: deg(8), edge: jagged(1.6),
+        logo: logo, hasLogo: !!logo, noLogo: !logo, initial: p[0].charAt(0).toUpperCase(),
+        hl: i % 3 === 0 ? hi : 'transparent', note: notes[p[0]] || '', hasNote: !!notes[p[0]] };
+    });
+    var focus = [
+      { t: 'AI and machine learning.', d: 'LLMs, computer vision, neural networks and agents.' },
+      { t: 'Web development.', d: 'Modern, high-performance, responsive applications.' },
+      { t: 'Open source.', d: 'Contributing, maintaining, and scaling core modules.' },
+      { t: 'Cybersecurity.', d: 'Ethical hacking, privacy, and network defense.' },
+      { t: 'Linux and homelab.', d: 'Self-hosted infrastructure and system-level automation.' },
+      { t: 'Cloud and DevOps.', d: 'Containers, Kubernetes, CI/CD pipelines.' }
+    ];
+    var tour = [
+      ['2015–16','init_journey.sh','Interest in computers sparked; started learning LUA, BATCH scripts and SHELL scripts.','chmod +x ./learning.sh && ./learning.sh'],
+      ['2017–20','expand_skills.sh','Desktop software and web development, then Android development and machine learning.','pacman -S webdev android ml --noconfirm'],
+      ['2021–23','level_up.sh','Personal side projects, refining system architecture, AI/ML and application development.',"git commit -m 'feat: personal growth'"],
+      ['2024–now','current_status.sh','Next.js, TypeScript, Rust, and new frontiers in web development and data science.','systemctl status voxdroid.service']
+    ].map(function (t) { return { period: t[0], file: t[1], desc: t[2], cmd: t[3], rot: deg(4) }; });
+    var checks = ['M8 18 L15 26 L31 6', 'M7 17 L14 27 L30 4', 'M9 19 L15 25 L32 7', 'M8 16 L14 26 L29 5'];
+    var services = [
+      ['Web development','Modern, responsive websites and web applications.','React · Next.js · Tailwind CSS'],
+      ['Desktop applications','Cross-platform, with native performance.','Rust · C# · Python · Electron · Tauri · Qt'],
+      ['Mobile development','Native and cross-platform for iOS and Android.','Flutter · Dart · Swift · React Native'],
+      ['Backend & APIs','Scalable backends and REST or GraphQL APIs.','Node.js · Python · GraphQL'],
+      ['Automation & scripting','Scripts and tools that streamline workflows.','Python · Bash · PowerShell · GitHub Actions'],
+      ['AI & machine learning','Intelligent solutions powered by ML and AI.','Python · TensorFlow · PyTorch'],
+      ['PC building & repair','Custom builds, upgrades and repairs.','CPUs · GPUs · NVMe · custom cooling'],
+      ['Networking','Network setup, configuration and security.','Cisco · MikroTik · Ubiquiti · pfSense'],
+      ['Embedded systems','IoT devices on single-board computers.','SBCs · sensors · prototyping'],
+      ['System administration','Linux and Windows server management.','Linux · Windows Server · Proxmox']
+    ].map(function (x, i) { return { title: x[0], desc: x[1], tech: x[2], check: checks[i % 4] }; });
+    var faq = [
+      { q: 'What services do you offer?', a: 'Mostly web development: responsive, user-friendly websites and web apps with React, Next.js and more.' },
+      { q: 'How quickly can you complete a project?', a: 'Depends on complexity and scope. After we talk requirements, I give an accurate estimate.' },
+      { q: 'Do you offer maintenance?', a: 'Yes: updates, bug fixes and performance improvements after launch.' },
+      { q: 'How do we get started?', a: 'Email. We schedule a consultation, then I send a detailed proposal.' }
+    ];
+    return { hi: hi, toner: toner, ransom: ransom, clips: clips, focus: focus, tour: tour, services: services, faq: faq,
+      tilt1: deg(1.2), tilt2: deg(2.5), tilt3: deg(0.8), jag: jagged(2.2) };
+  }
+}
+</script>
+</body>
+</html>

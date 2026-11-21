@@ -1,55 +1,66 @@
-import type React from "react";
-import { JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
+import { EditionSwitcher } from "@/components/EditionSwitcher";
+import { site } from "@/content/site";
+import { editions } from "@/editions";
+import { getEdition } from "@/lib/edition-server";
+import { allFontVariables } from "@/lib/fonts";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import ScrollToTop from "@/components/scroll-to-top";
-import ParticlesBackground from "@/components/particles-background";
-import PageTransition from "@/components/page-transition";
-import { TerminalProvider } from "@/context/terminal-context";
-import TerminalModal from "@/components/terminal-modal";
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
-});
+const SITE_URL = process.env.SITE_URL ?? "https://voxdroid.vercel.app";
 
-export const metadata = {
-  title: "VoxDroid | Portfolio",
-  description:
-    "Personal portfolio website for VoxDroid showcasing skills, projects, and contact information.",
-  generator: "VoxDroid",
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${site.handle}: ${site.tagline}`,
+    template: `%s · ${site.handle}`,
+  },
+  description: site.intro,
+  applicationName: site.handle,
+  authors: [{ name: site.handle, url: site.links[0].href }],
+  icons: { icon: "/ico/vox.ico" },
+  openGraph: {
+    type: "website",
+    siteName: site.handle,
+    title: `${site.handle}: ${site.tagline}`,
+    description: site.intro,
+    images: [
+      {
+        url: "/profile/VoxDroid.jpg",
+        width: 924,
+        height: 924,
+        alt: site.handle,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: site.handle,
+    description: site.intro,
+    images: ["/profile/VoxDroid.jpg"],
+  },
 };
 
-export default function RootLayout({
+export const viewport: Viewport = {
+  themeColor: "#ede8dd",
+  colorScheme: "light",
+};
+
+export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
+  const edition = await getEdition();
+  const { Shell } = editions[edition];
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/ico/vox.ico" />
-      </head>
-      <body
-        className={`${jetbrainsMono.variable} font-mono relative min-h-screen bg-background text-foreground`}
-      >
-        <ThemeProvider defaultTheme="system" attribute="class">
-          <TerminalProvider>
-            <ParticlesBackground />
-            <div className="flex flex-col min-h-screen relative z-10">
-              <Navbar />
-              <main className="flex-grow">
-                <PageTransition>{children}</PageTransition>
-              </main>
-              <Footer />
-              <ScrollToTop />
-            </div>
-            <TerminalModal />
-          </TerminalProvider>
-        </ThemeProvider>
+    <html lang="en" data-edition={edition} className={allFontVariables}>
+      <body>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        <Shell>{children}</Shell>
+        <EditionSwitcher current={edition} />
       </body>
     </html>
   );

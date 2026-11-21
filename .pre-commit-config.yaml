@@ -5,33 +5,40 @@ repos:
         name: Format
         entry: npm run format
         language: system
-        files: \.(ts|tsx|js|jsx|json|md|css)$
+        files: \.(ts|tsx|mts|js|jsx|mjs|json|md|css|yml|yaml)$
         pass_filenames: false
 
       - id: lint-fix
         name: Lint Fix
         entry: npm run lint:fix
         language: system
-        files: \.(ts|tsx|js|jsx)$
+        files: \.(ts|tsx|mts|js|jsx|mjs)$
         pass_filenames: false
 
       - id: type-check
         name: Type Check
         entry: npm run type-check
         language: system
-        files: \.(ts|tsx)$
+        files: \.(ts|tsx|mts)$
         pass_filenames: false
 
       - id: test
         name: Test
         entry: npm run test
         language: system
-        files: \.(ts|tsx|js|jsx)$
+        files: \.(ts|tsx|mts|js|jsx|mjs|md|json)$
         pass_filenames: false
 
       - id: build
         name: Build
         entry: npm run build
         language: system
-        files: \.(ts|tsx|js|jsx|css|json)$
+        files: \.(ts|tsx|mts|js|jsx|mjs|css|json|md)$
+        pass_filenames: false
+
+      - id: e2e
+        name: End-to-end
+        entry: npm run test:e2e
+        language: system
+        files: \.(ts|tsx|mts|js|jsx|mjs|css|json|md)$
         pass_filenames: false

@@ -1,0 +1,10 @@
+.next
+node_modules
+package-lock.json
+design
+data
+public
+readme
+test-results
+playwright-report
+README.md
