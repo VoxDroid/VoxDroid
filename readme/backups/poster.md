@@ -65,14 +65,14 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 <div>
 <!--RECENT_ACTIVITY:start-->
 <table>
+<tr><td>Nov&nbsp;21</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/VoxDroid">VoxDroid</a>, latest <a href="https://github.com/VoxDroid/VoxDroid/pull/9">#9</a> Replace the certifications on the site, CVs and README</td></tr>
 <tr><td>Nov&nbsp;20</td><td>Pushed 53 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
 <tr><td>Nov&nbsp;20</td><td>Pushed 47 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a></td></tr>
 <tr><td>Nov&nbsp;20</td><td>Pushed 24 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
 <tr><td>Nov&nbsp;20</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/pull/5">#5</a> Decode HTML entities once and strip tags completely</td></tr>
 <tr><td>Nov&nbsp;20</td><td>Merged 7 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/pull/10">#10</a> Decode HTML entities once and strip tags completely</td></tr>
 <tr><td>Nov&nbsp;20</td><td>Released <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/releases/tag/v1.0.0">v1.0.0</a> of <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
-<tr><td>Nov&nbsp;20</td><td>Merged 14 pull requests in <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a>, latest <a href="https://github.com/VoxDroid/KemonoDownloader/pull/109">#109</a> Show Pawchive Downloader's download button in the READMEs</td></tr>
 </table>
-<sub>Last 14 days: 124 commits, 24 pull requests merged, 14 issues closed, 4 releases. Updated Nov 21, 2026, 6:53 AM GMT+9.</sub>
+<sub>Last 14 days: 124 commits, 27 pull requests merged, 14 issues closed, 4 releases. Updated Nov 21, 2026, 6:58 PM GMT+9.</sub>
 <!--RECENT_ACTIVITY:end-->
 </div>
