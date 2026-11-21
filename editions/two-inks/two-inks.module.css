@@ -1351,3 +1351,244 @@
   color: var(--ink-a);
   mix-blend-mode: multiply;
 }
+
+/* ---------- CV ---------- */
+.cvWrap {
+  padding: 28px var(--gutter) 72px;
+}
+.cvBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  max-width: 210mm;
+  margin: 0 auto 18px;
+}
+.cvBar a {
+  display: inline-block;
+  padding: 10px 0;
+}
+.cvPrint {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 2px solid var(--ink);
+  background: var(--ink-a);
+  color: var(--sheet);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.cvPrint:hover {
+  background: var(--ink);
+}
+.cvSheet {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 16mm 15mm 18mm;
+  background: var(--sheet);
+  box-shadow:
+    0 2px 0 #c9c2b2,
+    0 18px 40px rgb(28 30 36 / 0.12);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.cvHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+.cvName {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(40px, 6.6vw, 64px);
+  line-height: 0.92;
+  color: var(--ink-a);
+  margin-top: 6px;
+}
+.cvHandle {
+  font-family: var(--display);
+  font-size: clamp(28px, 4.4vw, 40px);
+  line-height: 1;
+  color: var(--ink-b-type);
+  margin-top: 4px;
+}
+.cvHeadline {
+  font-variation-settings: "wdth" 112;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 8px;
+}
+.cvPortrait {
+  position: relative;
+  flex: none;
+  width: 112px;
+  aspect-ratio: 1;
+  isolation: isolate;
+}
+.cvPortrait > span {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: multiply;
+}
+.cvContact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 18px;
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 10px 0 0;
+  border-top: 5px solid var(--ink-b);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.cvContact a {
+  text-decoration-thickness: 1px;
+}
+.cvBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 22px 30px;
+  margin-top: 18px;
+}
+.cvMain,
+.cvSide {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+.cvTitle {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink-a);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+  break-after: avoid;
+}
+.cvText {
+  font-size: 13.5px;
+}
+.cvStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+.cvStats strong {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--ink-b-type);
+}
+.cvItem {
+  padding: 6px 0 8px;
+  break-inside: avoid;
+}
+.cvItem + .cvItem {
+  border-top: 1px solid color-mix(in srgb, var(--ink) 20%, transparent);
+}
+.cvItemTitle {
+  font-variation-settings: "wdth" 112;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1.25;
+}
+.cvItemTitle a {
+  text-decoration: none;
+}
+.cvItemMeta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.cvPoints {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 13.5px;
+}
+.cvDefs {
+  margin: 0;
+  font-size: 13px;
+}
+.cvDefs div {
+  padding: 4px 0;
+  break-inside: avoid;
+}
+.cvDefs dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cvDefs dd {
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .cvBody {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cvPortrait {
+    width: 80px;
+  }
+}
+@media print {
+  .cvWrap {
+    padding: 0;
+  }
+  .cvSheet {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    box-shadow: none;
+    font-size: 9.5pt;
+  }
+  .cvBody {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  }
+  .cvText,
+  .cvPoints {
+    font-size: 9pt;
+  }
+  .cvDefs {
+    font-size: 8.5pt;
+  }
+  .cvSheet a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+/* Small CV links still get a 24px target on screen (WCAG 2.2 target size); print keeps them compact. */
+.cvContact a,
+.cvPoints a {
+  display: inline-block;
+  min-height: 24px;
+  line-height: 24px;
+}
+@media print {
+  .cvContact a,
+  .cvPoints a {
+    min-height: 0;
+    line-height: inherit;
+  }
+}
+/* On paper, the paper is the paper: no tinted page behind the printed sheet. */
+@media print {
+  .page {
+    background: #fff;
+    min-height: 0;
+  }
+}

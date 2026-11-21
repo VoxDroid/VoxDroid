@@ -9,12 +9,18 @@ const PLATES = [
   { href: "/#services", n: "IV", label: "Practices" },
   { href: "/#contact", n: "V", label: "Correspondence" },
   { href: "/projects", n: "", label: "Index" },
+  { href: "/cv", n: "", label: "CV" },
 ];
 
 export function Shell({ children }: { children: ReactNode }) {
   return (
     <div className={s.page}>
-      <svg className={s.fibre} aria-hidden="true" focusable="false">
+      <svg
+        className={s.fibre}
+        aria-hidden="true"
+        focusable="false"
+        data-print-hide
+      >
         <filter id="sp-fibre">
           <feTurbulence
             type="fractalNoise"
@@ -30,7 +36,7 @@ export function Shell({ children }: { children: ReactNode }) {
         <rect width="100%" height="100%" filter="url(#sp-fibre)" />
       </svg>
       <div className={s.wrap}>
-        <header className={s.header}>
+        <header className={s.header} data-print-hide>
           <Link href="/" className={s.home}>
             {site.handle} · a sun-printed portfolio
           </Link>
@@ -48,7 +54,7 @@ export function Shell({ children }: { children: ReactNode }) {
           </nav>
         </header>
         <main id="main">{children}</main>
-        <footer className={s.footer}>
+        <footer className={s.footer} data-print-hide>
           <span>
             Printed by sunlight on cotton rag, washed in water. Set in
             Instrument Serif, Instrument Sans &amp; Courier Prime.

@@ -68,7 +68,7 @@ test.describe("old routes and metadata", () => {
     request,
   }) => {
     const sitemap = await (await request.get("/sitemap.xml")).text();
-    expect(sitemap.match(/<url>/g)?.length).toBe(33);
+    expect(sitemap.match(/<url>/g)?.length).toBe(34);
     expect(sitemap).toContain("/projects/kemonodownloader</loc>");
     const robots = await (await request.get("/robots.txt")).text();
     expect(robots).toMatch(/Sitemap: .*\/sitemap\.xml/);

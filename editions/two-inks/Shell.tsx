@@ -11,11 +11,17 @@ export const CONTENTS = [
   { href: "/#services", label: "07 Services" },
   { href: "/#contact", label: "08 Contact" },
   { href: "/projects", label: "Index" },
+  { href: "/cv", label: "CV" },
 ];
 
 export function Grain() {
   return (
-    <svg className={s.grain} aria-hidden="true" focusable="false">
+    <svg
+      className={s.grain}
+      aria-hidden="true"
+      focusable="false"
+      data-print-hide
+    >
       <filter id="ti-grain">
         <feTurbulence
           type="fractalNoise"
@@ -54,7 +60,7 @@ export function Shell({ children }: { children: ReactNode }) {
   return (
     <div className={s.page}>
       <Grain />
-      <header className={s.header}>
+      <header className={s.header} data-print-hide>
         <CropMark side="left" />
         <CropMark side="right" />
         <div className={s.slug}>
@@ -86,7 +92,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
       </header>
       <main id="main">{children}</main>
-      <footer className={s.footer}>
+      <footer className={s.footer} data-print-hide>
         <div
           className={s.strip}
           role="img"

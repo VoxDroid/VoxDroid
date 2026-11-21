@@ -10,13 +10,19 @@ export const NAV = [
   { href: "/#services", label: "services" },
   { href: "/#contact", label: "contact" },
   { href: "/projects", label: "archive" },
+  { href: "/cv", label: "cv" },
 ];
 
 /** Toner specks, two drum streaks and a darkened copier edge. */
 function CopierNoise() {
   return (
     <>
-      <svg className={s.noise} aria-hidden="true" focusable="false">
+      <svg
+        className={s.noise}
+        aria-hidden="true"
+        focusable="false"
+        data-print-hide
+      >
         <filter id="pc-speck">
           <feTurbulence
             type="fractalNoise"
@@ -42,13 +48,19 @@ function CopierNoise() {
         </filter>
         <rect width="100%" height="100%" filter="url(#pc-speck)" opacity=".5" />
       </svg>
-      <span className={s.streak} style={{ left: "18%" }} aria-hidden="true" />
+      <span
+        className={s.streak}
+        style={{ left: "18%" }}
+        aria-hidden="true"
+        data-print-hide
+      />
       <span
         className={s.streak}
         style={{ right: "7%", width: 1, opacity: 0.12 }}
         aria-hidden="true"
+        data-print-hide
       />
-      <span className={s.edge} aria-hidden="true" />
+      <span className={s.edge} aria-hidden="true" data-print-hide />
     </>
   );
 }
@@ -58,7 +70,7 @@ export function Shell({ children }: { children: ReactNode }) {
     <div className={s.page}>
       <CopierNoise />
       <div className={s.inner}>
-        <header className={s.masthead}>
+        <header className={s.masthead} data-print-hide>
           <span
             className={s.staple}
             style={{ left: 34, transform: "rotate(-4deg)" }}
@@ -88,7 +100,7 @@ export function Shell({ children }: { children: ReactNode }) {
           </div>
         </header>
         <main id="main">{children}</main>
-        <footer className={s.footer}>
+        <footer className={s.footer} data-print-hide>
           <span className={s.typed}>
             © {new Date().getUTCFullYear()} {site.handle} · photocopy this and
             pass it on.

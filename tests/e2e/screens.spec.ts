@@ -14,6 +14,7 @@ const PAGES = [
   ["detail", "/projects/kemonodownloader"],
   ["private", "/projects/codestash"],
   ["missing", "/projects/does-not-exist"],
+  ["cv", "/cv"],
 ] as const;
 
 for (const edition of EDITIONS)
@@ -27,3 +28,17 @@ for (const edition of EDITIONS)
         fullPage: true,
       });
     });
+
+for (const edition of EDITIONS)
+  test(`${edition} cv print`, async ({ page, context, baseURL }, info) => {
+    test.skip(info.project.name !== "desktop", "print once");
+    await useEdition(context, baseURL!, edition);
+    await page.setViewportSize({ width: 794, height: 1123 });
+    await page.goto("/cv");
+    await settle(page);
+    await page.emulateMedia({ media: "print" });
+    await page.screenshot({
+      path: `test-results/screens/print-${edition}-cv.png`,
+      fullPage: true,
+    });
+  });

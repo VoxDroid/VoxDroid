@@ -184,12 +184,27 @@ html[data-edition="sun-print"] {
   }
 }
 @media print {
-  .switcher {
-    display: none;
+  .switcher,
+  [data-print-hide] {
+    display: none !important;
+  }
+  html,
+  body {
+    background: #fff !important;
   }
   body {
     padding-bottom: 0;
   }
+  /* Inks, highlighter and cyanotype fields are part of the design, so print them as shown. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 12mm 13mm 14mm;
 }
 
 /* ---------------- Switch transitions ---------------- */

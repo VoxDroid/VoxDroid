@@ -53,3 +53,16 @@ Profile, about, skills, education, services and FAQ text live in `content/site.t
 
 `npm run verify` runs formatting, lint, types, unit tests, the production build and the
 end-to-end tests (Chrome). The pre-commit hooks run the same steps.
+
+## CV
+
+`/cv` renders the CV in the visitor's edition and prints as an A4 document ("Save as PDF").
+It is built from the same content as the site plus `content/cv.ts`, which holds the name, headline,
+summary, how many featured projects to list, and an `experience` list. Roles added there appear
+above the projects automatically:
+
+```ts
+experience: [
+  { role: "Developer", org: "Company", period: "2025 – Present", points: ["What you did"] },
+],
+```
