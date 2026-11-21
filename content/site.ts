@@ -149,32 +149,48 @@ export const site = {
       honors: ["With High Honors (95)"],
     },
   ],
+  /**
+   * Newest first. `id` is the credential ID, which employers use to verify a certificate with its
+   * issuer. Add `href` with a verification link to make the name a link.
+   */
   certifications: [
     {
-      name: "Ethical Hacker",
-      href: "https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url",
+      name: "Cisco Certified Support Technician – Cybersecurity (CCST)",
+      issuer: "Cisco",
+      date: "April 2026",
+      id: "w9war-H9Qu",
     },
     {
-      name: "Network Defense",
-      href: "https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url",
+      name: "IBM and ISC2 Cybersecurity Specialist",
+      issuer: "IBM / ISC2 via Coursera",
+      date: "January 2026",
+      id: "M45DYKASB6LV",
     },
     {
-      name: "AI Fundamentals",
-      href: "https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url",
+      name: "Google Cybersecurity Professional Certificate",
+      issuer: "Google via Coursera",
+      date: "January 2026",
+      id: "MQ2VW1YU0JSD",
     },
     {
-      name: "AI Fundamentals",
-      href: "https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url",
+      name: "Google Data Analytics Professional Certificate",
+      issuer: "Google via Coursera",
+      date: "January 2026",
+      id: "PVDA1J1US6P6",
     },
     {
-      name: "I2CS",
-      href: "https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url",
+      name: "IBM AI Developer Professional Certificate",
+      issuer: "IBM via Coursera",
+      date: "December 2025",
+      id: "WX69NPK042I0",
     },
-    {
-      name: "CHB",
-      href: "https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url",
-    },
-  ],
+  ] as {
+    name: string;
+    issuer: string;
+    date: string;
+    id: string;
+    href?: string;
+  }[],
   journey: [
     {
       period: "2015 – 2016",

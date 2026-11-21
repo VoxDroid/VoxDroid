@@ -24,7 +24,8 @@ describe("site content", () => {
 
   it("links only to https URLs", () => {
     for (const l of site.links) expect(l.href).toMatch(/^https:\/\//);
-    for (const c of site.certifications) expect(c.href).toMatch(/^https:\/\//);
+    for (const c of site.certifications)
+      if (c.href) expect(c.href).toMatch(/^https:\/\//);
   });
 });
 

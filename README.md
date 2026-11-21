@@ -53,7 +53,14 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
   <img src="readme/poster/h-certified.light.svg" width="100%" alt="Certified">
 </picture>
 
-[Ethical Hacker](https://www.credly.com/badges/fec2454c-f8f9-45a8-8517-1c8fe16e1e2f/public_url) · [Network Defense](https://www.credly.com/badges/d66e78e8-fa4a-4508-b2ae-1163d12d51b7/public_url) · [AI Fundamentals](https://www.credly.com/badges/2994ace5-22c4-4138-8034-587fe29ba000/public_url) · [AI Fundamentals](https://www.credly.com/badges/ef13af48-9c36-4421-b642-1c22a02c6e47/public_url) · [I2CS](https://www.credly.com/badges/49ec359c-80b8-4be6-a7ec-ba1825ed99b5/public_url) · [CHB](https://www.credly.com/badges/cb281905-4563-4f86-9f15-c2a06fba9184/public_url)
+<table>
+  <tr><th align="left">Certificate</th><th align="left">Issued by</th><th align="left">Date</th><th align="left">Credential ID</th></tr>
+  <tr><td>Cisco Certified Support Technician – Cybersecurity (CCST)</td><td>Cisco</td><td>April 2026</td><td><code>w9war-H9Qu</code></td></tr>
+  <tr><td>IBM and ISC2 Cybersecurity Specialist</td><td>IBM / ISC2 via Coursera</td><td>January 2026</td><td><code>M45DYKASB6LV</code></td></tr>
+  <tr><td>Google Cybersecurity Professional Certificate</td><td>Google via Coursera</td><td>January 2026</td><td><code>MQ2VW1YU0JSD</code></td></tr>
+  <tr><td>Google Data Analytics Professional Certificate</td><td>Google via Coursera</td><td>January 2026</td><td><code>PVDA1J1US6P6</code></td></tr>
+  <tr><td>IBM AI Developer Professional Certificate</td><td>IBM via Coursera</td><td>December 2025</td><td><code>WX69NPK042I0</code></td></tr>
+</table>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="readme/poster/h-numbers.dark.svg">

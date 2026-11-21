@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { InkMask } from "@/components/InkMask";
 import { artPaths, type HomeData, type Project } from "@/lib/content";
-import { formatDate, formatNumber, pad2, yearOf } from "@/lib/format";
+import {
+  certificationMeta,
+  formatDate,
+  formatNumber,
+  pad2,
+  yearOf,
+} from "@/lib/format";
 import { stagesFor } from "@/lib/lineup";
 import s from "./two-inks.module.css";
 
@@ -371,8 +377,13 @@ function Interview({ site }: Pick<HomeData, "site">) {
             <h3 className={s.linerTitle}>Certified</h3>
             <ul className={s.linerList}>
               {site.certifications.map((c) => (
-                <li key={c.href}>
-                  <a href={c.href}>{c.name}</a>
+                <li key={c.id}>
+                  <strong>
+                    {c.href ? <a href={c.href}>{c.name}</a> : c.name}
+                  </strong>
+                  <span className={s.noteMeta} style={{ display: "block" }}>
+                    {certificationMeta(c)}
+                  </span>
                 </li>
               ))}
             </ul>

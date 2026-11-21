@@ -42,3 +42,13 @@ export const STATUS_LABEL = {
   archived: "Archived",
   private: "Private",
 } as const;
+
+/** "Cisco · April 2026 · ID w9war-H9Qu": the line under a certification's name, in every edition. */
+export function certificationMeta(c: {
+  issuer: string;
+  date: string;
+  id: string;
+}) {
+  // A no-break space keeps "ID" on the same line as its number when the line wraps.
+  return `${c.issuer} · ${c.date} · ID ${c.id}`;
+}

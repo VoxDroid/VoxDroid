@@ -36,6 +36,13 @@ for (const edition of EDITIONS) {
       await expect(
         page.getByText("Consistent Dean's Lister").first(),
       ).toBeVisible();
+      await expect(page.locator("#cv-certs ~ div")).toHaveCount(5);
+      await expect(
+        page.getByText("IBM AI Developer Professional Certificate"),
+      ).toBeVisible();
+      await expect(
+        page.getByText("IBM via Coursera · December 2025 · ID WX69NPK042I0"),
+      ).toBeVisible();
       await expect(
         page.locator('a[href="mailto:izeno.contact@gmail.com"]').first(),
       ).toBeVisible();

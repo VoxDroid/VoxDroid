@@ -79,7 +79,22 @@ export const siteSchema = z.object({
       }),
     )
     .min(1),
-  certifications: z.array(z.object({ name: nonEmpty, href: z.url() })),
+  certifications: z
+    .array(
+      z.object({
+        name: nonEmpty,
+        issuer: nonEmpty,
+        date: z
+          .string()
+          .regex(
+            /^(January|February|March|April|May|June|July|August|September|October|November|December) \d{4}$/,
+            'must look like "April 2026"',
+          ),
+        id: nonEmpty,
+        href: z.url().optional(),
+      }),
+    )
+    .min(1),
   journey: z
     .array(
       z.object({
