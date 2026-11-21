@@ -4,7 +4,8 @@
  *   readme/voxel/skyline.svg               contributions per day, last 30 weeks
  *   readme/voice/languages.{light,dark}.svg  share of code by language, public repos
  *   readme/voice/year.{light,dark}.svg       contributions per week, last 52 weeks
- *   readme/poster/numbers.{light,dark}.svg   total stars on public repos and profile views (komarev),
+ *   readme/poster/numbers.{light,dark}.svg   total stars on public repos, profile views (komarev) and the
+ *                                            contribution streak (from data/github.json, the site snapshot),
  *                                            set in Anton from readme/poster/digits.json (see build-art.mjs)
  *
  *   GITHUB_TOKEN=... node scripts/readme/charts.mjs
@@ -180,28 +181,35 @@ function previousNumbers() {
       stars: pick(/([\d,]+) stars/),
       repos: pick(/across ([\d,]+) public/),
       views: pick(/([\d,]+) profile views/),
+      streak: pick(/([\d,]+)-day contribution streak/),
+      longest: pick(/longest ([\d,]+) days/),
     };
   } catch {
     return {};
   }
 }
 
-function numbersSVG({ stars, repos, views }, font, T) {
+function numbersSVG({ stars, repos, views, streak, longest }, font, T) {
   const fmt = (n) => n.toLocaleString("en-US");
   const MAX = 104, // tallest the figures get
-    COL = 413, // each column's width; there are two with a 20px gutter
+    GUTTER = 20,
+    MIN_COL = 190, // room for the labels under a short figure
     widthAt = (text, size) =>
       [...text].reduce((w, c) => w + font.glyphs[c].w, 0) * (size / font.size);
-  const figs = [fmt(stars), fmt(views)];
-  // One size for both figures, so they read as a pair; shrink only if one would overflow.
-  const size = Math.min(
-    MAX,
-    ...figs.map((t) => (MAX * (COL - 8)) / widthAt(t, MAX)),
-  );
+  const figs = [fmt(stars), fmt(views), fmt(streak)];
+  // Each column is as wide as its figure needs; all three share one size and shrink only to fit.
+  const need = (size) =>
+    figs.map((t) => Math.max(widthAt(t, size) + 8, MIN_COL));
+  const sum = (xs) => xs.reduce((a, b) => a + b, 0);
+  let size = MAX;
+  while (size > 20 && sum(need(size)) + GUTTER * 2 > 846) size -= 1;
+  const widths = need(size);
+  const spare = 846 - GUTTER * 2 - sum(widths);
+  const cols = widths.map((w) => w + (spare * w) / sum(widths));
   const k = size / font.size,
     base = Math.ceil(font.top * k) + 2,
     bar = base + 16,
-    H = bar + 40;
+    H = bar + 54;
   // Each glyph is defined once and placed with <use>, which keeps the file small.
   const ids = new Map();
   const word = (text, x, y, attrs) => {
@@ -215,9 +223,12 @@ function numbersSVG({ stars, repos, views }, font, T) {
     return `<g ${attrs}>${out}</g>`;
   };
   const mono = `font-family="${MONO}" font-size="10.5" letter-spacing="1.5" fill="${T.fg}"`;
-  const cols = [
+  const x1 = cols[0] + GUTTER,
+    x2 = x1 + cols[1] + GUTTER;
+  const panel = [
     {
       x: 0,
+      w: cols[0],
       fig: figs[0],
       front: T.a,
       back: T.b,
@@ -225,32 +236,57 @@ function numbersSVG({ stars, repos, views }, font, T) {
       note: `ACROSS ${fmt(repos)} PUBLIC REPOS`,
     },
     {
-      x: COL + 20,
+      x: x1,
+      w: cols[1],
       fig: figs[1],
       front: T.b,
       back: T.a,
       label: "PROFILE VIEWS",
       note: "ALL TIME",
     },
+    {
+      x: x2,
+      w: cols[2],
+      fig: figs[2],
+      front: T.a,
+      back: T.b,
+      label: "DAY STREAK",
+      note:
+        streak >= longest
+          ? "PERSONAL BEST, AND COUNTING"
+          : `LONGEST ${fmt(longest)} DAYS`,
+    },
   ];
   let body = "";
-  for (const c of cols) {
+  for (const c of panel) {
     // Ink B (or A) offset behind, then the front ink on top, as in the section headings.
+    const x = c.x.toFixed(2);
     body +=
       word(c.fig, c.x + 4, base + 4, `fill="${c.back}"`) +
       word(c.fig, c.x, base, `fill="${c.front}"`) +
-      `<rect fill="${c.front}" x="${c.x}" y="${bar}" width="${COL}" height="6"/>` +
-      `<text ${mono} x="${c.x}" y="${bar + 26}">${c.label}</text>` +
-      `<text ${mono} x="${c.x + COL}" y="${bar + 26}" text-anchor="end" fill-opacity=".7">${c.note}</text>`;
+      `<rect fill="${c.front}" x="${x}" y="${bar}" width="${c.w.toFixed(2)}" height="6"/>` +
+      `<text ${mono} x="${x}" y="${bar + 26}">${c.label}</text>` +
+      `<text ${mono} x="${x}" y="${bar + 44}" fill-opacity=".7">${c.note}</text>`;
   }
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 846 ${H}" width="846" height="${H}" role="img" aria-label="${esc(
-    `${fmt(stars)} stars across ${fmt(repos)} public repositories. ${fmt(views)} profile views.`,
+    `${fmt(stars)} stars across ${fmt(repos)} public repositories. ${fmt(views)} profile views. A ${fmt(streak)}-day contribution streak, longest ${fmt(longest)} days.`,
   )}" style="isolation:isolate"><defs>${[...ids]
     .map(
       ([c, id]) =>
         `<path id="${id}" fill-rule="evenodd" d="${font.glyphs[c].d}"/>`,
     )
     .join("")}</defs>${body}</svg>\n`;
+}
+
+/** The contribution streak, from the site snapshot (scripts/github/snapshot.mjs), so the README and the site agree. */
+function loadStreak() {
+  const data = JSON.parse(
+    fs.readFileSync(path.join(root, "data/github.json"), "utf8"),
+  );
+  const c = data.contributions;
+  if (!Number.isInteger(c?.current) || !Number.isInteger(c?.longest))
+    throw new Error("no contribution data in data/github.json");
+  return { streak: c.current, longest: c.longest };
 }
 
 async function drawNumbers() {
@@ -263,12 +299,20 @@ async function drawNumbers() {
     console.error("Stars not updated: " + s.reason.message);
   if (v.status === "rejected")
     console.error("Views not updated: " + v.reason.message);
+  let st = { streak: old.streak, longest: old.longest };
+  try {
+    st = loadStreak();
+  } catch (err) {
+    console.error("Streak not updated: " + err.message);
+  }
   const n = {
     stars: s.status === "fulfilled" ? s.value.stars : old.stars,
     repos: s.status === "fulfilled" ? s.value.repos : old.repos,
     views: v.status === "fulfilled" ? v.value : old.views,
+    streak: st.streak,
+    longest: st.longest,
   };
-  if ([n.stars, n.repos, n.views].some((x) => x == null))
+  if (Object.values(n).some((x) => x == null))
     throw new Error("numbers panel: no current or previous figures to draw");
   for (const [name, T] of Object.entries(POSTER))
     write(`poster/numbers.${name}.svg`, numbersSVG(n, font, T));

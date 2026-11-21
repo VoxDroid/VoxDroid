@@ -368,9 +368,14 @@ async function main() {
   }
   const readmeDir = path.join(root, "data/readme");
   fs.mkdirSync(readmeDir, { recursive: true });
+  // Compare with line endings normalised: a Windows checkout turns LF into CRLF, which is not a change.
+  const lf = (s) => s.replace(/\r\n/g, "\n");
   for (const [slug, text] of Object.entries(readmes)) {
     const file = path.join(readmeDir, slug + ".md");
-    if (!fs.existsSync(file) || fs.readFileSync(file, "utf8") !== text) {
+    if (
+      !fs.existsSync(file) ||
+      lf(fs.readFileSync(file, "utf8")) !== lf(text)
+    ) {
       fs.writeFileSync(file, text);
       changed++;
     }

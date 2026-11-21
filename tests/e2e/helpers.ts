@@ -15,7 +15,10 @@ export async function useEdition(
 export function watchPage(page: Page, baseURL: string) {
   const problems: string[] = [];
   page.on("console", (msg) => {
-    if (msg.type() === "error") problems.push(`console: ${msg.text()}`);
+    if (msg.type() === "error")
+      problems.push(
+        `console: ${msg.text()} ${msg.location().url ?? ""}`.trim(),
+      );
   });
   page.on("pageerror", (err) => problems.push(`pageerror: ${err.message}`));
   page.on("requestfailed", (req) => {

@@ -62,7 +62,7 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="readme/poster/numbers.dark.svg">
-  <img src="readme/poster/numbers.light.svg" width="100%" alt="Total stars and profile views, updated twice a day">
+  <img src="readme/poster/numbers.light.svg" width="100%" alt="Total stars, profile views and contribution streak, updated twice a day">
 </picture>
 <img src="https://komarev.com/ghpvc/?username=VoxDroid" width="1" height="1" alt="">
 

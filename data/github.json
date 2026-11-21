@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T00:13:56.029Z",
+  "generatedAt": "2026-11-21T02:35:59.638Z",
   "login": "VoxDroid",
   "profile": {
     "createdAt": "2021-02-01T03:47:48Z",
@@ -10,8 +10,8 @@
     "forks": 88
   },
   "contributions": {
-    "total": 6044,
-    "lastYear": 2210,
+    "total": 6049,
+    "lastYear": 2215,
     "weeks": [
       16,
       17,
@@ -65,7 +65,7 @@
       30,
       71,
       149,
-      1
+      6
     ],
     "current": 612,
     "longest": 612
@@ -85,7 +85,7 @@
     },
     {
       "name": "TypeScript",
-      "share": 9.6
+      "share": 9
     },
     {
       "name": "Rust",
@@ -93,18 +93,33 @@
     },
     {
       "name": "HTML",
-      "share": 2.5
+      "share": 2.8
     },
     {
       "name": "JavaScript",
-      "share": 2
+      "share": 2.1
     },
     {
       "name": "CSS",
-      "share": 1.6
+      "share": 1.8
     }
   ],
   "activity": [
+    {
+      "date": "2026-11-20",
+      "text": "Pushed to PawchiveDownloader",
+      "url": "https://github.com/VoxDroid/PawchiveDownloader"
+    },
+    {
+      "date": "2026-11-20",
+      "text": "Pushed to PawchiveDownloader-BrowserExtension",
+      "url": "https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension"
+    },
+    {
+      "date": "2026-11-20",
+      "text": "Pushed to PawchiveDownloader",
+      "url": "https://github.com/VoxDroid/PawchiveDownloader"
+    },
     {
       "date": "2026-11-20",
       "text": "Pushed to KemonoDownloader",
@@ -132,16 +147,6 @@
     },
     {
       "date": "2026-11-18",
-      "text": "Pushed to PawchiveDownloader-BrowserExtension",
-      "url": "https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension"
-    },
-    {
-      "date": "2026-11-17",
-      "text": "Pushed to KemonoDownloader",
-      "url": "https://github.com/VoxDroid/KemonoDownloader"
-    },
-    {
-      "date": "2026-11-17",
       "text": "Pushed to PawchiveDownloader-BrowserExtension",
       "url": "https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension"
     },
@@ -2922,49 +2927,85 @@
       "slug": "voxdroid",
       "repo": "VoxDroid/VoxDroid",
       "name": "VoxDroid",
-      "description": "Bow to my profile.",
+      "description": "Bow to my profile. A portfolio printed three ways: risograph, photocopy and cyanotype editions you can switch live, plus matching CVs. Next.js 16, React 19, TypeScript.",
       "url": "https://github.com/VoxDroid/VoxDroid",
       "homepage": "https://voxdroid.me",
       "stars": 7,
       "forks": 2,
       "archived": false,
       "createdAt": "2024-10-31T05:59:54Z",
-      "pushedAt": "2026-11-20T23:24:45Z",
+      "pushedAt": "2026-11-21T01:34:59Z",
       "defaultBranch": "main",
       "language": "TypeScript",
       "languages": [
         {
           "name": "TypeScript",
           "color": "#3178c6",
-          "bytes": 551078
-        },
-        {
-          "name": "JavaScript",
-          "color": "#f1e05a",
-          "bytes": 63631
-        },
-        {
-          "name": "CSS",
-          "color": "#663399",
-          "bytes": 16100
+          "bytes": 264482
         },
         {
           "name": "HTML",
           "color": "#e34c26",
-          "bytes": 9927
+          "bytes": 175402
+        },
+        {
+          "name": "JavaScript",
+          "color": "#f1e05a",
+          "bytes": 92390
+        },
+        {
+          "name": "CSS",
+          "color": "#663399",
+          "bytes": 83558
         }
       ],
       "topics": [
+        "cyanotype",
+        "generative-art",
+        "github-profile-readme",
+        "halftone",
         "izel",
         "izeno",
+        "nextjs",
+        "personal-website",
+        "playwright",
         "portfolio",
         "profile",
+        "react",
         "readme",
+        "risograph",
+        "typescript",
         "ui-design",
+        "vercel",
+        "view-transitions",
         "voxdroid"
       ],
       "releases": [],
       "commits": [
+        {
+          "sha": "78587f7",
+          "message": "Merge pull request #7: three switchable print editions and CV",
+          "date": "2026-11-21T01:34:53Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/78587f7da2b15d599ec9ab687aa388656e83c46a"
+        },
+        {
+          "sha": "d5d62a5",
+          "message": "Add CV editions for each print style",
+          "date": "2026-11-21T01:29:57Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/d5d62a5eb2b9753ba8e09c10c4387fb49f21b946"
+        },
+        {
+          "sha": "0f10908",
+          "message": "Sync the lockfile's engine range with package.json",
+          "date": "2026-11-21T01:15:11Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/0f10908d5fae57c7ae17dcc4391ac0db8c1631a5"
+        },
+        {
+          "sha": "a14cd3f",
+          "message": "Rebuild the portfolio as three switchable print editions",
+          "date": "2026-11-21T01:13:54Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/a14cd3f2a46b27ffa788464e2883f478aad91141"
+        },
         {
           "sha": "2a36c5c",
           "message": "Add \"By the numbers\" section with total stars and profile views",
@@ -2988,30 +3029,6 @@
           "message": "Update README with recent activity",
           "date": "2026-11-19T22:18:38Z",
           "url": "https://github.com/VoxDroid/VoxDroid/commit/dfc51c31368ef5394b8a4d8d0ec65fc7ec2e25dc"
-        },
-        {
-          "sha": "ebd0193",
-          "message": "Update README with recent activity",
-          "date": "2026-11-19T10:30:14Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/ebd0193e790dc893dd76cdb619be8e6e386f5b7e"
-        },
-        {
-          "sha": "5513cd1",
-          "message": "Update README with recent activity",
-          "date": "2026-11-18T22:09:25Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/5513cd1fe386dc19334d8c3f727f4af0425a66de"
-        },
-        {
-          "sha": "6ee7638",
-          "message": "Update README with recent activity",
-          "date": "2026-11-18T10:22:37Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/6ee763875ca3fd860e2510144a7778e6e6680ba3"
-        },
-        {
-          "sha": "c026eb9",
-          "message": "Update README with recent activity",
-          "date": "2026-11-17T22:29:47Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/c026eb9c62326e6a16f8b04f44a51db88627bcc3"
         }
       ],
       "readmePath": "VoxDroid/VoxDroid/README.md",
