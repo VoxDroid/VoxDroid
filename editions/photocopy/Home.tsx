@@ -580,9 +580,7 @@ function Letter({ site }: Pick<HomeData, "site">) {
               {site.certifications.map((c) => (
                 <li key={c.id}>
                   <span>
-                    <strong>
-                      {c.href ? <a href={c.href}>{c.name}</a> : c.name}
-                    </strong>
+                    <strong>{c.name}</strong>
                     <span className={s.typed} style={{ display: "block" }}>
                       {certificationMeta(c)}
                     </span>

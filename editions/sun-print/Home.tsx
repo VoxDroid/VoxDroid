@@ -355,7 +355,7 @@ function FieldNotes({ site }: Pick<HomeData, "site">) {
               <ul className={s.plainList}>
                 {site.certifications.map((c) => (
                   <li key={c.id}>
-                    {c.href ? <a href={c.href}>{c.name}</a> : c.name}
+                    {c.name}
                     <span className={s.measureNote}>
                       {certificationMeta(c)}
                     </span>

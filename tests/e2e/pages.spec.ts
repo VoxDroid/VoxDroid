@@ -62,6 +62,10 @@ for (const edition of EDITIONS) {
       ).toBeAttached();
       await expect(page.getByText("ID w9war-H9Qu")).toBeAttached();
       await expect(page.getByText("Ethical Hacker")).toHaveCount(0);
+      // Verification pages show the full real name, so only the CV links them.
+      await expect(
+        page.locator('a[href*="coursera.org/account"], a[href*="certiport"]'),
+      ).toHaveCount(0);
       await settle(page);
       expect(await horizontalOverflow(page)).toBeLessThanOrEqual(0);
       await expectAccessible(page);

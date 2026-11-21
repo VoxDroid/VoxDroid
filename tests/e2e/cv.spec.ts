@@ -38,8 +38,14 @@ for (const edition of EDITIONS) {
       ).toBeVisible();
       await expect(page.locator("#cv-certs ~ div")).toHaveCount(5);
       await expect(
-        page.getByText("IBM AI Developer Professional Certificate"),
-      ).toBeVisible();
+        page.getByRole("link", {
+          name: "IBM AI Developer Professional Certificate",
+        }),
+      ).toHaveAttribute(
+        "href",
+        "https://www.coursera.org/account/accomplishments/professional-cert/WX69NPK042I0",
+      );
+      await expect(page.locator("#cv-certs ~ div a")).toHaveCount(5);
       await expect(
         page.getByText("IBM via Coursera · December 2025 · ID WX69NPK042I0"),
       ).toBeVisible();

@@ -151,7 +151,9 @@ export const site = {
   ],
   /**
    * Newest first. `id` is the credential ID, which employers use to verify a certificate with its
-   * issuer. Add `href` with a verification link to make the name a link.
+   * issuer. `href` is the issuer's verification page. Only the CV links it, because those pages show
+   * the full real name, which stays on the CV. Certiport has no per-credential link: its page takes
+   * the two halves of the ID.
    */
   certifications: [
     {
@@ -159,30 +161,35 @@ export const site = {
       issuer: "Cisco",
       date: "April 2026",
       id: "w9war-H9Qu",
+      href: "https://www.certiport.com/portal/pages/credentialverification.aspx",
     },
     {
       name: "IBM and ISC2 Cybersecurity Specialist",
       issuer: "IBM / ISC2 via Coursera",
       date: "January 2026",
       id: "M45DYKASB6LV",
+      href: "https://www.coursera.org/account/accomplishments/professional-cert/M45DYKASB6LV",
     },
     {
       name: "Google Cybersecurity Professional Certificate",
       issuer: "Google via Coursera",
       date: "January 2026",
       id: "MQ2VW1YU0JSD",
+      href: "https://www.coursera.org/account/accomplishments/professional-cert/MQ2VW1YU0JSD",
     },
     {
       name: "Google Data Analytics Professional Certificate",
       issuer: "Google via Coursera",
       date: "January 2026",
       id: "PVDA1J1US6P6",
+      href: "https://www.coursera.org/account/accomplishments/professional-cert/PVDA1J1US6P6",
     },
     {
       name: "IBM AI Developer Professional Certificate",
       issuer: "IBM via Coursera",
       date: "December 2025",
       id: "WX69NPK042I0",
+      href: "https://www.coursera.org/account/accomplishments/professional-cert/WX69NPK042I0",
     },
   ] as {
     name: string;

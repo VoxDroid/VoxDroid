@@ -378,9 +378,7 @@ function Interview({ site }: Pick<HomeData, "site">) {
             <ul className={s.linerList}>
               {site.certifications.map((c) => (
                 <li key={c.id}>
-                  <strong>
-                    {c.href ? <a href={c.href}>{c.name}</a> : c.name}
-                  </strong>
+                  <strong>{c.name}</strong>
                   <span className={s.noteMeta} style={{ display: "block" }}>
                     {certificationMeta(c)}
                   </span>
