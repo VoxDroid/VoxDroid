@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { artPaths, type HomeData, type Project } from "@/lib/content";
-import { formatDate, formatNumber, yearOf } from "@/lib/format";
+import {
+  certificationMeta,
+  formatDate,
+  formatNumber,
+  yearOf,
+} from "@/lib/format";
 import { seedOf, tilt, tornEdge } from "@/lib/paste-up";
 import s from "./photocopy.module.css";
 
@@ -571,14 +576,18 @@ function Letter({ site }: Pick<HomeData, "site">) {
                 </li>
               ))}
             </ul>
-            <p style={{ marginTop: 10 }}>
-              {site.certifications.map((c, i) => (
-                <span key={c.href}>
-                  {i ? " · " : ""}
-                  <a href={c.href}>{c.name}</a>
-                </span>
+            <ul className={s.ticks} style={{ fontSize: 15 }}>
+              {site.certifications.map((c) => (
+                <li key={c.id}>
+                  <span>
+                    <strong>{c.name}</strong>
+                    <span className={s.typed} style={{ display: "block" }}>
+                      {certificationMeta(c)}
+                    </span>
+                  </span>
+                </li>
               ))}
-            </p>
+            </ul>
           </div>
           <div>
             <h3 className={s.label}>OFF THE PAGE</h3>

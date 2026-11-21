@@ -8,7 +8,14 @@ import {
   filtersFromParams,
   filtersToQuery,
 } from "@/lib/filters";
-import { formatDate, formatNumber, pad2, roman, yearOf } from "@/lib/format";
+import {
+  certificationMeta,
+  formatDate,
+  formatNumber,
+  pad2,
+  roman,
+  yearOf,
+} from "@/lib/format";
 import { stagesFor } from "@/lib/lineup";
 import { resolveReadmeUrl } from "@/lib/markdown-urls";
 import { seedOf, tilt, tornEdge } from "@/lib/paste-up";
@@ -59,6 +66,15 @@ describe("format", () => {
     expect(formatDate("2026-11-20T23:30:00Z")).toBe("Nov 20, 2026");
     expect(yearOf("2021-02-01T03:47:48Z")).toBe(2021);
     expect(pad2(7)).toBe("07");
+  });
+  it("describes a certification, keeping the ID with its number", () => {
+    expect(
+      certificationMeta({
+        issuer: "Cisco",
+        date: "April 2026",
+        id: "w9war-H9Qu",
+      }),
+    ).toBe("Cisco · April 2026 · ID w9war-H9Qu");
   });
   it("writes Roman numerals", () => {
     expect([1, 2, 4, 9, 11, 14, 19, 23, 39].map(roman)).toEqual([

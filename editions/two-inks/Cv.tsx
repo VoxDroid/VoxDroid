@@ -3,7 +3,7 @@ import { InkMask } from "@/components/InkMask";
 import { PrintButton } from "@/components/PrintButton";
 import { artPaths } from "@/lib/content";
 import { projectMeta, skillRows, type CvData } from "@/lib/content/cv";
-import { formatNumber, pad2 } from "@/lib/format";
+import { certificationMeta, formatNumber, pad2 } from "@/lib/format";
 import s from "./two-inks.module.css";
 
 export function Cv({ data }: { data: CvData }) {
@@ -155,13 +155,14 @@ export function Cv({ data }: { data: CvData }) {
               <h2 id="cv-certs" className={s.cvTitle}>
                 Certifications
               </h2>
-              <ul className={s.cvPoints}>
-                {site.certifications.map((c) => (
-                  <li key={c.href}>
-                    <a href={c.href}>{c.name}</a>
-                  </li>
-                ))}
-              </ul>
+              {site.certifications.map((c) => (
+                <div key={c.id} className={s.cvItem}>
+                  <h3 className={s.cvItemTitle}>
+                    {c.href ? <a href={c.href}>{c.name}</a> : c.name}
+                  </h3>
+                  <p className={s.cvItemMeta}>{certificationMeta(c)}</p>
+                </div>
+              ))}
             </section>
             <section aria-labelledby="cv-languages">
               <h2 id="cv-languages" className={s.cvTitle}>

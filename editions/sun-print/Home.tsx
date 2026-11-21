@@ -6,7 +6,13 @@ import {
   type HomeData,
   type Project,
 } from "@/lib/content";
-import { formatDate, formatNumber, roman, yearOf } from "@/lib/format";
+import {
+  certificationMeta,
+  formatDate,
+  formatNumber,
+  roman,
+  yearOf,
+} from "@/lib/format";
 import s from "./sun-print.module.css";
 
 const TILTS = [
@@ -348,8 +354,11 @@ function FieldNotes({ site }: Pick<HomeData, "site">) {
               <h3 className={s.habitatTitle}>Certified</h3>
               <ul className={s.plainList}>
                 {site.certifications.map((c) => (
-                  <li key={c.href}>
-                    <a href={c.href}>{c.name}</a>
+                  <li key={c.id}>
+                    {c.name}
+                    <span className={s.measureNote}>
+                      {certificationMeta(c)}
+                    </span>
                   </li>
                 ))}
               </ul>
