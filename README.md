@@ -81,14 +81,14 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 <div>
 <!--RECENT_ACTIVITY:start-->
 <table>
-<tr><td>Nov&nbsp;24</td><td>Pushed 49 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a></td></tr>
-<tr><td>Nov&nbsp;24</td><td>Pushed 26 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
-<tr><td>Nov&nbsp;24</td><td>Merged 4 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/pull/6">#6</a> Download deleted files again, float tooltips, check in with the app</td></tr>
-<tr><td>Nov&nbsp;24</td><td>Merged 8 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/pull/11">#11</a> Fix previews and re-downloads, keep Browse in place, redesign pairing</td></tr>
+<tr><td>Nov&nbsp;24</td><td>Merged 16 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/pull/20">#20</a> Fix bugs found in a full audit, and harden the browser bridge</td></tr>
+<tr><td>Nov&nbsp;24</td><td>Released 2 versions of <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/releases/tag/v1.1.0">v1.1.0</a></td></tr>
+<tr><td>Nov&nbsp;24</td><td>Released 2 versions of <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/releases/tag/v2.1.0">v2.1.0</a></td></tr>
+<tr><td>Nov&nbsp;24</td><td>Merged 7 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/pull/9">#9</a> Document 1.1.0: new screenshots, pairing, re-downloads and icons</td></tr>
+<tr><td>Nov&nbsp;24</td><td>Pushed 65 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a></td></tr>
+<tr><td>Nov&nbsp;24</td><td>Pushed 32 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
 <tr><td>Nov&nbsp;21</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/VoxDroid">VoxDroid</a>, latest <a href="https://github.com/VoxDroid/VoxDroid/pull/9">#9</a> Replace the certifications on the site, CVs and README</td></tr>
-<tr><td>Nov&nbsp;20</td><td>Pushed 53 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
-<tr><td>Nov&nbsp;20</td><td>Released <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/releases/tag/v1.0.0">v1.0.0</a> of <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
 </table>
-<sub>Last 14 days: 128 commits, 29 pull requests merged, 14 issues closed, 4 releases. Updated Nov 24, 2026, 10:45 AM GMT+9.</sub>
+<sub>Last 14 days: 150 commits, 40 pull requests merged, 14 issues closed, 6 releases. Updated Nov 24, 2026, 9:40 PM GMT+9.</sub>
 <!--RECENT_ACTIVITY:end-->
 </div>
