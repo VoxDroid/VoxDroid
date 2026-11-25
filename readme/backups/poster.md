@@ -73,6 +73,6 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 <tr><td>Nov&nbsp;25</td><td>Merged 17 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/pull/21">#21</a> Release 2.1.1</td></tr>
 <tr><td>Nov&nbsp;21</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/VoxDroid">VoxDroid</a>, latest <a href="https://github.com/VoxDroid/VoxDroid/pull/9">#9</a> Replace the certifications on the site, CVs and README</td></tr>
 </table>
-<sub>Last 14 days: 156 commits, 40 pull requests merged, 3 issues closed, 8 releases. Updated Nov 25, 2026, 8:29 PM GMT+9.</sub>
+<sub>Last 14 days: 156 commits, 40 pull requests merged, 3 issues closed, 8 releases. Updated Nov 26, 2026, 8:10 AM GMT+9.</sub>
 <!--RECENT_ACTIVITY:end-->
 </div>
