@@ -81,14 +81,14 @@ Writing code for 6+ years in Python, JavaScript, TypeScript, Rust and C++. I bui
 <div>
 <!--RECENT_ACTIVITY:start-->
 <table>
-<tr><td>Nov&nbsp;21</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/VoxDroid">VoxDroid</a>, latest <a href="https://github.com/VoxDroid/VoxDroid/pull/9">#9</a> Replace the certifications on the site, CVs and README</td></tr>
-<tr><td>Nov&nbsp;20</td><td>Pushed 53 commits to <a href="https://github.com/VoxDroid/KemonoDownloader">KemonoDownloader</a></td></tr>
-<tr><td>Nov&nbsp;20</td><td>Pushed 47 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a></td></tr>
-<tr><td>Nov&nbsp;20</td><td>Pushed 24 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
-<tr><td>Nov&nbsp;20</td><td>Merged 3 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/pull/5">#5</a> Decode HTML entities once and strip tags completely</td></tr>
-<tr><td>Nov&nbsp;20</td><td>Merged 7 pull requests in <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/pull/10">#10</a> Decode HTML entities once and strip tags completely</td></tr>
-<tr><td>Nov&nbsp;20</td><td>Released <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/releases/tag/v1.0.0">v1.0.0</a> of <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
+<tr><td>Nov&nbsp;26</td><td>Released 2 versions of <a href="https://github.com/VoxDroid/ppe-guard">ppe-guard</a>, latest <a href="https://github.com/VoxDroid/ppe-guard/releases/tag/v2.0.1">v2.0.1</a></td></tr>
+<tr><td>Nov&nbsp;26</td><td>Merged 4 pull requests in <a href="https://github.com/VoxDroid/ppe-guard">ppe-guard</a>, latest <a href="https://github.com/VoxDroid/ppe-guard/pull/6">#6</a> Fix bugs from a full review; light landing page and demo; 2.0.1</td></tr>
+<tr><td>Nov&nbsp;26</td><td>Pushed 20 commits to <a href="https://github.com/VoxDroid/ppe-guard">ppe-guard</a></td></tr>
+<tr><td>Nov&nbsp;25</td><td>Pushed 67 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a></td></tr>
+<tr><td>Nov&nbsp;25</td><td>Pushed 36 commits to <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a></td></tr>
+<tr><td>Nov&nbsp;25</td><td>Released 3 versions of <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension">PawchiveDownloader-BrowserExtension</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension/releases/tag/v1.1.1">v1.1.1</a></td></tr>
+<tr><td>Nov&nbsp;25</td><td>Released 3 versions of <a href="https://github.com/VoxDroid/PawchiveDownloader">PawchiveDownloader</a>, latest <a href="https://github.com/VoxDroid/PawchiveDownloader/releases/tag/v2.1.1">v2.1.1</a></td></tr>
 </table>
-<sub>Last 14 days: 124 commits, 27 pull requests merged, 14 issues closed, 4 releases. Updated Nov 23, 2026, 5:46 AM GMT+9.</sub>
+<sub>Last 14 days: 159 commits, 44 pull requests merged, 3 issues closed, 10 releases. Updated Nov 26, 2026, 8:07 PM GMT+9.</sub>
 <!--RECENT_ACTIVITY:end-->
 </div>

@@ -1,55 +1,55 @@
 {
-  "generatedAt": "2026-11-23T10:56:17.503Z",
+  "generatedAt": "2026-11-26T23:06:49.912Z",
   "login": "VoxDroid",
   "profile": {
     "createdAt": "2021-02-01T03:47:48Z",
     "followers": 24,
     "following": 8,
     "publicRepos": 73,
-    "stars": 686,
-    "forks": 88
+    "stars": 690,
+    "forks": 90
   },
   "contributions": {
-    "total": 6060,
-    "lastYear": 2221,
+    "total": 6143,
+    "lastYear": 2298,
     "weeks": [
-      16,
-      29,
-      19,
-      46,
-      110,
-      123,
-      195,
-      94,
-      30,
-      33,
-      19,
-      40,
-      58,
-      108,
-      87,
-      95,
-      91,
-      103,
-      85,
-      33,
-      42,
-      50,
-      28,
       17,
-      18,
+      31,
+      28,
+      73,
+      106,
+      169,
+      140,
+      79,
+      21,
+      35,
+      29,
+      37,
+      99,
+      88,
+      85,
+      119,
+      86,
+      104,
+      48,
+      46,
+      21,
+      59,
+      17,
       14,
+      18,
       14,
       15,
       14,
       29,
+      14,
       14,
       24,
       14,
       14,
       14,
-      22,
-      15,
+      23,
+      14,
       18,
       15,
       14,
@@ -61,43 +61,43 @@
       14,
       14,
       14,
-      14,
       30,
-      78,
-      155,
-      0
+      44,
+      95,
+      160,
+      25
     ],
-    "current": 613,
-    "longest": 613
+    "current": 617,
+    "longest": 617
   },
   "languages": [
     {
       "name": "PHP",
-      "share": 37.2
+      "share": 36.8
     },
     {
       "name": "Jupyter Notebook",
-      "share": 23.3
+      "share": 23
     },
     {
       "name": "Python",
-      "share": 10.9
+      "share": 11.2
     },
     {
       "name": "TypeScript",
-      "share": 9
+      "share": 9.2
     },
     {
       "name": "Rust",
-      "share": 4.2
+      "share": 4.3
     },
     {
       "name": "HTML",
-      "share": 2.8
+      "share": 2.7
     },
     {
       "name": "JavaScript",
-      "share": 2.1
+      "share": 2.3
     },
     {
       "name": "CSS",
@@ -106,52 +106,52 @@
   ],
   "activity": [
     {
-      "date": "2026-11-20",
+      "date": "2026-11-26",
+      "text": "Pushed to ppe-guard",
+      "url": "https://github.com/VoxDroid/ppe-guard"
+    },
+    {
+      "date": "2026-11-26",
+      "text": "Released v2.0.1 of ppe-guard",
+      "url": "https://github.com/VoxDroid/ppe-guard"
+    },
+    {
+      "date": "2026-11-26",
+      "text": "Released v2.0.0 of ppe-guard",
+      "url": "https://github.com/VoxDroid/ppe-guard"
+    },
+    {
+      "date": "2026-11-25",
       "text": "Pushed to PawchiveDownloader",
       "url": "https://github.com/VoxDroid/PawchiveDownloader"
     },
     {
-      "date": "2026-11-20",
-      "text": "Pushed to KemonoDownloader",
-      "url": "https://github.com/VoxDroid/KemonoDownloader"
+      "date": "2026-11-25",
+      "text": "Pushed to PawchiveDownloader-BrowserExtension",
+      "url": "https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension"
     },
     {
-      "date": "2026-11-20",
+      "date": "2026-11-24",
+      "text": "Pushed to PawchiveDownloader-BrowserExtension",
+      "url": "https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension"
+    },
+    {
+      "date": "2026-11-24",
       "text": "Pushed to PawchiveDownloader",
       "url": "https://github.com/VoxDroid/PawchiveDownloader"
     },
     {
-      "date": "2026-11-21",
-      "text": "Pushed to VoxDroid",
-      "url": "https://github.com/VoxDroid/VoxDroid"
+      "date": "2026-11-25",
+      "text": "Released v1.1.1 of PawchiveDownloader-BrowserExtension",
+      "url": "https://github.com/VoxDroid/PawchiveDownloader-BrowserExtension"
     },
     {
-      "date": "2026-11-20",
-      "text": "Pushed to VoxDroid",
-      "url": "https://github.com/VoxDroid/VoxDroid"
-    },
-    {
-      "date": "2026-11-19",
-      "text": "Pushed to KemonoDownloader",
-      "url": "https://github.com/VoxDroid/KemonoDownloader"
-    },
-    {
-      "date": "2026-11-20",
-      "text": "Pushed to PawchiveDownloader",
+      "date": "2026-11-25",
+      "text": "Released v2.1.1 of PawchiveDownloader",
       "url": "https://github.com/VoxDroid/PawchiveDownloader"
     },
     {
-      "date": "2026-11-20",
-      "text": "Pushed to KemonoDownloader",
-      "url": "https://github.com/VoxDroid/KemonoDownloader"
-    },
-    {
-      "date": "2026-11-21",
-      "text": "Pushed to VoxDroid",
-      "url": "https://github.com/VoxDroid/VoxDroid"
-    },
-    {
-      "date": "2026-11-20",
+      "date": "2026-11-24",
       "text": "Pushed to PawchiveDownloader",
       "url": "https://github.com/VoxDroid/PawchiveDownloader"
     }
@@ -1606,7 +1606,7 @@
       "description": "Kemono Downloader - A cross-platform Python app built with PyQt6 to download posts and creator content from Kemono.cr, Coomer.st, and Pawchive.pw. Supports concurrent downloads, file deduplication, and customizable settings.",
       "url": "https://github.com/VoxDroid/KemonoDownloader",
       "homepage": "https://kemonodownloader.codes",
-      "stars": 382,
+      "stars": 381,
       "forks": 48,
       "archived": false,
       "createdAt": "2025-03-10T11:57:02Z",
@@ -2934,7 +2934,7 @@
       "forks": 2,
       "archived": false,
       "createdAt": "2024-10-31T05:59:54Z",
-      "pushedAt": "2026-11-22T20:47:13Z",
+      "pushedAt": "2026-11-26T11:07:50Z",
       "defaultBranch": "main",
       "language": "TypeScript",
       "languages": [
@@ -2983,52 +2983,52 @@
       "releases": [],
       "commits": [
         {
+          "sha": "b65a74c",
+          "message": "Update README with recent activity",
+          "date": "2026-11-26T11:07:49Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/b65a74cff5e2589aba88f18dc57cc350950f70d6"
+        },
+        {
+          "sha": "4da21de",
+          "message": "Update README with recent activity",
+          "date": "2026-11-25T23:10:36Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/4da21de3f626d8e1a452b313fa0101cf51c31396"
+        },
+        {
+          "sha": "2878db3",
+          "message": "Update README with recent activity",
+          "date": "2026-11-25T11:29:49Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/2878db3c01b8ac3c4b1deca26a080d12b947d138"
+        },
+        {
+          "sha": "4923a0d",
+          "message": "Update README with recent activity",
+          "date": "2026-11-24T23:32:47Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/4923a0d5c8f27a8e2b8f21f32ba5a4c375d3b7a3"
+        },
+        {
+          "sha": "7546fda",
+          "message": "Update README with recent activity",
+          "date": "2026-11-24T12:40:20Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/7546fdae663234f9bc2526094ac376e85339d14a"
+        },
+        {
+          "sha": "13b03a8",
+          "message": "Update README with recent activity",
+          "date": "2026-11-24T01:45:48Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/13b03a8e5a7146d648e59fe691f5afc3498573ce"
+        },
+        {
+          "sha": "412087e",
+          "message": "Update README with recent activity",
+          "date": "2026-11-23T10:56:21Z",
+          "url": "https://github.com/VoxDroid/VoxDroid/commit/412087ef8b3c0ca13de4950c6055ac5bf2f024d9"
+        },
+        {
           "sha": "d33849d",
           "message": "Update README with recent activity",
           "date": "2026-11-22T20:47:11Z",
           "url": "https://github.com/VoxDroid/VoxDroid/commit/d33849dcccfc9faf9068a64d775e96a7debe7087"
-        },
-        {
-          "sha": "ba8dd36",
-          "message": "Update README with recent activity",
-          "date": "2026-11-22T09:57:19Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/ba8dd36caf112084d32e106994aaf753cebb0b73"
-        },
-        {
-          "sha": "4185669",
-          "message": "Update README with recent activity",
-          "date": "2026-11-21T20:37:01Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/41856693684e907f57d1521a57b11b068153de5e"
-        },
-        {
-          "sha": "ec9972f",
-          "message": "Update README with recent activity",
-          "date": "2026-11-21T09:58:31Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/ec9972f9ca764c14813a3ce3f5f25e538a9a36ba"
-        },
-        {
-          "sha": "f63c278",
-          "message": "Merge pull request #9: replace the certifications",
-          "date": "2026-11-21T06:05:45Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/f63c278e24fdbff0c25c3246d58ab8cbcda8e8c9"
-        },
-        {
-          "sha": "2d44b6a",
-          "message": "Link each certification to its verification page on the CV",
-          "date": "2026-11-21T05:58:29Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/2d44b6ad47353447673bee028fa2c7804603528e"
-        },
-        {
-          "sha": "f552a0a",
-          "message": "Replace the certifications on the site, CVs and README",
-          "date": "2026-11-21T05:46:51Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/f552a0abc5699b6930eecb6a836cf3364cdf2a4a"
-        },
-        {
-          "sha": "d01e244",
-          "message": "Merge pull request #8: contribution streak in the README and two fixes",
-          "date": "2026-11-21T04:37:51Z",
-          "url": "https://github.com/VoxDroid/VoxDroid/commit/d01e244d803a4b5b4e4fa2d038407e0650acfe0c"
         }
       ],
       "readmePath": "VoxDroid/VoxDroid/README.md",
